@@ -58,6 +58,12 @@
     <Compile Include="frmAcceso.designer.cs">
       <DependentUpon>frmAcceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCursos.Designer.cs">
+      <DependentUpon>frmCursos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionProyectoSoftwareLibre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,6 +83,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAcceso.resx">
       <DependentUpon>frmAcceso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCursos.resx">
+      <DependentUpon>frmCursos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionProyectoSoftwareLibre.resx">
       <DependentUpon>frmGestionProyectoSoftwareLibre.cs</DependentUpon>
