@@ -40,5 +40,10 @@ namespace Vista
             frmGestionProyectoSoftwareLibre gestionSoftwareLibre = new frmGestionProyectoSoftwareLibre();
             gestionSoftwareLibre.Show();
         }
+
+        private void reportesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
