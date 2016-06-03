@@ -178,6 +178,7 @@
             this.gestiónCursosToolStripMenuItem.Name = "gestiónCursosToolStripMenuItem";
             this.gestiónCursosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.gestiónCursosToolStripMenuItem.Text = "Gestión Cursos";
+            this.gestiónCursosToolStripMenuItem.Click += new System.EventHandler(this.gestiónCursosToolStripMenuItem_Click);
             // 
             // reporteToolStripMenuItem
             // 

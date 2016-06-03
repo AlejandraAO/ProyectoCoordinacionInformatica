@@ -1,4 +1,4 @@
-﻿namespace ProyectoCoordinacion
+﻿namespace Vista
 {
     partial class frmCursos
     {

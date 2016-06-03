@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace Vista
 {
-    public partial class frmCursos : Form
+    public partial class frmConsultarCurso : Form
     {
-        public frmCursos()
+        public frmConsultarCurso()
         {
             InitializeComponent();
-        }
-
-        private void frmCursos_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Dispose();
+        }
+
+        private void frmConsultarCurso_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

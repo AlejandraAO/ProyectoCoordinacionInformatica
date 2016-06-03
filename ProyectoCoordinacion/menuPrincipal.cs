@@ -53,5 +53,10 @@ namespace Vista
             frmGestionMiembros ventanaMiembros = new frmGestionMiembros();
             ventanaMiembros.Show();
         }
+
+        private void gestiónCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCursos frmCurso = new frmCursos();
+        }
     }
 }
