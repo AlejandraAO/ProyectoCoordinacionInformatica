@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using AccesoDatos;
+using Entidades;
+
 namespace Vista
 {
     public partial class menuPrincipal : Form
