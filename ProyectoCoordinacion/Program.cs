@@ -17,7 +17,7 @@ namespace ProyectoCoordinacion
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmVentanaAcceso());
+            Application.Run(new frmAcceso());
         }
     }
 }

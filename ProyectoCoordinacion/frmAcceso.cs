@@ -10,18 +10,17 @@ using System.Windows.Forms;
 
 //Llamado de las referencias propias del proyecto
 using System.Data.SqlClient;
-using Modelo;
-using Controlador;
 
 
-namespace prgArticulos
+
+namespace Vista
 {
     public partial class frmAcceso : Form
     {
         #region
-        clsConexionSQL conexion;
-        clsEntidadUsuario pEntidadUsuario;
-        clsUsuario usuario;
+        //  clsConexionSQL conexion;
+        //clsEntidadUsuario pEntidadUsuario;
+        //clsUsuario usuario;
         SqlDataReader dtrUsuario; //Retorno de las tuplas
         int contador = 0;              
         #endregion
@@ -29,9 +28,9 @@ namespace prgArticulos
         //Inicializamos los atributos que utilizaremos en toda la clase
         public frmAcceso()
         {
-            conexion = new clsConexionSQL();
-            pEntidadUsuario = new clsEntidadUsuario();
-            usuario = new clsUsuario();
+            //  conexion = new clsConexionSQL();
+            //pEntidadUsuario = new clsEntidadUsuario();
+            //usuario = new clsUsuario();
             InitializeComponent();
         }
 
@@ -77,16 +76,17 @@ namespace prgArticulos
         {
             if (contador <= 2)
             {
+                return false;
                 //llenado de variables o atributos del servidor para conectarme a la BD
-                conexion.setCodigo("admEstudiante");
-                conexion.setClave("123");
+                //conexion.setCodigo("admEstudiante");
+                //conexion.setClave("123");
 
                 //llenado de los atributos de la clase EntidadUsuario
-                pEntidadUsuario.setCodigo(this.txtUsuario.Text.Trim());
-                pEntidadUsuario.setClave(this.txtClave.Text.Trim());
+                //pEntidadUsuario.setCodigo(this.txtUsuario.Text.Trim());
+                //pEntidadUsuario.setClave(this.txtClave.Text.Trim());
 
                 //Consultamos si el usuario existe
-                dtrUsuario = usuario.mConsultarUsuario(conexion, pEntidadUsuario);
+                // dtrUsuario = usuario.mConsultarUsuario(conexion, pEntidadUsuario);
 
                 //Evaluamos si retorna tuplas o datos
                 if (dtrUsuario != null)
@@ -94,18 +94,18 @@ namespace prgArticulos
                     if (dtrUsuario.Read())
                     {
 
-                        pEntidadUsuario.setPerfil(dtrUsuario.GetString(2));//Posicion 2 xq es donde se almacenan los perfiles en la BD
-                        pEntidadUsuario.setEstado(dtrUsuario.GetInt32(3));
-                        if (pEntidadUsuario.getEstado() == 0)
-                        {
-                            this.btnIngresar.Enabled = true;
-                            return true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("El usuario esta bloqueado", "Atencion", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                            return false;
-                        }//Fin del pEntidadUsuario
+                        //  //   pEntidadUsuario.setPerfil(dtrUsuario.GetString(2));//Posicion 2 xq es donde se almacenan los perfiles en la BD
+                        // pEntidadUsuario.setEstado(dtrUsuario.GetInt32(3));
+                        // if (pEntidadUsuario.getEstado() == 0)
+                        // {
+                        // this.btnIngresar.Enabled = true;
+                        //  return true;
+                        //  }
+                        // else
+                        //   {
+                        //  MessageBox.Show("El usuario esta bloqueado", "Atencion", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                        //  return false;
+                        // }//Fin del pEntidadUsuario
                     }
                     else {
                         MessageBox.Show("El usuario no existe", "Atencion", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -128,8 +128,8 @@ namespace prgArticulos
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             this.SetVisibleCore(false);
-            mdiMenu menu = new mdiMenu(conexion);
-            menu.Show();
+            //mdiMenu menu = new mdiMenu(conexion);
+            // menu.Show();
         }
     }
 }

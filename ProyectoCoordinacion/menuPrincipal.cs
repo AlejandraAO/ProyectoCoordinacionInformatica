@@ -12,9 +12,9 @@ namespace Vista
 {
     public partial class menuPrincipal : Form
     {
-        private frmVentanaAcceso ventanaAcceso;
+        private frmAcceso ventanaAcceso;
 
-        public menuPrincipal(frmVentanaAcceso ventanaAcceso)
+        public menuPrincipal(frmAcceso ventanaAcceso)
         {
             InitializeComponent();
             this.ventanaAcceso = ventanaAcceso;
@@ -23,7 +23,7 @@ namespace Vista
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
             this.SetVisibleCore(false);
-            ventanaAcceso.limpiar();
+            //ventanaAcceso.limpiar();
             ventanaAcceso.Show();
         }
 

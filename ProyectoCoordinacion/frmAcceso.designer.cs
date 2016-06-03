@@ -1,4 +1,4 @@
-﻿namespace prgArticulos
+﻿namespace Vista
 {
     partial class frmAcceso
     {
