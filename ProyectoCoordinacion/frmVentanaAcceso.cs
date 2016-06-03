@@ -31,5 +31,10 @@ namespace Vista
             this.txtContraseña.Text = "";
             this.txtUsuario.Text = "";
         }
+
+        private void frmVentanaAcceso_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
