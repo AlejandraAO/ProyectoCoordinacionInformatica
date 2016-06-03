@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
 
+
+
 namespace Vista
 {
     public partial class frmVentanaAcceso : Form
