@@ -106,7 +106,6 @@
             this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Name = "gestiónSwProyectosDeSoftwareLibreToolStripMenuItem";
             this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
             this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Text = "Gestión de Proyectos de Software Libre";
-            
             // 
             // gestiónDeProyectosToolStripMenuItem
             // 
@@ -120,6 +119,7 @@
             this.gestiónDeMiembrosToolStripMenuItem.Name = "gestiónDeMiembrosToolStripMenuItem";
             this.gestiónDeMiembrosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.gestiónDeMiembrosToolStripMenuItem.Text = "Gestión de Miembros";
+            this.gestiónDeMiembrosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeMiembrosToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
