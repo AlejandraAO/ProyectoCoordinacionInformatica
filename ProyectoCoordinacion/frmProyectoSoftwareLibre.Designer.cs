@@ -293,6 +293,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox);
             this.Name = "frmProyectoSoftwareLibre";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Gestion de Proyectos de Software Libre";
             this.Load += new System.EventHandler(this.frmProyectoSoftwareLibre_Load);
             this.groupBox.ResumeLayout(false);
