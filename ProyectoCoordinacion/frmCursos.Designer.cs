@@ -46,7 +46,7 @@
             this.lbNombre = new System.Windows.Forms.Label();
             this.lbSigla = new System.Windows.Forms.Label();
             this.txtSigla = new System.Windows.Forms.TextBox();
-            this.btnIngresar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -76,7 +76,7 @@
             this.groupBox.Controls.Add(this.txtSigla);
             this.groupBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox.ForeColor = System.Drawing.Color.White;
-            this.groupBox.Location = new System.Drawing.Point(49, 22);
+            this.groupBox.Location = new System.Drawing.Point(48, 12);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(706, 251);
             this.groupBox.TabIndex = 41;
@@ -277,21 +277,21 @@
             this.txtSigla.Size = new System.Drawing.Size(128, 26);
             this.txtSigla.TabIndex = 41;
             // 
-            // btnIngresar
+            // btnAgregar
             // 
-            this.btnIngresar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnIngresar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnIngresar.FlatAppearance.BorderSize = 2;
-            this.btnIngresar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnIngresar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnIngresar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.ForeColor = System.Drawing.Color.Black;
-            this.btnIngresar.Location = new System.Drawing.Point(58, 308);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(88, 37);
-            this.btnIngresar.TabIndex = 59;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = false;
+            this.btnAgregar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregar.FlatAppearance.BorderSize = 2;
+            this.btnAgregar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregar.Location = new System.Drawing.Point(12, 286);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(88, 37);
+            this.btnAgregar.TabIndex = 59;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
             // 
             // btnModificar
             // 
@@ -302,7 +302,7 @@
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnModificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(186, 308);
+            this.btnModificar.Location = new System.Drawing.Point(115, 286);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(88, 37);
             this.btnModificar.TabIndex = 60;
@@ -332,7 +332,7 @@
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(292, 308);
+            this.btnSalir.Location = new System.Drawing.Point(681, 286);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(88, 37);
             this.btnSalir.TabIndex = 61;
@@ -345,11 +345,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(794, 394);
+            this.ClientSize = new System.Drawing.Size(781, 360);
             this.ControlBox = false;
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnModificar);
-            this.Controls.Add(this.btnIngresar);
+            this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox);
             this.Name = "frmCursos";
             this.Text = "frmCursos";
@@ -379,7 +379,7 @@
         private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.Label lbSigla;
         private System.Windows.Forms.TextBox txtSigla;
-        private System.Windows.Forms.Button btnIngresar;
+        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Button btnSalir;
