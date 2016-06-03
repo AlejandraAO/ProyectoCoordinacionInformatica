@@ -47,5 +47,11 @@ namespace Vista
             frmProyectoSoftwareLibre ventanaSoftwareLibre = new frmProyectoSoftwareLibre();
             ventanaSoftwareLibre.Show();
         }
+
+        private void gestiónDeMiembrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGestionMiembros ventanaMiembros = new frmGestionMiembros();
+            ventanaMiembros.Show();
+        }
     }
 }
