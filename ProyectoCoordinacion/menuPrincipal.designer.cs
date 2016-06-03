@@ -34,7 +34,13 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeProyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeMiembrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.miembrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónDeCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeCursosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,12 +48,6 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.gestiónDeProyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDeMiembrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.miembrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.proyectosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gestiónDeCursosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,11 +104,51 @@
             this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Text = "Gestión de Proyectos de Software Libre";
             this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Click += new System.EventHandler(this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem_Click);
             // 
+            // gestiónDeProyectosToolStripMenuItem
+            // 
+            this.gestiónDeProyectosToolStripMenuItem.Name = "gestiónDeProyectosToolStripMenuItem";
+            this.gestiónDeProyectosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.gestiónDeProyectosToolStripMenuItem.Text = "Gestión de Proyectos";
+            this.gestiónDeProyectosToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeProyectosToolStripMenuItem_Click);
+            // 
+            // gestiónDeMiembrosToolStripMenuItem
+            // 
+            this.gestiónDeMiembrosToolStripMenuItem.Name = "gestiónDeMiembrosToolStripMenuItem";
+            this.gestiónDeMiembrosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.gestiónDeMiembrosToolStripMenuItem.Text = "Gestión de Miembros";
+            // 
+            // reportesToolStripMenuItem
+            // 
+            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miembrosToolStripMenuItem,
+            this.proyectosToolStripMenuItem});
+            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
+            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.reportesToolStripMenuItem.Text = "Reportes";
+            // 
+            // miembrosToolStripMenuItem
+            // 
+            this.miembrosToolStripMenuItem.Name = "miembrosToolStripMenuItem";
+            this.miembrosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.miembrosToolStripMenuItem.Text = "Miembros";
+            // 
+            // proyectosToolStripMenuItem
+            // 
+            this.proyectosToolStripMenuItem.Name = "proyectosToolStripMenuItem";
+            this.proyectosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.proyectosToolStripMenuItem.Text = "Proyectos";
+            // 
             // gestiónDeCursosToolStripMenuItem
             // 
             this.gestiónDeCursosToolStripMenuItem.Name = "gestiónDeCursosToolStripMenuItem";
             this.gestiónDeCursosToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
             this.gestiónDeCursosToolStripMenuItem.Text = "Gestión de Cursos Libres";
+            // 
+            // gestiónDeCursosToolStripMenuItem1
+            // 
+            this.gestiónDeCursosToolStripMenuItem1.Name = "gestiónDeCursosToolStripMenuItem1";
+            this.gestiónDeCursosToolStripMenuItem1.Size = new System.Drawing.Size(279, 22);
+            this.gestiónDeCursosToolStripMenuItem1.Text = "Gestión de Cursos";
             // 
             // viewMenu
             // 
@@ -147,45 +187,6 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
-            // 
-            // gestiónDeProyectosToolStripMenuItem
-            // 
-            this.gestiónDeProyectosToolStripMenuItem.Name = "gestiónDeProyectosToolStripMenuItem";
-            this.gestiónDeProyectosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.gestiónDeProyectosToolStripMenuItem.Text = "Gestión de Proyectos";
-            // 
-            // gestiónDeMiembrosToolStripMenuItem
-            // 
-            this.gestiónDeMiembrosToolStripMenuItem.Name = "gestiónDeMiembrosToolStripMenuItem";
-            this.gestiónDeMiembrosToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.gestiónDeMiembrosToolStripMenuItem.Text = "Gestión de Miembros";
-            // 
-            // reportesToolStripMenuItem
-            // 
-            this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.miembrosToolStripMenuItem,
-            this.proyectosToolStripMenuItem});
-            this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
-            this.reportesToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.reportesToolStripMenuItem.Text = "Reportes";
-            // 
-            // miembrosToolStripMenuItem
-            // 
-            this.miembrosToolStripMenuItem.Name = "miembrosToolStripMenuItem";
-            this.miembrosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.miembrosToolStripMenuItem.Text = "Miembros";
-            // 
-            // proyectosToolStripMenuItem
-            // 
-            this.proyectosToolStripMenuItem.Name = "proyectosToolStripMenuItem";
-            this.proyectosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.proyectosToolStripMenuItem.Text = "Proyectos";
-            // 
-            // gestiónDeCursosToolStripMenuItem1
-            // 
-            this.gestiónDeCursosToolStripMenuItem1.Name = "gestiónDeCursosToolStripMenuItem1";
-            this.gestiónDeCursosToolStripMenuItem1.Size = new System.Drawing.Size(279, 22);
-            this.gestiónDeCursosToolStripMenuItem1.Text = "Gestión de Cursos";
             // 
             // menuPrincipal
             // 

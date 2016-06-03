@@ -64,6 +64,12 @@
     <Compile Include="frmGestionProyectoSoftwareLibre.Designer.cs">
       <DependentUpon>frmGestionProyectoSoftwareLibre.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmProyectoSoftwareLibre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProyectoSoftwareLibre.Designer.cs">
+      <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
+    </Compile>
     <Compile Include="menuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +86,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionProyectoSoftwareLibre.resx">
       <DependentUpon>frmGestionProyectoSoftwareLibre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProyectoSoftwareLibre.resx">
+      <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuPrincipal.resx">
       <DependentUpon>menuPrincipal.cs</DependentUpon>
