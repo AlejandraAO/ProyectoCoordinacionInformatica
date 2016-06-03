@@ -10,7 +10,8 @@ using System.Windows.Forms;
 
 //Llamado de las referencias propias del proyecto
 using System.Data.SqlClient;
-
+using AccesoDatos;
+using Entidades;
 
 
 namespace Vista
@@ -18,7 +19,8 @@ namespace Vista
     public partial class frmAcceso : Form
     {
         #region
-        //  clsConexionSQL conexion;
+          clConexion conexion;
+        frmAcceso ventanaAcceso;
         //clsEntidadUsuario pEntidadUsuario;
         //clsUsuario usuario;
         SqlDataReader dtrUsuario; //Retorno de las tuplas
@@ -28,7 +30,7 @@ namespace Vista
         //Inicializamos los atributos que utilizaremos en toda la clase
         public frmAcceso()
         {
-            //  conexion = new clsConexionSQL();
+            conexion = new clConexion();
             //pEntidadUsuario = new clsEntidadUsuario();
             //usuario = new clsUsuario();
             InitializeComponent();
@@ -127,9 +129,12 @@ namespace Vista
 
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            this.SetVisibleCore(false);
-            //mdiMenu menu = new mdiMenu(conexion);
-            // menu.Show();
+            if (txtClave.Text.Equals("123") && txtUsuario.Text.Equals("123"))
+            {
+                this.SetVisibleCore(false);
+                menuPrincipal menu = new menuPrincipal(ventanaAcceso);
+                menu.Show();
+            }
         }
     }
 }

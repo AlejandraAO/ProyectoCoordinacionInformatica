@@ -26,10 +26,10 @@ namespace AccesoDatos
 
         public clConexion()
         {
-            this._codigo = "";
-            this._clave = "";
+            this._codigo = "123";
+            this._clave = "123";
             this._perfil = "";
-            this._baseDatos = "";
+            this._baseDatos = "BDPortafolioUcr";
         }
 
         #endregion

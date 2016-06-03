@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using AccesoDatos;
+using Entidades;
+
 namespace Vista
 {
     public partial class menuPrincipal : Form
@@ -38,10 +41,9 @@ namespace Vista
             gestionSoftwareLibre.Show();
         }
 
-        private void gestiónDeProyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        private void reportesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmGestionProyectoSoftwareLibre proyectoSoftwareLibre = new frmGestionProyectoSoftwareLibre();
-            proyectoSoftwareLibre.Show();
+
         }
     }
 }
