@@ -31,5 +31,11 @@ namespace Vista
         {
 
         }
+
+        private void gestiónSwProyectosDeSoftwareLibreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGestionProyectoSoftwareLibre gestionSoftwareLibre = new frmGestionProyectoSoftwareLibre();
+            gestionSoftwareLibre.Show();
+        }
     }
 }

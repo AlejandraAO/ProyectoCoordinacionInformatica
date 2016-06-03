@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmGestionProyectoSoftwareLibre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionProyectoSoftwareLibre.Designer.cs">
+      <DependentUpon>frmGestionProyectoSoftwareLibre.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVentanaAcceso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +66,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmGestionProyectoSoftwareLibre.resx">
+      <DependentUpon>frmGestionProyectoSoftwareLibre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVentanaAcceso.resx">
       <DependentUpon>frmVentanaAcceso.cs</DependentUpon>
     </EmbeddedResource>

@@ -35,11 +35,12 @@
             this.editMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -71,12 +72,14 @@
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(96, 22);
             this.exitToolStripMenuItem.Text = "&Salir";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.ExitToolsStripMenuItem_Click);
             // 
             // editMenu
             // 
+            this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem});
             this.editMenu.Name = "editMenu";
             this.editMenu.Size = new System.Drawing.Size(91, 20);
             this.editMenu.Text = "&Coordinación";
@@ -92,6 +95,12 @@
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(74, 20);
             this.toolsMenu.Text = "&Profesores";
+            // 
+            // empresasToolStripMenuItem
+            // 
+            this.empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
+            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.empresasToolStripMenuItem.Text = "Empresas";
             // 
             // helpMenu
             // 
@@ -113,11 +122,12 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
             // 
-            // empresasToolStripMenuItem
+            // gestiónSwProyectosDeSoftwareLibreToolStripMenuItem
             // 
-            this.empresasToolStripMenuItem.Name = "empresasToolStripMenuItem";
-            this.empresasToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.empresasToolStripMenuItem.Text = "Empresas";
+            this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Name = "gestiónSwProyectosDeSoftwareLibreToolStripMenuItem";
+            this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Text = "Gestión de Proyectos de Software Libre";
+            this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem.Click += new System.EventHandler(this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem_Click);
             // 
             // menuPrincipal
             // 
@@ -152,6 +162,7 @@
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.ToolStripMenuItem viewMenu;
         private System.Windows.Forms.ToolStripMenuItem empresasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestiónSwProyectosDeSoftwareLibreToolStripMenuItem;
     }
 }
 
