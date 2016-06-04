@@ -32,7 +32,7 @@
             System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.lbConsultarPor = new System.Windows.Forms.Label();
             this.cbConsultarPor = new System.Windows.Forms.ComboBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvDetalleCursos = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,7 +43,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtDatoConsulta = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbConsultarPor
@@ -73,10 +73,10 @@
             this.cbConsultarPor.Size = new System.Drawing.Size(121, 25);
             this.cbConsultarPor.TabIndex = 29;
             // 
-            // listView1
+            // lvDetalleCursos
             // 
-            this.listView1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvDetalleCursos.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lvDetalleCursos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
@@ -85,19 +85,19 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
-            this.listView1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.ForeColor = System.Drawing.Color.Black;
-            this.listView1.GridLines = true;
+            this.lvDetalleCursos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvDetalleCursos.ForeColor = System.Drawing.Color.Black;
+            this.lvDetalleCursos.GridLines = true;
             listViewItem2.Tag = "asdasdasd";
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.lvDetalleCursos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(12, 114);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(927, 433);
-            this.listView1.TabIndex = 30;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvDetalleCursos.Location = new System.Drawing.Point(12, 114);
+            this.lvDetalleCursos.Name = "lvDetalleCursos";
+            this.lvDetalleCursos.Size = new System.Drawing.Size(927, 433);
+            this.lvDetalleCursos.TabIndex = 30;
+            this.lvDetalleCursos.UseCompatibleStateImageBehavior = false;
+            this.lvDetalleCursos.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -171,15 +171,15 @@
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // txtDatoConsulta
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.ForeColor = System.Drawing.Color.Black;
-            this.textBox1.Location = new System.Drawing.Point(691, 46);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(128, 26);
-            this.textBox1.TabIndex = 33;
+            this.txtDatoConsulta.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtDatoConsulta.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDatoConsulta.ForeColor = System.Drawing.Color.Black;
+            this.txtDatoConsulta.Location = new System.Drawing.Point(691, 46);
+            this.txtDatoConsulta.Name = "txtDatoConsulta";
+            this.txtDatoConsulta.Size = new System.Drawing.Size(128, 26);
+            this.txtDatoConsulta.TabIndex = 33;
             // 
             // frmConsultarCurso
             // 
@@ -188,10 +188,10 @@
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(978, 602);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtDatoConsulta);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.lvDetalleCursos);
             this.Controls.Add(this.cbConsultarPor);
             this.Controls.Add(this.lbConsultarPor);
             this.DoubleBuffered = true;
@@ -209,7 +209,7 @@
 
         private System.Windows.Forms.Label lbConsultarPor;
         private System.Windows.Forms.ComboBox cbConsultarPor;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ListView lvDetalleCursos;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.Button btnSalir;
@@ -220,6 +220,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDatoConsulta;
     }
 }
