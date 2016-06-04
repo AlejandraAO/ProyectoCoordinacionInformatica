@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class clEntidadCurso
+    public class clEntidadCurso
     {
         #region Atributos
         private int idCurso;
@@ -15,7 +15,7 @@ namespace Entidades
         private string lugarCurso;
         private string cicloCurso;
         private int creditosCurso;
-        private byte programaCurso;
+        private string programaCurso;
         private string estadoCurso;
         private int totalDeHorasCurso;
         private string modalidadCurso;
@@ -46,19 +46,19 @@ namespace Entidades
             get { return this.lugarCurso; }
         }
 
-        public string MCicloCurso
+        public string mCicloCurso
         {
             set { this.cicloCurso = value; }
             get { return this.cicloCurso; }
         }
 
-        public int MCreditosCurso
+        public int mCreditosCurso
         {
             set { this.creditosCurso = value; }
             get { return this.creditosCurso; }
         }
 
-        public byte MProgramaCurso
+        public string mProgramaCurso
         {
             set { this.programaCurso = value; }
             get { return this.programaCurso; }

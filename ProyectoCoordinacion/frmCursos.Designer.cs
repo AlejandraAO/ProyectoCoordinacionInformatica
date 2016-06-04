@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.txtModalidad = new System.Windows.Forms.TextBox();
             this.lbModalidad = new System.Windows.Forms.Label();
             this.txtTotalHoras = new System.Windows.Forms.TextBox();
@@ -48,8 +49,8 @@
             this.txtSigla = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.cbEstado = new System.Windows.Forms.ComboBox();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.lbNombrePrograma = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,6 +64,7 @@
             this.groupBox.Controls.Add(this.lbTotalHoras);
             this.groupBox.Controls.Add(this.lbEstado);
             this.groupBox.Controls.Add(this.btnExaminar);
+            this.groupBox.Controls.Add(this.lbNombrePrograma);
             this.groupBox.Controls.Add(this.lbPrograma);
             this.groupBox.Controls.Add(this.txtCreditos);
             this.groupBox.Controls.Add(this.lbCreditos);
@@ -82,6 +84,20 @@
             this.groupBox.TabIndex = 41;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Gestión Cursos";
+            // 
+            // cbEstado
+            // 
+            this.cbEstado.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbEstado.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbEstado.ForeColor = System.Drawing.Color.Black;
+            this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Items.AddRange(new object[] {
+            "Habilitado",
+            "Deshabilitado"});
+            this.cbEstado.Location = new System.Drawing.Point(479, 37);
+            this.cbEstado.Name = "cbEstado";
+            this.cbEstado.Size = new System.Drawing.Size(121, 25);
+            this.cbEstado.TabIndex = 61;
             // 
             // txtModalidad
             // 
@@ -148,12 +164,13 @@
             this.btnExaminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnExaminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExaminar.ForeColor = System.Drawing.Color.Black;
-            this.btnExaminar.Location = new System.Drawing.Point(479, 169);
+            this.btnExaminar.Location = new System.Drawing.Point(436, 174);
             this.btnExaminar.Name = "btnExaminar";
-            this.btnExaminar.Size = new System.Drawing.Size(88, 37);
+            this.btnExaminar.Size = new System.Drawing.Size(84, 26);
             this.btnExaminar.TabIndex = 52;
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = false;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
             // 
             // lbPrograma
             // 
@@ -292,6 +309,7 @@
             this.btnAgregar.TabIndex = 59;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -308,20 +326,6 @@
             this.btnModificar.TabIndex = 60;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
-            // 
-            // cbEstado
-            // 
-            this.cbEstado.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbEstado.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbEstado.ForeColor = System.Drawing.Color.Black;
-            this.cbEstado.FormattingEnabled = true;
-            this.cbEstado.Items.AddRange(new object[] {
-            "Habilitado",
-            "Desabilitado"});
-            this.cbEstado.Location = new System.Drawing.Point(479, 37);
-            this.cbEstado.Name = "cbEstado";
-            this.cbEstado.Size = new System.Drawing.Size(121, 25);
-            this.cbEstado.TabIndex = 61;
             // 
             // btnSalir
             // 
@@ -340,6 +344,18 @@
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // lbNombrePrograma
+            // 
+            this.lbNombrePrograma.AutoSize = true;
+            this.lbNombrePrograma.BackColor = System.Drawing.Color.Transparent;
+            this.lbNombrePrograma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombrePrograma.ForeColor = System.Drawing.Color.White;
+            this.lbNombrePrograma.Location = new System.Drawing.Point(540, 182);
+            this.lbNombrePrograma.Name = "lbNombrePrograma";
+            this.lbNombrePrograma.Size = new System.Drawing.Size(143, 18);
+            this.lbNombrePrograma.TabIndex = 51;
+            this.lbNombrePrograma.Text = "Nombre del archivo";
+            // 
             // frmCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,6 +368,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.groupBox);
             this.Name = "frmCursos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "frmCursos";
             this.Load += new System.EventHandler(this.frmCursos_Load);
             this.groupBox.ResumeLayout(false);
@@ -383,5 +400,6 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lbNombrePrograma;
     }
 }

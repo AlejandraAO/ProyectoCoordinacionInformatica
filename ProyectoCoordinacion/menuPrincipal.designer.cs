@@ -235,6 +235,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "menuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Coordinación de InformáticaEmpresarial  UCR";
             this.Load += new System.EventHandler(this.menuPrincipal_Load);
             this.menuStrip.ResumeLayout(false);

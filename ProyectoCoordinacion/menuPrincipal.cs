@@ -25,9 +25,10 @@ namespace Vista
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.SetVisibleCore(false);
+           // this.SetVisibleCore(false);
+            Application.Exit();
             //ventanaAcceso.limpiar();
-            ventanaAcceso.Show();
+            //ventanaAcceso.Show();
         }
 
         private void menuPrincipal_Load(object sender, EventArgs e)
@@ -56,7 +57,9 @@ namespace Vista
 
         private void gestiónCursosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCursos frmCurso = new frmCursos();
+            frmCursos frmCurso = new frmCursos(this);
+            this.Hide();            
+            frmCurso.Show();
         }
     }
 }
