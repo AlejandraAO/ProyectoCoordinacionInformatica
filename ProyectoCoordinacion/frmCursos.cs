@@ -128,5 +128,10 @@ namespace Vista
             txtModalidad.Text = "";
             lbNombrePrograma.Text = "";
         }
+
+        private void txtSigla_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
     }
 }

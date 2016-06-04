@@ -36,6 +36,7 @@
             this.lbTotalHoras = new System.Windows.Forms.Label();
             this.lbEstado = new System.Windows.Forms.Label();
             this.btnExaminar = new System.Windows.Forms.Button();
+            this.lbNombrePrograma = new System.Windows.Forms.Label();
             this.lbPrograma = new System.Windows.Forms.Label();
             this.txtCreditos = new System.Windows.Forms.TextBox();
             this.lbCreditos = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.lbNombrePrograma = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -171,6 +171,18 @@
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = false;
             this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
+            // 
+            // lbNombrePrograma
+            // 
+            this.lbNombrePrograma.AutoSize = true;
+            this.lbNombrePrograma.BackColor = System.Drawing.Color.Transparent;
+            this.lbNombrePrograma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombrePrograma.ForeColor = System.Drawing.Color.White;
+            this.lbNombrePrograma.Location = new System.Drawing.Point(540, 182);
+            this.lbNombrePrograma.Name = "lbNombrePrograma";
+            this.lbNombrePrograma.Size = new System.Drawing.Size(143, 18);
+            this.lbNombrePrograma.TabIndex = 51;
+            this.lbNombrePrograma.Text = "Nombre del archivo";
             // 
             // lbPrograma
             // 
@@ -293,6 +305,7 @@
             this.txtSigla.Name = "txtSigla";
             this.txtSigla.Size = new System.Drawing.Size(128, 26);
             this.txtSigla.TabIndex = 41;
+            this.txtSigla.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSigla_KeyPress);
             // 
             // btnAgregar
             // 
@@ -343,18 +356,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // lbNombrePrograma
-            // 
-            this.lbNombrePrograma.AutoSize = true;
-            this.lbNombrePrograma.BackColor = System.Drawing.Color.Transparent;
-            this.lbNombrePrograma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombrePrograma.ForeColor = System.Drawing.Color.White;
-            this.lbNombrePrograma.Location = new System.Drawing.Point(540, 182);
-            this.lbNombrePrograma.Name = "lbNombrePrograma";
-            this.lbNombrePrograma.Size = new System.Drawing.Size(143, 18);
-            this.lbNombrePrograma.TabIndex = 51;
-            this.lbNombrePrograma.Text = "Nombre del archivo";
             // 
             // frmCursos
             // 
