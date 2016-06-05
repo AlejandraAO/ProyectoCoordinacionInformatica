@@ -179,6 +179,7 @@
             this.txtDatoConsulta.Name = "txtDatoConsulta";
             this.txtDatoConsulta.Size = new System.Drawing.Size(128, 26);
             this.txtDatoConsulta.TabIndex = 33;
+            this.txtDatoConsulta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDatoConsulta_KeyUp);
             // 
             // frmConsultarCurso
             // 

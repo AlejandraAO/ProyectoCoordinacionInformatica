@@ -42,82 +42,100 @@ namespace Vista
             menu.Show();
         }
 
-        private void frmConsultarCurso_Load(object sender, EventArgs e)
+        public void mConsultaGenetal()
         {
             strCurso = clCurso.mConsultaGeneral(conexion);
-            ListViewItem lvItem = new ListViewItem();
+
+           
+             ListViewItem lvItem = new ListViewItem();
 
             while (strCurso.Read())
             {
-                lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
-                lvItem.SubItems.Add(strCurso.GetString(2));
-                lvItem.SubItems.Add(strCurso.GetString(3));
-                lvItem.SubItems.Add(strCurso.GetString(4));
-                lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
-                lvItem.SubItems.Add(strCurso.GetString(7));
-                lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
-                lvItem.SubItems.Add(strCurso.GetString(9));
+
+                
+                if (mVerificarCursoEnLista(strCurso.GetString(1),"Sigla") == false)
+                {
+                    lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
+                    lvItem.SubItems.Add(strCurso.GetString(2));
+                    lvItem.SubItems.Add(strCurso.GetString(3));
+                    lvItem.SubItems.Add(strCurso.GetString(4));
+                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
+                    lvItem.SubItems.Add(strCurso.GetString(7));
+                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
+                    lvItem.SubItems.Add(strCurso.GetString(9));
+                }
+                
+
+                
             }//fin del read
+        }
+
+        private void frmConsultarCurso_Load(object sender, EventArgs e)
+        {
+            mConsultaGenetal();
+        }
+
+        public Boolean mVerificarCursoEnLista(string sigla, string tipo)
+        {
+            int posicion = 0;
+            if (tipo == "Sigla")
+            {
+                posicion = 0;
+            }
+            else
+            {
+                if (tipo == "Nombre")
+                {
+                    posicion = 1;
+                }
+                else
+                {
+                    if (tipo == "Ciclo")
+                    {
+                        posicion = 3;
+                    }
+
+                }
+            }
+            foreach (ListViewItem I in lvDetalleCursos.Items)
+            {
+                Console.WriteLine(sigla +"es igual a "+ I.SubItems[posicion].Text);         
+                if(sigla== I.SubItems[0].Text)
+                {
+                    return true;
+                }
+
+            }
+            return false;
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (cbConsultarPor.SelectedItem.ToString().Trim() == "Nombre")
-            {
+            mLimpiarLista();
+         
                 pEntidadCurso.mNombreCurso = txtDatoConsulta.Text.Trim();
-                strCurso = clCurso.mConsultarPorNombre(conexion, pEntidadCurso);
-                ListViewItem lvItem = new ListViewItem();
-
-                while (strCurso.Read())
-                {
-                    lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
-                    lvItem.SubItems.Add(strCurso.GetString(2));
-                    lvItem.SubItems.Add(strCurso.GetString(3));
-                    lvItem.SubItems.Add(strCurso.GetString(4));
-                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
-                    lvItem.SubItems.Add(strCurso.GetString(7));
-                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
-                    lvItem.SubItems.Add(strCurso.GetString(9));
-                }//fin del read
-            }//fin de la consulta por nombre
-
-            if (cbConsultarPor.SelectedItem.ToString().Trim() == "Sigla")
-            {
                 pEntidadCurso.mSiglaCurso = txtDatoConsulta.Text.Trim();
-                strCurso = clCurso.mConsultaPorSigla(conexion, pEntidadCurso);
-                ListViewItem lvItem = new ListViewItem();
-
-                while (strCurso.Read())
-                {
-                    lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
-                    lvItem.SubItems.Add(strCurso.GetString(2));
-                    lvItem.SubItems.Add(strCurso.GetString(3));
-                    lvItem.SubItems.Add(strCurso.GetString(4));
-                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
-                    lvItem.SubItems.Add(strCurso.GetString(7));
-                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
-                    lvItem.SubItems.Add(strCurso.GetString(9));
-                }//fin del read
-            }//fin de la consulta por siglas 
-
-            if (cbConsultarPor.SelectedItem.ToString().Trim() == "Ciclo")
-            {
                 pEntidadCurso.mCicloCurso = txtDatoConsulta.Text.Trim();
-                strCurso = clCurso.mConsultarPorCiclo(conexion, pEntidadCurso);
-                ListViewItem lvItem = new ListViewItem();
-
-                while (strCurso.Read())
+                strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
+                if (strCurso.Read())
                 {
-                    lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
-                    lvItem.SubItems.Add(strCurso.GetString(2));
-                    lvItem.SubItems.Add(strCurso.GetString(3));
-                    lvItem.SubItems.Add(strCurso.GetString(4));
-                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
-                    lvItem.SubItems.Add(strCurso.GetString(7));
-                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
-                    lvItem.SubItems.Add(strCurso.GetString(9));
-                }//fin del read
-            }//fin de la consulta por ciclo
+                    if (mVerificarCursoEnLista(strCurso.GetString(1), cbConsultarPor.Text)==false)
+                    {
+                        ListViewItem lvItem = new ListViewItem();
+                        strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
+                        while (strCurso.Read())
+                        {
+                            lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
+                            lvItem.SubItems.Add(strCurso.GetString(2));
+                            lvItem.SubItems.Add(strCurso.GetString(3));
+                            lvItem.SubItems.Add(strCurso.GetString(4));
+                            lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
+                            lvItem.SubItems.Add(strCurso.GetString(7));
+                            lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
+                            lvItem.SubItems.Add(strCurso.GetString(9));
+                        }//fin del read
+                    }                
+                 }                 
         }
 
         private void cbConsultarPor_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,5 +144,17 @@ namespace Vista
             btnConsultar.Enabled = true;
         }
 
+        public void mLimpiarLista()
+        {
+            lvDetalleCursos.Items.Clear();
+        }
+
+        private void txtDatoConsulta_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (txtDatoConsulta.Text == "")
+            {
+                mConsultaGenetal();
+            }
+        }
     }
 }
