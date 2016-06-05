@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.lbConsultarPor = new System.Windows.Forms.Label();
             this.cbConsultarPor = new System.Windows.Forms.ComboBox();
             this.lvDetalleCursos = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.sigla = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lugar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ciclo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.creditos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.totalHoras = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.modalidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.txtDatoConsulta = new System.Windows.Forms.TextBox();
@@ -77,21 +77,21 @@
             // 
             this.lvDetalleCursos.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lvDetalleCursos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
+            this.sigla,
+            this.nombre,
+            this.lugar,
+            this.ciclo,
+            this.creditos,
+            this.estado,
+            this.totalHoras,
+            this.modalidad});
             this.lvDetalleCursos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvDetalleCursos.ForeColor = System.Drawing.Color.Black;
             this.lvDetalleCursos.GridLines = true;
-            listViewItem2.Tag = "asdasdasd";
+            listViewItem4.Tag = "asdasdasd";
             this.lvDetalleCursos.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.lvDetalleCursos.Location = new System.Drawing.Point(12, 114);
             this.lvDetalleCursos.Name = "lvDetalleCursos";
             this.lvDetalleCursos.Size = new System.Drawing.Size(927, 433);
@@ -99,44 +99,44 @@
             this.lvDetalleCursos.UseCompatibleStateImageBehavior = false;
             this.lvDetalleCursos.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // sigla
             // 
-            this.columnHeader1.Text = "Sigla";
-            this.columnHeader1.Width = 72;
+            this.sigla.Text = "Sigla";
+            this.sigla.Width = 72;
             // 
-            // columnHeader2
+            // nombre
             // 
-            this.columnHeader2.Text = "Nombre";
-            this.columnHeader2.Width = 285;
+            this.nombre.Text = "Nombre";
+            this.nombre.Width = 285;
             // 
-            // columnHeader3
+            // lugar
             // 
-            this.columnHeader3.Text = "Lugar";
-            this.columnHeader3.Width = 109;
+            this.lugar.Text = "Lugar";
+            this.lugar.Width = 109;
             // 
-            // columnHeader4
+            // ciclo
             // 
-            this.columnHeader4.Text = "Ciclo";
+            this.ciclo.Text = "Ciclo";
             // 
-            // columnHeader5
+            // creditos
             // 
-            this.columnHeader5.Text = "Créditos";
-            this.columnHeader5.Width = 63;
+            this.creditos.Text = "Créditos";
+            this.creditos.Width = 63;
             // 
-            // columnHeader6
+            // estado
             // 
-            this.columnHeader6.Text = "estado";
-            this.columnHeader6.Width = 120;
+            this.estado.Text = "Estado";
+            this.estado.Width = 120;
             // 
-            // columnHeader7
+            // totalHoras
             // 
-            this.columnHeader7.Text = "Total de Horas";
-            this.columnHeader7.Width = 99;
+            this.totalHoras.Text = "Total de Horas";
+            this.totalHoras.Width = 99;
             // 
-            // columnHeader8
+            // modalidad
             // 
-            this.columnHeader8.Text = "Modalidad";
-            this.columnHeader8.Width = 114;
+            this.modalidad.Text = "Modalidad";
+            this.modalidad.Width = 114;
             // 
             // btnSalir
             // 
@@ -170,6 +170,7 @@
             this.btnConsultar.TabIndex = 32;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // txtDatoConsulta
             // 
@@ -210,16 +211,16 @@
         private System.Windows.Forms.Label lbConsultarPor;
         private System.Windows.Forms.ComboBox cbConsultarPor;
         private System.Windows.Forms.ListView lvDetalleCursos;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader sigla;
+        private System.Windows.Forms.ColumnHeader nombre;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
-        private System.Windows.Forms.ColumnHeader columnHeader8;
+        private System.Windows.Forms.ColumnHeader lugar;
+        private System.Windows.Forms.ColumnHeader ciclo;
+        private System.Windows.Forms.ColumnHeader creditos;
+        private System.Windows.Forms.ColumnHeader estado;
+        private System.Windows.Forms.ColumnHeader totalHoras;
+        private System.Windows.Forms.ColumnHeader modalidad;
         private System.Windows.Forms.TextBox txtDatoConsulta;
     }
 }

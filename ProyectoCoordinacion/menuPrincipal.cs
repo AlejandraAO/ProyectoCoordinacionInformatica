@@ -61,5 +61,12 @@ namespace Vista
             this.Hide();            
             frmCurso.Show();
         }
+
+        private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultarCurso frmConsultarCurso = new frmConsultarCurso();
+            this.Hide();
+            frmConsultarCurso.Show();
+        }
     }
 }
