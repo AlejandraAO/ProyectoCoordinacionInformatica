@@ -18,15 +18,18 @@ namespace Vista
     public partial class frmConsultarCurso : Form
     {
         #region Atributos
+        menuPrincipal menu;
         SqlDataReader strCurso;
         clConexion conexion;
         clEntidadCurso pEntidadCurso;
         clCurso clCurso;
         #endregion
 
-        public frmConsultarCurso(clConexion conexion)
+        public frmConsultarCurso(menuPrincipal menu)
         {
-            this.conexion = conexion;
+
+            this.menu = menu;
+            this.conexion =new clConexion();
             pEntidadCurso = new clEntidadCurso();
             clCurso = new clCurso();
 
@@ -36,6 +39,7 @@ namespace Vista
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Dispose();
+            menu.Show();
         }
 
         private void frmConsultarCurso_Load(object sender, EventArgs e)

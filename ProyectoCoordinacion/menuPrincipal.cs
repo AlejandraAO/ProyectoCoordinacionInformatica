@@ -64,7 +64,7 @@ namespace Vista
 
         private void reporteToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmConsultarCurso frmConsultarCurso = new frmConsultarCurso();
+            frmConsultarCurso frmConsultarCurso = new frmConsultarCurso(this);
             this.Hide();
             frmConsultarCurso.Show();
         }
