@@ -44,20 +44,33 @@ namespace Vista
 
         private void frmConsultarCurso_Load(object sender, EventArgs e)
         {
-            
+            strCurso = clCurso.mConsultaGeneral(conexion);
+            ListViewItem lvItem = new ListViewItem();
+
+            while (strCurso.Read())
+            {
+                lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
+                lvItem.SubItems.Add(strCurso.GetString(2));
+                lvItem.SubItems.Add(strCurso.GetString(3));
+                lvItem.SubItems.Add(strCurso.GetString(4));
+                lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
+                lvItem.SubItems.Add(strCurso.GetString(7));
+                lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
+                lvItem.SubItems.Add(strCurso.GetString(9));
+            }//fin del read
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            if (cbConsultarPor.SelectedItem.ToString().Trim()=="Nombre")
+            if (cbConsultarPor.SelectedItem.ToString().Trim() == "Nombre")
             {
-                pEntidadCurso.mNombreCurso=txtDatoConsulta.Text.Trim();
+                pEntidadCurso.mNombreCurso = txtDatoConsulta.Text.Trim();
                 strCurso = clCurso.mConsultarPorNombre(conexion, pEntidadCurso);
                 ListViewItem lvItem = new ListViewItem();
 
                 while (strCurso.Read())
                 {
-                    lvItem=lvDetalleCursos.Items.Add(strCurso.GetString(1));
+                    lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
                     lvItem.SubItems.Add(strCurso.GetString(2));
                     lvItem.SubItems.Add(strCurso.GetString(3));
                     lvItem.SubItems.Add(strCurso.GetString(4));
@@ -85,7 +98,7 @@ namespace Vista
                     lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
                     lvItem.SubItems.Add(strCurso.GetString(9));
                 }//fin del read
-            }//fin del if
+            }//fin de la consulta por siglas 
 
             if (cbConsultarPor.SelectedItem.ToString().Trim() == "Ciclo")
             {
@@ -104,7 +117,7 @@ namespace Vista
                     lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
                     lvItem.SubItems.Add(strCurso.GetString(9));
                 }//fin del read
-            }//fin del if
+            }//fin de la consulta por ciclo
         }
 
         private void cbConsultarPor_SelectedIndexChanged(object sender, EventArgs e)
@@ -112,5 +125,6 @@ namespace Vista
             txtDatoConsulta.Enabled = true;
             btnConsultar.Enabled = true;
         }
+
     }
 }
