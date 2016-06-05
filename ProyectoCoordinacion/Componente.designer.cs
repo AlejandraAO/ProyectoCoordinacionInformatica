@@ -152,7 +152,7 @@
             this.salirToolStripMenuItem.BackColor = System.Drawing.Color.Black;
             this.salirToolStripMenuItem.ForeColor = System.Drawing.Color.White;
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             // 
             // menuStripToolStripMenuItem
