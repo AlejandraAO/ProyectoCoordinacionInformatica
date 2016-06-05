@@ -37,5 +37,11 @@ namespace LogicaNegocios
             strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where ciclo='" + pEntidadCurso.mCicloCurso + "'  ";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
+
+        public Boolean mModificarCurso(clConexion conexion, clEntidadCurso pEntidadCurso)
+        {
+            strSentencia = "update tbCursos set lugar = '" + pEntidadCurso.mLugarCurso + "', ciclo = '" + pEntidadCurso.mCicloCurso + "', creditos ='"+pEntidadCurso.mCreditosCurso+ "', programa= (SELECT * FROM OPENROWSET(BULK N'" + pEntidadCurso.mProgramaCurso + "', SINGLE_BLOB) as Pdf), estado='"+pEntidadCurso.mEstadoCurso+"', totalHoras='"+pEntidadCurso.mTotalDeHorasCurso+"', modalidad='"+pEntidadCurso.mModalidadCurso+"' where sigla='" + pEntidadCurso.mSiglaCurso + "'";
+            return conexion.mEjecutar(strSentencia, conexion);
+        }
     }
 }

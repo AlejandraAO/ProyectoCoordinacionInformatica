@@ -33,10 +33,10 @@
             this.txtModalidad = new System.Windows.Forms.TextBox();
             this.lbModalidad = new System.Windows.Forms.Label();
             this.txtTotalHoras = new System.Windows.Forms.TextBox();
+            this.lbNombrePrograma = new System.Windows.Forms.Label();
+            this.btnExaminar = new System.Windows.Forms.Button();
             this.lbTotalHoras = new System.Windows.Forms.Label();
             this.lbEstado = new System.Windows.Forms.Label();
-            this.btnExaminar = new System.Windows.Forms.Button();
-            this.lbNombrePrograma = new System.Windows.Forms.Label();
             this.lbPrograma = new System.Windows.Forms.Label();
             this.txtCreditos = new System.Windows.Forms.TextBox();
             this.lbCreditos = new System.Windows.Forms.Label();
@@ -61,10 +61,10 @@
             this.groupBox.Controls.Add(this.txtModalidad);
             this.groupBox.Controls.Add(this.lbModalidad);
             this.groupBox.Controls.Add(this.txtTotalHoras);
+            this.groupBox.Controls.Add(this.lbNombrePrograma);
+            this.groupBox.Controls.Add(this.btnExaminar);
             this.groupBox.Controls.Add(this.lbTotalHoras);
             this.groupBox.Controls.Add(this.lbEstado);
-            this.groupBox.Controls.Add(this.btnExaminar);
-            this.groupBox.Controls.Add(this.lbNombrePrograma);
             this.groupBox.Controls.Add(this.lbPrograma);
             this.groupBox.Controls.Add(this.txtCreditos);
             this.groupBox.Controls.Add(this.lbCreditos);
@@ -92,8 +92,8 @@
             this.cbEstado.ForeColor = System.Drawing.Color.Black;
             this.cbEstado.FormattingEnabled = true;
             this.cbEstado.Items.AddRange(new object[] {
-            "Habilitado",
-            "Deshabilitado"});
+            "Activo",
+            "Inactivo"});
             this.cbEstado.Location = new System.Drawing.Point(479, 37);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(121, 25);
@@ -131,6 +131,34 @@
             this.txtTotalHoras.Size = new System.Drawing.Size(128, 26);
             this.txtTotalHoras.TabIndex = 56;
             // 
+            // lbNombrePrograma
+            // 
+            this.lbNombrePrograma.AutoSize = true;
+            this.lbNombrePrograma.BackColor = System.Drawing.Color.Transparent;
+            this.lbNombrePrograma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombrePrograma.ForeColor = System.Drawing.Color.White;
+            this.lbNombrePrograma.Location = new System.Drawing.Point(476, 178);
+            this.lbNombrePrograma.Name = "lbNombrePrograma";
+            this.lbNombrePrograma.Size = new System.Drawing.Size(0, 18);
+            this.lbNombrePrograma.TabIndex = 51;
+            // 
+            // btnExaminar
+            // 
+            this.btnExaminar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnExaminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnExaminar.FlatAppearance.BorderSize = 2;
+            this.btnExaminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnExaminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnExaminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExaminar.ForeColor = System.Drawing.Color.Black;
+            this.btnExaminar.Location = new System.Drawing.Point(351, 210);
+            this.btnExaminar.Name = "btnExaminar";
+            this.btnExaminar.Size = new System.Drawing.Size(88, 35);
+            this.btnExaminar.TabIndex = 52;
+            this.btnExaminar.Text = "Examinar";
+            this.btnExaminar.UseVisualStyleBackColor = false;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
+            // 
             // lbTotalHoras
             // 
             this.lbTotalHoras.AutoSize = true;
@@ -154,35 +182,6 @@
             this.lbEstado.Size = new System.Drawing.Size(58, 18);
             this.lbEstado.TabIndex = 53;
             this.lbEstado.Text = "Estado";
-            // 
-            // btnExaminar
-            // 
-            this.btnExaminar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnExaminar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnExaminar.FlatAppearance.BorderSize = 2;
-            this.btnExaminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnExaminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnExaminar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExaminar.ForeColor = System.Drawing.Color.Black;
-            this.btnExaminar.Location = new System.Drawing.Point(436, 174);
-            this.btnExaminar.Name = "btnExaminar";
-            this.btnExaminar.Size = new System.Drawing.Size(84, 26);
-            this.btnExaminar.TabIndex = 52;
-            this.btnExaminar.Text = "Examinar";
-            this.btnExaminar.UseVisualStyleBackColor = false;
-            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
-            // 
-            // lbNombrePrograma
-            // 
-            this.lbNombrePrograma.AutoSize = true;
-            this.lbNombrePrograma.BackColor = System.Drawing.Color.Transparent;
-            this.lbNombrePrograma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbNombrePrograma.ForeColor = System.Drawing.Color.White;
-            this.lbNombrePrograma.Location = new System.Drawing.Point(540, 182);
-            this.lbNombrePrograma.Name = "lbNombrePrograma";
-            this.lbNombrePrograma.Size = new System.Drawing.Size(143, 18);
-            this.lbNombrePrograma.TabIndex = 51;
-            this.lbNombrePrograma.Text = "Nombre del archivo";
             // 
             // lbPrograma
             // 
@@ -327,6 +326,7 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnModificar.FlatAppearance.BorderSize = 2;
             this.btnModificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
@@ -339,6 +339,7 @@
             this.btnModificar.TabIndex = 60;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnSalir
             // 

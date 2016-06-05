@@ -11,6 +11,7 @@ using System.IO;
 using AccesoDatos;
 using Entidades;
 using LogicaNegocios;
+using System.Data.SqlClient;
 
 namespace Vista
 {
@@ -21,6 +22,7 @@ namespace Vista
         private clEntidadCurso entidadCurso;
         private clCurso curso;
         private OpenFileDialog archivoSeleccionado;
+        SqlDataReader dtrCurso;
 
         public frmCursos(menuPrincipal menuPrincipal)
         {
@@ -61,7 +63,7 @@ namespace Vista
                     {
                         using (myStream)
                         {
-                            lbNombrePrograma.Text = archivoSeleccionado.SafeFileName;                                                                                                                                        
+                            lbNombrePrograma.Text = archivoSeleccionado.SafeFileName;                               
                         }
                     }
                 }
@@ -131,7 +133,88 @@ namespace Vista
 
         private void txtSigla_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar==(Char)Keys.Enter)
+            {
+                if (txtSigla.Text != "")
+                {
+                    mConsultarPorSigla();
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese una sigla", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+           
+        }
 
+        public void mConsultarPorSigla()
+        {
+            entidadCurso.mSiglaCurso = txtSigla.Text;
+            dtrCurso = curso.mConsultaPorSigla(conexion,entidadCurso);
+
+            if (dtrCurso!=null)
+            {
+                if (dtrCurso.Read())
+                {
+                    txtNombre.Text = dtrCurso.GetString(2);
+                    txtLugar.Text = dtrCurso.GetString(3);
+                    txtCiclo.Text = dtrCurso.GetString(4);
+                    txtCreditos.Text = Convert.ToString(dtrCurso.GetInt32(5));
+
+                    cbEstado.Text = dtrCurso.GetString(7);
+                    txtTotalHoras.Text =Convert.ToString(dtrCurso.GetInt32(8));
+                    txtModalidad.Text = dtrCurso.GetString(9);
+
+                    txtSigla.ReadOnly = true;
+                    txtNombre.ReadOnly = true;
+                    btnModificar.Enabled = true;
+
+                }
+                else
+                {
+                    MessageBox.Show("El curso solicitado no existe", "Curso no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha encontrado el curso solicitado", "Curso no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (mVerificarDatosNecesarios())
+            {
+                conexion.codigo = "123";
+                conexion.clave = "123";
+
+                //Se asignan los valores a la entidad curso
+                //entidadCurso.mIdCurso = dtrCurso.GetInt32(0);                
+
+                entidadCurso.mSiglaCurso = txtSigla.Text;
+                entidadCurso.mNombreCurso = txtNombre.Text;
+                entidadCurso.mLugarCurso = txtLugar.Text;
+                entidadCurso.mCicloCurso = txtCiclo.Text;
+                entidadCurso.mCreditosCurso = Convert.ToInt32(txtCreditos.Text);
+                entidadCurso.mProgramaCurso = archivoSeleccionado.FileName;
+                entidadCurso.mEstadoCurso = cbEstado.Text;
+                entidadCurso.mTotalDeHorasCurso = Convert.ToInt32(txtTotalHoras.Text);
+                entidadCurso.mModalidadCurso = txtModalidad.Text;
+
+                
+                if(curso.mModificarCurso(conexion, entidadCurso))
+                {
+                    MessageBox.Show("Se ha modificado el curso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido modificar el curso", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
     }
 }
