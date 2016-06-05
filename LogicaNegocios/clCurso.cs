@@ -25,5 +25,17 @@ namespace LogicaNegocios
             strSentencia = "select idCurso, sigla, nombre, lugar, ciclo, creditos, programa, estado, totalHoras, modalidad from tbCursos where sigla='"+pEntidadCurso.mSiglaCurso+"'";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
+
+        public SqlDataReader mConsultarPorNombre(clConexion conexion,clEntidadCurso pEntidadCurso)
+        {
+            strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where nombre='" + pEntidadCurso.mNombreCurso + "'  ";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
+
+        public SqlDataReader mConsultarPorCiclo(clConexion conexion, clEntidadCurso pEntidadCurso)
+        {
+            strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where ciclo='" + pEntidadCurso.mCicloCurso + "'  ";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
     }
 }
