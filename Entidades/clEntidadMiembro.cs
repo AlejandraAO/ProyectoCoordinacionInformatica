@@ -30,29 +30,29 @@ namespace Entidades
         #region Metodos Set y Get
         public string getSetNombreMiembro    
         {
-            get{ return nombreMiembro;}
-            set{  nombreMiembro = value;}
+            get{ return this.nombreMiembro;}
+            set{  this.nombreMiembro = value;}
         }
 
         public string getSetApellido1Miembro
         {
-            get { return apellido1Miembro; }
-            set { apellido1Miembro = value; }
+            get { return this.apellido1Miembro; }
+            set { this.apellido1Miembro = value; }
         }
         public string getSetApellido2Miembro
         {
-            get { return apellido2Miembro; }
-            set { apellido2Miembro = value; }
+            get { return this.apellido2Miembro; }
+            set { this.apellido2Miembro = value; }
         }
         public string getSetCarreraMiembro
         {
-            get { return carreraMiembro; }
-            set { carreraMiembro = value; }
+            get { return this.carreraMiembro; }
+            set { this.carreraMiembro = value; }
         }
         public string getSetTipo
         {
-            get { return tipoMiembro; }
-            set { tipoMiembro = value; }
+            get { return this.tipoMiembro; }
+            set { this.tipoMiembro = value; }
         }
         #endregion
 

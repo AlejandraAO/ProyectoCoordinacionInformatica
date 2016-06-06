@@ -43,12 +43,16 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
+            this.cbTipo = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox.Controls.Add(this.label2);
+            this.groupBox.Controls.Add(this.cbTipo);
             this.groupBox.Controls.Add(this.txtTipo);
             this.groupBox.Controls.Add(this.textBox5);
             this.groupBox.Controls.Add(this.label4);
@@ -63,7 +67,7 @@
             this.groupBox.ForeColor = System.Drawing.Color.White;
             this.groupBox.Location = new System.Drawing.Point(15, 21);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(547, 225);
+            this.groupBox.Size = new System.Drawing.Size(622, 225);
             this.groupBox.TabIndex = 30;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Información Miembros ";
@@ -187,12 +191,13 @@
             this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(52, 290);
+            this.btnAgregar.Location = new System.Drawing.Point(51, 270);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(77, 37);
             this.btnAgregar.TabIndex = 29;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnSalir
             // 
@@ -203,7 +208,7 @@
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(411, 290);
+            this.btnSalir.Location = new System.Drawing.Point(485, 270);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(77, 37);
             this.btnSalir.TabIndex = 31;
@@ -220,12 +225,13 @@
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Location = new System.Drawing.Point(297, 290);
+            this.btnBuscar.Location = new System.Drawing.Point(341, 270);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(77, 37);
             this.btnBuscar.TabIndex = 32;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // btnModificar
             // 
@@ -236,19 +242,43 @@
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnModificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(172, 290);
+            this.btnModificar.Location = new System.Drawing.Point(195, 270);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(82, 37);
             this.btnModificar.TabIndex = 33;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // cbTipo
+            // 
+            this.cbTipo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbTipo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTipo.ForeColor = System.Drawing.Color.Black;
+            this.cbTipo.FormattingEnabled = true;
+            this.cbTipo.Location = new System.Drawing.Point(396, 157);
+            this.cbTipo.Name = "cbTipo";
+            this.cbTipo.Size = new System.Drawing.Size(194, 25);
+            this.cbTipo.TabIndex = 41;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(306, 159);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 18);
+            this.label2.TabIndex = 42;
+            this.label2.Text = "Proyecto:";
             // 
             // frmGestionMiembros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(574, 375);
+            this.ClientSize = new System.Drawing.Size(673, 319);
             this.ControlBox = false;
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
@@ -281,5 +311,7 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cbTipo;
     }
 }
