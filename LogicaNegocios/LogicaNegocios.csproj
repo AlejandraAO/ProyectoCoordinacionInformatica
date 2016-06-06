@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="clCursoLibre.cs" />
     <Compile Include="clCurso.cs" />
     <Compile Include="clProyecto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
