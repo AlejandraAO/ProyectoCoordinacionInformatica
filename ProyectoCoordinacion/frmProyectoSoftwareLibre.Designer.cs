@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.lbInformacion = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtIdentificador = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -77,6 +78,7 @@
             this.btnExaminar.TabIndex = 31;
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = false;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
             // 
             // label2
             // 
@@ -103,6 +105,7 @@
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox.Controls.Add(this.lbInformacion);
             this.groupBox.Controls.Add(this.btnBuscar);
             this.groupBox.Controls.Add(this.txtIdentificador);
             this.groupBox.Controls.Add(this.label6);
@@ -125,6 +128,18 @@
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Gestion de Proyecto";
             // 
+            // lbInformacion
+            // 
+            this.lbInformacion.AutoSize = true;
+            this.lbInformacion.BackColor = System.Drawing.Color.Transparent;
+            this.lbInformacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbInformacion.ForeColor = System.Drawing.Color.White;
+            this.lbInformacion.Location = new System.Drawing.Point(377, 158);
+            this.lbInformacion.Name = "lbInformacion";
+            this.lbInformacion.Size = new System.Drawing.Size(173, 18);
+            this.lbInformacion.TabIndex = 43;
+            this.lbInformacion.Text = "Nombre del Documento";
+            // 
             // btnBuscar
             // 
             this.btnBuscar.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -140,6 +155,7 @@
             this.btnBuscar.TabIndex = 42;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtIdentificador
             // 
@@ -248,10 +264,12 @@
             this.btnAgregar.TabIndex = 34;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnModificar.FlatAppearance.BorderSize = 2;
             this.btnModificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
@@ -264,6 +282,7 @@
             this.btnModificar.TabIndex = 35;
             this.btnModificar.Text = "Modificar ";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnSalir
             // 
@@ -324,5 +343,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtIdentificador;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbInformacion;
     }
 }

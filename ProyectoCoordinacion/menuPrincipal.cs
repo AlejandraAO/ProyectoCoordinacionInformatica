@@ -45,7 +45,7 @@ namespace Vista
 
         private void gestiónDeProyectosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmProyectoSoftwareLibre ventanaSoftwareLibre = new frmProyectoSoftwareLibre();
+            frmProyectoSoftwareLibre ventanaSoftwareLibre = new frmProyectoSoftwareLibre(this);
             ventanaSoftwareLibre.Show();
         }
 

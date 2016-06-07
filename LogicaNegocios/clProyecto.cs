@@ -19,9 +19,9 @@ namespace LogicaNegocios
         #endregion
 
         #region Metodos
-        public SqlDataReader mConsultarProyectos(clConexion cone)
+        public SqlDataReader mConsultarProyectos(clConexion cone,clEntidadProyecto entidadProyecto)
         {
-            strSentencia = "select * from tbProyectos";
+            strSentencia = "select * from tbProyectos where idProyecto="+entidadProyecto.mIdProyecto+"";
             return cone.mSeleccionar(strSentencia, cone);
         }
         //public SqlDataReader mConsultarCantidadViajes(clConexion cone, clEntidadProyecto pEntidadProyecto)
@@ -33,7 +33,7 @@ namespace LogicaNegocios
             //revisar informacion proyecto en la forma que se inserta un varbinary.
         public Boolean mInsertarProyecto(clConexion cone, clEntidadProyecto pEntidadProyecto)
         {
-            strSentencia = "Insert into tbProyectos(idProyecto,nombre,descripcion,estado,tipo,informacion)values(" +pEntidadProyecto.mIdProyecto + "'"+pEntidadProyecto.mNombre+"''"+pEntidadProyecto.mDescripcion+"''"+pEntidadProyecto.mEstado+"''"+pEntidadProyecto.mTipo+"'"+pEntidadProyecto.mInformacioProyecto+")";
+            strSentencia = "Insert into tbProyectos(idProyecto,nombre,descripcion,estado,tipo,informacion)values(" +pEntidadProyecto.mIdProyecto + "','"+pEntidadProyecto.mNombre+"','"+pEntidadProyecto.mDescripcion+"','"+pEntidadProyecto.mEstado+"','"+pEntidadProyecto.mTipo+"','"+pEntidadProyecto.mInformacioProyecto+"')";
             return cone.mEjecutar(strSentencia, cone);
         }
 
