@@ -16,7 +16,7 @@ namespace LogicaNegocios
 
         public Boolean mInsertarCurso(clConexion conexion, clEntidadCurso pEntidadCurso)
         {
-            strSentencia = "insert into tbCursos(sigla, nombre, lugar, ciclo, creditos, programa, estado, totalHoras, modalidad) values('"+pEntidadCurso.mSiglaCurso+"', '"+ pEntidadCurso.mNombreCurso+ "', '"+ pEntidadCurso.mLugarCurso+ "', '"+ pEntidadCurso.mCicloCurso+ "', '"+ pEntidadCurso.mCreditosCurso+ "', (SELECT * FROM OPENROWSET(BULK N'" + pEntidadCurso.mProgramaCurso + "', SINGLE_BLOB) as Pdf), '" + pEntidadCurso.mEstadoCurso+ "', '"+ pEntidadCurso.mTotalDeHorasCurso+ "', '"+ pEntidadCurso.mModalidadCurso+ "')      ";
+            strSentencia = "insert into tbCursos(sigla, nombre, lugar, ciclo, creditos, programa, estado, totalHoras, modalidad, nombrePrograma) values('"+pEntidadCurso.mSiglaCurso+"', '"+ pEntidadCurso.mNombreCurso+ "', '"+ pEntidadCurso.mLugarCurso+ "', '"+ pEntidadCurso.mCicloCurso+ "', '"+ pEntidadCurso.mCreditosCurso+ "', (SELECT * FROM OPENROWSET(BULK N'" + pEntidadCurso.mProgramaCurso + "', SINGLE_BLOB) as Pdf), '" + pEntidadCurso.mEstadoCurso+ "', '"+ pEntidadCurso.mTotalDeHorasCurso+ "', '"+ pEntidadCurso.mModalidadCurso+ "', '"+pEntidadCurso.mNombrePrograma+"') ";
             return conexion.mEjecutar(strSentencia,conexion);
         }
 
@@ -34,7 +34,7 @@ namespace LogicaNegocios
 
         public SqlDataReader mConsultaGeneral(clConexion conexion)
         {
-            strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos";
+            strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad, nombrePrograma from tbCursos";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
 

@@ -88,6 +88,7 @@ namespace Vista
                 entidadCurso.mCicloCurso = txtCiclo.Text;
                 entidadCurso.mCreditosCurso = Convert.ToInt32(txtCreditos.Text);
                 entidadCurso.mProgramaCurso = archivoSeleccionado.FileName;
+                entidadCurso.mNombrePrograma = archivoSeleccionado.SafeFileName;
                 entidadCurso.mEstadoCurso = cbEstado.Text;
                 entidadCurso.mTotalDeHorasCurso = Convert.ToInt32(txtTotalHoras.Text);
                 entidadCurso.mModalidadCurso = txtModalidad.Text;

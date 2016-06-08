@@ -55,6 +55,7 @@ namespace Vista
                 
                 if (mVerificarCursoEnLista(strCurso.GetString(1),"Sigla") == false)
                 {
+                    
                     lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
                     lvItem.SubItems.Add(strCurso.GetString(2));
                     lvItem.SubItems.Add(strCurso.GetString(3));
@@ -63,6 +64,8 @@ namespace Vista
                     lvItem.SubItems.Add(strCurso.GetString(7));
                     lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
                     lvItem.SubItems.Add(strCurso.GetString(9));
+                    lvItem.SubItems.Add(strCurso.GetString(10)).ForeColor=Color.Blue;
+                                       
                 }
                 
 
@@ -70,8 +73,12 @@ namespace Vista
             }//fin del read
         }
 
+      
+
+
+
         private void frmConsultarCurso_Load(object sender, EventArgs e)
-        {
+        {            
             mConsultaGenetal();
         }
 
@@ -156,5 +163,7 @@ namespace Vista
                 mConsultaGenetal();
             }
         }
+
+        
     }
 }

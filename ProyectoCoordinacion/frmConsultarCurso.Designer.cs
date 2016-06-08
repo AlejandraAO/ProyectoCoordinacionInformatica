@@ -39,6 +39,7 @@
             this.estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.totalHoras = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.modalidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.programa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.txtDatoConsulta = new System.Windows.Forms.TextBox();
@@ -84,9 +85,11 @@
             this.creditos,
             this.estado,
             this.totalHoras,
-            this.modalidad});
+            this.modalidad,
+            this.programa});
             this.lvDetalleCursos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvDetalleCursos.ForeColor = System.Drawing.Color.Black;
+            this.lvDetalleCursos.FullRowSelect = true;
             this.lvDetalleCursos.GridLines = true;
             this.lvDetalleCursos.Location = new System.Drawing.Point(12, 114);
             this.lvDetalleCursos.Name = "lvDetalleCursos";
@@ -103,12 +106,12 @@
             // nombre
             // 
             this.nombre.Text = "Nombre";
-            this.nombre.Width = 285;
+            this.nombre.Width = 218;
             // 
             // lugar
             // 
             this.lugar.Text = "Lugar";
-            this.lugar.Width = 109;
+            this.lugar.Width = 79;
             // 
             // ciclo
             // 
@@ -122,7 +125,7 @@
             // estado
             // 
             this.estado.Text = "Estado";
-            this.estado.Width = 120;
+            this.estado.Width = 106;
             // 
             // totalHoras
             // 
@@ -132,7 +135,12 @@
             // modalidad
             // 
             this.modalidad.Text = "Modalidad";
-            this.modalidad.Width = 114;
+            this.modalidad.Width = 88;
+            // 
+            // programa
+            // 
+            this.programa.Text = "Programa";
+            this.programa.Width = 138;
             // 
             // btnSalir
             // 
@@ -221,5 +229,6 @@
         private System.Windows.Forms.ColumnHeader totalHoras;
         private System.Windows.Forms.ColumnHeader modalidad;
         private System.Windows.Forms.TextBox txtDatoConsulta;
+        private System.Windows.Forms.ColumnHeader programa;
     }
 }

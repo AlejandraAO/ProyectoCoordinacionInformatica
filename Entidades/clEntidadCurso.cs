@@ -19,6 +19,7 @@ namespace Entidades
         private string estadoCurso;
         private int totalDeHorasCurso;
         private string modalidadCurso;
+        private string nombrePrograma;
         #endregion
 
         #region Métodos set y get
@@ -80,6 +81,12 @@ namespace Entidades
         {
             set { this.modalidadCurso = value; }
             get { return this.modalidadCurso; }
+        }
+
+        public string mNombrePrograma
+        {
+            set { this.nombrePrograma = value; }
+            get { return this.nombrePrograma; }
         }
 
         #endregion
