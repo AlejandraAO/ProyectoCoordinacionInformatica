@@ -37,6 +37,7 @@
             this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ciclo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Créditos = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TotalHoras = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -130,14 +131,16 @@
             this.Sigla,
             this.Nombre,
             this.Lugar,
+            this.Ciclo,
             this.Créditos,
             this.Estado,
             this.TotalHoras,
             this.Modalidad,
             this.Programa});
-            this.dgvDetalleCursos.Location = new System.Drawing.Point(45, 145);
+            this.dgvDetalleCursos.Location = new System.Drawing.Point(12, 113);
             this.dgvDetalleCursos.Name = "dgvDetalleCursos";
-            this.dgvDetalleCursos.Size = new System.Drawing.Size(849, 164);
+            this.dgvDetalleCursos.ReadOnly = true;
+            this.dgvDetalleCursos.Size = new System.Drawing.Size(946, 317);
             this.dgvDetalleCursos.TabIndex = 34;
             // 
             // Sigla
@@ -155,6 +158,11 @@
             this.Lugar.HeaderText = "Lugar";
             this.Lugar.Name = "Lugar";
             // 
+            // Ciclo
+            // 
+            this.Ciclo.HeaderText = "Ciclo";
+            this.Ciclo.Name = "Ciclo";
+            // 
             // Créditos
             // 
             this.Créditos.HeaderText = "Créditos";
@@ -162,7 +170,7 @@
             // 
             // Estado
             // 
-            this.Estado.HeaderText = "Column1";
+            this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
             // 
             // TotalHoras
@@ -216,6 +224,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Sigla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ciclo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Créditos;
         private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
         private System.Windows.Forms.DataGridViewTextBoxColumn TotalHoras;

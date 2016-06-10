@@ -22,7 +22,7 @@ namespace Vista
         private clMiembros miembros;
         private SqlDataReader dtrMiembro;
 
-        private frmConsultaRapProyectos frmConsultaProyecto;
+        //private frmConsultaRapProyectos frmConsultaProyecto;
 
         #endregion
         public frmGestionMiembros()
@@ -100,14 +100,14 @@ namespace Vista
 
         private void btnBuscarProyecto_Click(object sender, EventArgs e)
         {
-            frmConsultaProyecto= new frmConsultaRapProyectos(conexion);
+           /* frmConsultaProyecto= new frmConsultaRapProyectos(conexion);
             frmConsultaProyecto.ShowDialog();
             if (frmConsultaProyecto.mIdProyecto > 0)
             {
                 //consultarCodigo(consultaUsuario.getCodigo());
 
                 MessageBox.Show("cargo los proyecto");
-            }
+            }*/
         }
     }
 }
