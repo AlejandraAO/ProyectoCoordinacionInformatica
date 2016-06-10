@@ -23,6 +23,7 @@ namespace Vista
         clConexion conexion;
         clEntidadCurso pEntidadCurso;
         clCurso clCurso;
+        ListViewItem lvItem;
         #endregion
 
         public frmConsultarCurso(menuPrincipal menu)
@@ -48,7 +49,7 @@ namespace Vista
             strCurso = clCurso.mConsultaGeneral(conexion);
 
            
-             ListViewItem lvItem = new ListViewItem();
+             lvItem = new ListViewItem();
             
             while (strCurso.Read())
             {
@@ -56,29 +57,50 @@ namespace Vista
                 
                 if (mVerificarCursoEnLista(strCurso.GetString(1),"Sigla") == false)
                 {
-                    
+                     busquedaPorSigla(posicion);
+                     posicion++;
 
-                    lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
-                    lvItem.SubItems.Add(strCurso.GetString(2));
-                    lvItem.SubItems.Add(strCurso.GetString(3));
-                    lvItem.SubItems.Add(strCurso.GetString(4));
-                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
-                    lvItem.SubItems.Add(strCurso.GetString(7));
-                    lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
-                    lvItem.SubItems.Add(strCurso.GetString(9));
-                    lvItem.SubItems.Add(strCurso.GetString(10));
+                }
+                else
+                {
+                    if (mVerificarCursoEnLista(strCurso.GetString(2), "Nombre") == false)
+                    {
+                        busquedaPorSigla(posicion);
+                        posicion++;
+                        
+                    }
+                    else
+                    {
+                        if (mVerificarCursoEnLista(strCurso.GetString(4), "Ciclo") == true)
+                        {
+                            mLimpiarLista();
+                            busquedaPorSigla(posicion);
+                            posicion++;
 
-                    lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
-                    lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
-                    lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font,FontStyle.Bold | FontStyle.Underline) ;
-
-                    posicion++;
-
+                        }
+                    }
                 }
 
 
 
             }//fin del read
+        }
+
+        public void busquedaPorSigla(int posicion)
+        {
+            lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
+            lvItem.SubItems.Add(strCurso.GetString(2));
+            lvItem.SubItems.Add(strCurso.GetString(3));
+            lvItem.SubItems.Add(strCurso.GetString(4));
+            lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
+            lvItem.SubItems.Add(strCurso.GetString(7));
+            lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
+            lvItem.SubItems.Add(strCurso.GetString(9));
+            lvItem.SubItems.Add(strCurso.GetString(10));
+
+            lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
+            lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
+            lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font, FontStyle.Bold | FontStyle.Underline);
         }
 
       
@@ -173,15 +195,7 @@ namespace Vista
         private void txtDatoConsulta_KeyUp(object sender, KeyEventArgs e)
         {
             if (txtDatoConsulta.Text == "")
-            {
-                int posicion = 0;
-                foreach (ListViewItem I in lvDetalleCursos.Items)
-                {
-                    lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
-                    lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
-                    lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font, FontStyle.Bold | FontStyle.Underline);
-                    posicion++;
-                }
+            {             
                 mConsultaGenetal();
             }
         }
