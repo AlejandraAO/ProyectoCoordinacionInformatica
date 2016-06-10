@@ -121,24 +121,5 @@ namespace Vista
         {
 
         }
-
-        public Boolean mVerificarDatosNecesarios()
-        {
-            if ((txtIdentificador.Text != "") & (txtNombre.Text != "")   & (rtDescripcion.Text != "") & (cbEstado.Text != "") & (cbTipo.Text != "") & (lbInformacion.Text != ""))
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public void mLimpiarCampos()
-        {
-            txtIdentificador.Text = "";
-            txtNombre.Text = "";
-            cbEstado.Text = "";
-            cbTipo.Text = "";
-            rtDescripcion.Text = "";
-            lbInformacion.Text = "";
-        }
     }
 }

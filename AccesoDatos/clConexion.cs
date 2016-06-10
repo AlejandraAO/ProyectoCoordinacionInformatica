@@ -123,7 +123,7 @@ namespace AccesoDatos
         //Este metodo obtiene el nombre de la maquina de windows
         public string mNomServidor()
         {
-            return Dns.GetHostName()+"\\SQLEXPRESS";
+            return Dns.GetHostName();
         }
         #endregion
     }
