@@ -21,6 +21,9 @@ namespace Vista
         private clEntidadMiembro pEntidadMiembro;
         private clMiembros miembros;
         private SqlDataReader dtrMiembro;
+
+        private frmConsultaRapProyectos frmConsultaProyecto;
+
         #endregion
         public frmGestionMiembros()
         {
@@ -28,6 +31,9 @@ namespace Vista
             pEntidadMiembro = new clEntidadMiembro();
             miembros = new clMiembros();
             InitializeComponent();
+
+          //  frmConsultaProyecto = new frmConsultaRapProyectos();
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -90,6 +96,18 @@ namespace Vista
         {
             frmConsultarMiembro miembro = new frmConsultarMiembro();
             miembro.Show();
+        }
+
+        private void btnBuscarProyecto_Click(object sender, EventArgs e)
+        {
+            frmConsultaProyecto= new frmConsultaRapProyectos(conexion);
+            frmConsultaProyecto.ShowDialog();
+            if (frmConsultaProyecto.getIdProyecto() > 0)
+            {
+                //consultarCodigo(consultaUsuario.getCodigo());
+
+                MessageBox.Show("cargo el proyecto");
+            }
         }
     }
 }
