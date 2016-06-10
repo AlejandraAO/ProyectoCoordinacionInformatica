@@ -7,28 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AccesoDatos;
-using LogicaNegocios;
 using System.Data.SqlClient;
+using LogicaNegocios;
+using Entidades;
+using AccesoDatos;
 
 namespace Vista
 {
     public partial class frmConsultaRapProyectos : Form
     {
-        #region Atributos
-        private SqlDataReader dtrProyecto;
+        #region Atrbutos
         private clConexion conexion;
-        private clProyecto proyecto;
+        private SqlDataReader dataReaderProyecto;
+        private clProyecto miembros;
         private int codigoProyecto;
         #endregion
-
-        public frmConsultaRapProyectos( clConexion conexion)
+        public frmConsultaRapProyectos(clConexion conexion)
         {
+            this.conexion = conexion;
+            miembros = new clProyecto();
             InitializeComponent();
+        }
 
-            this.conexion =conexion;
-            proyecto = new clProyecto();
-           
+        private void frmConsultaRapProyectos_Load(object sender, EventArgs e)
+        {
 
         }
 
@@ -36,13 +38,13 @@ namespace Vista
         {
             this.Close();
         }
-
-        public int getIdProyecto()
+        public int mIdProyecto
         {
-            return (codigoProyecto);
+            get { return codigoProyecto; }
+            set { codigoProyecto = value; }
         }
 
-        private void lvProyectos_SelectedIndexChanged(object sender, EventArgs e)
+        private void lvProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
             for (int i = 0; i < lvProyecto.Items.Count; i++)
             {
@@ -53,24 +55,22 @@ namespace Vista
             }
         }
 
-
+        private void lvProyecto_DoubleClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
         public void mCargarlistViewproyecto()
         {
-            dtrProyecto = proyecto.mConsultaGeneralProyectos(conexion);
-            if (dtrProyecto != null)
+            dataReaderProyecto = miembros.mConsultaGeneralProyectos(conexion);
+            if (dataReaderProyecto != null)
             {
-                while (dtrProyecto.Read())
+                while (dataReaderProyecto.Read())
                 {
-                    ListViewItem item = new ListViewItem(Convert.ToString(dtrProyecto.GetInt32(0)));
-                    item.SubItems.Add(dtrProyecto.GetString(1));
+                    ListViewItem item = new ListViewItem(Convert.ToString(dataReaderProyecto.GetInt32(0)));
+                    item.SubItems.Add(dataReaderProyecto.GetString(1));
                     lvProyecto.Items.Add(item);
                 }
             }
-        }
-
-        private void frmConsultaRapProyectos_Load(object sender, EventArgs e)
-        {
-            mCargarlistViewproyecto();
         }
     }
 }

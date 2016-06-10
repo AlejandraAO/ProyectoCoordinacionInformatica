@@ -31,6 +31,8 @@ namespace LogicaNegocios
             strSentencia = "";
             return cone.mEjecutar(strSentencia, cone);
         }
+
+     
         #endregion
     }
 }

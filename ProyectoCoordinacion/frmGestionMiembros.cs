@@ -102,11 +102,11 @@ namespace Vista
         {
             frmConsultaProyecto= new frmConsultaRapProyectos(conexion);
             frmConsultaProyecto.ShowDialog();
-            if (frmConsultaProyecto.getIdProyecto() > 0)
+            if (frmConsultaProyecto.mIdProyecto > 0)
             {
                 //consultarCodigo(consultaUsuario.getCodigo());
 
-                MessageBox.Show("cargo el proyecto");
+                MessageBox.Show("cargo los proyecto");
             }
         }
     }
