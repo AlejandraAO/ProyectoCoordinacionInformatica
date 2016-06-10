@@ -44,11 +44,12 @@ namespace Vista
 
         public void mConsultaGenetal()
         {
+            int posicion = 0;
             strCurso = clCurso.mConsultaGeneral(conexion);
 
            
              ListViewItem lvItem = new ListViewItem();
-
+            
             while (strCurso.Read())
             {
 
@@ -56,6 +57,7 @@ namespace Vista
                 if (mVerificarCursoEnLista(strCurso.GetString(1),"Sigla") == false)
                 {
                     
+
                     lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
                     lvItem.SubItems.Add(strCurso.GetString(2));
                     lvItem.SubItems.Add(strCurso.GetString(3));
@@ -64,12 +66,18 @@ namespace Vista
                     lvItem.SubItems.Add(strCurso.GetString(7));
                     lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
                     lvItem.SubItems.Add(strCurso.GetString(9));
-                    lvItem.SubItems.Add(strCurso.GetString(10)).ForeColor=Color.Blue;
-                                       
-                }
-                
+                    lvItem.SubItems.Add(strCurso.GetString(10));
 
-                
+                    lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
+                    lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
+                    lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font,FontStyle.Bold | FontStyle.Underline) ;
+
+                    posicion++;
+
+                }
+
+
+
             }//fin del read
         }
 
@@ -119,7 +127,7 @@ namespace Vista
         private void btnConsultar_Click(object sender, EventArgs e)
         {
             mLimpiarLista();
-         
+            int posicion = 0;
                 pEntidadCurso.mNombreCurso = txtDatoConsulta.Text.Trim();
                 pEntidadCurso.mSiglaCurso = txtDatoConsulta.Text.Trim();
                 pEntidadCurso.mCicloCurso = txtDatoConsulta.Text.Trim();
@@ -140,7 +148,13 @@ namespace Vista
                             lvItem.SubItems.Add(strCurso.GetString(7));
                             lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
                             lvItem.SubItems.Add(strCurso.GetString(9));
-                        }//fin del read
+                            lvItem.SubItems.Add(strCurso.GetString(10));
+
+                        lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
+                        lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
+                        lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font, FontStyle.Bold | FontStyle.Underline);
+                        posicion++;
+                    }//fin del read
                     }                
                  }                 
         }
@@ -160,6 +174,14 @@ namespace Vista
         {
             if (txtDatoConsulta.Text == "")
             {
+                int posicion = 0;
+                foreach (ListViewItem I in lvDetalleCursos.Items)
+                {
+                    lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
+                    lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
+                    lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font, FontStyle.Bold | FontStyle.Underline);
+                    posicion++;
+                }
                 mConsultaGenetal();
             }
         }
