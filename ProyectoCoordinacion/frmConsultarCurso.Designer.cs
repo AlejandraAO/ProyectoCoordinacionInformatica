@@ -91,11 +91,13 @@
             this.lvDetalleCursos.ForeColor = System.Drawing.Color.Black;
             this.lvDetalleCursos.GridLines = true;
             this.lvDetalleCursos.Location = new System.Drawing.Point(12, 114);
+            this.lvDetalleCursos.MultiSelect = false;
             this.lvDetalleCursos.Name = "lvDetalleCursos";
             this.lvDetalleCursos.Size = new System.Drawing.Size(927, 433);
             this.lvDetalleCursos.TabIndex = 30;
             this.lvDetalleCursos.UseCompatibleStateImageBehavior = false;
             this.lvDetalleCursos.View = System.Windows.Forms.View.Details;
+            this.lvDetalleCursos.SelectedIndexChanged += new System.EventHandler(this.lvDetalleCursos_SelectedIndexChanged);
             // 
             // sigla
             // 

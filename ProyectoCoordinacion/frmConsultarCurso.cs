@@ -200,6 +200,19 @@ namespace Vista
             }
         }
 
-        
+        private void lvDetalleCursos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            ListView.SelectedIndexCollection indexes =
+            this.lvDetalleCursos.SelectedIndices;
+            
+            foreach (int index in indexes)
+            {
+                Console.WriteLine(
+                    this.lvDetalleCursos.Items[index].SubItems[8].Text);
+                
+            }
+
+        }
     }
 }
