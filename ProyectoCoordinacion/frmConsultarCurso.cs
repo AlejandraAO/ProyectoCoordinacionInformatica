@@ -90,7 +90,7 @@ namespace Vista
             mConsultaGenetal();
         }
 
-        public Boolean mVerificarCursoEnLista(string sigla, string tipo)
+        public Boolean mVerificarCursoEnLista(string tipoConsulta, string tipo)
         {
             int posicion = 0;
             if (tipo == "Sigla")
@@ -115,7 +115,7 @@ namespace Vista
             foreach (ListViewItem I in lvDetalleCursos.Items)
             {
                 Console.WriteLine(sigla +"es igual a "+ I.SubItems[posicion].Text);         
-                if(sigla== I.SubItems[0].Text)
+                if(tipoConsulta == I.SubItems[0].Text|| tipoConsulta == I.SubItems[1].Text|| tipoConsulta == I.SubItems[3].Text)
                 {
                     return true;
                 }
