@@ -42,20 +42,20 @@ namespace LogicaNegocios
         {
             if (tipo == "Ciclo")
             {
-                strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where ciclo='" + pEntidadCurso.mCicloCurso + "'  ";
+                strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad, nombrePrograma from tbCursos where ciclo='" + pEntidadCurso.mCicloCurso + "'  ";
                 return conexion.mSeleccionar(strSentencia, conexion);
             }
             else
             {
                 if (tipo == "Nombre")
                 {
-                    strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where nombre='" + pEntidadCurso.mNombreCurso + "'  ";
+                    strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad, nombrePrograma from tbCursos where nombre='" + pEntidadCurso.mNombreCurso + "'  ";
                     return conexion.mSeleccionar(strSentencia, conexion);
                 }
                 else
                 {
                     
-                        strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where sigla='" + pEntidadCurso.mSiglaCurso + "'  ";
+                        strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad, nombrePrograma from tbCursos where sigla='" + pEntidadCurso.mSiglaCurso + "'  ";
                         return conexion.mSeleccionar(strSentencia, conexion);
                     
                 }

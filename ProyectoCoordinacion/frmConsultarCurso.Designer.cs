@@ -89,7 +89,6 @@
             this.programa});
             this.lvDetalleCursos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvDetalleCursos.ForeColor = System.Drawing.Color.Black;
-            this.lvDetalleCursos.FullRowSelect = true;
             this.lvDetalleCursos.GridLines = true;
             this.lvDetalleCursos.Location = new System.Drawing.Point(12, 114);
             this.lvDetalleCursos.Name = "lvDetalleCursos";
