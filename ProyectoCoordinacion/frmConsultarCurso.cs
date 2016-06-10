@@ -88,7 +88,13 @@ namespace Vista
 
         public void busquedaPorSigla(int posicion)
         {
-            lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
+            //LLenar el data aquí
+            int reglon = dgvDetalleCursos.Rows.Add();
+            dgvDetalleCursos.Rows[reglon].Cells["Sigla"].Value = strCurso.GetString(1);
+
+            //Comenté x el datagrid
+
+           /** lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
             lvItem.SubItems.Add(strCurso.GetString(2));
             lvItem.SubItems.Add(strCurso.GetString(3));
             lvItem.SubItems.Add(strCurso.GetString(4));
@@ -100,7 +106,7 @@ namespace Vista
 
             lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
             lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
-            lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font, FontStyle.Bold | FontStyle.Underline);
+            lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font, FontStyle.Bold | FontStyle.Underline);**/
         }
 
       
@@ -134,7 +140,8 @@ namespace Vista
 
                 }
             }
-            foreach (ListViewItem I in lvDetalleCursos.Items)
+            //Comenté x el datagrid
+            /*foreach (ListViewItem I in lvDetalleCursos.Items)
             {
                 Console.WriteLine(sigla +"es igual a "+ I.SubItems[posicion].Text);         
                 if(tipoConsulta == I.SubItems[0].Text|| tipoConsulta == I.SubItems[1].Text|| tipoConsulta == I.SubItems[3].Text)
@@ -142,7 +149,7 @@ namespace Vista
                     return true;
                 }
 
-            }
+            }*/
             return false;
         }
 
@@ -162,22 +169,24 @@ namespace Vista
                         strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
                         while (strCurso.Read())
                         {
-                            lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
-                            lvItem.SubItems.Add(strCurso.GetString(2));
-                            lvItem.SubItems.Add(strCurso.GetString(3));
-                            lvItem.SubItems.Add(strCurso.GetString(4));
-                            lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
-                            lvItem.SubItems.Add(strCurso.GetString(7));
-                            lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
-                            lvItem.SubItems.Add(strCurso.GetString(9));
-                            lvItem.SubItems.Add(strCurso.GetString(10));
+                        //Comenté x el datagrid
 
-                        lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
-                        lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
-                        lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font, FontStyle.Bold | FontStyle.Underline);
-                        posicion++;
+                        /* lvItem = lvDetalleCursos.Items.Add(strCurso.GetString(1));
+                         lvItem.SubItems.Add(strCurso.GetString(2));
+                         lvItem.SubItems.Add(strCurso.GetString(3));
+                         lvItem.SubItems.Add(strCurso.GetString(4));
+                         lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(5)));
+                         lvItem.SubItems.Add(strCurso.GetString(7));
+                         lvItem.SubItems.Add(Convert.ToString(strCurso.GetInt32(8)));
+                         lvItem.SubItems.Add(strCurso.GetString(9));
+                         lvItem.SubItems.Add(strCurso.GetString(10));
+
+                     lvDetalleCursos.Items[posicion].UseItemStyleForSubItems = false;
+                     lvDetalleCursos.Items[posicion].SubItems[8].ForeColor = Color.Blue;
+                     lvDetalleCursos.Items[posicion].SubItems[8].Font = new Font(lvDetalleCursos.Font, FontStyle.Bold | FontStyle.Underline);
+                     posicion++;*/
                     }//fin del read
-                    }                
+                }                
                  }                 
         }
 
@@ -189,7 +198,8 @@ namespace Vista
 
         public void mLimpiarLista()
         {
-            lvDetalleCursos.Items.Clear();
+            //Comenté x el datagrid
+            //lvDetalleCursos.Items.Clear();
         }
 
         private void txtDatoConsulta_KeyUp(object sender, KeyEventArgs e)
@@ -203,15 +213,14 @@ namespace Vista
         private void lvDetalleCursos_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            ListView.SelectedIndexCollection indexes =
-            this.lvDetalleCursos.SelectedIndices;
+           /* ListView.SelectedIndexCollection indexes = lvDetalleCursos.SelectedIndices;
             
             foreach (int index in indexes)
             {
                 Console.WriteLine(
                     this.lvDetalleCursos.Items[index].SubItems[8].Text);
                 
-            }
+            }*/
 
         }
     }
