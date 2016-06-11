@@ -70,12 +70,6 @@
     <Compile Include="frmConsultarCurso.designer.cs">
       <DependentUpon>frmConsultarCurso.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConsultarMiembro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmConsultarMiembro.Designer.cs">
-      <DependentUpon>frmConsultarMiembro.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +97,12 @@
     <Compile Include="frmProyectoSoftwareLibre.Designer.cs">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteMiembros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteMiembros.Designer.cs">
+      <DependentUpon>frmReporteMiembros.cs</DependentUpon>
+    </Compile>
     <Compile Include="menuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,9 +123,6 @@
     <EmbeddedResource Include="frmConsultarCurso.resx">
       <DependentUpon>frmConsultarCurso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultarMiembro.resx">
-      <DependentUpon>frmConsultarMiembro.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCursos.resx">
       <DependentUpon>frmCursos.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,6 +137,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProyectoSoftwareLibre.resx">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteMiembros.resx">
+      <DependentUpon>frmReporteMiembros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuPrincipal.resx">
       <DependentUpon>menuPrincipal.cs</DependentUpon>

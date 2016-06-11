@@ -58,6 +58,8 @@
             this.lvProyecto.TabIndex = 3;
             this.lvProyecto.UseCompatibleStateImageBehavior = false;
             this.lvProyecto.View = System.Windows.Forms.View.Details;
+            this.lvProyecto.SelectedIndexChanged += new System.EventHandler(this.lvProyecto_SelectedIndexChanged);
+            this.lvProyecto.DoubleClick += new System.EventHandler(this.btnSalir_Click);
             // 
             // codigo
             // 

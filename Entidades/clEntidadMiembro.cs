@@ -14,6 +14,7 @@ namespace Entidades
         private string apellido2Miembro;
         private string carreraMiembro;
         private string tipoMiembro;
+        private string carnet;
         #endregion
 
         #region Constructor
@@ -24,10 +25,18 @@ namespace Entidades
             apellido2Miembro = "";
             carreraMiembro = "";
             tipoMiembro = "";
+            carnet = "";
         }
         #endregion
 
         #region Metodos Set y Get
+
+        public string getSetCarnetMiembro
+        {
+            get { return this.carnet; }
+            set { this.carnet = value; }
+        }
+
         public string getSetNombreMiembro    
         {
             get{ return this.nombreMiembro;}

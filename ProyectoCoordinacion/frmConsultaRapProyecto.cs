@@ -22,7 +22,7 @@ namespace Vista
         private SqlDataReader dataReaderProyecto;
         private clConexion conexion;
         private clProyecto proyecto;
-        private int codigoProyecto;
+        private string codigoProyecto, nombreProyecto;
         #endregion
 
         public frmConsultaRapProyecto(clConexion conexion)
@@ -33,27 +33,18 @@ namespace Vista
             InitializeComponent();
         }
 
-        private void lvEstudiante_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            for (int i = 0; i < lvProyecto.Items.Count; i++)
-            {
-                if (lvProyecto.Items[i].Selected)
-                {
-                    codigoProyecto = Convert.ToInt32(lvProyecto.Items[i].Text);
-                }
-            }
-        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        public int mIdProyecto
+        public string mIdProyecto
         {
             get { return codigoProyecto; }
             set { codigoProyecto = value; }
         }
+
 
         public void mCargarlistViewproyecto()
         {
@@ -77,6 +68,21 @@ namespace Vista
         private void lvProyecto_DoubleClick(object sender, EventArgs e)
         {
             this.Close();
+
+        }
+
+        private void lvProyecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            for (int i = 0; i < lvProyecto.Items.Count; i++)
+            {
+                if (lvProyecto.Items[i].Selected)
+                {
+                    codigoProyecto = lvProyecto.Items[i].Text;
+                    
+                }
+
+
+            }
 
         }
     }
