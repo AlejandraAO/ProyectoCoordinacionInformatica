@@ -22,7 +22,7 @@ namespace Vista
         private SqlDataReader dataReaderProyecto;
         private clConexion conexion;
         private clProyecto proyecto;
-        private string codigoProyecto, nombreProyecto;
+        private string codigoProyecto;
         #endregion
 
         public frmConsultaRapProyecto(clConexion conexion)

@@ -127,8 +127,7 @@ namespace Vista
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            frmConsultarMiembro miembro = new frmConsultarMiembro();
-            miembro.Show();
+            
         }
 
         private void btnBuscarProyecto_Click(object sender, EventArgs e)
