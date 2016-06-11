@@ -123,6 +123,29 @@ namespace Vista
                 mLimpiarLista();
                 mConsultaGenetal();
             }
-        }       
+        }
+
+        private void dgvDetalleCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDetalleCursos.CurrentCell.ColumnIndex == 8)
+            {
+                FolderBrowserDialog carpetaSeleccionada = new FolderBrowserDialog();
+                carpetaSeleccionada.Description = "Seleccione la ruta donde guardará el programa";
+                DialogResult result = carpetaSeleccionada.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {                    
+                    string ruta = carpetaSeleccionada.SelectedPath + "/" + dgvDetalleCursos.CurrentCell.Value;
+                    pEntidadCurso.mSiglaCurso = Convert.ToString(dgvDetalleCursos.Rows[dgvDetalleCursos.CurrentCell.RowIndex].Cells[0].Value);
+                    strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, "Sigla");
+                    if (strCurso != null)
+                        if (strCurso.Read()) { 
+                    pEntidadCurso.mIdCurso = strCurso.GetInt32(0);
+                    clCurso.mDescargarProgramaCurso(conexion, ruta, pEntidadCurso);
+                    
+                    }
+                }
+            }
+        }
     }
 }
