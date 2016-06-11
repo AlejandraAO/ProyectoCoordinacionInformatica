@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clEntidadCursoLibre.cs" />
+    <Compile Include="clEntidadMiembroProyecto.cs" />
     <Compile Include="clEntidadProyecto.cs" />
     <Compile Include="clEntidadCurso.cs" />
     <Compile Include="clEntidadMiembro.cs" />

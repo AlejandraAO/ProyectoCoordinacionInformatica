@@ -114,12 +114,89 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            if (mVerificarDatosNecesarios())
+            {
+                conexion.codigo = "123";
+                conexion.clave = "123";
 
+                //Se asignan los valores a la entidad curso
+                //entidadProyecto.mIdProyecto = Convert.ToInt32(txtIdentificador.Text);
+                entidadProyecto.mNombre = txtNombre.Text;
+                entidadProyecto.mDescripcion = rtDescripcion.Text;
+                entidadProyecto.mEstado = cbEstado.Text;
+                entidadProyecto.mTipo = cbTipo.Text;
+                entidadProyecto.mInformacioProyecto = archivoSeleccionado.FileName;
+                entidadProyecto.mNombreDocumento = archivoSeleccionado.SafeFileName;
+                
+                //Se verifica que se haya insertado correctamente
+                if (proyecto.mInsertarProyecto(conexion, entidadProyecto))
+                {
+                    MessageBox.Show("Se ha insertado el Proyecto", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mLimpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("No pudo insertar el Proyecto", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Datos insuficientes para agregar un Proyecto", "Favor completar campos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
+            if (mVerificarDatosNecesarios())
+            {
+                conexion.codigo = "123";
+                conexion.clave = "123";
 
+                //Se asignan los valores a la entidad proyecto
+                               
+
+                
+                entidadProyecto.mNombre = txtNombre.Text;
+                entidadProyecto.mDescripcion = rtDescripcion.Text;
+                entidadProyecto.mEstado = cbEstado.Text;
+                entidadProyecto.mTipo = cbTipo.Text;
+                entidadProyecto.mInformacioProyecto = archivoSeleccionado.FileName;
+              //Mae le comenté esto xq daba error y no dejaba ejecutar
+
+                /*if (proyecto.mModificarProyecto(conexion, entidadProyecto))
+                {
+                    MessageBox.Show("Se ha modificado el Proyecto", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido modificar el Proyecto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }*/
+            }
+            else
+            {
+                MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        
+
+    }
+
+        public Boolean mVerificarDatosNecesarios()
+        {
+            if ((txtIdentificador.Text != "") & (txtNombre.Text != "")   & (rtDescripcion.Text != "") & (cbEstado.Text != "") & (cbTipo.Text != "") & (lbInformacion.Text != ""))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public void mLimpiarCampos()
+        {
+            txtIdentificador.Text = "";
+            txtNombre.Text = "";
+            cbEstado.Text = "";
+            cbTipo.Text = "";
+            rtDescripcion.Text = "";
+            lbInformacion.Text = "";
         }
     }
 }

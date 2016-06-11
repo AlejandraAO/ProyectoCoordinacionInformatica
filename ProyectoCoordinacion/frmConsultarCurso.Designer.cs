@@ -30,19 +30,20 @@
         {
             this.lbConsultarPor = new System.Windows.Forms.Label();
             this.cbConsultarPor = new System.Windows.Forms.ComboBox();
-            this.lvDetalleCursos = new System.Windows.Forms.ListView();
-            this.sigla = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.nombre = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lugar = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ciclo = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.creditos = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.estado = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.totalHoras = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.modalidad = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.programa = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.txtDatoConsulta = new System.Windows.Forms.TextBox();
+            this.dgvDetalleCursos = new System.Windows.Forms.DataGridView();
+            this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ciclo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Créditos = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Estado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalHoras = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Modalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Programa = new System.Windows.Forms.DataGridViewLinkColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCursos)).BeginInit();
             this.SuspendLayout();
             // 
             // lbConsultarPor
@@ -73,73 +74,6 @@
             this.cbConsultarPor.Size = new System.Drawing.Size(121, 25);
             this.cbConsultarPor.TabIndex = 29;
             this.cbConsultarPor.SelectedIndexChanged += new System.EventHandler(this.cbConsultarPor_SelectedIndexChanged);
-            // 
-            // lvDetalleCursos
-            // 
-            this.lvDetalleCursos.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lvDetalleCursos.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.sigla,
-            this.nombre,
-            this.lugar,
-            this.ciclo,
-            this.creditos,
-            this.estado,
-            this.totalHoras,
-            this.modalidad,
-            this.programa});
-            this.lvDetalleCursos.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvDetalleCursos.ForeColor = System.Drawing.Color.Black;
-            this.lvDetalleCursos.GridLines = true;
-            this.lvDetalleCursos.Location = new System.Drawing.Point(12, 114);
-            this.lvDetalleCursos.Name = "lvDetalleCursos";
-            this.lvDetalleCursos.Size = new System.Drawing.Size(927, 433);
-            this.lvDetalleCursos.TabIndex = 30;
-            this.lvDetalleCursos.UseCompatibleStateImageBehavior = false;
-            this.lvDetalleCursos.View = System.Windows.Forms.View.Details;
-            // 
-            // sigla
-            // 
-            this.sigla.Text = "Sigla";
-            this.sigla.Width = 72;
-            // 
-            // nombre
-            // 
-            this.nombre.Text = "Nombre";
-            this.nombre.Width = 218;
-            // 
-            // lugar
-            // 
-            this.lugar.Text = "Lugar";
-            this.lugar.Width = 79;
-            // 
-            // ciclo
-            // 
-            this.ciclo.Text = "Ciclo";
-            // 
-            // creditos
-            // 
-            this.creditos.Text = "Créditos";
-            this.creditos.Width = 63;
-            // 
-            // estado
-            // 
-            this.estado.Text = "Estado";
-            this.estado.Width = 106;
-            // 
-            // totalHoras
-            // 
-            this.totalHoras.Text = "Total de Horas";
-            this.totalHoras.Width = 99;
-            // 
-            // modalidad
-            // 
-            this.modalidad.Text = "Modalidad";
-            this.modalidad.Width = 88;
-            // 
-            // programa
-            // 
-            this.programa.Text = "Programa";
-            this.programa.Width = 138;
             // 
             // btnSalir
             // 
@@ -188,6 +122,82 @@
             this.txtDatoConsulta.TabIndex = 33;
             this.txtDatoConsulta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDatoConsulta_KeyUp);
             // 
+            // dgvDetalleCursos
+            // 
+            this.dgvDetalleCursos.AllowUserToOrderColumns = true;
+            this.dgvDetalleCursos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvDetalleCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Sigla,
+            this.Nombre,
+            this.Lugar,
+            this.Ciclo,
+            this.Créditos,
+            this.Estado,
+            this.TotalHoras,
+            this.Modalidad,
+            this.Programa});
+            this.dgvDetalleCursos.Location = new System.Drawing.Point(12, 113);
+            this.dgvDetalleCursos.Name = "dgvDetalleCursos";
+            this.dgvDetalleCursos.ReadOnly = true;
+            this.dgvDetalleCursos.Size = new System.Drawing.Size(946, 317);
+            this.dgvDetalleCursos.TabIndex = 34;
+            this.dgvDetalleCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCursos_CellContentClick);
+            // 
+            // Sigla
+            // 
+            this.Sigla.HeaderText = "Sigla";
+            this.Sigla.Name = "Sigla";
+            this.Sigla.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // Lugar
+            // 
+            this.Lugar.HeaderText = "Lugar";
+            this.Lugar.Name = "Lugar";
+            this.Lugar.ReadOnly = true;
+            // 
+            // Ciclo
+            // 
+            this.Ciclo.HeaderText = "Ciclo";
+            this.Ciclo.Name = "Ciclo";
+            this.Ciclo.ReadOnly = true;
+            // 
+            // Créditos
+            // 
+            this.Créditos.HeaderText = "Créditos";
+            this.Créditos.Name = "Créditos";
+            this.Créditos.ReadOnly = true;
+            // 
+            // Estado
+            // 
+            this.Estado.HeaderText = "Estado";
+            this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
+            // 
+            // TotalHoras
+            // 
+            this.TotalHoras.HeaderText = "Total de horas";
+            this.TotalHoras.Name = "TotalHoras";
+            this.TotalHoras.ReadOnly = true;
+            // 
+            // Modalidad
+            // 
+            this.Modalidad.HeaderText = "Modalidad";
+            this.Modalidad.Name = "Modalidad";
+            this.Modalidad.ReadOnly = true;
+            // 
+            // Programa
+            // 
+            this.Programa.HeaderText = "Programa";
+            this.Programa.Name = "Programa";
+            this.Programa.ReadOnly = true;
+            // 
             // frmConsultarCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,10 +205,10 @@
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(978, 602);
+            this.Controls.Add(this.dgvDetalleCursos);
             this.Controls.Add(this.txtDatoConsulta);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.lvDetalleCursos);
             this.Controls.Add(this.cbConsultarPor);
             this.Controls.Add(this.lbConsultarPor);
             this.DoubleBuffered = true;
@@ -207,6 +217,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConsultarCurso";
             this.Load += new System.EventHandler(this.frmConsultarCurso_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCursos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,18 +227,18 @@
 
         private System.Windows.Forms.Label lbConsultarPor;
         private System.Windows.Forms.ComboBox cbConsultarPor;
-        private System.Windows.Forms.ListView lvDetalleCursos;
-        private System.Windows.Forms.ColumnHeader sigla;
-        private System.Windows.Forms.ColumnHeader nombre;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.ColumnHeader lugar;
-        private System.Windows.Forms.ColumnHeader ciclo;
-        private System.Windows.Forms.ColumnHeader creditos;
-        private System.Windows.Forms.ColumnHeader estado;
-        private System.Windows.Forms.ColumnHeader totalHoras;
-        private System.Windows.Forms.ColumnHeader modalidad;
         private System.Windows.Forms.TextBox txtDatoConsulta;
-        private System.Windows.Forms.ColumnHeader programa;
+        private System.Windows.Forms.DataGridView dgvDetalleCursos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sigla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ciclo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Créditos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Estado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TotalHoras;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Modalidad;
+        private System.Windows.Forms.DataGridViewLinkColumn Programa;
     }
 }

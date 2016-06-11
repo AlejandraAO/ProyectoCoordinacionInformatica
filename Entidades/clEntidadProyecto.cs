@@ -14,7 +14,8 @@ namespace Entidades
         private string descripcion;
         private string tipo;
         private string estado;
-        private byte informacionProyecto;
+        private string informacionProyecto;
+        private string nombreDocumento;
         
         #endregion
 
@@ -51,10 +52,16 @@ namespace Entidades
 
        
 
-        public byte mInformacioProyecto
+        public string mInformacioProyecto
         {
             set { this.informacionProyecto = value; }
             get { return this.informacionProyecto; }
+        }
+
+        public string mNombreDocumento
+        {
+            set { this.nombreDocumento = value; }
+            get { return this.nombreDocumento; }
         }
 
         #endregion
