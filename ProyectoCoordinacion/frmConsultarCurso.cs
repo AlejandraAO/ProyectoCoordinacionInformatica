@@ -18,12 +18,12 @@ namespace Vista
     public partial class frmConsultarCurso : Form
     {
         #region Atributos
-        menuPrincipal menu;
-        SqlDataReader strCurso;
-        clConexion conexion;
-        clEntidadCurso pEntidadCurso;
-        clCurso clCurso;
-        ListViewItem lvItem;
+        private menuPrincipal menu;
+        private SqlDataReader strCurso;
+        private clConexion conexion;
+        private clEntidadCurso pEntidadCurso;
+        private clCurso clCurso;
+        private ListViewItem lvItem;
         #endregion
 
         public frmConsultarCurso(menuPrincipal menu)
@@ -44,49 +44,19 @@ namespace Vista
         }
 
         public void mConsultaGenetal()
-        {
-            int posicion = 0;
+        {            
             strCurso = clCurso.mConsultaGeneral(conexion);
-
            
-             lvItem = new ListViewItem();
-            
+            lvItem = new ListViewItem();
+            if(strCurso!=null)
             while (strCurso.Read())
             {
-
-                
-                if (mVerificarCursoEnLista(strCurso.GetString(1),"Sigla") == false)
-                {
-                     busquedaPorSigla(posicion);
-                     posicion++;
-
-                }
-                else
-                {
-                    if (mVerificarCursoEnLista(strCurso.GetString(2), "Nombre") == false)
-                    {
-                        busquedaPorSigla(posicion);
-                        posicion++;
-                        
-                    }
-                    else
-                    {
-                        if (mVerificarCursoEnLista(strCurso.GetString(4), "Ciclo") == true)
-                        {
-                            mLimpiarLista();
-                            busquedaPorSigla(posicion);
-                            posicion++;
-
-                        }
-                    }
-                }
-
-
-
+                    mBusquedaCursos();
+                                  
             }//fin del read
         }
 
-        public void llenarDataGridCursos()
+        public void mLlenarDataGridCursos()
         {
             int reglon = dgvDetalleCursos.Rows.Add();
             dgvDetalleCursos.Rows[reglon].Cells["Sigla"].Value = strCurso.GetString(1);
@@ -100,47 +70,18 @@ namespace Vista
             dgvDetalleCursos.Rows[reglon].Cells["Programa"].Value = strCurso.GetString(10);
         }
 
-        public void busquedaPorSigla(int posicion)
+        public void mBusquedaCursos()
         {
             //LLenar el data aquí
-            llenarDataGridCursos();
+            mLlenarDataGridCursos();
             
-        }
-
-      
-
-
-
+        }    
         private void frmConsultarCurso_Load(object sender, EventArgs e)
         {            
             mConsultaGenetal();
         }
 
-        public Boolean mVerificarCursoEnLista(string tipoConsulta, string tipo)
-        {
-            int posicion = 0;
-            if (tipo == "Sigla")
-            {
-                posicion = 0;
-            }
-            else
-            {
-                if (tipo == "Nombre")
-                {
-                    posicion = 1;
-                }
-                else
-                {
-                    if (tipo == "Ciclo")
-                    {
-                        posicion = 3;
-                    }
-
-                }
-            }
-            
-            return false;
-        }
+      
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
@@ -151,18 +92,17 @@ namespace Vista
                 strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
                 if (strCurso.Read())
                 {
-                    if (mVerificarCursoEnLista(strCurso.GetString(1), cbConsultarPor.Text)==false)
+                   
+                    ListViewItem lvItem = new ListViewItem();
+                    strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
+                    while (strCurso.Read())
                     {
-                        ListViewItem lvItem = new ListViewItem();
-                        strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
-                        while (strCurso.Read())
-                        {
 
-                        llenarDataGridCursos();
+                        mLlenarDataGridCursos();
                         
-                    }//fin del read
-                }                
-                 }                 
+                    }
+                 }//fin del read                
+
         }
 
         private void cbConsultarPor_SelectedIndexChanged(object sender, EventArgs e)
@@ -183,6 +123,29 @@ namespace Vista
                 mLimpiarLista();
                 mConsultaGenetal();
             }
-        }       
+        }
+
+        private void dgvDetalleCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvDetalleCursos.CurrentCell.ColumnIndex == 8)
+            {
+                FolderBrowserDialog carpetaSeleccionada = new FolderBrowserDialog();
+                carpetaSeleccionada.Description = "Seleccione la ruta donde guardará el programa";
+                DialogResult result = carpetaSeleccionada.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {                    
+                    string ruta = carpetaSeleccionada.SelectedPath + "/" + dgvDetalleCursos.CurrentCell.Value;
+                    pEntidadCurso.mSiglaCurso = Convert.ToString(dgvDetalleCursos.Rows[dgvDetalleCursos.CurrentCell.RowIndex].Cells[0].Value);
+                    strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, "Sigla");
+                    if (strCurso != null)
+                        if (strCurso.Read()) { 
+                    pEntidadCurso.mIdCurso = strCurso.GetInt32(0);
+                    clCurso.mDescargarProgramaCurso(conexion, ruta, pEntidadCurso);
+                    
+                    }
+                }
+            }
+        }
     }
 }

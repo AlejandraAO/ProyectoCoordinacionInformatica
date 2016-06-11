@@ -142,51 +142,61 @@
             this.dgvDetalleCursos.ReadOnly = true;
             this.dgvDetalleCursos.Size = new System.Drawing.Size(946, 317);
             this.dgvDetalleCursos.TabIndex = 34;
+            this.dgvDetalleCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCursos_CellContentClick);
             // 
             // Sigla
             // 
             this.Sigla.HeaderText = "Sigla";
             this.Sigla.Name = "Sigla";
+            this.Sigla.ReadOnly = true;
             // 
             // Nombre
             // 
             this.Nombre.HeaderText = "Nombre";
             this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
             // 
             // Lugar
             // 
             this.Lugar.HeaderText = "Lugar";
             this.Lugar.Name = "Lugar";
+            this.Lugar.ReadOnly = true;
             // 
             // Ciclo
             // 
             this.Ciclo.HeaderText = "Ciclo";
             this.Ciclo.Name = "Ciclo";
+            this.Ciclo.ReadOnly = true;
             // 
             // Créditos
             // 
             this.Créditos.HeaderText = "Créditos";
             this.Créditos.Name = "Créditos";
+            this.Créditos.ReadOnly = true;
             // 
             // Estado
             // 
             this.Estado.HeaderText = "Estado";
             this.Estado.Name = "Estado";
+            this.Estado.ReadOnly = true;
             // 
             // TotalHoras
             // 
             this.TotalHoras.HeaderText = "Total de horas";
             this.TotalHoras.Name = "TotalHoras";
+            this.TotalHoras.ReadOnly = true;
             // 
             // Modalidad
             // 
             this.Modalidad.HeaderText = "Modalidad";
             this.Modalidad.Name = "Modalidad";
+            this.Modalidad.ReadOnly = true;
             // 
             // Programa
             // 
             this.Programa.HeaderText = "Programa";
             this.Programa.Name = "Programa";
+            this.Programa.ReadOnly = true;
             // 
             // frmConsultarCurso
             // 
