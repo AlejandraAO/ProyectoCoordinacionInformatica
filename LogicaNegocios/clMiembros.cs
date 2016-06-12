@@ -24,6 +24,7 @@ namespace LogicaNegocios
 
         public SqlDataReader mConsultarIdMiembro(clConexion cone, clEntidadMiembro pEntidadMiembro)
         {
+
             strSentencia = "select idMiembro from tbMiembros where carnet=" + pEntidadMiembro.getSetCarnetMiembro + "";
             return cone.mSeleccionar(strSentencia, cone);
 
