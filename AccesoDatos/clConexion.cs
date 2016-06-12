@@ -16,6 +16,7 @@ namespace AccesoDatos
         private string _clave;
         private string _perfil;
         private string _baseDatos;
+        private string servidor;
 
         private SqlConnection conexion; //Guardar la cadena de conexion del usuario con la BD
         private SqlCommand comando; //permite ejecutar los IMEC
@@ -30,6 +31,7 @@ namespace AccesoDatos
             this._clave = "123";
             this._perfil = "";
             this._baseDatos = "BDPortafolioUcr";
+            this.servidor = "DESKTOP-B8RIIQ9\\SQLEXPRESS";
         }
 
         #endregion
@@ -98,7 +100,7 @@ namespace AccesoDatos
                 else
                     return false;
             }
-            catch
+            catch(SqlException e)
             {
                 return false;
             }
@@ -110,7 +112,7 @@ namespace AccesoDatos
             try
             {
                 conexion = new SqlConnection();
-                conexion.ConnectionString = "user id='" + cone.codigo + "'; password='" + cone.clave + "'; Data Source='" + mNomServidor() + "'; Initial Catalog='" + cone.baseDatos+ "'";
+                conexion.ConnectionString = "user id='" + cone.codigo + "'; password='" + cone.clave + "'; Data Source='" + servidor + "'; Initial Catalog='" + cone.baseDatos+ "'";
                 conexion.Open();
                 return true;
             }
@@ -121,10 +123,10 @@ namespace AccesoDatos
         }
 
         //Este metodo obtiene el nombre de la maquina de windows
-        public string mNomServidor()
-        {
-            return Dns.GetHostName();
-        }
+        //public string mNomServidor()
+        //{
+        //    return Dns.GetHostName();
+        //}
         #endregion
     }
 }
