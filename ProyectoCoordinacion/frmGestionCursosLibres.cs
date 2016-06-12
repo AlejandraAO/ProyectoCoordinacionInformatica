@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,12 @@ namespace Vista
     public partial class frmGestionCursosLibres : Form
     {
         private menuPrincipal menu;
+        private OpenFileDialog archivoSeleccionado;
         public frmGestionCursosLibres(menuPrincipal menu)
         {
             InitializeComponent();
             this.menu = menu;
+            this.archivoSeleccionado = new OpenFileDialog();
         }
 
         private void groupBox_Enter(object sender, EventArgs e)
@@ -57,7 +60,60 @@ namespace Vista
 
         private void frmGestionCursosLibres_Load(object sender, EventArgs e)
         {
+            
+        }
 
+        private void limpiar()
+        {
+            this.txtNombre.Text = "";
+            this.txtLugar.Text = "";
+            this.cbProfesor.Text = "";
+            this.cbEstado.Text = "";
+            this.lbNombrePrograma.Text = "Nombre del Archivo";
+            this.rtDescripcion.Text = "";
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            this.limpiar();
+        }
+
+
+        //metodo que selecciona los archivos que se subiran a la base de datos
+        private void btnExaminar_Click(object sender, EventArgs e)
+        {
+            Stream myStream = null;
+            //OpenFileDialog archivoSeleccionado = new OpenFileDialog();
+
+            archivoSeleccionado.InitialDirectory = "c:\\";
+            archivoSeleccionado.Filter = "Pdf files (*.pdf)|*.pdf|Odt files (*.odt)|*.odt";
+            archivoSeleccionado.FilterIndex = 2;
+            archivoSeleccionado.RestoreDirectory = true;
+
+            if (archivoSeleccionado.ShowDialog() == DialogResult.OK)
+            {
+                try
+                {
+                    if ((myStream = archivoSeleccionado.OpenFile()) != null)
+                    {
+                        using (myStream)
+                        {
+                            lbNombrePrograma.Text = archivoSeleccionado.SafeFileName;
+                            
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error: Could not read file from disk. Original error: " + ex.Message);
+                }
+            }
+        }//Fin del metodo del boton exminar
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.menu.Visible = true;
+            this.Hide();
         }
     }
 }

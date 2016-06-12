@@ -47,6 +47,7 @@
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.lbNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupo)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +67,7 @@
             this.btnSalir.TabIndex = 66;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnModificar
             // 
@@ -132,7 +134,7 @@
             this.lbNombrePrograma.BackColor = System.Drawing.Color.Transparent;
             this.lbNombrePrograma.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombrePrograma.ForeColor = System.Drawing.Color.White;
-            this.lbNombrePrograma.Location = new System.Drawing.Point(623, 104);
+            this.lbNombrePrograma.Location = new System.Drawing.Point(475, 130);
             this.lbNombrePrograma.Name = "lbNombrePrograma";
             this.lbNombrePrograma.Size = new System.Drawing.Size(143, 18);
             this.lbNombrePrograma.TabIndex = 52;
@@ -190,6 +192,7 @@
             this.btnExaminar.TabIndex = 37;
             this.btnExaminar.Text = "Examinar";
             this.btnExaminar.UseVisualStyleBackColor = false;
+            this.btnExaminar.Click += new System.EventHandler(this.btnExaminar_Click);
             // 
             // lbDescripcion
             // 
@@ -208,7 +211,7 @@
             // 
             this.rtDescripcion.Location = new System.Drawing.Point(473, 171);
             this.rtDescripcion.Name = "rtDescripcion";
-            this.rtDescripcion.Size = new System.Drawing.Size(150, 60);
+            this.rtDescripcion.Size = new System.Drawing.Size(287, 87);
             this.rtDescripcion.TabIndex = 35;
             this.rtDescripcion.Text = "";
             // 
@@ -273,6 +276,9 @@
             this.cbEstado.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstado.ForeColor = System.Drawing.Color.Black;
             this.cbEstado.FormattingEnabled = true;
+            this.cbEstado.Items.AddRange(new object[] {
+            "Activo",
+            "Inactivo"});
             this.cbEstado.Location = new System.Drawing.Point(478, 39);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(145, 25);
@@ -300,12 +306,30 @@
             this.txtNombre.Size = new System.Drawing.Size(155, 26);
             this.txtNombre.TabIndex = 22;
             // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLimpiar.FlatAppearance.BorderSize = 2;
+            this.btnLimpiar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Location = new System.Drawing.Point(280, 297);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(125, 37);
+            this.btnLimpiar.TabIndex = 67;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
             // frmGestionCursosLibres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(824, 340);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -342,5 +366,6 @@
         private System.Windows.Forms.ComboBox cbEstado;
         private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }
