@@ -5,6 +5,9 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
+using System.IO;
+
 
 namespace AccesoDatos
 {
@@ -62,6 +65,39 @@ namespace AccesoDatos
 
         //Metodo para la conexion con la base de datos
         #region Metodos
+
+        //Este método permite descargar un archivo de la base de datos
+
+        public void leer(clConexion cone, string ruta, string sentencia)
+        {
+            SqlCommand cmd;
+            SqlDataAdapter dataAdapt;
+            DataTable dtb;
+            mConectar(cone);
+            try
+            {
+
+                cmd = new SqlCommand(sentencia, conexion);//"select documento from tbDocumento where id='odt'", conexion);
+                dataAdapt = new SqlDataAdapter(cmd);
+                dtb = new DataTable();
+                dataAdapt.Fill(dtb);
+                DataRow f = dtb.Rows[0];
+                byte[] bits = ((byte[])(f.ItemArray[0]));
+                string sFile = ruta;//"F:/Documentos/archivo.odt";
+                FileStream fs = new FileStream(sFile, FileMode.Create);
+
+                //Y escribimos en disco el array de bytes que conforman el archivo
+                fs.Write(bits, 0, Convert.ToInt32(bits.Length));
+                fs.Close();
+                System.Diagnostics.Process obj = new System.Diagnostics.Process();
+                obj.StartInfo.FileName = sFile;
+                obj.Start();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+        }
 
         //Este metodo permitira ejecutar los select
         public SqlDataReader mSeleccionar(string strSentencia, clConexion cone)
