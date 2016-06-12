@@ -17,7 +17,8 @@ namespace Entidades
         private string _estado;
         private string _lugar;
         private int _cupo;
-        private byte _programa;
+        private String _programa;
+        private String _nombre_programa;
         #endregion
 
 
@@ -58,6 +59,19 @@ namespace Entidades
             set
             {
                 _nombre = value;
+            }
+        }
+
+        public string Nombre_Programa
+        {
+            get
+            {
+                return Nombre_Programa;
+            }
+
+            set
+            {
+                Nombre_Programa = value;
             }
         }
 
@@ -113,7 +127,7 @@ namespace Entidades
             }
         }
 
-        public byte Programa
+        public String Programa
         {
             get
             {
