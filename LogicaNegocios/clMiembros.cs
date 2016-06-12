@@ -28,6 +28,13 @@ namespace LogicaNegocios
             return cone.mSeleccionar(strSentencia, cone);
 
         }
+
+        public SqlDataReader mConsultarMiembrosDeProyectos(clConexion cone, clEntidadMiembroProyecto pEntidadMiembroProyecto)
+        {
+            strSentencia = "select * from tbMiembros where idMiembro= (select idMiembro from tbMiembrosProy where idProyecto= " + pEntidadMiembroProyecto.mIdProyecto + " )";
+            return cone.mSeleccionar(strSentencia, cone);
+        }
+
         public Boolean mInsertarMiembro(clConexion cone, clEntidadMiembro pEntidadMiembro)
         {
             strSentencia = "insert into tbMiembros(carnet, nombre, apellido1, apellido2, carrera, tipo) values('" + pEntidadMiembro.getSetCarnetMiembro + "','" + pEntidadMiembro.getSetNombreMiembro+"', '"+pEntidadMiembro.getSetApellido1Miembro+"', '"+pEntidadMiembro.getSetApellido2Miembro+"',  '"+pEntidadMiembro.getSetCarreraMiembro+ "', '" + pEntidadMiembro.getSetTipo + "')";

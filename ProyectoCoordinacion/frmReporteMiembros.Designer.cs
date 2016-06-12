@@ -146,7 +146,7 @@
             this.lvProyecto.GridLines = true;
             this.lvProyecto.Location = new System.Drawing.Point(30, 112);
             this.lvProyecto.Name = "lvProyecto";
-            this.lvProyecto.Size = new System.Drawing.Size(354, 391);
+            this.lvProyecto.Size = new System.Drawing.Size(359, 391);
             this.lvProyecto.TabIndex = 42;
             this.lvProyecto.UseCompatibleStateImageBehavior = false;
             this.lvProyecto.View = System.Windows.Forms.View.Details;
@@ -155,12 +155,12 @@
             // codigo
             // 
             this.codigo.Text = "Codigo";
-            this.codigo.Width = 142;
+            this.codigo.Width = 110;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "Nombre";
-            this.columnHeader1.Width = 201;
+            this.columnHeader1.Text = "Nombre Proyecto";
+            this.columnHeader1.Width = 234;
             // 
             // frmReporteMiembros
             // 

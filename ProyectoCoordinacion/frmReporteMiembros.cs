@@ -23,6 +23,7 @@ namespace Vista
         SqlDataReader dtrMiembro, dtrProyecto;
         clConexion conexion;
         clEntidadMiembro pEntidadMiembro;
+        clEntidadMiembroProyecto pEntidadMiembroProyecto;
         clMiembros miembro;
         menuPrincipal menu;
         int idProyecto;
@@ -38,7 +39,9 @@ namespace Vista
 
             this.menu = menu;
             this.conexion = new clConexion();
+
             pEntidadMiembro = new clEntidadMiembro();
+            pEntidadMiembroProyecto = new clEntidadMiembroProyecto ();
 
             miembro = new clMiembros();
             clProyect = new clProyecto();
@@ -74,6 +77,11 @@ namespace Vista
             }
         }
 
+        public void mLimpiarLista()
+        {
+            dgvMiembros.Rows.Clear();
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Dispose();
@@ -91,14 +99,32 @@ namespace Vista
 
         private void lvProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
+            mLimpiarLista();
+
 
             for (int i = 0; i < lvProyecto.Items.Count; i++)
             {
+              
                 if (lvProyecto.Items[i].Selected)
                 {
-                    idProyecto =Convert.ToInt32( lvProyecto.Items[i].Text);
+                    pEntidadMiembroProyecto.mIdProyecto=Convert.ToInt32( lvProyecto.Items[i].Text);
 
-                    MessageBox.Show("");
+                 //   MessageBox.Show("");
+
+                    dtrMiembro = miembro.mConsultarMiembrosDeProyectos(conexion, pEntidadMiembroProyecto);
+
+
+                    if (dtrMiembro != null)
+                    {
+
+                        while (dtrMiembro.Read())
+                        {
+                          
+                            llenarDataGridCursos();
+
+
+                        }
+                    }
 
                 }
 

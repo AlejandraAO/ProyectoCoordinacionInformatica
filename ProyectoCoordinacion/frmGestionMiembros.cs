@@ -79,6 +79,7 @@ namespace Vista
 
             //Agregar Relacion Entre Miembro y Proyecto
 
+            // falta agregar el control para que no se pueda agregar un miembro sin asignarle un proyecto
             int idMiembro=0;
             dtrMiembro = miembros.mConsultarIdMiembro(conexion, pEntidadMiembro);
 
