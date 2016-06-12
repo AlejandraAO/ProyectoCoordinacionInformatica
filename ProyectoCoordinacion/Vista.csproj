@@ -58,17 +58,17 @@
     <Compile Include="frmAcceso.designer.cs">
       <DependentUpon>frmAcceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaRapProyecto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaRapProyecto.Designer.cs">
+      <DependentUpon>frmConsultaRapProyecto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultarCurso.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmConsultarCurso.designer.cs">
       <DependentUpon>frmConsultarCurso.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmConsultarMiembro.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmConsultarMiembro.Designer.cs">
-      <DependentUpon>frmConsultarMiembro.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCursos.cs">
       <SubType>Form</SubType>
@@ -76,8 +76,11 @@
     <Compile Include="frmCursos.Designer.cs">
       <DependentUpon>frmCursos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGestionCursoLibre.cs">
+    <Compile Include="frmGestionCursosLibres.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionCursosLibres.Designer.cs">
+      <DependentUpon>frmGestionCursosLibres.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGestionMiembros.cs">
       <SubType>Form</SubType>
@@ -97,6 +100,12 @@
     <Compile Include="frmProyectoSoftwareLibre.Designer.cs">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteMiembros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteMiembros.Designer.cs">
+      <DependentUpon>frmReporteMiembros.cs</DependentUpon>
+    </Compile>
     <Compile Include="menuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,17 +120,17 @@
     <EmbeddedResource Include="frmAcceso.resx">
       <DependentUpon>frmAcceso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaRapProyecto.resx">
+      <DependentUpon>frmConsultaRapProyecto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarCurso.resx">
       <DependentUpon>frmConsultarCurso.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultarMiembro.resx">
-      <DependentUpon>frmConsultarMiembro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCursos.resx">
       <DependentUpon>frmCursos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGestionCursoLibre.resx">
-      <DependentUpon>frmGestionCursoLibre.cs</DependentUpon>
+    <EmbeddedResource Include="frmGestionCursosLibres.resx">
+      <DependentUpon>frmGestionCursosLibres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionMiembros.resx">
       <DependentUpon>frmGestionMiembros.cs</DependentUpon>
@@ -131,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProyectoSoftwareLibre.resx">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteMiembros.resx">
+      <DependentUpon>frmReporteMiembros.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuPrincipal.resx">
       <DependentUpon>menuPrincipal.cs</DependentUpon>

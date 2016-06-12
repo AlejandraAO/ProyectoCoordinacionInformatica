@@ -22,13 +22,22 @@ namespace LogicaNegocios
 
         public SqlDataReader mConsultaPorSigla(clConexion conexion, clEntidadCurso pEntidadCurso)
         {
-            strSentencia = "select idCurso, sigla, nombre, lugar, ciclo, creditos, programa, estado, totalHoras, modalidad from tbCursos where sigla='"+pEntidadCurso.mSiglaCurso+"'";
+            strSentencia = "select idCurso, sigla, nombre, lugar, ciclo, creditos, programa, estado, totalHoras, modalidad, nombrePrograma from tbCursos where sigla='"+pEntidadCurso.mSiglaCurso+"'";
             return conexion.mSeleccionar(strSentencia, conexion);
         }       
 
         public Boolean mModificarCurso(clConexion conexion, clEntidadCurso pEntidadCurso)
         {
-            strSentencia = "update tbCursos set lugar = '" + pEntidadCurso.mLugarCurso + "', ciclo = '" + pEntidadCurso.mCicloCurso + "', creditos ='"+pEntidadCurso.mCreditosCurso+ "', programa= (SELECT * FROM OPENROWSET(BULK N'" + pEntidadCurso.mProgramaCurso + "', SINGLE_BLOB) as Pdf), estado='"+pEntidadCurso.mEstadoCurso+"', totalHoras='"+pEntidadCurso.mTotalDeHorasCurso+"', modalidad='"+pEntidadCurso.mModalidadCurso+"' where sigla='" + pEntidadCurso.mSiglaCurso + "'";
+            Console.WriteLine(pEntidadCurso.mProgramaCurso);
+            if (pEntidadCurso.mProgramaCurso != "")
+            {
+                strSentencia = "update tbCursos set lugar = '" + pEntidadCurso.mLugarCurso + "', ciclo = '" + pEntidadCurso.mCicloCurso + "', creditos ='" + pEntidadCurso.mCreditosCurso + "', programa= (SELECT * FROM OPENROWSET(BULK N'" + pEntidadCurso.mProgramaCurso + "', SINGLE_BLOB) as Pdf), estado='" + pEntidadCurso.mEstadoCurso + "', totalHoras='" + pEntidadCurso.mTotalDeHorasCurso + "', modalidad='" + pEntidadCurso.mModalidadCurso + "' where sigla='" + pEntidadCurso.mSiglaCurso + "'";
+            }
+            else
+            {
+                strSentencia = "update tbCursos set lugar = '" + pEntidadCurso.mLugarCurso + "', ciclo = '" + pEntidadCurso.mCicloCurso + "', creditos ='" + pEntidadCurso.mCreditosCurso + "', estado='" + pEntidadCurso.mEstadoCurso + "', totalHoras='" + pEntidadCurso.mTotalDeHorasCurso + "', modalidad='" + pEntidadCurso.mModalidadCurso + "' where sigla='" + pEntidadCurso.mSiglaCurso + "'";
+            }
+            
             return conexion.mEjecutar(strSentencia, conexion);
         }
 
@@ -61,6 +70,12 @@ namespace LogicaNegocios
                 }
             }
             
+        }
+
+        public void mDescargarProgramaCurso(clConexion conexion, string ruta, clEntidadCurso pEntidadCurso)
+        {
+            strSentencia = "select programa from tbCursos where idCurso= '"+pEntidadCurso.mIdCurso+"'";
+            conexion.leer(conexion,ruta,strSentencia);
         }
     }
 }

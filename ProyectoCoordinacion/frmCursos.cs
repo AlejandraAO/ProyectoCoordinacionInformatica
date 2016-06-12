@@ -165,6 +165,7 @@ namespace Vista
                     cbEstado.Text = dtrCurso.GetString(7);
                     txtTotalHoras.Text =Convert.ToString(dtrCurso.GetInt32(8));
                     txtModalidad.Text = dtrCurso.GetString(9);
+                    lbNombrePrograma.Text= dtrCurso.GetString(10);
 
                     txtSigla.ReadOnly = true;
                     txtNombre.ReadOnly = true;
@@ -216,6 +217,26 @@ namespace Vista
             {
                 MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            mLimpiar();
+        }
+        public void mLimpiar()
+        {
+            txtSigla.Text = "";
+            txtNombre.Text = "";
+            txtLugar.Text = "";
+            txtCiclo.Text = "";
+            txtCreditos.Text = "";
+            cbEstado.Text = "";
+            txtTotalHoras.Text = "";
+            txtModalidad.Text = "";
+            lbNombrePrograma.Text = "";
+            btnModificar.Enabled = false;
+            txtSigla.ReadOnly = false;
+            txtNombre.ReadOnly = false;
         }
     }
 }

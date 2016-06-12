@@ -16,13 +16,13 @@ namespace LogicaNegocios
 
         public Boolean mInsertarCursoLibre(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            strSentencia = "insert into tbCursosLibr(idProfesor, nombre, descripcion, estado, lugar, cupo, programa) values('"+pEntidadCursoLibre.IdProfesor+"', '"+ pEntidadCursoLibre.Nombre+ "', '"+ pEntidadCursoLibre.Descripcion+ "', '"+ pEntidadCursoLibre.Estado+ "', '"+ pEntidadCursoLibre.Lugar+ "', '" + pEntidadCursoLibre.Cupo + "',(SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf)  ";
+            strSentencia = "insert into tbCursosLibr(idProfesor, nombre, descripcion, estado, lugar, cupo,nombrePrograma, programa) values('" + pEntidadCursoLibre.IdProfesor+"', '"+ pEntidadCursoLibre.Nombre+ "', '"+ pEntidadCursoLibre.Descripcion+ "', '"+ pEntidadCursoLibre.Estado+ "', '"+ pEntidadCursoLibre.Lugar+ "', '" + pEntidadCursoLibre.Cupo + "' , '"+pEntidadCursoLibre.Nombre_Programa+"' ,(SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf)  ";
             return conexion.mEjecutar(strSentencia,conexion);
         }
 
        public SqlDataReader mConsultaPorID(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            strSentencia = "select idProfesor, nombre, descripcion, estado, lugar, cupo, programa from tbCursosLibr where idCursosLibres='" + pEntidadCursoLibre.IdCursoLibre+"'";
+            strSentencia = "select idProfesor, nombre, descripcion, estado, lugar, cupo,nombrePrograma, programa from tbCursosLibr where idCursosLibres='" + pEntidadCursoLibre.IdCursoLibre+"'";
             return conexion.mSeleccionar(strSentencia, conexion);
         }       
 
@@ -31,13 +31,14 @@ namespace LogicaNegocios
             strSentencia = "update tbCursos set estado = '" + pEntidadCursoLibre.Estado+
                                 "', lugar = '" + pEntidadCursoLibre.Lugar + 
                                 "', cupo ='" + pEntidadCursoLibre.Cupo+ 
+                                "', nombrePrograma='"+pEntidadCursoLibre.Nombre_Programa+
                                 "', programa= (SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf) where sigla='" + pEntidadCursoLibre.IdCursoLibre + "'";
             return conexion.mEjecutar(strSentencia, conexion);
         }
 
         public SqlDataReader mConsultaGeneral(clConexion conexion)
         {
-            strSentencia = "select idProfesor, nombre, descripcion, estado, lugar, cupo, programa from tbCursosLibr";
+            strSentencia = "select idProfesor, nombre, descripcion, estado, lugar, cupo,nombrePrograma, programa from tbCursosLibr";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
 

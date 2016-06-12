@@ -68,5 +68,19 @@ namespace Vista
             this.Hide();
             frmConsultarCurso.Show();
         }
+
+        private void miembrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteMiembros frmConsultarCurso = new frmReporteMiembros(this);
+            this.Hide();
+            frmConsultarCurso.Show();
+        }
+
+        private void gestionCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGestionCursosLibres frmCursosLibres = new frmGestionCursosLibres(this);
+            this.Hide();
+            frmCursosLibres.Show();
+        }
     }
 }

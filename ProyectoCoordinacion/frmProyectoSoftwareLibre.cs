@@ -161,16 +161,16 @@ namespace Vista
                 entidadProyecto.mEstado = cbEstado.Text;
                 entidadProyecto.mTipo = cbTipo.Text;
                 entidadProyecto.mInformacioProyecto = archivoSeleccionado.FileName;
-              
+              //Mae le comenté esto xq daba error y no dejaba ejecutar
 
-                if (proyecto.mModificarProyecto(conexion, entidadProyecto))
+                /*if (proyecto.mModificarProyecto(conexion, entidadProyecto))
                 {
                     MessageBox.Show("Se ha modificado el Proyecto", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("No se ha podido modificar el Proyecto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }
+                }*/
             }
             else
             {

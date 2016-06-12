@@ -57,6 +57,7 @@
             // 
             // menuStrip
             // 
+            this.menuStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenu,
             this.editMenu,
@@ -135,6 +136,7 @@
             this.miembrosToolStripMenuItem.Name = "miembrosToolStripMenuItem";
             this.miembrosToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.miembrosToolStripMenuItem.Text = "Miembros";
+            this.miembrosToolStripMenuItem.Click += new System.EventHandler(this.miembrosToolStripMenuItem_Click);
             // 
             // proyectosToolStripMenuItem
             // 
@@ -156,6 +158,7 @@
             this.gestionCursosToolStripMenuItem.Name = "gestionCursosToolStripMenuItem";
             this.gestionCursosToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.gestionCursosToolStripMenuItem.Text = "Gestión Cursos";
+            this.gestionCursosToolStripMenuItem.Click += new System.EventHandler(this.gestionCursosToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem1
             // 
