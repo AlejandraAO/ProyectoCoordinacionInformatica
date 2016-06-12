@@ -170,6 +170,7 @@
             // txtProfesor
             // 
             this.txtProfesor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProfesor.Enabled = false;
             this.txtProfesor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtProfesor.ForeColor = System.Drawing.Color.Black;
             this.txtProfesor.Location = new System.Drawing.Point(120, 111);

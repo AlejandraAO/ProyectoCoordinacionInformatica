@@ -66,12 +66,12 @@ namespace Entidades
         {
             get
             {
-                return Nombre_Programa;
+                return _nombre_programa;
             }
 
             set
             {
-                Nombre_Programa = value;
+                _nombre_programa = value;
             }
         }
 
