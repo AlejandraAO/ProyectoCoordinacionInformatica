@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using AccesoDatos;
 using Entidades;
 using LogicaNegocios;
+using System.Data.SqlClient;
+
 namespace Vista
 {
     public partial class frmGestionCursosLibres : Form
@@ -27,8 +29,10 @@ namespace Vista
             conexion = new clConexion();
             this.archivoSeleccionado = new OpenFileDialog();
             this.cursoLibre = new clCursoLibre();
+            this.entidadCursoLibre = new clEntidadCursoLibre();
             this.conexion.codigo = "123";
             this.conexion.clave = "123";
+            this.conexion.baseDatos = "BDPortafolioUCR";
         }
 
         private void groupBox_Enter(object sender, EventArgs e)
@@ -168,6 +172,33 @@ namespace Vista
             entidadCursoLibre.IdProfesor = Int32.Parse(txtProfesor.Text);
             entidadCursoLibre.Programa = archivoSeleccionado.FileName; 
                   
+        }
+
+        private void btnBuscarCurso_Click(object sender, EventArgs e)
+        {
+            SqlDataReader datos = cursoLibre.mConsultadeCursos(conexion);
+            frmConsultarRapCursosLibres lvCursosLibres = new frmConsultarRapCursosLibres(datos);
+            lvCursosLibres.ShowDialog();
+            entidadCursoLibre.IdCursoLibre = Convert.ToInt32(lvCursosLibres.codigo);
+            datos = cursoLibre.mConsultaPorID(conexion, entidadCursoLibre);
+            while (datos.Read())
+            {
+                this.txtNombre.Text = datos.GetString(1);
+                this.txtProfesor.Text = Convert.ToString(datos.GetInt32(0));
+                this.numCupo.Value = datos.GetInt32(5);
+                this.cbEstado.Text = datos.GetString(3);
+                this.rtDescripcion.Text = datos.GetString(2);
+                this.txtLugar.Text = datos.GetString(4);
+                this.lbNombrePrograma.Text = datos.GetString(6);
+            }
+        }
+
+        private void btnBuscarProfesores_Click(object sender, EventArgs e)
+        {
+            SqlDataReader datos = cursoLibre.mConsultadeProfesores(conexion);
+            frmConsultarRapCursosLibres lvCursosLibres = new frmConsultarRapCursosLibres(datos);
+            lvCursosLibres.ShowDialog();
+            this.txtProfesor.Text=lvCursosLibres.codigo;
         }
     }
 }

@@ -42,6 +42,18 @@ namespace LogicaNegocios
             return conexion.mSeleccionar(strSentencia, conexion);
         }
 
+        public SqlDataReader mConsultadeCursos(clConexion conexion)
+        {
+            strSentencia = "select idCursosLibres, nombre from tbCursosLibr";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
+
+        public SqlDataReader mConsultadeProfesores(clConexion conexion)
+        {
+            strSentencia = "select idProfesor,nombre from tbProfesores";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
+
         /*public SqlDataReader mConsultaEspecifica(clConexion conexion, clEntidadCurso pEntidadCurso, string tipo)
         {
             if (tipo == "Ciclo")
