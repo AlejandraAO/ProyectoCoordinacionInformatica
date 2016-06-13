@@ -8,18 +8,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using AccesoDatos;
+using Entidades;
+using LogicaNegocios;
 namespace Vista
 {
     public partial class frmGestionCursosLibres : Form
     {
         private menuPrincipal menu;
         private OpenFileDialog archivoSeleccionado;
+        private clEntidadCursoLibre entidadCursoLibre;
+        private clConexion conexion;
+        private clCursoLibre cursoLibre;
         public frmGestionCursosLibres(menuPrincipal menu)
         {
             InitializeComponent();
             this.menu = menu;
+            conexion = new clConexion();
             this.archivoSeleccionado = new OpenFileDialog();
+            this.cursoLibre = new clCursoLibre();
+            this.conexion.codigo = "123";
+            this.conexion.clave = "123";
         }
 
         private void groupBox_Enter(object sender, EventArgs e)
@@ -67,10 +76,11 @@ namespace Vista
         {
             this.txtNombre.Text = "";
             this.txtLugar.Text = "";
-            this.cbProfesor.Text = "";
+            this.txtProfesor.Text = "";
             this.cbEstado.Text = "";
             this.lbNombrePrograma.Text = "Nombre del Archivo";
             this.rtDescripcion.Text = "";
+            this.numCupo.Value = 0;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -116,6 +126,48 @@ namespace Vista
         {
             this.menu.Visible = true;
             this.Hide();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            if(mVerificarTextBox(this)&& !cbEstado.SelectedItem.ToString().Equals("")&&!rtDescripcion.Text.Equals(""))
+            {
+                if ( !lbNombrePrograma.Text.Equals("Nombre del archivo"))
+                {
+                    if(cursoLibre.mInsertarCursoLibre(this.conexion,this.entidadCursoLibre))
+                    {
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe de Seleccionar Un programa", "Programa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe de Completar los espacios Solicitados", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void lbNombrePrograma_Click(object sender, EventArgs e)
+        {
+
+        }
+        public void cargarEntidadCurso()
+        {
+            entidadCursoLibre.Cupo = Int32.Parse( numCupo.Value.ToString());
+            entidadCursoLibre.Nombre = this.txtNombre.Text;
+            entidadCursoLibre.Estado = cbEstado.SelectedItem.ToString();
+            entidadCursoLibre.Lugar = this.txtLugar.Text;
+            entidadCursoLibre.Descripcion = rtDescripcion.Text;
+            entidadCursoLibre.IdProfesor = Int32.Parse(txtProfesor.Text);
+            entidadCursoLibre.Programa = archivoSeleccionado.FileName; 
+                  
         }
     }
 }

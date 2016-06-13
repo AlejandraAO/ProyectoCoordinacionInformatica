@@ -33,7 +33,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
             this.lbNombrePrograma = new System.Windows.Forms.Label();
-            this.cbProfesor = new System.Windows.Forms.ComboBox();
             this.lbProfesor = new System.Windows.Forms.Label();
             this.lbPrograma = new System.Windows.Forms.Label();
             this.btnExaminar = new System.Windows.Forms.Button();
@@ -48,6 +47,7 @@
             this.lbNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.txtProfesor = new System.Windows.Forms.TextBox();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupo)).BeginInit();
             this.SuspendLayout();
@@ -100,12 +100,13 @@
             this.btnAgregar.TabIndex = 64;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox.Controls.Add(this.txtProfesor);
             this.groupBox.Controls.Add(this.lbNombrePrograma);
-            this.groupBox.Controls.Add(this.cbProfesor);
             this.groupBox.Controls.Add(this.lbProfesor);
             this.groupBox.Controls.Add(this.lbPrograma);
             this.groupBox.Controls.Add(this.btnExaminar);
@@ -139,17 +140,7 @@
             this.lbNombrePrograma.Size = new System.Drawing.Size(143, 18);
             this.lbNombrePrograma.TabIndex = 52;
             this.lbNombrePrograma.Text = "Nombre del archivo";
-            // 
-            // cbProfesor
-            // 
-            this.cbProfesor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cbProfesor.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbProfesor.ForeColor = System.Drawing.Color.Black;
-            this.cbProfesor.FormattingEnabled = true;
-            this.cbProfesor.Location = new System.Drawing.Point(120, 107);
-            this.cbProfesor.Name = "cbProfesor";
-            this.cbProfesor.Size = new System.Drawing.Size(155, 25);
-            this.cbProfesor.TabIndex = 40;
+            this.lbNombrePrograma.Click += new System.EventHandler(this.lbNombrePrograma_Click);
             // 
             // lbProfesor
             // 
@@ -323,6 +314,16 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // txtProfesor
+            // 
+            this.txtProfesor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProfesor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProfesor.ForeColor = System.Drawing.Color.Black;
+            this.txtProfesor.Location = new System.Drawing.Point(120, 111);
+            this.txtProfesor.Name = "txtProfesor";
+            this.txtProfesor.Size = new System.Drawing.Size(155, 26);
+            this.txtProfesor.TabIndex = 53;
+            // 
             // frmGestionCursosLibres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -352,7 +353,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.GroupBox groupBox;
         private System.Windows.Forms.Label lbNombrePrograma;
-        private System.Windows.Forms.ComboBox cbProfesor;
         private System.Windows.Forms.Label lbProfesor;
         private System.Windows.Forms.Label lbPrograma;
         private System.Windows.Forms.Button btnExaminar;
@@ -367,5 +367,6 @@
         private System.Windows.Forms.Label lbNombre;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.TextBox txtProfesor;
     }
 }
