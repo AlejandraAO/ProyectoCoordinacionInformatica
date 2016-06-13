@@ -30,8 +30,8 @@ namespace Vista
             this.archivoSeleccionado = new OpenFileDialog();
             this.cursoLibre = new clCursoLibre();
             this.entidadCursoLibre = new clEntidadCursoLibre();
-            this.conexion.codigo = "123";
-            this.conexion.clave = "123";
+            this.conexion.codigo = "sa";
+            this.conexion.clave = "ucr2016";
             this.conexion.baseDatos = "BDPortafolioUCR";
         }
 
@@ -179,18 +179,26 @@ namespace Vista
             SqlDataReader datos = cursoLibre.mConsultadeCursos(conexion);
             frmConsultarRapCursosLibres lvCursosLibres = new frmConsultarRapCursosLibres(datos);
             lvCursosLibres.ShowDialog();
-            entidadCursoLibre.IdCursoLibre = Convert.ToInt32(lvCursosLibres.codigo);
-            datos = cursoLibre.mConsultaPorID(conexion, entidadCursoLibre);
-            while (datos.Read())
+            if (string.IsNullOrEmpty(lvCursosLibres.codigo))
             {
-                this.txtNombre.Text = datos.GetString(1);
-                this.txtProfesor.Text = Convert.ToString(datos.GetInt32(0));
-                this.numCupo.Value = datos.GetInt32(5);
-                this.cbEstado.Text = datos.GetString(3);
-                this.rtDescripcion.Text = datos.GetString(2);
-                this.txtLugar.Text = datos.GetString(4);
-                this.lbNombrePrograma.Text = datos.GetString(6);
+
             }
+            else
+            {
+                entidadCursoLibre.IdCursoLibre = Convert.ToInt32(lvCursosLibres.codigo);
+                datos = cursoLibre.mConsultaPorID(conexion, entidadCursoLibre);
+                while (datos.Read())
+                {
+                    this.txtNombre.Text = datos.GetString(1);
+                    this.txtProfesor.Text = Convert.ToString(datos.GetInt32(0));
+                    this.numCupo.Value = datos.GetInt32(5);
+                    this.cbEstado.Text = datos.GetString(3);
+                    this.rtDescripcion.Text = datos.GetString(2);
+                    this.txtLugar.Text = datos.GetString(4);
+                    this.lbNombrePrograma.Text = datos.GetString(6);
+                }
+            }
+            
         }
 
         private void btnBuscarProfesores_Click(object sender, EventArgs e)
