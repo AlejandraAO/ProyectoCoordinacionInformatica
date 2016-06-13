@@ -16,7 +16,8 @@ namespace LogicaNegocios
 
         public Boolean mInsertarCursoLibre(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            strSentencia = "insert into tbCursosLibr(idProfesor, nombre, descripcion, estado, lugar, cupo,nombrePrograma, programa) values('" + pEntidadCursoLibre.IdProfesor+"', '"+ pEntidadCursoLibre.Nombre+ "', '"+ pEntidadCursoLibre.Descripcion+ "', '"+ pEntidadCursoLibre.Estado+ "', '"+ pEntidadCursoLibre.Lugar+ "', '" + pEntidadCursoLibre.Cupo + "' , '"+pEntidadCursoLibre.Nombre_Programa+"' ,(SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf)  ";
+            strSentencia = "insert into tbCursosLibr(idProfesor, nombre, descripcion, estado, lugar, cupo,programa,nombrePrograma) values('" + pEntidadCursoLibre.IdProfesor + "', '" + pEntidadCursoLibre.Nombre + "', '" + pEntidadCursoLibre.Descripcion + "', '" + pEntidadCursoLibre.Estado + "', '" + pEntidadCursoLibre.Lugar + "', '" + pEntidadCursoLibre.Cupo + "' ,(SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf) ,'" + pEntidadCursoLibre.Nombre_Programa + "' ); ";
+
             return conexion.mEjecutar(strSentencia,conexion);
         }
 
@@ -39,6 +40,18 @@ namespace LogicaNegocios
         public SqlDataReader mConsultaGeneral(clConexion conexion)
         {
             strSentencia = "select idProfesor, nombre, descripcion, estado, lugar, cupo,nombrePrograma, programa from tbCursosLibr";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
+
+        public SqlDataReader mConsultadeCursos(clConexion conexion)
+        {
+            strSentencia = "select idCursosLibres, nombre from tbCursosLibr";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
+
+        public SqlDataReader mConsultadeProfesores(clConexion conexion)
+        {
+            strSentencia = "select idProfesor,nombre from tbProfesores";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
 
