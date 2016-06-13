@@ -25,29 +25,22 @@ namespace LogicaNegocios
             return cone.mSeleccionar(strSentencia, cone);
         }
 
+        //revisar informacion proyecto en la forma que se inserta un varbinary.
+        public Boolean mInsertarProyecto(clConexion cone, clEntidadProyecto pEntidadProyecto)
+        {
+            strSentencia = "Insert into tbProyectos(nombre,descripcion,estado,tipo,informacion)values('"+pEntidadProyecto.mNombre+"','"+pEntidadProyecto.mDescripcion+"','"+pEntidadProyecto.mEstado+"','"+pEntidadProyecto.mTipo+ "', (SELECT * FROM OPENROWSET(BULK N'" + pEntidadProyecto.mInformacioProyecto + "', SINGLE_BLOB) as Pdf))";
+            return cone.mEjecutar(strSentencia, cone);
+           
+          
+        }
+
         public SqlDataReader mConsultaGeneralProyectos(clConexion cone)
         {
             strSentencia = "select * from tbProyectos";
             return cone.mSeleccionar(strSentencia, cone);
         }
-        //public SqlDataReader mConsultarCantidadViajes(clConexion cone, clEntidadProyecto pEntidadProyecto)
-        //{
-        //    strSentencia = "select cantidadPersonas from tbViaje where numViaje='" + pEntidadVIaje.getNumViaje() + "'";
-        //    return cone.mSeleccionar(strSentencia, cone);
-        //}
 
-        //revisar informacion proyecto en la forma que se inserta un varbinary.
-        public Boolean mInsertarProyecto(clConexion cone, clEntidadProyecto pEntidadProyecto)
-        {
-            strSentencia = "Insert into tbProyectos(idProyecto,nombre,descripcion,estado,tipo,informacion)values(" +pEntidadProyecto.mIdProyecto + "','"+pEntidadProyecto.mNombre+"','"+pEntidadProyecto.mDescripcion+"','"+pEntidadProyecto.mEstado+"','"+pEntidadProyecto.mTipo+"','"+pEntidadProyecto.mInformacioProyecto+"')";
-            return cone.mEjecutar(strSentencia, cone);
-        }
 
-        //public Boolean mModificarViaje(clConexion cone, clEntidadProyecto pEntidadProyecto)
-        //{
-        //    strSentencia = "Update tbViaje set cantidadPersonas=" + pEntidadViaje.getCantidadPersona() + "  where numViaje= '" + pEntidadViaje.getNumViaje() + "'";
-        //    return cone.mEjecutar(strSentencia, cone);
-        //}
         #endregion
     }
 }
