@@ -29,11 +29,23 @@ namespace LogicaNegocios
 
         public Boolean mModificarCurso(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            strSentencia = "update tbCursos set estado = '" + pEntidadCursoLibre.Estado+
-                                "', lugar = '" + pEntidadCursoLibre.Lugar + 
-                                "', cupo ='" + pEntidadCursoLibre.Cupo+ 
-                                "', nombrePrograma='"+pEntidadCursoLibre.Nombre_Programa+
-                                "', programa= (SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf) where sigla='" + pEntidadCursoLibre.IdCursoLibre + "'";
+            Console.WriteLine(pEntidadCursoLibre.Programa);
+            if (pEntidadCursoLibre.Programa != "")
+            {
+                strSentencia = "update tbCursosLibr set idProfesor=" + pEntidadCursoLibre.IdProfesor +
+                            ",nombre='" + pEntidadCursoLibre.Nombre + "',descripcion='" + pEntidadCursoLibre.Descripcion +
+                            "',estado='" + pEntidadCursoLibre.Estado + "',lugar='" + pEntidadCursoLibre.Lugar +
+                            "',cupo=" + pEntidadCursoLibre.Cupo + ",programa= (SELECT * FROM OPENROWSET(BULK N'"
+                            + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf), nombrePrograma='" +
+                            pEntidadCursoLibre.Nombre_Programa + "' where idCursosLibres=" + pEntidadCursoLibre.IdCursoLibre;
+            }
+            else
+            {
+                strSentencia = "update tbCursosLibr set idProfesor=" + pEntidadCursoLibre.IdProfesor +
+                            ",nombre='" + pEntidadCursoLibre.Nombre + "',descripcion='" + pEntidadCursoLibre.Descripcion +
+                            "',estado='" + pEntidadCursoLibre.Estado + "',lugar='" + pEntidadCursoLibre.Lugar +
+                            "',cupo=" + pEntidadCursoLibre.Cupo + "where idCursosLibres=" + pEntidadCursoLibre.IdCursoLibre;
+            }      
             return conexion.mEjecutar(strSentencia, conexion);
         }
 

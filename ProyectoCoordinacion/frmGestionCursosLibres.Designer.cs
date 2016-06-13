@@ -74,6 +74,7 @@
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnModificar.FlatAppearance.BorderSize = 2;
             this.btnModificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
@@ -86,6 +87,7 @@
             this.btnModificar.TabIndex = 65;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 

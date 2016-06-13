@@ -31,7 +31,7 @@ namespace Vista
             this.cursoLibre = new clCursoLibre();
             this.entidadCursoLibre = new clEntidadCursoLibre();
             this.conexion.codigo = "sa";
-            this.conexion.clave = "123";
+            this.conexion.clave = "ucr2016";
             this.conexion.baseDatos = "BDPortafolioUCR";
         }
 
@@ -85,6 +85,8 @@ namespace Vista
             this.lbNombrePrograma.Text = "Nombre del Archivo";
             this.rtDescripcion.Text = "";
             this.numCupo.Value = 0;
+            this.mHabilitarBoton(false);
+            this.btnAgregar.Enabled = true;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -209,9 +211,11 @@ namespace Vista
                     this.txtLugar.Text = datos.GetString(4);
                     this.lbNombrePrograma.Text = datos.GetString(6);
                 }
+                this.mHabilitarBoton(true);
+                this.btnAgregar.Enabled = false;
             }
             
-        }
+        }//Fin del metodo que carga los cursos que encuentra en el list view
 
         private void btnBuscarProfesores_Click(object sender, EventArgs e)
         {
@@ -220,5 +224,45 @@ namespace Vista
             lvCursosLibres.ShowDialog();
             this.txtProfesor.Text=lvCursosLibres.codigo;
         }
+
+        private void mHabilitarBoton(bool estado)
+        {
+            this.btnModificar.Enabled = estado;
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            //Verifica que los txt que tiene la ventana y la descripcion tengan datos 
+            if (mVerificarTextBox(this) && !cbEstado.SelectedItem.ToString().Equals("") && !rtDescripcion.Text.Equals(""))
+            {
+                //Verifica que se haya elejido un programa para el curso
+                if (!lbNombrePrograma.Text.Equals("Nombre del archivo"))
+                {
+                    //Carga la entidad con los datos 
+                    cargarEntidadCurso();
+                    // Llama al metodo insertar e ingresa un nuevo Curso 
+                    if (cursoLibre.mModificarCurso(this.conexion, this.entidadCursoLibre))
+                    {
+                        // Despues de que inserta llama al metodo limpiar
+                        mlimpiar();
+                        MessageBox.Show("Curso Modificado con Exíto", "Listo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    }//Fin del if del insertar
+                    else
+                    {
+                        MessageBox.Show("Surgio un Error al modificar el Curso", "Falló", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }// fin del else de insertar
+
+                }//fin del if , que verifica que se selccionara un programa
+                else
+                {
+                    MessageBox.Show("Debe de Seleccionar Un programa", "Programa", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }//fin del else que verifica que se selccionara un programa
+            }// fin del if que verifica los txt y las areas de texto
+            else
+            {
+                MessageBox.Show("Debe de Completar los espacios Solicitados", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }// Fin del else que verifica los txt
+        }//fin del metodo modificar
     }
 }
