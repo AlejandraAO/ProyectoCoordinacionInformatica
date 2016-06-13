@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.txtProfesor = new System.Windows.Forms.TextBox();
             this.lbNombrePrograma = new System.Windows.Forms.Label();
             this.lbProfesor = new System.Windows.Forms.Label();
             this.lbPrograma = new System.Windows.Forms.Label();
@@ -47,7 +49,9 @@
             this.lbNombre = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.txtProfesor = new System.Windows.Forms.TextBox();
+            this.btnBuscarProfesores = new System.Windows.Forms.Button();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.btnBuscarCurso = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupo)).BeginInit();
             this.SuspendLayout();
@@ -105,6 +109,8 @@
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox.Controls.Add(this.btnBuscarCurso);
+            this.groupBox.Controls.Add(this.btnBuscarProfesores);
             this.groupBox.Controls.Add(this.txtProfesor);
             this.groupBox.Controls.Add(this.lbNombrePrograma);
             this.groupBox.Controls.Add(this.lbProfesor);
@@ -128,6 +134,16 @@
             this.groupBox.TabIndex = 63;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Gestion Cursos Libres";
+            // 
+            // txtProfesor
+            // 
+            this.txtProfesor.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtProfesor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProfesor.ForeColor = System.Drawing.Color.Black;
+            this.txtProfesor.Location = new System.Drawing.Point(120, 111);
+            this.txtProfesor.Name = "txtProfesor";
+            this.txtProfesor.Size = new System.Drawing.Size(155, 26);
+            this.txtProfesor.TabIndex = 53;
             // 
             // lbNombrePrograma
             // 
@@ -314,15 +330,43 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
-            // txtProfesor
+            // btnBuscarProfesores
             // 
-            this.txtProfesor.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtProfesor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProfesor.ForeColor = System.Drawing.Color.Black;
-            this.txtProfesor.Location = new System.Drawing.Point(120, 111);
-            this.txtProfesor.Name = "txtProfesor";
-            this.txtProfesor.Size = new System.Drawing.Size(155, 26);
-            this.txtProfesor.TabIndex = 53;
+            this.btnBuscarProfesores.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBuscarProfesores.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBuscarProfesores.FlatAppearance.BorderSize = 2;
+            this.btnBuscarProfesores.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnBuscarProfesores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnBuscarProfesores.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProfesores.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarProfesores.Location = new System.Drawing.Point(281, 111);
+            this.btnBuscarProfesores.Name = "btnBuscarProfesores";
+            this.btnBuscarProfesores.Size = new System.Drawing.Size(72, 27);
+            this.btnBuscarProfesores.TabIndex = 56;
+            this.btnBuscarProfesores.Text = "Buscar";
+            this.btnBuscarProfesores.UseVisualStyleBackColor = false;
+            // 
+            // imageList1
+            // 
+            this.imageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.imageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // btnBuscarCurso
+            // 
+            this.btnBuscarCurso.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnBuscarCurso.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBuscarCurso.FlatAppearance.BorderSize = 2;
+            this.btnBuscarCurso.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnBuscarCurso.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnBuscarCurso.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCurso.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarCurso.Location = new System.Drawing.Point(281, 41);
+            this.btnBuscarCurso.Name = "btnBuscarCurso";
+            this.btnBuscarCurso.Size = new System.Drawing.Size(72, 27);
+            this.btnBuscarCurso.TabIndex = 57;
+            this.btnBuscarCurso.Text = "Buscar";
+            this.btnBuscarCurso.UseVisualStyleBackColor = false;
             // 
             // frmGestionCursosLibres
             // 
@@ -368,5 +412,8 @@
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.TextBox txtProfesor;
+        private System.Windows.Forms.Button btnBuscarCurso;
+        private System.Windows.Forms.Button btnBuscarProfesores;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
