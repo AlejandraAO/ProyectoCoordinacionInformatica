@@ -26,7 +26,6 @@ namespace Vista
         clEntidadMiembroProyecto pEntidadMiembroProyecto;
         clMiembros miembro;
         menuPrincipal menu;
-        int idProyecto;
 
         clProyecto clProyect;
 

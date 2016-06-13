@@ -82,5 +82,13 @@ namespace Vista
             this.Hide();
             frmCursosLibres.Show();
         }
+
+        private void proyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteProyectos frmRepoteProy = new frmReporteProyectos(this);
+            this.Hide();
+            frmRepoteProy.Show();
+
+        }
     }
 }

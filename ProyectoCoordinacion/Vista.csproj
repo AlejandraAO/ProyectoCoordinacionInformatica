@@ -112,6 +112,12 @@
     <Compile Include="frmReporteMiembros.Designer.cs">
       <DependentUpon>frmReporteMiembros.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteProyectos.Designer.cs">
+      <DependentUpon>frmReporteProyectos.cs</DependentUpon>
+    </Compile>
     <Compile Include="menuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,6 +158,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteMiembros.resx">
       <DependentUpon>frmReporteMiembros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteProyectos.resx">
+      <DependentUpon>frmReporteProyectos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuPrincipal.resx">
       <DependentUpon>menuPrincipal.cs</DependentUpon>
