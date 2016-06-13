@@ -85,7 +85,9 @@ namespace Vista
             Stream myStream = null;
             //OpenFileDialog archivoSeleccionado = new OpenFileDialog();
 
+            //La busqueda inicia a partir del direccion c:\\
             archivoSeleccionado.InitialDirectory = "c:\\";
+            //Tipos de archivos permitidos
             archivoSeleccionado.Filter = "Pdf files (*.pdf)|*.pdf|Odt files (*.odt)|*.odt";
             archivoSeleccionado.FilterIndex = 2;
             archivoSeleccionado.RestoreDirectory = true;
