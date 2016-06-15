@@ -51,7 +51,9 @@ namespace LogicaNegocios
 
         public SqlDataReader mConsultaGeneral(clConexion conexion)
         {
-            strSentencia = "select idProfesor, nombre, descripcion, estado, lugar, cupo,nombrePrograma, programa from tbCursosLibr";
+            strSentencia = @"select P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, programa from tbCursosLibr C
+                             inner join tbProfesores P
+                             on P.idProfesor = C.idProfesor";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
 
@@ -66,6 +68,8 @@ namespace LogicaNegocios
             strSentencia = "select idProfesor,nombre from tbProfesores";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
+
+      
 
         /*public SqlDataReader mConsultaEspecifica(clConexion conexion, clEntidadCurso pEntidadCurso, string tipo)
         {
