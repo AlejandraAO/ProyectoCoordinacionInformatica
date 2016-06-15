@@ -76,7 +76,7 @@
             this.groupBox.Name = "groupBox";
             this.groupBox.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox.Size = new System.Drawing.Size(829, 332);
-            this.groupBox.TabIndex = 30;
+            this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Información Miembros ";
             // 
@@ -102,7 +102,7 @@
             this.txtCarnet.Margin = new System.Windows.Forms.Padding(4);
             this.txtCarnet.Name = "txtCarnet";
             this.txtCarnet.Size = new System.Drawing.Size(169, 30);
-            this.txtCarnet.TabIndex = 44;
+            this.txtCarnet.TabIndex = 0;
             this.txtCarnet.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnBuscarProyecto
@@ -118,7 +118,7 @@
             this.btnBuscarProyecto.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarProyecto.Name = "btnBuscarProyecto";
             this.btnBuscarProyecto.Size = new System.Drawing.Size(116, 30);
-            this.btnBuscarProyecto.TabIndex = 34;
+            this.btnBuscarProyecto.TabIndex = 7;
             this.btnBuscarProyecto.Text = "Buscar";
             this.btnBuscarProyecto.UseVisualStyleBackColor = false;
             this.btnBuscarProyecto.Click += new System.EventHandler(this.btnBuscarProyecto_Click);
@@ -133,7 +133,7 @@
             this.txtProyecto.Margin = new System.Windows.Forms.Padding(4);
             this.txtProyecto.Name = "txtProyecto";
             this.txtProyecto.Size = new System.Drawing.Size(169, 30);
-            this.txtProyecto.TabIndex = 43;
+            this.txtProyecto.TabIndex = 6;
             // 
             // label2
             // 
@@ -170,7 +170,7 @@
             this.txtTip.Margin = new System.Windows.Forms.Padding(4);
             this.txtTip.Name = "txtTip";
             this.txtTip.Size = new System.Drawing.Size(169, 30);
-            this.txtTip.TabIndex = 35;
+            this.txtTip.TabIndex = 5;
             // 
             // label4
             // 
@@ -194,7 +194,7 @@
             this.txtCarrera.Margin = new System.Windows.Forms.Padding(4);
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(169, 30);
-            this.txtCarrera.TabIndex = 33;
+            this.txtCarrera.TabIndex = 4;
             // 
             // label3
             // 
@@ -218,7 +218,7 @@
             this.txtApellido2.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(169, 30);
-            this.txtApellido2.TabIndex = 31;
+            this.txtApellido2.TabIndex = 3;
             // 
             // label1
             // 
@@ -242,7 +242,7 @@
             this.txtApellido1.Margin = new System.Windows.Forms.Padding(4);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(169, 30);
-            this.txtApellido1.TabIndex = 29;
+            this.txtApellido1.TabIndex = 2;
             // 
             // txt
             // 
@@ -266,7 +266,7 @@
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(169, 30);
-            this.txtNombre.TabIndex = 27;
+            this.txtNombre.TabIndex = 1;
             // 
             // btnAgregar
             // 
@@ -281,7 +281,7 @@
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(103, 46);
-            this.btnAgregar.TabIndex = 29;
+            this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
@@ -299,7 +299,7 @@
             this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(103, 46);
-            this.btnSalir.TabIndex = 31;
+            this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
@@ -317,7 +317,7 @@
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(103, 46);
-            this.btnBuscar.TabIndex = 32;
+            this.btnBuscar.TabIndex = 3;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -335,7 +335,7 @@
             this.btnModificar.Margin = new System.Windows.Forms.Padding(4);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(109, 46);
-            this.btnModificar.TabIndex = 33;
+            this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);

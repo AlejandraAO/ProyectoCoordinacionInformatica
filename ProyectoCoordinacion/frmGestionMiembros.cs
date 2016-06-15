@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using Entidades;
 using LogicaNegocios;
 using AccesoDatos;
+using System.Transactions;
 
 namespace Vista
 {
@@ -47,11 +48,11 @@ namespace Vista
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
-        { 
+        {
 
-            //Agregar Miembro
             if (mVerificarCampos())
             {
+
                 conexion.codigo = "123";
                 conexion.clave = "123";
                 pEntidadMiembro.getSetCarnetMiembro = txtCarnet.Text;
@@ -61,52 +62,74 @@ namespace Vista
                 pEntidadMiembro.getSetTipo = txtTip.Text;
                 pEntidadMiembro.getSetCarreraMiembro = txtCarrera.Text;
 
+
+
+
+
                 if (miembros.mInsertarMiembro(conexion, pEntidadMiembro))
                 {
-                    MessageBox.Show("Se ha insertado el Miembro", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    mLimpiarCampos();
+
+                    dtrMiembro = miembros.mConsultarIdMiembro(conexion);
+
+                    if (dtrMiembro != null)
+                    {
+                        if (dtrMiembro.Read())
+                        {
+                            pEntidadMiembroProyecto.mIdMiembro = Convert.ToInt32(dtrMiembro.GetDecimal(0));
+                            pEntidadMiembroProyecto.mIdProyecto = Convert.ToInt32(txtProyecto.Text);
+
+                            miembroProyecto.mInsertarMiembroProyecto(conexion, pEntidadMiembroProyecto);
+
+                            MessageBox.Show("Exito al ingresar el nuevo miembro");
+                            mLimpiarCampos();
+                        }
+
+                    }
+
+
                 }
                 else
                 {
-                    MessageBox.Show("No se pudo insertar el Miembro", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Error. Miembro no ingresado");
                     mLimpiarCampos();
                 }
+
+
+                /* try
+                 {
+                     using (TransactionScope rootScope = new TransactionScope())
+                     {
+                         if (miembros.mInsertarMiembro(conexion, pEntidadMiembro) && miembroProyecto.mInsertarMiembroProyecto(conexion2, pEntidadMiembroProyecto)) {
+
+                             rootScope.Complete();
+                         }
+
+                         else { rootScope.Dispose(); }
+
+
+                     }
+                 }
+                 catch (Exception tae)
+                 {
+                     MessageBox.Show("Transaction Exception Occured");
+                 }
+                 */
+
+
             }
             else
             {
                 MessageBox.Show("Datos insuficientes para agregar un Miembro", "Favor completar campos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            //Agregar Relacion Entre Miembro y Proyecto
 
-            // falta agregar el control para que no se pueda agregar un miembro sin asignarle un proyecto
-            int idMiembro=0;
-            dtrMiembro = miembros.mConsultarIdMiembro(conexion, pEntidadMiembro);
-
-            if (dtrMiembro!=null)
-            {
-                if (dtrMiembro.Read())
-                {
-                    idMiembro = dtrMiembro.GetInt32(0);
-                }
-
-            }
-
-            pEntidadMiembroProyecto.mIdProyecto = Convert.ToInt32(this.txtProyecto.Text);
-            pEntidadMiembroProyecto.mIdMiembro =idMiembro;
-
-            if (miembroProyecto.mInsertarMiembroProyecto(conexion, pEntidadMiembroProyecto))
-            {
-                MessageBox.Show("Insert en la tabla tbMiembrosProy ", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mLimpiarCampos();
-            }
-       
 
 
         }
         public Boolean mVerificarCampos()
         {
-            if((txtNombre.Text!="") && (txtApellido1.Text!="") && (txtApellido2.Text!="") && (txtCarrera.Text!="") && (lbTipo.Text != ""))
+            if ((txtNombre.Text != "") && (txtApellido1.Text != "") && (txtApellido2.Text != "") && (txtCarrera.Text != "") && (txtCarnet.Text != "")
+                && (txtProyecto.Text != "") && (txtTip.Text != ""))
             {
                 return true;
             }
@@ -117,8 +140,10 @@ namespace Vista
             txtNombre.Text = "";
             txtApellido1.Text = "";
             txtApellido2.Text = "";
-            lbTipo.Text = "";
+            txtCarnet.Text = "";
             txtCarrera.Text = "";
+            txtProyecto.Text = "";
+            txtTip.Text = "";
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

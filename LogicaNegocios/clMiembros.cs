@@ -22,9 +22,9 @@ namespace LogicaNegocios
             return cone.mSeleccionar(strSentencia, cone);
         }
 
-        public SqlDataReader mConsultarIdMiembro(clConexion cone, clEntidadMiembro pEntidadMiembro)
+        public SqlDataReader mConsultarIdMiembro(clConexion cone)
         {
-            strSentencia = "select idMiembro from tbMiembros where carnet=" + pEntidadMiembro.getSetCarnetMiembro + "";
+            strSentencia = "SELECT IDENT_CURRENT('tbMiembros')"; 
             return cone.mSeleccionar(strSentencia, cone);
 
         }
