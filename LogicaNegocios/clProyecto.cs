@@ -28,7 +28,7 @@ namespace LogicaNegocios
         //revisar informacion proyecto en la forma que se inserta un varbinary.
         public Boolean mInsertarProyecto(clConexion cone, clEntidadProyecto pEntidadProyecto)
         {
-            strSentencia = "Insert into tbProyectos(nombre,descripcion,estado,tipo,informacion)values('"+pEntidadProyecto.mNombre+"','"+pEntidadProyecto.mDescripcion+"','"+pEntidadProyecto.mEstado+"','"+pEntidadProyecto.mTipo+ "', (SELECT * FROM OPENROWSET(BULK N'" + pEntidadProyecto.mInformacioProyecto + "', SINGLE_BLOB) as Pdf))";
+            strSentencia = "Insert into tbProyectos(nombre,descripcion,estado,tipo,informacion, nombreDocumento)values('" + pEntidadProyecto.mNombre+"','"+pEntidadProyecto.mDescripcion+"','"+pEntidadProyecto.mEstado+"','"+pEntidadProyecto.mTipo+ "', (SELECT * FROM OPENROWSET(BULK N'" + pEntidadProyecto.mInformacioProyecto + "', SINGLE_BLOB) as Pdf), '" + pEntidadProyecto.mNombreDocumento + "')";
             return cone.mEjecutar(strSentencia, cone);
            
           
@@ -40,6 +40,17 @@ namespace LogicaNegocios
             return cone.mSeleccionar(strSentencia, cone);
         }
 
+        public void mDescargarDocumentoProyecto(clConexion conexion, string ruta, clEntidadProyecto pEntidadProyecto)
+        {
+            strSentencia = "select informacion from tbProyectos where idProyecto= '" + pEntidadProyecto.mIdProyecto + "'";
+            conexion.leer(conexion, ruta, strSentencia);
+        }
+
+        public SqlDataReader mConsultarPorNombre(clConexion cone, clEntidadProyecto entidadProyecto)
+        {
+            strSentencia = "select * from tbProyectos where nombre='" + entidadProyecto.mNombre + "'";
+            return cone.mSeleccionar(strSentencia, cone);
+        }
 
         #endregion
     }
