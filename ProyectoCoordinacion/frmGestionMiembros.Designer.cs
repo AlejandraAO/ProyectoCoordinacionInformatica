@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.lblNumProyAsignados = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCarnet = new System.Windows.Forms.TextBox();
             this.btnBuscarProyecto = new System.Windows.Forms.Button();
-            this.txtProyecto = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbTipo = new System.Windows.Forms.Label();
             this.txtTip = new System.Windows.Forms.TextBox();
@@ -54,10 +54,10 @@
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox.Controls.Add(this.lblNumProyAsignados);
             this.groupBox.Controls.Add(this.label5);
             this.groupBox.Controls.Add(this.txtCarnet);
             this.groupBox.Controls.Add(this.btnBuscarProyecto);
-            this.groupBox.Controls.Add(this.txtProyecto);
             this.groupBox.Controls.Add(this.label2);
             this.groupBox.Controls.Add(this.lbTipo);
             this.groupBox.Controls.Add(this.txtTip);
@@ -79,6 +79,15 @@
             this.groupBox.TabIndex = 0;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Información Miembros ";
+            // 
+            // lblNumProyAsignados
+            // 
+            this.lblNumProyAsignados.AutoSize = true;
+            this.lblNumProyAsignados.Location = new System.Drawing.Point(492, 294);
+            this.lblNumProyAsignados.MaximumSize = new System.Drawing.Size(400, 30);
+            this.lblNumProyAsignados.Name = "lblNumProyAsignados";
+            this.lblNumProyAsignados.Size = new System.Drawing.Size(0, 23);
+            this.lblNumProyAsignados.TabIndex = 46;
             // 
             // label5
             // 
@@ -103,7 +112,6 @@
             this.txtCarnet.Name = "txtCarnet";
             this.txtCarnet.Size = new System.Drawing.Size(169, 30);
             this.txtCarnet.TabIndex = 0;
-            this.txtCarnet.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // btnBuscarProyecto
             // 
@@ -114,26 +122,14 @@
             this.btnBuscarProyecto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBuscarProyecto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarProyecto.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscarProyecto.Location = new System.Drawing.Point(528, 258);
+            this.btnBuscarProyecto.Location = new System.Drawing.Point(517, 222);
             this.btnBuscarProyecto.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscarProyecto.Name = "btnBuscarProyecto";
-            this.btnBuscarProyecto.Size = new System.Drawing.Size(116, 30);
+            this.btnBuscarProyecto.Size = new System.Drawing.Size(215, 47);
             this.btnBuscarProyecto.TabIndex = 7;
-            this.btnBuscarProyecto.Text = "Buscar";
+            this.btnBuscarProyecto.Text = "Asignar a Proyectos";
             this.btnBuscarProyecto.UseVisualStyleBackColor = false;
             this.btnBuscarProyecto.Click += new System.EventHandler(this.btnBuscarProyecto_Click);
-            // 
-            // txtProyecto
-            // 
-            this.txtProyecto.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtProyecto.Enabled = false;
-            this.txtProyecto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProyecto.ForeColor = System.Drawing.Color.Black;
-            this.txtProyecto.Location = new System.Drawing.Point(528, 220);
-            this.txtProyecto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtProyecto.Name = "txtProyecto";
-            this.txtProyecto.Size = new System.Drawing.Size(169, 30);
-            this.txtProyecto.TabIndex = 6;
             // 
             // label2
             // 
@@ -141,7 +137,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(408, 248);
+            this.label2.Location = new System.Drawing.Point(397, 235);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 23);
@@ -346,7 +342,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(980, 537);
+            this.ClientSize = new System.Drawing.Size(973, 554);
             this.ControlBox = false;
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
@@ -384,8 +380,8 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnBuscarProyecto;
-        private System.Windows.Forms.TextBox txtProyecto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCarnet;
+        private System.Windows.Forms.Label lblNumProyAsignados;
     }
 }

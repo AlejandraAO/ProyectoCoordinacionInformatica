@@ -37,6 +37,8 @@ namespace Vista
             miembros = new clMiembros();
             miembroProyecto = new clMiembroProyecto();
 
+            frmConsultaProyecto = new frmConsultaRapProyecto(conexion);
+
             InitializeComponent();
 
         }
@@ -49,6 +51,7 @@ namespace Vista
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+            string idProyecto;
 
             if (mVerificarCampos())
             {
@@ -76,12 +79,25 @@ namespace Vista
                         if (dtrMiembro.Read())
                         {
                             pEntidadMiembroProyecto.mIdMiembro = Convert.ToInt32(dtrMiembro.GetDecimal(0));
-                            pEntidadMiembroProyecto.mIdProyecto = Convert.ToInt32(txtProyecto.Text);
 
-                            miembroProyecto.mInsertarMiembroProyecto(conexion, pEntidadMiembroProyecto);
+                            do
+                            {
+                                idProyecto = frmConsultaProyecto.getIdsProyecto();
 
-                            MessageBox.Show("Exito al ingresar el nuevo miembro");
+                                if (idProyecto != null)
+                                {
+                                    pEntidadMiembroProyecto.mIdProyecto = Convert.ToInt32(idProyecto);
+
+                                    miembroProyecto.mInsertarMiembroProyecto(conexion, pEntidadMiembroProyecto);
+                                }
+                           
+
+
+                            } while (idProyecto != null);
+
+
                             mLimpiarCampos();
+                            MessageBox.Show("Exito. Miembro ingresado");
                         }
 
                     }
@@ -93,27 +109,6 @@ namespace Vista
                     MessageBox.Show("Error. Miembro no ingresado");
                     mLimpiarCampos();
                 }
-
-
-                /* try
-                 {
-                     using (TransactionScope rootScope = new TransactionScope())
-                     {
-                         if (miembros.mInsertarMiembro(conexion, pEntidadMiembro) && miembroProyecto.mInsertarMiembroProyecto(conexion2, pEntidadMiembroProyecto)) {
-
-                             rootScope.Complete();
-                         }
-
-                         else { rootScope.Dispose(); }
-
-
-                     }
-                 }
-                 catch (Exception tae)
-                 {
-                     MessageBox.Show("Transaction Exception Occured");
-                 }
-                 */
 
 
             }
@@ -129,11 +124,13 @@ namespace Vista
         public Boolean mVerificarCampos()
         {
             if ((txtNombre.Text != "") && (txtApellido1.Text != "") && (txtApellido2.Text != "") && (txtCarrera.Text != "") && (txtCarnet.Text != "")
-                && (txtProyecto.Text != "") && (txtTip.Text != ""))
+                && (txtTip.Text != "") && (frmConsultaProyecto. verificarListViewVacio()==true))
             {
                 return true;
             }
             return false;
+
+           
         }
         public void mLimpiarCampos()
         {
@@ -142,8 +139,9 @@ namespace Vista
             txtApellido2.Text = "";
             txtCarnet.Text = "";
             txtCarrera.Text = "";
-            txtProyecto.Text = "";
             txtTip.Text = "";
+            lblNumProyAsignados.Text = "";
+            frmConsultaProyecto.limpiarLVProyAsignados();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -158,19 +156,16 @@ namespace Vista
 
         private void btnBuscarProyecto_Click(object sender, EventArgs e)
         {
-            frmConsultaProyecto= new frmConsultaRapProyecto(conexion);
-            frmConsultaProyecto.ShowDialog();
+           
+                frmConsultaProyecto.ShowDialog();
 
-            if (frmConsultaProyecto.mIdProyecto!= "")
-            {
-                this.txtProyecto.Text = frmConsultaProyecto.mIdProyecto;
-            }
+            if (frmConsultaProyecto.getCantidadProyectosAsignados()==1)
+                this.lblNumProyAsignados.Text = frmConsultaProyecto.getCantidadProyectosAsignados() + "  Proyecto Asignado";
+
+            else
+            this.lblNumProyAsignados.Text =  frmConsultaProyecto.getCantidadProyectosAsignados() + "  Proyectos Asignados";
         }
 
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

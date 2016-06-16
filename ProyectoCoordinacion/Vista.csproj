@@ -59,11 +59,11 @@
     <Compile Include="frmAcceso.designer.cs">
       <DependentUpon>frmAcceso.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmConsultaRapProyecto.cs">
+    <Compile Include="frmAsignarMiembroNuevoAProy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmConsultaRapProyecto.Designer.cs">
-      <DependentUpon>frmConsultaRapProyecto.cs</DependentUpon>
+    <Compile Include="frmAsignarMiembroNuevoAProy.Designer.cs">
+      <DependentUpon>frmAsignarMiembroNuevoAProy.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultarCurso.cs">
       <SubType>Form</SubType>
@@ -133,8 +133,8 @@
     <EmbeddedResource Include="frmAcceso.resx">
       <DependentUpon>frmAcceso.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmConsultaRapProyecto.resx">
-      <DependentUpon>frmConsultaRapProyecto.cs</DependentUpon>
+    <EmbeddedResource Include="frmAsignarMiembroNuevoAProy.resx">
+      <DependentUpon>frmAsignarMiembroNuevoAProy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarCurso.resx">
       <DependentUpon>frmConsultarCurso.cs</DependentUpon>
