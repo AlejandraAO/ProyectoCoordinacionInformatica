@@ -41,6 +41,7 @@
             this.lbCupoMaximo = new System.Windows.Forms.Label();
             this.lbNumeroGrup = new System.Windows.Forms.Label();
             this.lbIdGrupo = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnConsultar
@@ -55,7 +56,7 @@
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(120, 200);
+            this.btnModificar.Location = new System.Drawing.Point(89, 140);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 24;
@@ -64,23 +65,24 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(15, 200);
+            this.btnAgregar.Location = new System.Drawing.Point(8, 140);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 23;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(102, 148);
+            this.textBox5.Location = new System.Drawing.Point(474, 41);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(146, 20);
             this.textBox5.TabIndex = 22;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(102, 119);
+            this.textBox4.Location = new System.Drawing.Point(474, 12);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(146, 20);
             this.textBox4.TabIndex = 21;
@@ -111,7 +113,7 @@
             this.label1.AccessibleName = "lbCupoActual";
             this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 151);
+            this.label1.Location = new System.Drawing.Point(384, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 17;
@@ -120,7 +122,7 @@
             // lbCupoMinimo
             // 
             this.lbCupoMinimo.AutoSize = true;
-            this.lbCupoMinimo.Location = new System.Drawing.Point(12, 119);
+            this.lbCupoMinimo.Location = new System.Drawing.Point(384, 12);
             this.lbCupoMinimo.Name = "lbCupoMinimo";
             this.lbCupoMinimo.Size = new System.Drawing.Size(68, 13);
             this.lbCupoMinimo.TabIndex = 16;
@@ -153,11 +155,22 @@
             this.lbIdGrupo.TabIndex = 13;
             this.lbIdGrupo.Text = "idGrupo";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(639, 130);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.TabIndex = 26;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // frmGrupoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(383, 267);
+            this.ClientSize = new System.Drawing.Size(744, 190);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -172,6 +185,7 @@
             this.Controls.Add(this.lbNumeroGrup);
             this.Controls.Add(this.lbIdGrupo);
             this.Name = "frmGrupoCurso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGrupoCurso";
             this.Load += new System.EventHandler(this.frmGrupoCurso_Load);
             this.ResumeLayout(false);
@@ -194,5 +208,6 @@
         private System.Windows.Forms.Label lbCupoMaximo;
         private System.Windows.Forms.Label lbNumeroGrup;
         private System.Windows.Forms.Label lbIdGrupo;
+        private System.Windows.Forms.Button btnSalir;
     }
 }
