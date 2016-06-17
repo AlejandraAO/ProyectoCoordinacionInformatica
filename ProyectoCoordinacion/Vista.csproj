@@ -101,6 +101,12 @@
     <Compile Include="frmGestionProyectoSoftwareLibre.Designer.cs">
       <DependentUpon>frmGestionProyectoSoftwareLibre.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmGrupoCurso.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGrupoCurso.Designer.cs">
+      <DependentUpon>frmGrupoCurso.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProyectoSoftwareLibre.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +159,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionProyectoSoftwareLibre.resx">
       <DependentUpon>frmGestionProyectoSoftwareLibre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGrupoCurso.resx">
+      <DependentUpon>frmGrupoCurso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmProyectoSoftwareLibre.resx">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
