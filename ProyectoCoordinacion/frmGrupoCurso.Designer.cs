@@ -1,4 +1,4 @@
-﻿namespace ProyectoCoordinacion
+﻿namespace Vista
 {
     partial class frmGrupoCurso
     {
@@ -45,16 +45,17 @@
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(358, 68);
+            this.btnConsultar.Location = new System.Drawing.Point(264, 7);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(75, 23);
             this.btnConsultar.TabIndex = 25;
             this.btnConsultar.Text = "Consultar ";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnModificar
             // 
-            this.btnModificar.Location = new System.Drawing.Point(214, 261);
+            this.btnModificar.Location = new System.Drawing.Point(120, 200);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(75, 23);
             this.btnModificar.TabIndex = 24;
@@ -63,7 +64,7 @@
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Location = new System.Drawing.Point(109, 261);
+            this.btnAgregar.Location = new System.Drawing.Point(15, 200);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(75, 23);
             this.btnAgregar.TabIndex = 23;
@@ -72,35 +73,35 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(196, 209);
+            this.textBox5.Location = new System.Drawing.Point(102, 148);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(146, 20);
             this.textBox5.TabIndex = 22;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(196, 180);
+            this.textBox4.Location = new System.Drawing.Point(102, 119);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(146, 20);
             this.textBox4.TabIndex = 21;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(196, 142);
+            this.textBox3.Location = new System.Drawing.Point(102, 81);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(146, 20);
             this.textBox3.TabIndex = 20;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(196, 106);
+            this.textBox2.Location = new System.Drawing.Point(102, 45);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(146, 20);
             this.textBox2.TabIndex = 19;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(196, 70);
+            this.textBox1.Location = new System.Drawing.Point(102, 9);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(146, 20);
             this.textBox1.TabIndex = 18;
@@ -110,7 +111,7 @@
             this.label1.AccessibleName = "lbCupoActual";
             this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(106, 212);
+            this.label1.Location = new System.Drawing.Point(12, 151);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 17;
@@ -119,7 +120,7 @@
             // lbCupoMinimo
             // 
             this.lbCupoMinimo.AutoSize = true;
-            this.lbCupoMinimo.Location = new System.Drawing.Point(106, 180);
+            this.lbCupoMinimo.Location = new System.Drawing.Point(12, 119);
             this.lbCupoMinimo.Name = "lbCupoMinimo";
             this.lbCupoMinimo.Size = new System.Drawing.Size(68, 13);
             this.lbCupoMinimo.TabIndex = 16;
@@ -128,7 +129,7 @@
             // lbCupoMaximo
             // 
             this.lbCupoMaximo.AutoSize = true;
-            this.lbCupoMaximo.Location = new System.Drawing.Point(106, 145);
+            this.lbCupoMaximo.Location = new System.Drawing.Point(12, 84);
             this.lbCupoMaximo.Name = "lbCupoMaximo";
             this.lbCupoMaximo.Size = new System.Drawing.Size(71, 13);
             this.lbCupoMaximo.TabIndex = 15;
@@ -137,7 +138,7 @@
             // lbNumeroGrup
             // 
             this.lbNumeroGrup.AutoSize = true;
-            this.lbNumeroGrup.Location = new System.Drawing.Point(106, 106);
+            this.lbNumeroGrup.Location = new System.Drawing.Point(12, 45);
             this.lbNumeroGrup.Name = "lbNumeroGrup";
             this.lbNumeroGrup.Size = new System.Drawing.Size(76, 13);
             this.lbNumeroGrup.TabIndex = 14;
@@ -146,7 +147,7 @@
             // lbIdGrupo
             // 
             this.lbIdGrupo.AutoSize = true;
-            this.lbIdGrupo.Location = new System.Drawing.Point(106, 70);
+            this.lbIdGrupo.Location = new System.Drawing.Point(12, 9);
             this.lbIdGrupo.Name = "lbIdGrupo";
             this.lbIdGrupo.Size = new System.Drawing.Size(44, 13);
             this.lbIdGrupo.TabIndex = 13;
@@ -156,7 +157,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(539, 353);
+            this.ClientSize = new System.Drawing.Size(383, 267);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
@@ -172,6 +173,7 @@
             this.Controls.Add(this.lbIdGrupo);
             this.Name = "frmGrupoCurso";
             this.Text = "frmGrupoCurso";
+            this.Load += new System.EventHandler(this.frmGrupoCurso_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

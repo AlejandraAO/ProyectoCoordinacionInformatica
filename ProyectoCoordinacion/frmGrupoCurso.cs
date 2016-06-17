@@ -8,13 +8,28 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ProyectoCoordinacion
+namespace Vista
 {
     public partial class frmGrupoCurso : Form
     {
+
+        menuPrincipal menu;
+        frmAcceso frmAcceso;
         public frmGrupoCurso()
         {
+            frmAcceso = new frmAcceso();
+            menu = new menuPrincipal(frmAcceso);
             InitializeComponent();
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            frmConsultarCurso consultaCurso = new frmConsultarCurso(menu);
+        }
+        
+        private void frmGrupoCurso_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
