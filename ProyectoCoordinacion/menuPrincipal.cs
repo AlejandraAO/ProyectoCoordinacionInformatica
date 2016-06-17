@@ -95,6 +95,7 @@ namespace Vista
         private void gestiónGrupoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmGrupoCurso grupoCurso = new frmGrupoCurso();
+            grupoCurso.Show();
         }
     }
 }
