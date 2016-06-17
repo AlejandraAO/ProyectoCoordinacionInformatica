@@ -18,7 +18,7 @@ namespace LogicaNegocios
 
         public Boolean mInsertarGrupo(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {
-            strSentencia = "insert into tbGrupoCurs(idGrupo, numeroGrup, cupoMaximo, cupoMinimo, cupoActual) values('" + pEntidadGrupoCurso.getSetIdCurso + "', '" + pEntidadGrupoCurso.getSetNumeroGrup + "', '" + pEntidadGrupoCurso.getSetCupoMaximo + "', '" + pEntidadGrupoCurso.getSetCupoMinimo + "', '" + pEntidadGrupoCurso.getSetCupoActual + "') ";
+            strSentencia = "insert into tbGruposCurs(idCurso, numeroGrup, cupoMaximo, cupoMinimo, cupoActual) values('" + pEntidadGrupoCurso.getSetIdCurso + "', '" + pEntidadGrupoCurso.getSetNumeroGrup + "', '" + pEntidadGrupoCurso.getSetCupoMaximo + "', '" + pEntidadGrupoCurso.getSetCupoMinimo + "', '" + pEntidadGrupoCurso.getSetCupoActual + "') ";
             return conexion.mEjecutar(strSentencia, conexion);
         }
 
@@ -26,13 +26,13 @@ namespace LogicaNegocios
         public Boolean mModificarGrupoCurso(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {
 
-            strSentencia = "update tbGrupoCurs set idGrupo = '" + pEntidadGrupoCurso.getsetIdGrupo + "', numeroGrup = '" + pEntidadGrupoCurso.getSetNumeroGrup + "', cupoMaximo ='" + pEntidadGrupoCurso.getSetCupoMaximo + "', cupoMinimo='" + pEntidadGrupoCurso.getSetCupoMinimo + "', cupoActual='" + pEntidadGrupoCurso.getSetCupoActual + "' where idGrupo='" + pEntidadGrupoCurso.getsetIdGrupo + "'";
+            strSentencia = "update tbGruposCurs set idGrupo = '" + pEntidadGrupoCurso.getsetIdGrupo + "', numeroGrup = '" + pEntidadGrupoCurso.getSetNumeroGrup + "', cupoMaximo ='" + pEntidadGrupoCurso.getSetCupoMaximo + "', cupoMinimo='" + pEntidadGrupoCurso.getSetCupoMinimo + "', cupoActual='" + pEntidadGrupoCurso.getSetCupoActual + "' where idGrupo='" + pEntidadGrupoCurso.getsetIdGrupo + "'";
             return conexion.mEjecutar(strSentencia, conexion);
         }
 
         public SqlDataReader mConsultaGeneral(clConexion conexion)
         {
-            strSentencia = "select idGrupo, numeroGrup, cupoMaximo, cupoMinimo, cupoActual from tbGrupoCurs";
+            strSentencia = "select idGrupo, numeroGrup, cupoMaximo, cupoMinimo, cupoActual from tbGruposCurs";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
 

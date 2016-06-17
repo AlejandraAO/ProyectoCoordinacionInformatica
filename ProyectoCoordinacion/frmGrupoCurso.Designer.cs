@@ -31,11 +31,11 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtCupoActual = new System.Windows.Forms.TextBox();
+            this.txtCupoMinimo = new System.Windows.Forms.TextBox();
+            this.txtCupoMaximo = new System.Windows.Forms.TextBox();
+            this.txtNumeroGrupo = new System.Windows.Forms.TextBox();
+            this.txtIdGrupo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.lbCupoMaximo = new System.Windows.Forms.Label();
@@ -73,40 +73,40 @@
             this.btnAgregar.UseVisualStyleBackColor = true;
             this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
-            // textBox5
+            // txtCupoActual
             // 
-            this.textBox5.Location = new System.Drawing.Point(474, 41);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(146, 20);
-            this.textBox5.TabIndex = 22;
+            this.txtCupoActual.Location = new System.Drawing.Point(474, 41);
+            this.txtCupoActual.Name = "txtCupoActual";
+            this.txtCupoActual.Size = new System.Drawing.Size(146, 20);
+            this.txtCupoActual.TabIndex = 22;
             // 
-            // textBox4
+            // txtCupoMinimo
             // 
-            this.textBox4.Location = new System.Drawing.Point(474, 12);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 20);
-            this.textBox4.TabIndex = 21;
+            this.txtCupoMinimo.Location = new System.Drawing.Point(474, 12);
+            this.txtCupoMinimo.Name = "txtCupoMinimo";
+            this.txtCupoMinimo.Size = new System.Drawing.Size(146, 20);
+            this.txtCupoMinimo.TabIndex = 21;
             // 
-            // textBox3
+            // txtCupoMaximo
             // 
-            this.textBox3.Location = new System.Drawing.Point(102, 81);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 20);
-            this.textBox3.TabIndex = 20;
+            this.txtCupoMaximo.Location = new System.Drawing.Point(102, 81);
+            this.txtCupoMaximo.Name = "txtCupoMaximo";
+            this.txtCupoMaximo.Size = new System.Drawing.Size(146, 20);
+            this.txtCupoMaximo.TabIndex = 20;
             // 
-            // textBox2
+            // txtNumeroGrupo
             // 
-            this.textBox2.Location = new System.Drawing.Point(102, 45);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 20);
-            this.textBox2.TabIndex = 19;
+            this.txtNumeroGrupo.Location = new System.Drawing.Point(102, 45);
+            this.txtNumeroGrupo.Name = "txtNumeroGrupo";
+            this.txtNumeroGrupo.Size = new System.Drawing.Size(146, 20);
+            this.txtNumeroGrupo.TabIndex = 19;
             // 
-            // textBox1
+            // txtIdGrupo
             // 
-            this.textBox1.Location = new System.Drawing.Point(102, 9);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 20);
-            this.textBox1.TabIndex = 18;
+            this.txtIdGrupo.Location = new System.Drawing.Point(102, 9);
+            this.txtIdGrupo.Name = "txtIdGrupo";
+            this.txtIdGrupo.Size = new System.Drawing.Size(146, 20);
+            this.txtIdGrupo.TabIndex = 18;
             // 
             // label1
             // 
@@ -174,11 +174,11 @@
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtCupoActual);
+            this.Controls.Add(this.txtCupoMinimo);
+            this.Controls.Add(this.txtCupoMaximo);
+            this.Controls.Add(this.txtNumeroGrupo);
+            this.Controls.Add(this.txtIdGrupo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbCupoMinimo);
             this.Controls.Add(this.lbCupoMaximo);
@@ -198,11 +198,11 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtCupoActual;
+        private System.Windows.Forms.TextBox txtCupoMinimo;
+        private System.Windows.Forms.TextBox txtCupoMaximo;
+        private System.Windows.Forms.TextBox txtNumeroGrupo;
+        private System.Windows.Forms.TextBox txtIdGrupo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbCupoMinimo;
         private System.Windows.Forms.Label lbCupoMaximo;
