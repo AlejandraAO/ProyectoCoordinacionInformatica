@@ -106,13 +106,14 @@
             // txtDatoConsulta
             // 
             this.txtDatoConsulta.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtDatoConsulta.Enabled = false;
             this.txtDatoConsulta.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDatoConsulta.ForeColor = System.Drawing.Color.Black;
             this.txtDatoConsulta.Location = new System.Drawing.Point(502, 48);
             this.txtDatoConsulta.Name = "txtDatoConsulta";
             this.txtDatoConsulta.Size = new System.Drawing.Size(128, 26);
             this.txtDatoConsulta.TabIndex = 46;
+            this.txtDatoConsulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDatoConsulta_KeyPress);
+            this.txtDatoConsulta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDatoConsulta_KeyUp);
             // 
             // btnConsultar
             // 

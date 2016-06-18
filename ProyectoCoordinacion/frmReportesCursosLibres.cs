@@ -52,16 +52,43 @@ namespace Vista
             if (dtrCursoLibre != null)
                 while (dtrCursoLibre.Read())
                 {
+                   
                     mPoblarListaCursosLibres();
 
                 }//fin del read
+        }
+
+        public void mConsultarPorNombre(String nombre)
+        {
+            
+            dtrCursoLibre = clCursoLibre.mConsultaFiltrada(conexion, nombre);
+            if(dtrCursoLibre != null)
+                while (dtrCursoLibre.Read())
+                {
+                    
+                    mPoblarListaCursosLibres();
+                }
+        }
+
+        public void mConsultarEspecifica(String tipoConsulta, String busqueda)
+        {
+
+            dtrCursoLibre = clCursoLibre.mConsultaEspecifica(conexion, tipoConsulta, busqueda);
+            if (dtrCursoLibre != null)
+                while (dtrCursoLibre.Read())
+                {
+                    mPoblarListaCursosLibres();
+                }
         }
 
 
 
         public void mPoblarListaCursosLibres()
         {
+
+           
             int reglon = dgvCursosLibres.Rows.Add();
+            
             dgvCursosLibres.Rows[reglon].Cells["Profesor"].Value = dtrCursoLibre.GetString(0);
             dgvCursosLibres.Rows[reglon].Cells["Nombre"].Value = dtrCursoLibre.GetString(1);
             dgvCursosLibres.Rows[reglon].Cells["Descripcion"].Value = dtrCursoLibre.GetString(2); // implementar emergernte
@@ -77,6 +104,49 @@ namespace Vista
         private void frmReportesCursosLibres_Load(object sender, EventArgs e)
         {
             mConsultaGenetal();
+            cbConsultarPor.SelectedIndex = 0;
+        }
+
+        private void txtDatoConsulta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //TextBox tb_nombre = (TextBox)sender;
+
+            //if(tb_nombre.Text.Trim().Length > 0)
+            //{
+            //    dgvCursosLibres.Rows.Clear();
+            //    mConsultarPorNombre(tb_nombre.Text.Trim().ToUpper());
+            //}
+            //else
+            //{
+            //    dgvCursosLibres.Rows.Clear();
+            //    mConsultaGenetal();
+            //}
+           
+        }
+
+        private void txtDatoConsulta_KeyUp(object sender, KeyEventArgs e)
+        {
+            TextBox tb_nombre = (TextBox)sender;
+
+
+            if (tb_nombre.Text.Trim().Length > 0)
+            {
+                dgvCursosLibres.Rows.Clear();
+                //mConsultarPorNombre(tb_nombre.Text.Trim().ToUpper());
+
+                if (cbConsultarPor.SelectedIndex == 0)
+                    mConsultarEspecifica(clCursoLibre.CONSULTA_NOMBRE, tb_nombre.Text.Trim().ToUpper());
+                else if (cbConsultarPor.SelectedIndex == 1)
+                    mConsultarEspecifica(clCursoLibre.COSULTA_PROFESOR, tb_nombre.Text.Trim().ToUpper());
+                else
+                    mConsultarEspecifica(clCursoLibre.CONSULTA_LUGAR, tb_nombre.Text.Trim().ToUpper());
+
+            }
+            else
+            {
+                dgvCursosLibres.Rows.Clear();
+                mConsultaGenetal();
+            }
         }
     }
 

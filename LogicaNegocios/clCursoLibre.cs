@@ -13,6 +13,10 @@ namespace LogicaNegocios
     {
    
         private string strSentencia="";
+        public static string CONSULTA_NOMBRE = " C.nombre";
+        public static string COSULTA_PROFESOR = "P.nombre";
+        public static string CONSULTA_LUGAR = "C.lugar";
+        public static string CONSULTA_ESTADO = "C.estado";
 
         public Boolean mInsertarCursoLibre(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
@@ -57,6 +61,16 @@ namespace LogicaNegocios
             return conexion.mSeleccionar(strSentencia, conexion);
         }
 
+        public SqlDataReader mConsultaFiltrada(clConexion conexion, String nombre)
+        {
+            strSentencia =String.Format(@"select P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, programa from tbCursosLibr C
+                             inner join tbProfesores P
+                             on P.idProfesor = C.idProfesor
+                             where C.nombre like '{0}%' or P.nombre like '{0}%' or lugar like '{0}%' or C.estado like '{0}%'", nombre);
+
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
+
         public SqlDataReader mConsultadeCursos(clConexion conexion)
         {
             strSentencia = "select idCursosLibres, nombre from tbCursosLibr";
@@ -71,29 +85,16 @@ namespace LogicaNegocios
 
       
 
-        /*public SqlDataReader mConsultaEspecifica(clConexion conexion, clEntidadCurso pEntidadCurso, string tipo)
+        public SqlDataReader mConsultaEspecifica(clConexion conexion, string tipoConsuta, string busqueda)
         {
-            if (tipo == "Ciclo")
-            {
-                strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where ciclo='" + pEntidadCurso.mCicloCurso + "'  ";
-                return conexion.mSeleccionar(strSentencia, conexion);
-            }
-            else
-            {
-                if (tipo == "Nombre")
-                {
-                    strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where nombre='" + pEntidadCurso.mNombreCurso + "'  ";
-                    return conexion.mSeleccionar(strSentencia, conexion);
-                }
-                else
-                {
-                    
-                        strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad from tbCursos where sigla='" + pEntidadCurso.mSiglaCurso + "'  ";
-                        return conexion.mSeleccionar(strSentencia, conexion);
-                    
-                }
-            }
-            
-        }*/
+
+            strSentencia =  String.Format(@"select P.nombre as profesor, C.nombre, descripcion, C.estado, lugar, cupo, programa from tbCursosLibr C
+                             inner join tbProfesores P
+                             on P.idProfesor = C.idProfesor
+                             where {0} like '{1}%'", tipoConsuta , busqueda );
+
+            return conexion.mSeleccionar(strSentencia, conexion);
+
+        }
     }
 }

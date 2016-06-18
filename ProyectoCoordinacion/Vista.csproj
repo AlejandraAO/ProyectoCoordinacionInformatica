@@ -53,6 +53,12 @@
     <Compile Include="Componente.designer.cs">
       <DependentUpon>Componente.cs</DependentUpon>
     </Compile>
+    <Compile Include="fmrGestionCursosLibres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fmrGestionCursosLibres.Designer.cs">
+      <DependentUpon>fmrGestionCursosLibres.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAcceso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,12 @@
     <Compile Include="frmReporteProyectos.Designer.cs">
       <DependentUpon>frmReporteProyectos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportesCursosLibres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportesCursosLibres.Designer.cs">
+      <DependentUpon>frmReportesCursosLibres.cs</DependentUpon>
+    </Compile>
     <Compile Include="menuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -135,6 +147,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Componente.resx">
       <DependentUpon>Componente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fmrGestionCursosLibres.resx">
+      <DependentUpon>fmrGestionCursosLibres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAcceso.resx">
       <DependentUpon>frmAcceso.cs</DependentUpon>
@@ -171,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteProyectos.resx">
       <DependentUpon>frmReporteProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReportesCursosLibres.resx">
+      <DependentUpon>frmReportesCursosLibres.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuPrincipal.resx">
       <DependentUpon>menuPrincipal.cs</DependentUpon>
