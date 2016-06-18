@@ -97,5 +97,17 @@ namespace Vista
             frmGrupoCurso grupoCurso = new frmGrupoCurso();
             grupoCurso.Show();
         }
+
+        private void reporteProfesorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteProfesores reporteProfesores = new frmReporteProfesores();
+            reporteProfesores.Show();
+        }
+
+        private void reporteLaboratorioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReporteLaboratorios reporteLaboratorios = new frmReporteLaboratorios();
+            reporteLaboratorios.Show();
+        }
     }
 }

@@ -45,6 +45,9 @@
             this.gestiónDeCursosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónReportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteProfesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,7 +55,7 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.gestiónGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteLaboratorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -94,7 +97,8 @@
             this.editMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.gestiónSwProyectosDeSoftwareLibreToolStripMenuItem,
             this.gestiónDeCursosToolStripMenuItem,
-            this.gestiónDeCursosToolStripMenuItem1});
+            this.gestiónDeCursosToolStripMenuItem1,
+            this.gestiónReportesToolStripMenuItem});
             this.editMenu.Name = "editMenu";
             this.editMenu.Size = new System.Drawing.Size(91, 20);
             this.editMenu.Text = "&Coordinación";
@@ -193,6 +197,29 @@
             this.reporteToolStripMenuItem.Text = "Reporte";
             this.reporteToolStripMenuItem.Click += new System.EventHandler(this.reporteToolStripMenuItem_Click);
             // 
+            // gestiónGrupoToolStripMenuItem
+            // 
+            this.gestiónGrupoToolStripMenuItem.Name = "gestiónGrupoToolStripMenuItem";
+            this.gestiónGrupoToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.gestiónGrupoToolStripMenuItem.Text = "Gestión Grupo";
+            this.gestiónGrupoToolStripMenuItem.Click += new System.EventHandler(this.gestiónGrupoToolStripMenuItem_Click);
+            // 
+            // gestiónReportesToolStripMenuItem
+            // 
+            this.gestiónReportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.reporteProfesorToolStripMenuItem,
+            this.reporteLaboratorioToolStripMenuItem});
+            this.gestiónReportesToolStripMenuItem.Name = "gestiónReportesToolStripMenuItem";
+            this.gestiónReportesToolStripMenuItem.Size = new System.Drawing.Size(279, 22);
+            this.gestiónReportesToolStripMenuItem.Text = "Gestión Reportes";
+            // 
+            // reporteProfesorToolStripMenuItem
+            // 
+            this.reporteProfesorToolStripMenuItem.Name = "reporteProfesorToolStripMenuItem";
+            this.reporteProfesorToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.reporteProfesorToolStripMenuItem.Text = "Reporte Profesor";
+            this.reporteProfesorToolStripMenuItem.Click += new System.EventHandler(this.reporteProfesorToolStripMenuItem_Click);
+            // 
             // viewMenu
             // 
             this.viewMenu.Name = "viewMenu";
@@ -231,12 +258,12 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
             // 
-            // gestiónGrupoToolStripMenuItem
+            // reporteLaboratorioToolStripMenuItem
             // 
-            this.gestiónGrupoToolStripMenuItem.Name = "gestiónGrupoToolStripMenuItem";
-            this.gestiónGrupoToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
-            this.gestiónGrupoToolStripMenuItem.Text = "Gestión Grupo";
-            this.gestiónGrupoToolStripMenuItem.Click += new System.EventHandler(this.gestiónGrupoToolStripMenuItem_Click);
+            this.reporteLaboratorioToolStripMenuItem.Name = "reporteLaboratorioToolStripMenuItem";
+            this.reporteLaboratorioToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.reporteLaboratorioToolStripMenuItem.Text = "Reporte Laboratorio";
+            this.reporteLaboratorioToolStripMenuItem.Click += new System.EventHandler(this.reporteLaboratorioToolStripMenuItem_Click);
             // 
             // menuPrincipal
             // 
@@ -285,6 +312,9 @@
         private System.Windows.Forms.ToolStripMenuItem gestiónCursosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónGrupoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestiónReportesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteProfesorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reporteLaboratorioToolStripMenuItem;
     }
 }
 

@@ -77,5 +77,12 @@ namespace LogicaNegocios
             strSentencia = "select programa from tbCursos where idCurso= '"+pEntidadCurso.mIdCurso+"'";
             conexion.leer(conexion,ruta,strSentencia);
         }
+
+        public SqlDataReader mConsultarModalidadCurso(clConexion conexion,clEntidadCurso pEntidadCurso)
+        {
+            strSentencia = "select modalidad from tbCursos where idCurso='" + pEntidadCurso.mIdCurso + "' ";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
+
     }
 }
