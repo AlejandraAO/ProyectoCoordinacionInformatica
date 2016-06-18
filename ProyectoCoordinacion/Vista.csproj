@@ -113,11 +113,23 @@
     <Compile Include="frmProyectoSoftwareLibre.Designer.cs">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteLaboratorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteLaboratorios.Designer.cs">
+      <DependentUpon>frmReporteLaboratorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteMiembros.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmReporteMiembros.Designer.cs">
       <DependentUpon>frmReporteMiembros.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmReporteProfesores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteProfesores.Designer.cs">
+      <DependentUpon>frmReporteProfesores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteProyectos.cs">
       <SubType>Form</SubType>
@@ -166,8 +178,14 @@
     <EmbeddedResource Include="frmProyectoSoftwareLibre.resx">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteLaboratorios.resx">
+      <DependentUpon>frmReporteLaboratorios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteMiembros.resx">
       <DependentUpon>frmReporteMiembros.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteProfesores.resx">
+      <DependentUpon>frmReporteProfesores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteProyectos.resx">
       <DependentUpon>frmReporteProyectos.cs</DependentUpon>
