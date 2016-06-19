@@ -28,149 +28,204 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
             this.txtCupoActual = new System.Windows.Forms.TextBox();
             this.txtCupoMinimo = new System.Windows.Forms.TextBox();
             this.txtCupoMaximo = new System.Windows.Forms.TextBox();
             this.txtNumeroGrupo = new System.Windows.Forms.TextBox();
             this.txtIdGrupo = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbCupoMinimo = new System.Windows.Forms.Label();
-            this.lbCupoMaximo = new System.Windows.Forms.Label();
-            this.lbNumeroGrup = new System.Windows.Forms.Label();
             this.lbIdGrupo = new System.Windows.Forms.Label();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnConsultar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.lbIdCurso = new System.Windows.Forms.Label();
+            this.lbNumeroGrupo = new System.Windows.Forms.Label();
+            this.lbCupoMaximo = new System.Windows.Forms.Label();
+            this.lbCupoMinimo = new System.Windows.Forms.Label();
+            this.lbCupoActual = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // btnConsultar
-            // 
-            this.btnConsultar.Location = new System.Drawing.Point(264, 7);
-            this.btnConsultar.Name = "btnConsultar";
-            this.btnConsultar.Size = new System.Drawing.Size(75, 23);
-            this.btnConsultar.TabIndex = 25;
-            this.btnConsultar.Text = "Consultar ";
-            this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Location = new System.Drawing.Point(89, 140);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(75, 23);
-            this.btnModificar.TabIndex = 24;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.Location = new System.Drawing.Point(8, 140);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(75, 23);
-            this.btnAgregar.TabIndex = 23;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtCupoActual
             // 
-            this.txtCupoActual.Location = new System.Drawing.Point(474, 41);
+            this.txtCupoActual.Location = new System.Drawing.Point(537, 61);
             this.txtCupoActual.Name = "txtCupoActual";
             this.txtCupoActual.Size = new System.Drawing.Size(146, 20);
             this.txtCupoActual.TabIndex = 22;
             // 
             // txtCupoMinimo
             // 
-            this.txtCupoMinimo.Location = new System.Drawing.Point(474, 12);
+            this.txtCupoMinimo.Location = new System.Drawing.Point(537, 32);
             this.txtCupoMinimo.Name = "txtCupoMinimo";
             this.txtCupoMinimo.Size = new System.Drawing.Size(146, 20);
             this.txtCupoMinimo.TabIndex = 21;
             // 
             // txtCupoMaximo
             // 
-            this.txtCupoMaximo.Location = new System.Drawing.Point(102, 81);
+            this.txtCupoMaximo.Location = new System.Drawing.Point(139, 109);
             this.txtCupoMaximo.Name = "txtCupoMaximo";
             this.txtCupoMaximo.Size = new System.Drawing.Size(146, 20);
             this.txtCupoMaximo.TabIndex = 20;
             // 
             // txtNumeroGrupo
             // 
-            this.txtNumeroGrupo.Location = new System.Drawing.Point(102, 45);
+            this.txtNumeroGrupo.Location = new System.Drawing.Point(139, 74);
             this.txtNumeroGrupo.Name = "txtNumeroGrupo";
             this.txtNumeroGrupo.Size = new System.Drawing.Size(146, 20);
             this.txtNumeroGrupo.TabIndex = 19;
             // 
             // txtIdGrupo
             // 
-            this.txtIdGrupo.Location = new System.Drawing.Point(102, 9);
+            this.txtIdGrupo.Location = new System.Drawing.Point(139, 36);
             this.txtIdGrupo.Name = "txtIdGrupo";
             this.txtIdGrupo.Size = new System.Drawing.Size(146, 20);
             this.txtIdGrupo.TabIndex = 18;
             // 
-            // label1
+            // lbIdGrupo
             // 
-            this.label1.AccessibleName = "lbCupoActual";
-            this.label1.AccessibleRole = System.Windows.Forms.AccessibleRole.IpAddress;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(384, 44);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(65, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "Cupo Actual";
+            this.lbIdGrupo.AutoSize = true;
+            this.lbIdGrupo.Location = new System.Drawing.Point(10, 34);
+            this.lbIdGrupo.Name = "lbIdGrupo";
+            this.lbIdGrupo.Size = new System.Drawing.Size(0, 13);
+            this.lbIdGrupo.TabIndex = 13;
             // 
-            // lbCupoMinimo
+            // btnAgregar
             // 
-            this.lbCupoMinimo.AutoSize = true;
-            this.lbCupoMinimo.Location = new System.Drawing.Point(384, 12);
-            this.lbCupoMinimo.Name = "lbCupoMinimo";
-            this.lbCupoMinimo.Size = new System.Drawing.Size(68, 13);
-            this.lbCupoMinimo.TabIndex = 16;
-            this.lbCupoMinimo.Text = "Cupo Minimo";
+            this.btnAgregar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAgregar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregar.FlatAppearance.BorderSize = 2;
+            this.btnAgregar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregar.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregar.Location = new System.Drawing.Point(13, 155);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(77, 37);
+            this.btnAgregar.TabIndex = 27;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnModificar.FlatAppearance.BorderSize = 2;
+            this.btnModificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnModificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModificar.ForeColor = System.Drawing.Color.Black;
+            this.btnModificar.Location = new System.Drawing.Point(116, 155);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(82, 37);
+            this.btnModificar.TabIndex = 28;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            // 
+            // btnConsultar
+            // 
+            this.btnConsultar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnConsultar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConsultar.FlatAppearance.BorderSize = 2;
+            this.btnConsultar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnConsultar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnConsultar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultar.ForeColor = System.Drawing.Color.Black;
+            this.btnConsultar.Location = new System.Drawing.Point(321, 31);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(82, 37);
+            this.btnConsultar.TabIndex = 29;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = false;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSalir.FlatAppearance.BorderSize = 2;
+            this.btnSalir.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.Color.Black;
+            this.btnSalir.Location = new System.Drawing.Point(559, 166);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(82, 37);
+            this.btnSalir.TabIndex = 30;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            // 
+            // lbIdCurso
+            // 
+            this.lbIdCurso.AutoSize = true;
+            this.lbIdCurso.BackColor = System.Drawing.Color.Transparent;
+            this.lbIdCurso.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIdCurso.ForeColor = System.Drawing.Color.White;
+            this.lbIdCurso.Location = new System.Drawing.Point(16, 36);
+            this.lbIdCurso.Name = "lbIdCurso";
+            this.lbIdCurso.Size = new System.Drawing.Size(63, 18);
+            this.lbIdCurso.TabIndex = 31;
+            this.lbIdCurso.Text = "idCurso";
+            // 
+            // lbNumeroGrupo
+            // 
+            this.lbNumeroGrupo.AutoSize = true;
+            this.lbNumeroGrupo.BackColor = System.Drawing.Color.Transparent;
+            this.lbNumeroGrupo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNumeroGrupo.ForeColor = System.Drawing.Color.White;
+            this.lbNumeroGrupo.Location = new System.Drawing.Point(10, 76);
+            this.lbNumeroGrupo.Name = "lbNumeroGrupo";
+            this.lbNumeroGrupo.Size = new System.Drawing.Size(110, 18);
+            this.lbNumeroGrupo.TabIndex = 32;
+            this.lbNumeroGrupo.Text = "Numero Grupo";
             // 
             // lbCupoMaximo
             // 
             this.lbCupoMaximo.AutoSize = true;
-            this.lbCupoMaximo.Location = new System.Drawing.Point(12, 84);
+            this.lbCupoMaximo.BackColor = System.Drawing.Color.Transparent;
+            this.lbCupoMaximo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCupoMaximo.ForeColor = System.Drawing.Color.White;
+            this.lbCupoMaximo.Location = new System.Drawing.Point(16, 108);
             this.lbCupoMaximo.Name = "lbCupoMaximo";
-            this.lbCupoMaximo.Size = new System.Drawing.Size(71, 13);
-            this.lbCupoMaximo.TabIndex = 15;
-            this.lbCupoMaximo.Text = "Cupo Maximo";
+            this.lbCupoMaximo.Size = new System.Drawing.Size(105, 18);
+            this.lbCupoMaximo.TabIndex = 33;
+            this.lbCupoMaximo.Text = "Cupo Máximo";
             // 
-            // lbNumeroGrup
+            // lbCupoMinimo
             // 
-            this.lbNumeroGrup.AutoSize = true;
-            this.lbNumeroGrup.Location = new System.Drawing.Point(12, 45);
-            this.lbNumeroGrup.Name = "lbNumeroGrup";
-            this.lbNumeroGrup.Size = new System.Drawing.Size(76, 13);
-            this.lbNumeroGrup.TabIndex = 14;
-            this.lbNumeroGrup.Text = "Numero Grupo";
+            this.lbCupoMinimo.AutoSize = true;
+            this.lbCupoMinimo.BackColor = System.Drawing.Color.Transparent;
+            this.lbCupoMinimo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCupoMinimo.ForeColor = System.Drawing.Color.White;
+            this.lbCupoMinimo.Location = new System.Drawing.Point(426, 32);
+            this.lbCupoMinimo.Name = "lbCupoMinimo";
+            this.lbCupoMinimo.Size = new System.Drawing.Size(101, 18);
+            this.lbCupoMinimo.TabIndex = 34;
+            this.lbCupoMinimo.Text = "Cupo Minimo";
             // 
-            // lbIdGrupo
+            // lbCupoActual
             // 
-            this.lbIdGrupo.AutoSize = true;
-            this.lbIdGrupo.Location = new System.Drawing.Point(12, 9);
-            this.lbIdGrupo.Name = "lbIdGrupo";
-            this.lbIdGrupo.Size = new System.Drawing.Size(44, 13);
-            this.lbIdGrupo.TabIndex = 13;
-            this.lbIdGrupo.Text = "idGrupo";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Location = new System.Drawing.Point(639, 130);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
-            this.btnSalir.TabIndex = 26;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.lbCupoActual.AutoSize = true;
+            this.lbCupoActual.BackColor = System.Drawing.Color.Transparent;
+            this.lbCupoActual.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCupoActual.ForeColor = System.Drawing.Color.White;
+            this.lbCupoActual.Location = new System.Drawing.Point(426, 67);
+            this.lbCupoActual.Name = "lbCupoActual";
+            this.lbCupoActual.Size = new System.Drawing.Size(92, 18);
+            this.lbCupoActual.TabIndex = 35;
+            this.lbCupoActual.Text = "Cupo Actual";
             // 
             // frmGrupoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 190);
+            this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(715, 239);
+            this.ControlBox = false;
+            this.Controls.Add(this.lbCupoActual);
+            this.Controls.Add(this.lbCupoMinimo);
+            this.Controls.Add(this.lbCupoMaximo);
+            this.Controls.Add(this.lbNumeroGrupo);
+            this.Controls.Add(this.lbIdCurso);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnModificar);
@@ -180,11 +235,9 @@
             this.Controls.Add(this.txtCupoMaximo);
             this.Controls.Add(this.txtNumeroGrupo);
             this.Controls.Add(this.txtIdGrupo);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.lbCupoMinimo);
-            this.Controls.Add(this.lbCupoMaximo);
-            this.Controls.Add(this.lbNumeroGrup);
             this.Controls.Add(this.lbIdGrupo);
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmGrupoCurso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGrupoCurso";
@@ -195,20 +248,20 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btnConsultar;
-        private System.Windows.Forms.Button btnModificar;
-        private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtCupoActual;
         private System.Windows.Forms.TextBox txtCupoMinimo;
         private System.Windows.Forms.TextBox txtCupoMaximo;
         private System.Windows.Forms.TextBox txtNumeroGrupo;
         private System.Windows.Forms.TextBox txtIdGrupo;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lbCupoMinimo;
-        private System.Windows.Forms.Label lbCupoMaximo;
-        private System.Windows.Forms.Label lbNumeroGrup;
         private System.Windows.Forms.Label lbIdGrupo;
+        private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.Button btnModificar;
+        private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label lbIdCurso;
+        private System.Windows.Forms.Label lbNumeroGrupo;
+        private System.Windows.Forms.Label lbCupoMaximo;
+        private System.Windows.Forms.Label lbCupoMinimo;
+        private System.Windows.Forms.Label lbCupoActual;
     }
 }

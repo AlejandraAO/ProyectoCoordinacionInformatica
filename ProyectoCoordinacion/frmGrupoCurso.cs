@@ -138,7 +138,8 @@ namespace Vista
 
         }
 
-
-
+        private void lbCupoMinimo_Click(object sender, EventArgs e)
+        {
+                    }
     }
 }
