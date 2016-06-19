@@ -28,7 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox = new System.Windows.Forms.GroupBox();
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            this.gbxDatosCurso = new System.Windows.Forms.GroupBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.txtModalidad = new System.Windows.Forms.TextBox();
             this.lbModalidad = new System.Windows.Forms.Label();
@@ -52,39 +56,52 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
-            this.groupBox.SuspendLayout();
+            this.gbxRequisitoCorrequisito = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lbRequisito = new System.Windows.Forms.Label();
+            this.lbCorrequisito = new System.Windows.Forms.Label();
+            this.listView2 = new System.Windows.Forms.ListView();
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnAgregarRequisito = new System.Windows.Forms.Button();
+            this.btnAgregarCorrequisito = new System.Windows.Forms.Button();
+            this.gbxDatosCurso.SuspendLayout();
+            this.gbxRequisitoCorrequisito.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox
+            // gbxDatosCurso
             // 
-            this.groupBox.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox.Controls.Add(this.cbEstado);
-            this.groupBox.Controls.Add(this.txtModalidad);
-            this.groupBox.Controls.Add(this.lbModalidad);
-            this.groupBox.Controls.Add(this.txtTotalHoras);
-            this.groupBox.Controls.Add(this.lbNombrePrograma);
-            this.groupBox.Controls.Add(this.btnExaminar);
-            this.groupBox.Controls.Add(this.lbTotalHoras);
-            this.groupBox.Controls.Add(this.lbEstado);
-            this.groupBox.Controls.Add(this.lbPrograma);
-            this.groupBox.Controls.Add(this.txtCreditos);
-            this.groupBox.Controls.Add(this.lbCreditos);
-            this.groupBox.Controls.Add(this.txtCiclo);
-            this.groupBox.Controls.Add(this.lbCiclo);
-            this.groupBox.Controls.Add(this.txtLugar);
-            this.groupBox.Controls.Add(this.lbLugar);
-            this.groupBox.Controls.Add(this.txtNombre);
-            this.groupBox.Controls.Add(this.lbNombre);
-            this.groupBox.Controls.Add(this.lbSigla);
-            this.groupBox.Controls.Add(this.txtSigla);
-            this.groupBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox.ForeColor = System.Drawing.Color.White;
-            this.groupBox.Location = new System.Drawing.Point(48, 12);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(706, 251);
-            this.groupBox.TabIndex = 41;
-            this.groupBox.TabStop = false;
-            this.groupBox.Text = "Gestión Cursos";
+            this.gbxDatosCurso.BackColor = System.Drawing.Color.Transparent;
+            this.gbxDatosCurso.Controls.Add(this.cbEstado);
+            this.gbxDatosCurso.Controls.Add(this.txtModalidad);
+            this.gbxDatosCurso.Controls.Add(this.lbModalidad);
+            this.gbxDatosCurso.Controls.Add(this.txtTotalHoras);
+            this.gbxDatosCurso.Controls.Add(this.lbNombrePrograma);
+            this.gbxDatosCurso.Controls.Add(this.btnExaminar);
+            this.gbxDatosCurso.Controls.Add(this.lbTotalHoras);
+            this.gbxDatosCurso.Controls.Add(this.lbEstado);
+            this.gbxDatosCurso.Controls.Add(this.lbPrograma);
+            this.gbxDatosCurso.Controls.Add(this.txtCreditos);
+            this.gbxDatosCurso.Controls.Add(this.lbCreditos);
+            this.gbxDatosCurso.Controls.Add(this.txtCiclo);
+            this.gbxDatosCurso.Controls.Add(this.lbCiclo);
+            this.gbxDatosCurso.Controls.Add(this.txtLugar);
+            this.gbxDatosCurso.Controls.Add(this.lbLugar);
+            this.gbxDatosCurso.Controls.Add(this.txtNombre);
+            this.gbxDatosCurso.Controls.Add(this.lbNombre);
+            this.gbxDatosCurso.Controls.Add(this.lbSigla);
+            this.gbxDatosCurso.Controls.Add(this.txtSigla);
+            this.gbxDatosCurso.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxDatosCurso.ForeColor = System.Drawing.Color.White;
+            this.gbxDatosCurso.Location = new System.Drawing.Point(48, 12);
+            this.gbxDatosCurso.Name = "gbxDatosCurso";
+            this.gbxDatosCurso.Size = new System.Drawing.Size(706, 251);
+            this.gbxDatosCurso.TabIndex = 41;
+            this.gbxDatosCurso.TabStop = false;
+            this.gbxDatosCurso.Text = "Gestión Cursos";
             // 
             // cbEstado
             // 
@@ -316,7 +333,7 @@
             this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(12, 286);
+            this.btnAgregar.Location = new System.Drawing.Point(12, 501);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(88, 37);
             this.btnAgregar.TabIndex = 59;
@@ -334,7 +351,7 @@
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnModificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(115, 286);
+            this.btnModificar.Location = new System.Drawing.Point(115, 501);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(88, 37);
             this.btnModificar.TabIndex = 60;
@@ -351,7 +368,7 @@
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(681, 286);
+            this.btnSalir.Location = new System.Drawing.Point(681, 501);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(88, 37);
             this.btnSalir.TabIndex = 61;
@@ -368,7 +385,7 @@
             this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.btnLimpiar.Location = new System.Drawing.Point(225, 286);
+            this.btnLimpiar.Location = new System.Drawing.Point(225, 501);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(88, 37);
             this.btnLimpiar.TabIndex = 60;
@@ -376,30 +393,181 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // gbxRequisitoCorrequisito
+            // 
+            this.gbxRequisitoCorrequisito.BackColor = System.Drawing.Color.Transparent;
+            this.gbxRequisitoCorrequisito.Controls.Add(this.btnAgregarCorrequisito);
+            this.gbxRequisitoCorrequisito.Controls.Add(this.btnAgregarRequisito);
+            this.gbxRequisitoCorrequisito.Controls.Add(this.lbCorrequisito);
+            this.gbxRequisitoCorrequisito.Controls.Add(this.lbRequisito);
+            this.gbxRequisitoCorrequisito.Controls.Add(this.listView2);
+            this.gbxRequisitoCorrequisito.Controls.Add(this.listView1);
+            this.gbxRequisitoCorrequisito.Controls.Add(this.label2);
+            this.gbxRequisitoCorrequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxRequisitoCorrequisito.ForeColor = System.Drawing.Color.White;
+            this.gbxRequisitoCorrequisito.Location = new System.Drawing.Point(40, 287);
+            this.gbxRequisitoCorrequisito.Name = "gbxRequisitoCorrequisito";
+            this.gbxRequisitoCorrequisito.Size = new System.Drawing.Size(714, 199);
+            this.gbxRequisitoCorrequisito.TabIndex = 63;
+            this.gbxRequisitoCorrequisito.TabStop = false;
+            this.gbxRequisitoCorrequisito.Text = "Requisitos y correquisitos del curso";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(476, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 18);
+            this.label2.TabIndex = 51;
+            // 
+            // listView1
+            // 
+            this.listView1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.listView1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView1.ForeColor = System.Drawing.Color.Black;
+            this.listView1.GridLines = true;
+            listViewItem4.Tag = "asdasdasd";
+            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem3,
+            listViewItem4});
+            this.listView1.Location = new System.Drawing.Point(17, 53);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(220, 114);
+            this.listView1.TabIndex = 52;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "Sigla";
+            this.columnHeader1.Width = 72;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Nombre del curso";
+            this.columnHeader2.Width = 126;
+            // 
+            // lbRequisito
+            // 
+            this.lbRequisito.AutoSize = true;
+            this.lbRequisito.BackColor = System.Drawing.Color.Transparent;
+            this.lbRequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRequisito.ForeColor = System.Drawing.Color.White;
+            this.lbRequisito.Location = new System.Drawing.Point(72, 32);
+            this.lbRequisito.Name = "lbRequisito";
+            this.lbRequisito.Size = new System.Drawing.Size(82, 18);
+            this.lbRequisito.TabIndex = 53;
+            this.lbRequisito.Text = "Requisitos";
+            // 
+            // lbCorrequisito
+            // 
+            this.lbCorrequisito.AutoSize = true;
+            this.lbCorrequisito.BackColor = System.Drawing.Color.Transparent;
+            this.lbCorrequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCorrequisito.ForeColor = System.Drawing.Color.White;
+            this.lbCorrequisito.Location = new System.Drawing.Point(458, 32);
+            this.lbCorrequisito.Name = "lbCorrequisito";
+            this.lbCorrequisito.Size = new System.Drawing.Size(102, 18);
+            this.lbCorrequisito.TabIndex = 53;
+            this.lbCorrequisito.Text = "Correquisitos";
+            // 
+            // listView2
+            // 
+            this.listView2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4});
+            this.listView2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listView2.ForeColor = System.Drawing.Color.Black;
+            this.listView2.GridLines = true;
+            listViewItem2.Tag = "asdasdasd";
+            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1,
+            listViewItem2});
+            this.listView2.Location = new System.Drawing.Point(406, 53);
+            this.listView2.Name = "listView2";
+            this.listView2.Size = new System.Drawing.Size(220, 114);
+            this.listView2.TabIndex = 52;
+            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Sigla";
+            this.columnHeader3.Width = 72;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Nombre de curso";
+            this.columnHeader4.Width = 126;
+            // 
+            // btnAgregarRequisito
+            // 
+            this.btnAgregarRequisito.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregarRequisito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarRequisito.FlatAppearance.BorderSize = 2;
+            this.btnAgregarRequisito.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregarRequisito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarRequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarRequisito.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarRequisito.Location = new System.Drawing.Point(259, 62);
+            this.btnAgregarRequisito.Name = "btnAgregarRequisito";
+            this.btnAgregarRequisito.Size = new System.Drawing.Size(56, 31);
+            this.btnAgregarRequisito.TabIndex = 54;
+            this.btnAgregarRequisito.Text = "+";
+            this.btnAgregarRequisito.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregarCorrequisito
+            // 
+            this.btnAgregarCorrequisito.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregarCorrequisito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarCorrequisito.FlatAppearance.BorderSize = 2;
+            this.btnAgregarCorrequisito.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregarCorrequisito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarCorrequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarCorrequisito.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarCorrequisito.Location = new System.Drawing.Point(641, 62);
+            this.btnAgregarCorrequisito.Name = "btnAgregarCorrequisito";
+            this.btnAgregarCorrequisito.Size = new System.Drawing.Size(56, 31);
+            this.btnAgregarCorrequisito.TabIndex = 54;
+            this.btnAgregarCorrequisito.Text = "+";
+            this.btnAgregarCorrequisito.UseVisualStyleBackColor = false;
+            // 
             // frmCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(781, 360);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(781, 561);
             this.ControlBox = false;
+            this.Controls.Add(this.gbxRequisitoCorrequisito);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.groupBox);
+            this.Controls.Add(this.gbxDatosCurso);
+            this.DoubleBuffered = true;
             this.Name = "frmCursos";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCursos";
             this.Load += new System.EventHandler(this.frmCursos_Load);
-            this.groupBox.ResumeLayout(false);
-            this.groupBox.PerformLayout();
+            this.gbxDatosCurso.ResumeLayout(false);
+            this.gbxDatosCurso.PerformLayout();
+            this.gbxRequisitoCorrequisito.ResumeLayout(false);
+            this.gbxRequisitoCorrequisito.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.GroupBox gbxDatosCurso;
         private System.Windows.Forms.TextBox txtModalidad;
         private System.Windows.Forms.Label lbModalidad;
         private System.Windows.Forms.TextBox txtTotalHoras;
@@ -423,5 +591,17 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Label lbNombrePrograma;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.GroupBox gbxRequisitoCorrequisito;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnAgregarCorrequisito;
+        private System.Windows.Forms.Button btnAgregarRequisito;
+        private System.Windows.Forms.Label lbCorrequisito;
+        private System.Windows.Forms.Label lbRequisito;
+        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
