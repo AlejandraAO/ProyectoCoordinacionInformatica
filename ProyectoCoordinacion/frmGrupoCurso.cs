@@ -85,7 +85,8 @@ namespace Vista
         {
             if (mVerificarDatos()== true)
                {
-                MessageBox.Show("Se ha insertado el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                conexion.codigo = "123";
+                conexion.clave = "123";
 
                 clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32( txtIdGrupo.Text);
                 clEntidadGrupoCurso.getSetNumeroGrup= Convert.ToInt32(txtNumeroGrupo.Text);
