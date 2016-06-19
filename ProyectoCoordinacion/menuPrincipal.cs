@@ -40,8 +40,8 @@ namespace Vista
 
         private void reportesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-           // frmReportesCursosLibres reporteCursosLibres = new frmReportesCursosLibres(this);
-          //  reporteCursosLibres.Show();
+            frmReportesCursosLibres reporteCursosLibres = new frmReportesCursosLibres(this);
+            reporteCursosLibres.Show();
         }
 
         private void gestiónDeProyectosToolStripMenuItem_Click(object sender, EventArgs e)

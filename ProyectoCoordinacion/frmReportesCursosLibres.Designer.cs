@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             this.dgvCursosLibres = new System.Windows.Forms.DataGridView();
+            this.txtDatoConsulta = new System.Windows.Forms.TextBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.cbConsultarPor = new System.Windows.Forms.ComboBox();
+            this.lbConsultarPor = new System.Windows.Forms.Label();
+            this.IdCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Profesor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -36,10 +41,6 @@
             this.lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cupo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.programa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.txtDatoConsulta = new System.Windows.Forms.TextBox();
-            this.btnConsultar = new System.Windows.Forms.Button();
-            this.cbConsultarPor = new System.Windows.Forms.ComboBox();
-            this.lbConsultarPor = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCursosLibres)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,6 +50,7 @@
             this.dgvCursosLibres.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvCursosLibres.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCursosLibres.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.IdCurso,
             this.Profesor,
             this.Nombre,
             this.descripcion,
@@ -60,48 +62,7 @@
             this.dgvCursosLibres.Name = "dgvCursosLibres";
             this.dgvCursosLibres.Size = new System.Drawing.Size(767, 295);
             this.dgvCursosLibres.TabIndex = 39;
-            // 
-            // Profesor
-            // 
-            this.Profesor.HeaderText = "Profesor";
-            this.Profesor.Name = "Profesor";
-            this.Profesor.ReadOnly = true;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.ReadOnly = true;
-            // 
-            // descripcion
-            // 
-            this.descripcion.HeaderText = "Descripcion";
-            this.descripcion.Name = "descripcion";
-            this.descripcion.ReadOnly = true;
-            // 
-            // estado
-            // 
-            this.estado.HeaderText = "Estado";
-            this.estado.Name = "estado";
-            this.estado.ReadOnly = true;
-            // 
-            // lugar
-            // 
-            this.lugar.HeaderText = "Lugar";
-            this.lugar.Name = "lugar";
-            this.lugar.ReadOnly = true;
-            // 
-            // cupo
-            // 
-            this.cupo.HeaderText = "Cupo";
-            this.cupo.Name = "cupo";
-            this.cupo.ReadOnly = true;
-            // 
-            // programa
-            // 
-            this.programa.HeaderText = "Programa";
-            this.programa.Name = "programa";
-            this.programa.ReadOnly = true;
+            this.dgvCursosLibres.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCursosLibres_CellContentClick);
             // 
             // txtDatoConsulta
             // 
@@ -112,7 +73,6 @@
             this.txtDatoConsulta.Name = "txtDatoConsulta";
             this.txtDatoConsulta.Size = new System.Drawing.Size(128, 26);
             this.txtDatoConsulta.TabIndex = 46;
-            this.txtDatoConsulta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDatoConsulta_KeyPress);
             this.txtDatoConsulta.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDatoConsulta_KeyUp);
             // 
             // btnConsultar
@@ -160,6 +120,54 @@
             this.lbConsultarPor.TabIndex = 43;
             this.lbConsultarPor.Text = "Consultar por:";
             // 
+            // IdCurso
+            // 
+            this.IdCurso.HeaderText = "idCurso";
+            this.IdCurso.Name = "IdCurso";
+            this.IdCurso.Visible = false;
+            // 
+            // Profesor
+            // 
+            this.Profesor.HeaderText = "Profesor";
+            this.Profesor.Name = "Profesor";
+            this.Profesor.ReadOnly = true;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "Descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            // 
+            // estado
+            // 
+            this.estado.HeaderText = "Estado";
+            this.estado.Name = "estado";
+            this.estado.ReadOnly = true;
+            // 
+            // lugar
+            // 
+            this.lugar.HeaderText = "Lugar";
+            this.lugar.Name = "lugar";
+            this.lugar.ReadOnly = true;
+            // 
+            // cupo
+            // 
+            this.cupo.HeaderText = "Cupo";
+            this.cupo.Name = "cupo";
+            this.cupo.ReadOnly = true;
+            // 
+            // programa
+            // 
+            this.programa.HeaderText = "Programa";
+            this.programa.Name = "programa";
+            this.programa.ReadOnly = true;
+            // 
             // frmReportesCursosLibres
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -189,6 +197,7 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.ComboBox cbConsultarPor;
         private System.Windows.Forms.Label lbConsultarPor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IdCurso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Profesor;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;

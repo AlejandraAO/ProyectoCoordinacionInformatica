@@ -34,6 +34,7 @@ namespace Vista
             this.menu = menu;
             this.conexion = new clConexion();
             this.clCursoLibre = new clCursoLibre();
+            this.eCursoLibre = new clEntidadCursoLibre();
             this.conexion.codigo = "sa";
             this.conexion.clave = "123";
         }
@@ -52,9 +53,7 @@ namespace Vista
             if (dtrCursoLibre != null)
                 while (dtrCursoLibre.Read())
                 {
-                   
                     mPoblarListaCursosLibres();
-
                 }//fin del read
         }
 
@@ -64,8 +63,7 @@ namespace Vista
             dtrCursoLibre = clCursoLibre.mConsultaFiltrada(conexion, nombre);
             if(dtrCursoLibre != null)
                 while (dtrCursoLibre.Read())
-                {
-                    
+                { 
                     mPoblarListaCursosLibres();
                 }
         }
@@ -85,20 +83,15 @@ namespace Vista
 
         public void mPoblarListaCursosLibres()
         {
-
-           
             int reglon = dgvCursosLibres.Rows.Add();
-            
-            dgvCursosLibres.Rows[reglon].Cells["Profesor"].Value = dtrCursoLibre.GetString(0);
-            dgvCursosLibres.Rows[reglon].Cells["Nombre"].Value = dtrCursoLibre.GetString(1);
-            dgvCursosLibres.Rows[reglon].Cells["Descripcion"].Value = dtrCursoLibre.GetString(2); // implementar emergernte
-            dgvCursosLibres.Rows[reglon].Cells["estado"].Value = dtrCursoLibre.GetString(3);
-            dgvCursosLibres.Rows[reglon].Cells["lugar"].Value = dtrCursoLibre.GetString(4);
-            dgvCursosLibres.Rows[reglon].Cells["cupo"].Value = dtrCursoLibre.GetInt32(5);
-            //dgvCursosLibres.Rows[reglon].Cells["programa"].Value = dtrCursoLibre.GetString(7);
-            //dgvProyecto.Rows[reglon].Cells["informacion"].Value = dtrProyecto.GetString(5);
-            //  dgvProyecto.Rows[reglon].Cells["TotalHoras"].Value = dtrProyecto.GetString(6);
-
+            dgvCursosLibres.Rows[reglon].Cells["IdCurso"].Value = dtrCursoLibre.GetInt32(0);
+            dgvCursosLibres.Rows[reglon].Cells["Profesor"].Value = dtrCursoLibre.GetString(1);
+            dgvCursosLibres.Rows[reglon].Cells["Nombre"].Value = dtrCursoLibre.GetString(2);
+            dgvCursosLibres.Rows[reglon].Cells["Descripcion"].Value = dtrCursoLibre.GetString(3);
+            dgvCursosLibres.Rows[reglon].Cells["estado"].Value = dtrCursoLibre.GetString(4);
+            dgvCursosLibres.Rows[reglon].Cells["lugar"].Value = dtrCursoLibre.GetString(5);
+            dgvCursosLibres.Rows[reglon].Cells["cupo"].Value = dtrCursoLibre.GetInt32(6);
+            dgvCursosLibres.Rows[reglon].Cells["programa"].Value = dtrCursoLibre.GetString(7);
         }
 
         private void frmReportesCursosLibres_Load(object sender, EventArgs e)
@@ -107,23 +100,7 @@ namespace Vista
             cbConsultarPor.SelectedIndex = 0;
         }
 
-        private void txtDatoConsulta_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            //TextBox tb_nombre = (TextBox)sender;
-
-            //if(tb_nombre.Text.Trim().Length > 0)
-            //{
-            //    dgvCursosLibres.Rows.Clear();
-            //    mConsultarPorNombre(tb_nombre.Text.Trim().ToUpper());
-            //}
-            //else
-            //{
-            //    dgvCursosLibres.Rows.Clear();
-            //    mConsultaGenetal();
-            //}
-           
-        }
-
+     
         private void txtDatoConsulta_KeyUp(object sender, KeyEventArgs e)
         {
             TextBox tb_nombre = (TextBox)sender;
@@ -146,6 +123,24 @@ namespace Vista
             {
                 dgvCursosLibres.Rows.Clear();
                 mConsultaGenetal();
+            }
+        }
+
+        private void dgvCursosLibres_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCursosLibres.CurrentCell.ColumnIndex == 7)
+            {
+                FolderBrowserDialog carpetaSeleccionada = new FolderBrowserDialog();
+                carpetaSeleccionada.Description = "Seleccione la ruta donde guardará el programa del curso";
+                DialogResult result = carpetaSeleccionada.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    string ruta = carpetaSeleccionada.SelectedPath + "/" + dgvCursosLibres.CurrentCell.Value;
+                    eCursoLibre.IdCursoLibre = Convert.ToInt32( dgvCursosLibres.Rows[dgvCursosLibres.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                    clCursoLibre.mDescargarProgramaCurso(conexion, ruta, eCursoLibre);
+
+                }
             }
         }
     }

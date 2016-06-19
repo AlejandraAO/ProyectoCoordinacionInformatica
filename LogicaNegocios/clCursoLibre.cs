@@ -20,7 +20,7 @@ namespace LogicaNegocios
 
         public Boolean mInsertarCursoLibre(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            strSentencia = "insert into tbCursosLibr(idProfesor, nombre, descripcion, estado, lugar, cupo,programa,nombrePrograma) values('" + pEntidadCursoLibre.IdProfesor + "', '" + pEntidadCursoLibre.Nombre + "', '" + pEntidadCursoLibre.Descripcion + "', '" + pEntidadCursoLibre.Estado + "', '" + pEntidadCursoLibre.Lugar + "', '" + pEntidadCursoLibre.Cupo + "' ,(SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf) ,'" + pEntidadCursoLibre.Nombre_Programa + "' ); ";
+            strSentencia = "insert into tbCursosLibr(idProfesor, nombre, descripcion, estado, lugar, cupo, programa , nombrePrograma) values('" + pEntidadCursoLibre.IdProfesor + "', '" + pEntidadCursoLibre.Nombre + "', '" + pEntidadCursoLibre.Descripcion + "', '" + pEntidadCursoLibre.Estado + "', '" + pEntidadCursoLibre.Lugar + "', '" + pEntidadCursoLibre.Cupo + "' ,(SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf) ,'" + pEntidadCursoLibre.Nombre_Programa + "' ); ";
 
             return conexion.mEjecutar(strSentencia,conexion);
         }
@@ -55,7 +55,7 @@ namespace LogicaNegocios
 
         public SqlDataReader mConsultaGeneral(clConexion conexion)
         {
-            strSentencia = @"select P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, programa from tbCursosLibr C
+            strSentencia = @"select idCursosLibres, P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
                              inner join tbProfesores P
                              on P.idProfesor = C.idProfesor";
             return conexion.mSeleccionar(strSentencia, conexion);
@@ -63,7 +63,7 @@ namespace LogicaNegocios
 
         public SqlDataReader mConsultaFiltrada(clConexion conexion, String nombre)
         {
-            strSentencia =String.Format(@"select P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, programa from tbCursosLibr C
+            strSentencia =String.Format(@"select idCursosLibres, P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
                              inner join tbProfesores P
                              on P.idProfesor = C.idProfesor
                              where C.nombre like '{0}%' or P.nombre like '{0}%' or lugar like '{0}%' or C.estado like '{0}%'", nombre);
@@ -88,13 +88,19 @@ namespace LogicaNegocios
         public SqlDataReader mConsultaEspecifica(clConexion conexion, string tipoConsuta, string busqueda)
         {
 
-            strSentencia =  String.Format(@"select P.nombre as profesor, C.nombre, descripcion, C.estado, lugar, cupo, programa from tbCursosLibr C
+            strSentencia =  String.Format(@"select idCursosLibres, P.nombre, C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
                              inner join tbProfesores P
                              on P.idProfesor = C.idProfesor
                              where {0} like '{1}%'", tipoConsuta , busqueda );
 
             return conexion.mSeleccionar(strSentencia, conexion);
 
+        }
+
+        public void mDescargarProgramaCurso(clConexion conexion, string ruta, clEntidadCursoLibre pEntidadCursoLibre)
+        {
+            strSentencia = "select programa from tbCursosLibr where idCursosLibres= '" + pEntidadCursoLibre.IdCursoLibre + "'";
+            conexion.leer(conexion, ruta, strSentencia);
         }
     }
 }

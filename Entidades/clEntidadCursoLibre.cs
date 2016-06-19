@@ -17,8 +17,8 @@ namespace Entidades
         private string _estado;
         private string _lugar;
         private int _cupo;
-        private String _programa;
-        private String _nombre_programa;
+        private string _programa;
+        private string _nombre_programa;
         #endregion
 
 
