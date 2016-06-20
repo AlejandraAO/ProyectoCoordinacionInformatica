@@ -12,29 +12,47 @@ using LogicaNegocios;
 using AccesoDatos;
 using Entidades;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace Vista
 {
     public partial class frmConsultarCurso : Form
     {
         #region Atributos
-        private menuPrincipal menu;
+        private Form menu;
+        private frmCursos frmCurso;
         private SqlDataReader strCurso;
         private clConexion conexion;
         private clEntidadCurso pEntidadCurso;
         private clCurso clCurso;
         private ListViewItem lvItem;
+        private ArrayList  idCursosSeleccionados;
         #endregion
 
-        public frmConsultarCurso(menuPrincipal menu)
+        public frmConsultarCurso(Object objeto)
         {
-
-            this.menu = menu;
+            if(objeto is menuPrincipal)
+            {
+                menuPrincipal menuP = (menuPrincipal)objeto;
+                this.menu = menuP;                 
+                
+            }
+            else
+            {
+                if (objeto is frmCursos)
+                {
+                    frmCursos menuP = (frmCursos)objeto;
+                    this.menu = menuP;
+                    this.frmCurso = menuP;
+                }
+            }
+            
             this.conexion =new clConexion();
             pEntidadCurso = new clEntidadCurso();
             clCurso = new clCurso();
 
             InitializeComponent();
+            idCursosSeleccionados = new ArrayList();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -59,6 +77,7 @@ namespace Vista
         public void mLlenarDataGridCursos()
         {
             int reglon = dgvDetalleCursos.Rows.Add();
+            dgvDetalleCursos.Rows[reglon].Cells["idCurso"].Value =Convert.ToString( strCurso.GetInt32(0));
             dgvDetalleCursos.Rows[reglon].Cells["Sigla"].Value = strCurso.GetString(1);
             dgvDetalleCursos.Rows[reglon].Cells["Nombre"].Value = strCurso.GetString(2);
             dgvDetalleCursos.Rows[reglon].Cells["Lugar"].Value = strCurso.GetString(3);
@@ -79,29 +98,22 @@ namespace Vista
         private void frmConsultarCurso_Load(object sender, EventArgs e)
         {            
             mConsultaGenetal();
+            if (menu is menuPrincipal){
+                btnAgregarALista.Enabled = false;
+            }
+            else{
+                if (menu is frmCursos)
+                {
+                    btnAgregarALista.Enabled = true;
+                }
+            }
         }
 
       
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            mLimpiarLista();            
-                pEntidadCurso.mNombreCurso = txtDatoConsulta.Text.Trim();
-                pEntidadCurso.mSiglaCurso = txtDatoConsulta.Text.Trim();
-                pEntidadCurso.mCicloCurso = txtDatoConsulta.Text.Trim();
-                strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
-                if (strCurso.Read())
-                {
-                   
-                    ListViewItem lvItem = new ListViewItem();
-                    strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
-                    while (strCurso.Read())
-                    {
-
-                        mLlenarDataGridCursos();
-                        
-                    }
-                 }//fin del read                
+                      
 
         }
 
@@ -146,6 +158,21 @@ namespace Vista
                     }
                 }
             }
+        }
+
+        private void btnAgregarALista_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow dgv in dgvDetalleCursos.SelectedRows)
+            {
+                idCursosSeleccionados.Add(dgv.Cells["idCurso"].Value);
+                frmCurso.AgregarRequisito(idCursosSeleccionados);               
+            }
+            this.Hide();
+            frmCurso.Show();
+        }
+        public ArrayList retornarICursosdSeleccion()
+        {
+            return idCursosSeleccionados;
         }
     }
 }

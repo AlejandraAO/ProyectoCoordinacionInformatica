@@ -12,6 +12,7 @@ using AccesoDatos;
 using Entidades;
 using LogicaNegocios;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace Vista
 {
@@ -36,7 +37,9 @@ namespace Vista
 
         private void frmCursos_Load(object sender, EventArgs e)
         {
-
+            int reglon = dgvRequisitos.Rows.Add();
+            dgvRequisitos.Rows[reglon].Cells["idCurso"].Value ="1";
+            Console.WriteLine(dgvRequisitos.Rows[reglon].Cells["idCurso"].Value);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -237,6 +240,39 @@ namespace Vista
             btnModificar.Enabled = false;
             txtSigla.ReadOnly = false;
             txtNombre.ReadOnly = false;
+        }
+
+        private void btnAgregarRequisito_Click(object sender, EventArgs e)
+        {
+            frmConsultarCurso consultaCurso = new frmConsultarCurso(this);
+            this.Hide();
+            consultaCurso.Show();
+
+        }
+
+        private void btnAgregarCorrequisito_Click(object sender, EventArgs e)
+        {
+            frmConsultarCurso consultaCurso = new frmConsultarCurso(this);
+            this.Hide();
+            consultaCurso.Show();
+        }
+
+        public void AgregarRequisito(ArrayList idsCurso)
+        {
+            for(int i =0; i<idsCurso.Count; i++)
+            {
+                entidadCurso.mIdCurso =Convert.ToInt32( idsCurso[i]);
+                dtrCurso = curso.mConsultaEspecifica(conexion,entidadCurso, "idCurso");
+                if (dtrCurso != null)
+                    if (dtrCurso.Read())
+                    {
+                        dgvRequisitos.Rows[i].Cells["Sigla"].Value = dtrCurso.GetString(1);
+                        dgvRequisitos.Rows[i].Cells["nombreRequisito"].Value = dtrCurso.GetString(2);
+
+
+
+                    }
+            }
         }
     }
 }

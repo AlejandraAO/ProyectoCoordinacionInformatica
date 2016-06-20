@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.gbxDatosCurso = new System.Windows.Forms.GroupBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.txtModalidad = new System.Windows.Forms.TextBox();
@@ -57,19 +53,23 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gbxRequisitoCorrequisito = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lbRequisito = new System.Windows.Forms.Label();
-            this.lbCorrequisito = new System.Windows.Forms.Label();
-            this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.btnAgregarRequisito = new System.Windows.Forms.Button();
             this.btnAgregarCorrequisito = new System.Windows.Forms.Button();
+            this.btnAgregarRequisito = new System.Windows.Forms.Button();
+            this.lbCorrequisito = new System.Windows.Forms.Label();
+            this.lbRequisito = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dgvRequisitos = new System.Windows.Forms.DataGridView();
+            this.dgvCorrequisitos = new System.Windows.Forms.DataGridView();
+            this.idCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idColumnaCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siglaCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxDatosCurso.SuspendLayout();
             this.gbxRequisitoCorrequisito.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCorrequisitos)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxDatosCurso
@@ -396,12 +396,12 @@
             // gbxRequisitoCorrequisito
             // 
             this.gbxRequisitoCorrequisito.BackColor = System.Drawing.Color.Transparent;
+            this.gbxRequisitoCorrequisito.Controls.Add(this.dgvCorrequisitos);
+            this.gbxRequisitoCorrequisito.Controls.Add(this.dgvRequisitos);
             this.gbxRequisitoCorrequisito.Controls.Add(this.btnAgregarCorrequisito);
             this.gbxRequisitoCorrequisito.Controls.Add(this.btnAgregarRequisito);
             this.gbxRequisitoCorrequisito.Controls.Add(this.lbCorrequisito);
             this.gbxRequisitoCorrequisito.Controls.Add(this.lbRequisito);
-            this.gbxRequisitoCorrequisito.Controls.Add(this.listView2);
-            this.gbxRequisitoCorrequisito.Controls.Add(this.listView1);
             this.gbxRequisitoCorrequisito.Controls.Add(this.label2);
             this.gbxRequisitoCorrequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbxRequisitoCorrequisito.ForeColor = System.Drawing.Color.White;
@@ -411,117 +411,6 @@
             this.gbxRequisitoCorrequisito.TabIndex = 63;
             this.gbxRequisitoCorrequisito.TabStop = false;
             this.gbxRequisitoCorrequisito.Text = "Requisitos y correquisitos del curso";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(476, 178);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 18);
-            this.label2.TabIndex = 51;
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2});
-            this.listView1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.ForeColor = System.Drawing.Color.Black;
-            this.listView1.GridLines = true;
-            listViewItem4.Tag = "asdasdasd";
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
-            this.listView1.Location = new System.Drawing.Point(17, 53);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(220, 114);
-            this.listView1.TabIndex = 52;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader1
-            // 
-            this.columnHeader1.Text = "Sigla";
-            this.columnHeader1.Width = 72;
-            // 
-            // columnHeader2
-            // 
-            this.columnHeader2.Text = "Nombre del curso";
-            this.columnHeader2.Width = 126;
-            // 
-            // lbRequisito
-            // 
-            this.lbRequisito.AutoSize = true;
-            this.lbRequisito.BackColor = System.Drawing.Color.Transparent;
-            this.lbRequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbRequisito.ForeColor = System.Drawing.Color.White;
-            this.lbRequisito.Location = new System.Drawing.Point(72, 32);
-            this.lbRequisito.Name = "lbRequisito";
-            this.lbRequisito.Size = new System.Drawing.Size(82, 18);
-            this.lbRequisito.TabIndex = 53;
-            this.lbRequisito.Text = "Requisitos";
-            // 
-            // lbCorrequisito
-            // 
-            this.lbCorrequisito.AutoSize = true;
-            this.lbCorrequisito.BackColor = System.Drawing.Color.Transparent;
-            this.lbCorrequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCorrequisito.ForeColor = System.Drawing.Color.White;
-            this.lbCorrequisito.Location = new System.Drawing.Point(458, 32);
-            this.lbCorrequisito.Name = "lbCorrequisito";
-            this.lbCorrequisito.Size = new System.Drawing.Size(102, 18);
-            this.lbCorrequisito.TabIndex = 53;
-            this.lbCorrequisito.Text = "Correquisitos";
-            // 
-            // listView2
-            // 
-            this.listView2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4});
-            this.listView2.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView2.ForeColor = System.Drawing.Color.Black;
-            this.listView2.GridLines = true;
-            listViewItem2.Tag = "asdasdasd";
-            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
-            this.listView2.Location = new System.Drawing.Point(406, 53);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(220, 114);
-            this.listView2.TabIndex = 52;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.View = System.Windows.Forms.View.Details;
-            // 
-            // columnHeader3
-            // 
-            this.columnHeader3.Text = "Sigla";
-            this.columnHeader3.Width = 72;
-            // 
-            // columnHeader4
-            // 
-            this.columnHeader4.Text = "Nombre de curso";
-            this.columnHeader4.Width = 126;
-            // 
-            // btnAgregarRequisito
-            // 
-            this.btnAgregarRequisito.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAgregarRequisito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAgregarRequisito.FlatAppearance.BorderSize = 2;
-            this.btnAgregarRequisito.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnAgregarRequisito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnAgregarRequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarRequisito.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarRequisito.Location = new System.Drawing.Point(259, 62);
-            this.btnAgregarRequisito.Name = "btnAgregarRequisito";
-            this.btnAgregarRequisito.Size = new System.Drawing.Size(56, 31);
-            this.btnAgregarRequisito.TabIndex = 54;
-            this.btnAgregarRequisito.Text = "+";
-            this.btnAgregarRequisito.UseVisualStyleBackColor = false;
             // 
             // btnAgregarCorrequisito
             // 
@@ -538,6 +427,132 @@
             this.btnAgregarCorrequisito.TabIndex = 54;
             this.btnAgregarCorrequisito.Text = "+";
             this.btnAgregarCorrequisito.UseVisualStyleBackColor = false;
+            this.btnAgregarCorrequisito.Click += new System.EventHandler(this.btnAgregarCorrequisito_Click);
+            // 
+            // btnAgregarRequisito
+            // 
+            this.btnAgregarRequisito.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregarRequisito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarRequisito.FlatAppearance.BorderSize = 2;
+            this.btnAgregarRequisito.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregarRequisito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarRequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarRequisito.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarRequisito.Location = new System.Drawing.Point(289, 62);
+            this.btnAgregarRequisito.Name = "btnAgregarRequisito";
+            this.btnAgregarRequisito.Size = new System.Drawing.Size(56, 31);
+            this.btnAgregarRequisito.TabIndex = 54;
+            this.btnAgregarRequisito.Text = "+";
+            this.btnAgregarRequisito.UseVisualStyleBackColor = false;
+            this.btnAgregarRequisito.Click += new System.EventHandler(this.btnAgregarRequisito_Click);
+            // 
+            // lbCorrequisito
+            // 
+            this.lbCorrequisito.AutoSize = true;
+            this.lbCorrequisito.BackColor = System.Drawing.Color.Transparent;
+            this.lbCorrequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCorrequisito.ForeColor = System.Drawing.Color.White;
+            this.lbCorrequisito.Location = new System.Drawing.Point(458, 32);
+            this.lbCorrequisito.Name = "lbCorrequisito";
+            this.lbCorrequisito.Size = new System.Drawing.Size(102, 18);
+            this.lbCorrequisito.TabIndex = 53;
+            this.lbCorrequisito.Text = "Correquisitos";
+            // 
+            // lbRequisito
+            // 
+            this.lbRequisito.AutoSize = true;
+            this.lbRequisito.BackColor = System.Drawing.Color.Transparent;
+            this.lbRequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbRequisito.ForeColor = System.Drawing.Color.White;
+            this.lbRequisito.Location = new System.Drawing.Point(72, 32);
+            this.lbRequisito.Name = "lbRequisito";
+            this.lbRequisito.Size = new System.Drawing.Size(82, 18);
+            this.lbRequisito.TabIndex = 53;
+            this.lbRequisito.Text = "Requisitos";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(476, 178);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 18);
+            this.label2.TabIndex = 51;
+            // 
+            // dgvRequisitos
+            // 
+            this.dgvRequisitos.AllowUserToOrderColumns = true;
+            this.dgvRequisitos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvRequisitos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvRequisitos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idCurso,
+            this.Sigla,
+            this.nombreRequisito});
+            this.dgvRequisitos.Location = new System.Drawing.Point(17, 53);
+            this.dgvRequisitos.Name = "dgvRequisitos";
+            this.dgvRequisitos.ReadOnly = true;
+            this.dgvRequisitos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvRequisitos.Size = new System.Drawing.Size(266, 122);
+            this.dgvRequisitos.TabIndex = 55;
+            // 
+            // dgvCorrequisitos
+            // 
+            this.dgvCorrequisitos.AllowUserToOrderColumns = true;
+            this.dgvCorrequisitos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dgvCorrequisitos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCorrequisitos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idColumnaCorrequisito,
+            this.siglaCorrequisito,
+            this.nombreCorrequisito});
+            this.dgvCorrequisitos.Location = new System.Drawing.Point(363, 53);
+            this.dgvCorrequisitos.Name = "dgvCorrequisitos";
+            this.dgvCorrequisitos.ReadOnly = true;
+            this.dgvCorrequisitos.Size = new System.Drawing.Size(256, 122);
+            this.dgvCorrequisitos.TabIndex = 55;
+            // 
+            // idCurso
+            // 
+            this.idCurso.HeaderText = "idCurso";
+            this.idCurso.Name = "idCurso";
+            this.idCurso.ReadOnly = true;
+            this.idCurso.Visible = false;
+            // 
+            // Sigla
+            // 
+            this.Sigla.HeaderText = "Sigla";
+            this.Sigla.Name = "Sigla";
+            this.Sigla.ReadOnly = true;
+            this.Sigla.Width = 70;
+            // 
+            // nombreRequisito
+            // 
+            this.nombreRequisito.HeaderText = "Nombre";
+            this.nombreRequisito.MinimumWidth = 10;
+            this.nombreRequisito.Name = "nombreRequisito";
+            this.nombreRequisito.ReadOnly = true;
+            this.nombreRequisito.Width = 150;
+            // 
+            // idColumnaCorrequisito
+            // 
+            this.idColumnaCorrequisito.HeaderText = "idCurso";
+            this.idColumnaCorrequisito.Name = "idColumnaCorrequisito";
+            this.idColumnaCorrequisito.ReadOnly = true;
+            this.idColumnaCorrequisito.Visible = false;
+            // 
+            // siglaCorrequisito
+            // 
+            this.siglaCorrequisito.HeaderText = "Sigla";
+            this.siglaCorrequisito.Name = "siglaCorrequisito";
+            this.siglaCorrequisito.ReadOnly = true;
+            // 
+            // nombreCorrequisito
+            // 
+            this.nombreCorrequisito.HeaderText = "Nombre Curso";
+            this.nombreCorrequisito.MinimumWidth = 10;
+            this.nombreCorrequisito.Name = "nombreCorrequisito";
+            this.nombreCorrequisito.ReadOnly = true;
             // 
             // frmCursos
             // 
@@ -562,6 +577,8 @@
             this.gbxDatosCurso.PerformLayout();
             this.gbxRequisitoCorrequisito.ResumeLayout(false);
             this.gbxRequisitoCorrequisito.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCorrequisitos)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -597,11 +614,13 @@
         private System.Windows.Forms.Button btnAgregarRequisito;
         private System.Windows.Forms.Label lbCorrequisito;
         private System.Windows.Forms.Label lbRequisito;
-        private System.Windows.Forms.ListView listView2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.DataGridView dgvRequisitos;
+        private System.Windows.Forms.DataGridView dgvCorrequisitos;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCurso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sigla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreRequisito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idColumnaCorrequisito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siglaCorrequisito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorrequisito;
     }
 }

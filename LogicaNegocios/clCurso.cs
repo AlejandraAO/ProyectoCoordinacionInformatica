@@ -63,10 +63,16 @@ namespace LogicaNegocios
                 }
                 else
                 {
-                    
+                    if (tipo == "idCurso")
+                    {
+                        strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad, nombrePrograma from tbCursos where idCurso='" + pEntidadCurso.mIdCurso + "'  ";
+                        return conexion.mSeleccionar(strSentencia, conexion);
+                    }
+                    else{
                         strSentencia = "select idCurso,sigla,nombre,lugar,ciclo,creditos,programa,estado,totalHoras,modalidad, nombrePrograma from tbCursos where sigla='" + pEntidadCurso.mSiglaCurso + "'  ";
                         return conexion.mSeleccionar(strSentencia, conexion);
-                    
+                    }
+
                 }
             }
             

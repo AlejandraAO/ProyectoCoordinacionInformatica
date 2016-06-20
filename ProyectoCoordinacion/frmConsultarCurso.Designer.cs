@@ -34,6 +34,8 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.txtDatoConsulta = new System.Windows.Forms.TextBox();
             this.dgvDetalleCursos = new System.Windows.Forms.DataGridView();
+            this.btnAgregarALista = new System.Windows.Forms.Button();
+            this.idCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Lugar = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -128,6 +130,7 @@
             this.dgvDetalleCursos.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dgvDetalleCursos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvDetalleCursos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idCurso,
             this.Sigla,
             this.Nombre,
             this.Lugar,
@@ -140,9 +143,35 @@
             this.dgvDetalleCursos.Location = new System.Drawing.Point(12, 113);
             this.dgvDetalleCursos.Name = "dgvDetalleCursos";
             this.dgvDetalleCursos.ReadOnly = true;
+            this.dgvDetalleCursos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalleCursos.Size = new System.Drawing.Size(946, 317);
             this.dgvDetalleCursos.TabIndex = 34;
             this.dgvDetalleCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCursos_CellContentClick);
+            // 
+            // btnAgregarALista
+            // 
+            this.btnAgregarALista.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregarALista.Enabled = false;
+            this.btnAgregarALista.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarALista.FlatAppearance.BorderSize = 2;
+            this.btnAgregarALista.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregarALista.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarALista.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarALista.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarALista.Location = new System.Drawing.Point(32, 553);
+            this.btnAgregarALista.Name = "btnAgregarALista";
+            this.btnAgregarALista.Size = new System.Drawing.Size(136, 37);
+            this.btnAgregarALista.TabIndex = 32;
+            this.btnAgregarALista.Text = "Agregar a la lista";
+            this.btnAgregarALista.UseVisualStyleBackColor = false;
+            this.btnAgregarALista.Click += new System.EventHandler(this.btnAgregarALista_Click);
+            // 
+            // idCurso
+            // 
+            this.idCurso.HeaderText = "idCurso";
+            this.idCurso.Name = "idCurso";
+            this.idCurso.ReadOnly = true;
+            this.idCurso.Visible = false;
             // 
             // Sigla
             // 
@@ -207,6 +236,7 @@
             this.ClientSize = new System.Drawing.Size(978, 602);
             this.Controls.Add(this.dgvDetalleCursos);
             this.Controls.Add(this.txtDatoConsulta);
+            this.Controls.Add(this.btnAgregarALista);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.cbConsultarPor);
@@ -231,6 +261,8 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.TextBox txtDatoConsulta;
         private System.Windows.Forms.DataGridView dgvDetalleCursos;
+        private System.Windows.Forms.Button btnAgregarALista;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCurso;
         private System.Windows.Forms.DataGridViewTextBoxColumn Sigla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn Lugar;
