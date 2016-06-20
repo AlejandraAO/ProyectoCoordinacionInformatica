@@ -113,7 +113,24 @@ namespace Vista
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-                      
+            mLimpiarLista();
+            pEntidadCurso.mNombreCurso = txtDatoConsulta.Text.Trim();
+            pEntidadCurso.mSiglaCurso = txtDatoConsulta.Text.Trim();
+            pEntidadCurso.mCicloCurso = txtDatoConsulta.Text.Trim();
+            strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
+            if (strCurso.Read())
+            {
+
+                ListViewItem lvItem = new ListViewItem();
+                strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, cbConsultarPor.Text);
+                while (strCurso.Read())
+                {
+
+                    mLlenarDataGridCursos();
+
+                }
+            }//fin del read                
+
 
         }
 
@@ -146,18 +163,20 @@ namespace Vista
                 DialogResult result = carpetaSeleccionada.ShowDialog();
 
                 if (result == DialogResult.OK)
-                {                    
+                {
                     string ruta = carpetaSeleccionada.SelectedPath + "/" + dgvDetalleCursos.CurrentCell.Value;
                     pEntidadCurso.mSiglaCurso = Convert.ToString(dgvDetalleCursos.Rows[dgvDetalleCursos.CurrentCell.RowIndex].Cells[0].Value);
                     strCurso = clCurso.mConsultaEspecifica(conexion, pEntidadCurso, "Sigla");
                     if (strCurso != null)
-                        if (strCurso.Read()) { 
-                    pEntidadCurso.mIdCurso = strCurso.GetInt32(0);
-                    clCurso.mDescargarProgramaCurso(conexion, ruta, pEntidadCurso);
-                    
-                    }
+                        if (strCurso.Read())
+                        {
+                            pEntidadCurso.mIdCurso = strCurso.GetInt32(0);
+                            clCurso.mDescargarProgramaCurso(conexion, ruta, pEntidadCurso);
+
+                        }
                 }
             }
+            
         }
 
         private void btnAgregarALista_Click(object sender, EventArgs e)
