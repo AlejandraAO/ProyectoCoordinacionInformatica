@@ -51,7 +51,7 @@ namespace Vista
         
         private void frmGrupoCurso_Load(object sender, EventArgs e)
         {
-
+            txtIdGrupo.Enabled = false;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -168,6 +168,28 @@ namespace Vista
         {
             frmConsultarCurso consultarCurso = new frmConsultarCurso(objeto);
             consultarCurso.Show();
+
+
+            if (consultarCurso.mIdCurso() != "")
+            {
+                clEntidadGrupoCurso.getSetIdCurso=Convert.ToInt32(consultarCurso.mIdCurso());
+                txtIdGrupo.Text = consultarCurso.mIdCurso();
+                mConsultaCodigo();
+            }
+
+        }
+
+        public void mConsultaCodigo()
+        {
+            strSentencia = clGrupoCurso.mConsultaCodigo(conexion, clEntidadGrupoCurso);
+            if (strSentencia != null)
+            {
+                if (strSentencia.Read())//si existe
+                {
+                    this.txtIdGrupo.Text = strSentencia.GetString(1);
+                }//Fin del if si existe
+
+            }//Fin del if dtrEstudiante!=null
         }
     }
 }

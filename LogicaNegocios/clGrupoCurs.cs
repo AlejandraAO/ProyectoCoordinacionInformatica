@@ -38,7 +38,7 @@ namespace LogicaNegocios
 
         public SqlDataReader mConsultaCodigo(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {
-            strSentencia = "select * tbGruposCurs  where idGrupo= '" + pEntidadGrupoCurso.getsetIdGrupo + "'";
+            strSentencia = "select idCurso tbGruposCurs  where idGrupo= '" + pEntidadGrupoCurso.getsetIdGrupo + "'";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
 

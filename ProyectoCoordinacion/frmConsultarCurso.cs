@@ -27,6 +27,7 @@ namespace Vista
         private clCurso clCurso;
         private ListViewItem lvItem;
         private ArrayList  idCursosSeleccionados;
+        private String curso;
         #endregion
 
         public frmConsultarCurso(Object objeto)
@@ -58,7 +59,12 @@ namespace Vista
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Dispose();
-            menu.Show();
+           
+                menu.Show();
+           
+
+
+
         }
 
         public void mConsultaGenetal()
@@ -176,8 +182,27 @@ namespace Vista
                         }
                 }
             }
+            else
+            {
+                for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
+                {
+                    if (dgvDetalleCursos.Rows[i].Selected)
+                    {
+
+                        //DatagridView1.CurrentRow.Cells("direccion").Value
+                        curso = dgvDetalleCursos.SelectedCells[i].RowIndex.ToString() ;
+                    }
+                }
+            }
             
         }
+
+
+        public String mIdCurso()
+        {
+            return curso;
+        }
+
 
         private void btnAgregarALista_Click(object sender, EventArgs e)
         {
