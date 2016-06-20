@@ -23,6 +23,7 @@ namespace Vista
         clGrupoCurso clGrupoCurso;
         clEntidadGrupoCurso clEntidadGrupoCurso;
         clConexion conexion;
+        Object objeto;
 
         public frmGrupoCurso()
         {
@@ -81,47 +82,24 @@ namespace Vista
         }
 
 
-        public void mAgregarGrupo()
+      
+
+        public void mModificarGrupo()
         {
-            if (mVerificarDatos()== true)
-               {
-                conexion.codigo = "123";
-                conexion.clave = "123";
-
-                clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32( txtIdGrupo.Text);
-                clEntidadGrupoCurso.getSetNumeroGrup= Convert.ToInt32(txtNumeroGrupo.Text);
-                clEntidadGrupoCurso.getSetCupoMaximo= Convert.ToInt32(txtCupoMaximo.Text);
-                clEntidadGrupoCurso.getSetCupoMinimo= Convert.ToInt32(txtCupoMinimo.Text);
-                clEntidadGrupoCurso.getSetCupoActual= Convert.ToInt32(txtCupoActual.Text);
 
 
-                    if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso)==true)
-                        {
-
-                        MessageBox.Show("Se ha insertado el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        mLimpiarCampos();
-                    }
-            }
-            else
-            {
-                MessageBox.Show("No pudo insertar el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-        }
-
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
             if (mVerificarDatos() == true)
             {
 
                 conexion.codigo = "123";
                 conexion.clave = "123";
                 clEntidadGrupoCurso.getsetIdGrupo = Convert.ToInt32(txtIdGrupo.Text);
-                clEntidadGrupoCurso.getSetNumeroGrup= Convert.ToInt32(txtNumeroGrupo.Text);
-                clEntidadGrupoCurso.getSetCupoMaximo= Convert.ToInt32(txtCupoMaximo.Text);
-                clEntidadGrupoCurso.getSetCupoMinimo= Convert.ToInt32(txtCupoMinimo.Text);
-                clEntidadGrupoCurso.getSetCupoActual= Convert.ToInt32(txtCupoActual.Text);
-            
-              if (clGrupoCurso.mModificarGrupoCurso(conexion, clEntidadGrupoCurso))
+                clEntidadGrupoCurso.getSetNumeroGrup = Convert.ToInt32(txtNumeroGrupo.Text);
+                clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(txtCupoMaximo.Text);
+                clEntidadGrupoCurso.getSetCupoMinimo = Convert.ToInt32(txtCupoMinimo.Text);
+                clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(txtCupoActual.Text);
+
+                if (clGrupoCurso.mModificarGrupoCurso(conexion, clEntidadGrupoCurso))
                 {
                     MessageBox.Show("Se ha modificado el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -136,10 +114,60 @@ namespace Vista
             }
 
 
+
         }
 
-        private void lbCupoMinimo_Click(object sender, EventArgs e)
+
+      
+              public void mAgregarGrupo()
         {
-                    }
+            if (mVerificarDatos() == true)
+            {
+
+                conexion.codigo = "123";
+                conexion.clave = "123";
+
+                clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(txtIdGrupo.Text);
+                clEntidadGrupoCurso.getSetNumeroGrup = Convert.ToInt32(txtNumeroGrupo.Text);
+                clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(txtCupoMaximo.Text);
+                clEntidadGrupoCurso.getSetCupoMinimo = Convert.ToInt32(txtCupoMinimo.Text);
+                clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(txtCupoActual.Text);
+
+
+                if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
+                {
+
+                    MessageBox.Show("Se ha insertado el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mLimpiarCampos();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No pudo insertar el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+        private void btnAgregar_Click_1(object sender, EventArgs e)
+        {
+            mAgregarGrupo();
+            btnModificar.Enabled = true;
+        }
+
+        private void btnModificar_Click_1(object sender, EventArgs e)
+        {
+            mModificarGrupo();  
+        }
+
+        private void btnSalir_Click_1(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnConsultar_Click_1(object sender, EventArgs e)
+        {
+            frmConsultarCurso consultarCurso = new frmConsultarCurso(objeto);
+            consultarCurso.Show();
+        }
     }
 }

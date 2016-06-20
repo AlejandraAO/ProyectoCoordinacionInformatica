@@ -104,10 +104,12 @@
             this.btnAgregar.TabIndex = 27;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_1);
             // 
             // btnModificar
             // 
             this.btnModificar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnModificar.Enabled = false;
             this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnModificar.FlatAppearance.BorderSize = 2;
             this.btnModificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
@@ -120,6 +122,7 @@
             this.btnModificar.TabIndex = 28;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click_1);
             // 
             // btnConsultar
             // 
@@ -136,6 +139,7 @@
             this.btnConsultar.TabIndex = 29;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click_1);
             // 
             // btnSalir
             // 
@@ -152,6 +156,7 @@
             this.btnSalir.TabIndex = 30;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
             // lbIdCurso
             // 
