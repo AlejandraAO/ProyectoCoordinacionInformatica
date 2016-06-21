@@ -24,12 +24,15 @@ namespace Vista
         clEntidadGrupoCurso clEntidadGrupoCurso;
         clConexion conexion;
         Object objeto;
+        frmConsultarCurso consultarCurso;
+        
 
         public frmGrupoCurso()
         {
             clGrupoCurso = new clGrupoCurso();
             clEntidadGrupoCurso = new clEntidadGrupoCurso();
             conexion = new clConexion();
+            consultarCurso = new frmConsultarCurso(objeto);
             frmAcceso = new frmAcceso();
             menu = new menuPrincipal(frmAcceso);
             InitializeComponent();
@@ -85,12 +88,15 @@ namespace Vista
         {
             txtIdGrupo.Text = "";
             txtNumeroGrupo.Text = "";
+            numCupoActual.Value =0;
+            numCupoMaximo.Value = 0;
+            numCupoMinimo.Value = 0;
             
         }
 
         public Boolean mVerificarDatos()
         {
-           // if ((txtNumeroGrupo.Text != "") & (txtIdGrupo.Text != "") & (txtCupoMinimo.Text != "") & (txtCupoMaximo.Text != "") & (txtCupoActual.Text != ""))
+          if ((txtNumeroGrupo.Text != "") & (txtIdGrupo.Text != "") & (numCupoMaximo.Text != "") & (numCupoMinimo.Text != "") & (numCupoActual.Text != ""))
             {
                 return true;
             }
@@ -111,9 +117,9 @@ namespace Vista
                 conexion.clave = "123";
                 clEntidadGrupoCurso.getsetIdGrupo = Convert.ToInt32(txtIdGrupo.Text);
                 clEntidadGrupoCurso.getSetNumeroGrup = Convert.ToInt32(txtNumeroGrupo.Text);
-               /* clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(txtCupoMaximo.Text);
-                clEntidadGrupoCurso.getSetCupoMinimo = Convert.ToInt32(txtCupoMinimo.Text);
-                clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(txtCupoActual.Text);*/
+                clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(numCupoMaximo.Text);
+                clEntidadGrupoCurso.getSetCupoMinimo = Convert.ToInt32(numCupoMinimo.Text);
+                clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(numCupoActual.Text);
 
                 if (clGrupoCurso.mModificarGrupoCurso(conexion, clEntidadGrupoCurso))
                 {
@@ -179,13 +185,14 @@ namespace Vista
 
         private void btnConsultar_Click_1(object sender, EventArgs e)
         {
-            frmConsultarCurso consultarCurso = new frmConsultarCurso(objeto);
+            //frmConsultarCurso consultarCurso = new frmConsultarCurso(objeto);
             consultarCurso.ShowDialog();
+            mConsultaCodigo();
 
             if (consultarCurso.seleccionCurso() == true)
             {
 
-                if (consultarCurso.mIdCurso()!= "")
+                if (consultarCurso.mIdCurso() != "")
                 {
                     clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(consultarCurso.mIdCurso());
                     txtIdGrupo.Text = consultarCurso.mIdCurso();
@@ -193,10 +200,16 @@ namespace Vista
                 }
             }
 
+            
+
+
         }
 
         public void mConsultaCodigo()
         {
+           
+           
+
             strSentencia = clGrupoCurso.mConsultaCodigo(conexion, clEntidadGrupoCurso);
             if (strSentencia != null)
             {
@@ -208,5 +221,9 @@ namespace Vista
             }//Fin del if dtrEstudiante!=null
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }
