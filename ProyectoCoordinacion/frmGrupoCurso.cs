@@ -39,16 +39,34 @@ namespace Vista
         {
             frmConsultarCurso consultaCurso = new frmConsultarCurso(menu);
             consultaCurso.Show();
-
-           /* if (consultaCurso.get() != "")
+            
+          if (consultaCurso.mIdCurso() != "")
             {
-                usuario.setCodigo(consulta.getCodigo());
-                txtCodigo.Text = consulta.getCodigo();
+                clEntidadGrupoCurso.getSetIdCurso= Convert.ToInt32(consultaCurso.mIdCurso());
+                txtIdGrupo.Text = consultaCurso.mIdCurso();
                 mConsultaCodigo();
-            }*/
+            }
 
         }
-        
+
+        private void mConsultarCodigo()
+        {
+            strSentencia = clGrupoCurso.mConsultaCodigo(conexion, clEntidadGrupoCurso);
+            if (strSentencia != null)
+            {
+                if (strSentencia.Read())//si existe
+                {
+                    this.txtIdGrupo.Text = strSentencia.GetString(1);
+                  
+                }//Fin del if si existe
+
+            }//Fin del if dtrEstudiante!=null
+
+        }
+
+
+
+
         private void frmGrupoCurso_Load(object sender, EventArgs e)
         {
             txtIdGrupo.Enabled = false;
