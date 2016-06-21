@@ -28,9 +28,10 @@ namespace Vista
         private ListViewItem lvItem;
         private ArrayList  idCursosSeleccionados;
         private String curso;
+        public int tipoDataGrid;
         #endregion
 
-        public frmConsultarCurso(Object objeto)
+        public frmConsultarCurso(Object objeto )
         {
             if(objeto is menuPrincipal)
             {
@@ -209,8 +210,17 @@ namespace Vista
             foreach (DataGridViewRow dgv in dgvDetalleCursos.SelectedRows)
             {
                 idCursosSeleccionados.Add(dgv.Cells["idCurso"].Value);
-                frmCurso.AgregarRequisito(idCursosSeleccionados);               
+                           
             }
+            if (tipoDataGrid == 0) {
+                frmCurso.AgregarRequisito(idCursosSeleccionados);
+            }
+            else {
+                if (tipoDataGrid == 1){
+                    frmCurso.AgregarCoRequisito(idCursosSeleccionados);
+                }
+            }
+            
             this.Hide();
             frmCurso.Show();
         }
@@ -218,5 +228,13 @@ namespace Vista
         {
             return idCursosSeleccionados;
         }
+
+        public int mTipoDataGrid
+        {
+            get { return this.tipoDataGrid; }
+            set { this.tipoDataGrid = value; }
+        }
+
+      
     }
 }

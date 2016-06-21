@@ -47,6 +47,7 @@
     <Compile Include="clEntidadProyecto.cs" />
     <Compile Include="clEntidadCurso.cs" />
     <Compile Include="clEntidadMiembro.cs" />
+    <Compile Include="clEntidadRequisitoCurso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

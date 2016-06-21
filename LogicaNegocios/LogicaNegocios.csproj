@@ -46,6 +46,7 @@
     <Compile Include="clMiembroProyecto.cs" />
     <Compile Include="clMiembros.cs" />
     <Compile Include="clProyecto.cs" />
+    <Compile Include="clRequisitoCurso.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

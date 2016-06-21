@@ -13,7 +13,7 @@ using Entidades;
 using LogicaNegocios;
 using System.Data.SqlClient;
 using System.Collections;
-
+using System.Data;
 namespace Vista
 {
     public partial class frmCursos : Form
@@ -24,6 +24,8 @@ namespace Vista
         private clCurso curso;
         private OpenFileDialog archivoSeleccionado;
         SqlDataReader dtrCurso;
+        private clEntidadRequisitoCurso entidadRequisitoCurso;
+        private clRequisitoCurso requisitoCurso;
 
         public frmCursos(menuPrincipal menuPrincipal)
         {
@@ -33,13 +35,13 @@ namespace Vista
             entidadCurso = new clEntidadCurso();
             curso = new clCurso();
             archivoSeleccionado = new OpenFileDialog();
+            entidadRequisitoCurso = new clEntidadRequisitoCurso();
+            requisitoCurso = new clRequisitoCurso();
         }
 
         private void frmCursos_Load(object sender, EventArgs e)
         {
-            int reglon = dgvRequisitos.Rows.Add();
-            dgvRequisitos.Rows[reglon].Cells["idCurso"].Value ="1";
-            Console.WriteLine(dgvRequisitos.Rows[reglon].Cells["idCurso"].Value);
+          
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -98,8 +100,15 @@ namespace Vista
 
                 //Se verifica que se haya insertado correctamente
                 if (curso.mInsertarCurso(conexion, entidadCurso))
-                {
-                    MessageBox.Show("Se ha insertado el curso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                {                   
+                    if (mAgregarRequisitoCurso())
+                    {
+                        MessageBox.Show("Se ha insertado el requisito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show(" No se ha insertado el requisito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     mLimpiarCampos();
                 }
                 else
@@ -133,7 +142,14 @@ namespace Vista
             txtTotalHoras.Text = "";
             txtModalidad.Text = "";
             lbNombrePrograma.Text = "";
-        }
+
+            foreach (DataGridViewRow dgv in dgvRequisitos.Rows)
+            {
+                dgvRequisitos.Rows.Remove(dgv);
+                dgvRequisitos.Refresh();
+            }
+
+            }
 
         private void txtSigla_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -245,6 +261,7 @@ namespace Vista
         private void btnAgregarRequisito_Click(object sender, EventArgs e)
         {
             frmConsultarCurso consultaCurso = new frmConsultarCurso(this);
+            consultaCurso.mTipoDataGrid = 0;
             this.Hide();
             consultaCurso.Show();
 
@@ -253,6 +270,7 @@ namespace Vista
         private void btnAgregarCorrequisito_Click(object sender, EventArgs e)
         {
             frmConsultarCurso consultaCurso = new frmConsultarCurso(this);
+            consultaCurso.mTipoDataGrid = 1;
             this.Hide();
             consultaCurso.Show();
         }
@@ -260,19 +278,70 @@ namespace Vista
         public void AgregarRequisito(ArrayList idsCurso)
         {
             for(int i =0; i<idsCurso.Count; i++)
-            {
+            {                
                 entidadCurso.mIdCurso =Convert.ToInt32( idsCurso[i]);
                 dtrCurso = curso.mConsultaEspecifica(conexion,entidadCurso, "idCurso");
                 if (dtrCurso != null)
                     if (dtrCurso.Read())
                     {
-                        dgvRequisitos.Rows[i].Cells["Sigla"].Value = dtrCurso.GetString(1);
-                        dgvRequisitos.Rows[i].Cells["nombreRequisito"].Value = dtrCurso.GetString(2);
-
-
-
+                        int reglon = dgvRequisitos.Rows.Add();
+                        dgvRequisitos.Rows[reglon].Cells["siglaRequisito"].Style.ForeColor = Color.Black;
+                        dgvRequisitos.Rows[reglon].Cells["nombreRequisito"].Style.ForeColor = Color.Black;
+                        dgvRequisitos.Rows[reglon].Cells["idRequisito"].Value = Convert.ToString(dtrCurso.GetInt32(0));
+                        dgvRequisitos.Rows[reglon].Cells["siglaRequisito"].Value = dtrCurso.GetString(1);
+                        dgvRequisitos.Rows[reglon].Cells["nombreRequisito"].Value = dtrCurso.GetString(2);                     
                     }
             }
+        }
+        public void AgregarCoRequisito(ArrayList idsCurso)
+        {
+            for (int i = 0; i < idsCurso.Count; i++)
+            {
+                entidadCurso.mIdCurso = Convert.ToInt32(idsCurso[i]);
+                dtrCurso = curso.mConsultaEspecifica(conexion, entidadCurso, "idCurso");
+                if (dtrCurso != null)
+                    if (dtrCurso.Read())
+                    {
+                        int reglon = dgvCorrequisitos.Rows.Add();
+                        dgvCorrequisitos.Rows[reglon].Cells["siglaCorrequisito"].Style.ForeColor = Color.Black;
+                        dgvCorrequisitos.Rows[reglon].Cells["nombreCorrequisito"].Style.ForeColor = Color.Black;
+                        dgvCorrequisitos.Rows[reglon].Cells["idCoRequisito"].Value = Convert.ToString(dtrCurso.GetInt32(0));
+                        dgvCorrequisitos.Rows[reglon].Cells["siglaCorrequisito"].Value = dtrCurso.GetString(1);
+                        dgvCorrequisitos.Rows[reglon].Cells["nombreCorrequisito"].Value = dtrCurso.GetString(2);
+                    }
+            }
+        }
+
+        public Boolean mVerificarExisteRequisito()
+        {
+            if (dgvRequisitos.Rows.Count > 0) {
+                return true;
+            }return false;
+        }
+        public Boolean mVerificarExisteCoRequisito()
+        {
+            if (dgvCorrequisitos.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public Boolean mAgregarRequisitoCurso()
+        {
+            foreach (DataGridViewRow dgv in dgvRequisitos.Rows)
+            {
+                entidadCurso.mSiglaCurso = txtSigla.Text;
+                dtrCurso = curso.mConsultaPorSigla(conexion,entidadCurso);
+                if(dtrCurso!=null)
+                    if (dtrCurso.Read())
+                    {
+                        entidadRequisitoCurso.mIdCurso = dtrCurso.GetInt32(0);
+                        entidadRequisitoCurso.mIdCursoRequerido = Convert.ToInt32(dgv.Cells["idRequisito"].Value);
+                       return requisitoCurso.mInsertarRequisitoCurso(conexion,entidadRequisitoCurso);
+                    }                    
+            }
+            return false;
         }
     }
 }
