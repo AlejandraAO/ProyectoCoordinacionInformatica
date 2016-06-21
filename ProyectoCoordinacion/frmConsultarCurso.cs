@@ -27,7 +27,7 @@ namespace Vista
         private clCurso clCurso;
         private ListViewItem lvItem;
         private ArrayList  idCursosSeleccionados;
-        private String curso;
+        private int curso;
         public int tipoDataGrid;
         #endregion
 
@@ -189,9 +189,8 @@ namespace Vista
                 {
                     if (dgvDetalleCursos.Rows[i].Selected)
                     {
-
-                        //DatagridView1.CurrentRow.Cells("direccion").Value
-                        curso = dgvDetalleCursos.SelectedCells[i].RowIndex.ToString() ;
+                        
+                        curso = Convert.ToInt32(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
                     }
                 }
             }
@@ -199,7 +198,7 @@ namespace Vista
         }
 
 
-        public String mIdCurso()
+        public int mIdCurso()
         {
             return curso;
         }

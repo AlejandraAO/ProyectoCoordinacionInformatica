@@ -98,7 +98,7 @@
             this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(13, 155);
+            this.btnAgregar.Location = new System.Drawing.Point(55, 436);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(77, 37);
             this.btnAgregar.TabIndex = 27;
@@ -116,7 +116,7 @@
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnModificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(116, 155);
+            this.btnModificar.Location = new System.Drawing.Point(158, 436);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(82, 37);
             this.btnModificar.TabIndex = 28;
@@ -150,7 +150,7 @@
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(559, 166);
+            this.btnSalir.Location = new System.Drawing.Point(601, 447);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(82, 37);
             this.btnSalir.TabIndex = 30;
@@ -224,7 +224,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(715, 239);
+            this.ClientSize = new System.Drawing.Size(777, 477);
             this.ControlBox = false;
             this.Controls.Add(this.lbCupoActual);
             this.Controls.Add(this.lbCupoMinimo);
