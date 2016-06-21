@@ -89,14 +89,14 @@ namespace Vista
                 //Se asignan los valores a la entidad curso
                 entidadCurso.mSiglaCurso = txtSigla.Text;
                 entidadCurso.mNombreCurso = txtNombre.Text;
-                entidadCurso.mLugarCurso = txtLugar.Text;
+                entidadCurso.mLugarCurso = cbLugar.Text;
                 entidadCurso.mCicloCurso = txtCiclo.Text;
-                entidadCurso.mCreditosCurso = Convert.ToInt32(txtCreditos.Text);
+                entidadCurso.mCreditosCurso = Convert.ToInt32(numCreditos.Value);
                 entidadCurso.mProgramaCurso = archivoSeleccionado.FileName;
                 entidadCurso.mNombrePrograma = archivoSeleccionado.SafeFileName;
                 entidadCurso.mEstadoCurso = cbEstado.Text;
-                entidadCurso.mTotalDeHorasCurso = Convert.ToInt32(txtTotalHoras.Text);
-                entidadCurso.mModalidadCurso = txtModalidad.Text;
+                entidadCurso.mTotalDeHorasCurso = Convert.ToInt32(numTotalHoras.Value);
+                entidadCurso.mModalidadCurso = cbModalidad.Text;
 
                 //Se verifica que se haya insertado correctamente
                 if (curso.mInsertarCurso(conexion, entidadCurso))
@@ -124,7 +124,7 @@ namespace Vista
 
         public Boolean mVerificarDatosNecesarios()
         {
-            if((txtSigla.Text!="") & (txtNombre.Text!="")& (txtLugar.Text!="")& (txtCiclo.Text!="")&(txtCreditos.Text!="")& (cbEstado.Text != "") & (txtTotalHoras.Text != "")& (txtModalidad.Text != "") & (lbNombrePrograma.Text != ""))
+            if((txtSigla.Text!="") & (txtNombre.Text!="")& (cbLugar.Text!="")& (txtCiclo.Text!="")&(numCreditos.Value!=0)& (cbEstado.Text != "") & (numTotalHoras.Value != 0)& (cbModalidad.Text != "") & (lbNombrePrograma.Text != ""))
             {
                 return true;
             }
@@ -135,12 +135,12 @@ namespace Vista
         {
             txtSigla.Text = "";
             txtNombre.Text = "";
-            txtLugar.Text = "";
+            cbLugar.Text = "";
             txtCiclo.Text = "";
-            txtCreditos.Text = "";
+            numCreditos.Value = 0;
             cbEstado.Text = "";
-            txtTotalHoras.Text = "";
-            txtModalidad.Text = "";
+            numTotalHoras.Value = 0;
+            cbModalidad.Text = "";
             lbNombrePrograma.Text = "";           
             }
 
@@ -170,13 +170,13 @@ namespace Vista
                 if (dtrCurso.Read())
                 {
                     txtNombre.Text = dtrCurso.GetString(2);
-                    txtLugar.Text = dtrCurso.GetString(3);
+                    cbLugar.Text = dtrCurso.GetString(3);
                     txtCiclo.Text = dtrCurso.GetString(4);
-                    txtCreditos.Text = Convert.ToString(dtrCurso.GetInt32(5));
+                    numCreditos.Value = dtrCurso.GetInt32(5);
 
                     cbEstado.Text = dtrCurso.GetString(7);
-                    txtTotalHoras.Text =Convert.ToString(dtrCurso.GetInt32(8));
-                    txtModalidad.Text = dtrCurso.GetString(9);
+                    numTotalHoras.Value = dtrCurso.GetInt32(8);
+                    cbModalidad.Text = dtrCurso.GetString(9);
                     lbNombrePrograma.Text= dtrCurso.GetString(10);
 
                     txtSigla.ReadOnly = true;
@@ -207,13 +207,13 @@ namespace Vista
 
                 entidadCurso.mSiglaCurso = txtSigla.Text;
                 entidadCurso.mNombreCurso = txtNombre.Text;
-                entidadCurso.mLugarCurso = txtLugar.Text;
+                entidadCurso.mLugarCurso = cbLugar.Text;
                 entidadCurso.mCicloCurso = txtCiclo.Text;
-                entidadCurso.mCreditosCurso = Convert.ToInt32(txtCreditos.Text);
+                entidadCurso.mCreditosCurso = Convert.ToInt32(numCreditos.Value);
                 entidadCurso.mProgramaCurso = archivoSeleccionado.FileName;
                 entidadCurso.mEstadoCurso = cbEstado.Text;
-                entidadCurso.mTotalDeHorasCurso = Convert.ToInt32(txtTotalHoras.Text);
-                entidadCurso.mModalidadCurso = txtModalidad.Text;
+                entidadCurso.mTotalDeHorasCurso = Convert.ToInt32(numTotalHoras.Value);
+                entidadCurso.mModalidadCurso = cbModalidad.Text;
 
                 
                 if(curso.mModificarCurso(conexion, entidadCurso))
@@ -239,12 +239,12 @@ namespace Vista
         {
             txtSigla.Text = "";
             txtNombre.Text = "";
-            txtLugar.Text = "";
+            cbLugar.Text = "";
             txtCiclo.Text = "";
-            txtCreditos.Text = "";
+            numCreditos.Value = 0;
             cbEstado.Text = "";
-            txtTotalHoras.Text = "";
-            txtModalidad.Text = "";
+            numTotalHoras.Value = 0;
+            cbModalidad.Text = "";
             lbNombrePrograma.Text = "";
             btnModificar.Enabled = false;
             txtSigla.ReadOnly = false;
@@ -270,7 +270,7 @@ namespace Vista
             consultaCurso.Show();
         }
 
-        public void AgregarRequisito(ArrayList idsCurso)
+        public void mAgregarRequisito(ArrayList idsCurso)
         {
             for(int i =0; i<idsCurso.Count; i++)
             {                
@@ -288,7 +288,7 @@ namespace Vista
                     }
             }
         }
-        public void AgregarCoRequisito(ArrayList idsCurso)
+        public void mAgregarCoRequisito(ArrayList idsCurso)
         {
             for (int i = 0; i < idsCurso.Count; i++)
             {

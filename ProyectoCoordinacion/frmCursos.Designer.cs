@@ -30,19 +30,15 @@
         {
             this.gbxDatosCurso = new System.Windows.Forms.GroupBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
-            this.txtModalidad = new System.Windows.Forms.TextBox();
             this.lbModalidad = new System.Windows.Forms.Label();
-            this.txtTotalHoras = new System.Windows.Forms.TextBox();
             this.lbNombrePrograma = new System.Windows.Forms.Label();
             this.btnExaminar = new System.Windows.Forms.Button();
             this.lbTotalHoras = new System.Windows.Forms.Label();
             this.lbEstado = new System.Windows.Forms.Label();
             this.lbPrograma = new System.Windows.Forms.Label();
-            this.txtCreditos = new System.Windows.Forms.TextBox();
             this.lbCreditos = new System.Windows.Forms.Label();
             this.txtCiclo = new System.Windows.Forms.TextBox();
             this.lbCiclo = new System.Windows.Forms.Label();
-            this.txtLugar = new System.Windows.Forms.TextBox();
             this.lbLugar = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.lbNombre = new System.Windows.Forms.Label();
@@ -54,41 +50,47 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gbxRequisitoCorrequisito = new System.Windows.Forms.GroupBox();
             this.dgvCorrequisitos = new System.Windows.Forms.DataGridView();
+            this.idCoRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siglaCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvRequisitos = new System.Windows.Forms.DataGridView();
+            this.idRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SiglaRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnAgregarCorrequisito = new System.Windows.Forms.Button();
             this.btnAgregarRequisito = new System.Windows.Forms.Button();
             this.lbCorrequisito = new System.Windows.Forms.Label();
             this.lbRequisito = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.idCoRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siglaCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SiglaRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cbLugar = new System.Windows.Forms.ComboBox();
+            this.numCreditos = new System.Windows.Forms.NumericUpDown();
+            this.cbModalidad = new System.Windows.Forms.ComboBox();
+            this.numTotalHoras = new System.Windows.Forms.NumericUpDown();
             this.gbxDatosCurso.SuspendLayout();
             this.gbxRequisitoCorrequisito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCorrequisitos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCreditos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalHoras)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxDatosCurso
             // 
             this.gbxDatosCurso.BackColor = System.Drawing.Color.Transparent;
+            this.gbxDatosCurso.Controls.Add(this.numTotalHoras);
+            this.gbxDatosCurso.Controls.Add(this.cbModalidad);
+            this.gbxDatosCurso.Controls.Add(this.numCreditos);
+            this.gbxDatosCurso.Controls.Add(this.cbLugar);
             this.gbxDatosCurso.Controls.Add(this.cbEstado);
-            this.gbxDatosCurso.Controls.Add(this.txtModalidad);
             this.gbxDatosCurso.Controls.Add(this.lbModalidad);
-            this.gbxDatosCurso.Controls.Add(this.txtTotalHoras);
             this.gbxDatosCurso.Controls.Add(this.lbNombrePrograma);
             this.gbxDatosCurso.Controls.Add(this.btnExaminar);
             this.gbxDatosCurso.Controls.Add(this.lbTotalHoras);
             this.gbxDatosCurso.Controls.Add(this.lbEstado);
             this.gbxDatosCurso.Controls.Add(this.lbPrograma);
-            this.gbxDatosCurso.Controls.Add(this.txtCreditos);
             this.gbxDatosCurso.Controls.Add(this.lbCreditos);
             this.gbxDatosCurso.Controls.Add(this.txtCiclo);
             this.gbxDatosCurso.Controls.Add(this.lbCiclo);
-            this.gbxDatosCurso.Controls.Add(this.txtLugar);
             this.gbxDatosCurso.Controls.Add(this.lbLugar);
             this.gbxDatosCurso.Controls.Add(this.txtNombre);
             this.gbxDatosCurso.Controls.Add(this.lbNombre);
@@ -117,16 +119,6 @@
             this.cbEstado.Size = new System.Drawing.Size(121, 25);
             this.cbEstado.TabIndex = 61;
             // 
-            // txtModalidad
-            // 
-            this.txtModalidad.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtModalidad.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtModalidad.ForeColor = System.Drawing.Color.Black;
-            this.txtModalidad.Location = new System.Drawing.Point(479, 119);
-            this.txtModalidad.Name = "txtModalidad";
-            this.txtModalidad.Size = new System.Drawing.Size(128, 26);
-            this.txtModalidad.TabIndex = 58;
-            // 
             // lbModalidad
             // 
             this.lbModalidad.AutoSize = true;
@@ -138,16 +130,6 @@
             this.lbModalidad.Size = new System.Drawing.Size(82, 18);
             this.lbModalidad.TabIndex = 57;
             this.lbModalidad.Text = "Modalidad";
-            // 
-            // txtTotalHoras
-            // 
-            this.txtTotalHoras.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtTotalHoras.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotalHoras.ForeColor = System.Drawing.Color.Black;
-            this.txtTotalHoras.Location = new System.Drawing.Point(479, 79);
-            this.txtTotalHoras.Name = "txtTotalHoras";
-            this.txtTotalHoras.Size = new System.Drawing.Size(128, 26);
-            this.txtTotalHoras.TabIndex = 56;
             // 
             // lbNombrePrograma
             // 
@@ -213,16 +195,6 @@
             this.lbPrograma.TabIndex = 51;
             this.lbPrograma.Text = "Programa";
             // 
-            // txtCreditos
-            // 
-            this.txtCreditos.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtCreditos.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCreditos.ForeColor = System.Drawing.Color.Black;
-            this.txtCreditos.Location = new System.Drawing.Point(137, 202);
-            this.txtCreditos.Name = "txtCreditos";
-            this.txtCreditos.Size = new System.Drawing.Size(128, 26);
-            this.txtCreditos.TabIndex = 50;
-            // 
             // lbCreditos
             // 
             this.lbCreditos.AutoSize = true;
@@ -256,16 +228,6 @@
             this.lbCiclo.Size = new System.Drawing.Size(44, 18);
             this.lbCiclo.TabIndex = 47;
             this.lbCiclo.Text = "Ciclo";
-            // 
-            // txtLugar
-            // 
-            this.txtLugar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.txtLugar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLugar.ForeColor = System.Drawing.Color.Black;
-            this.txtLugar.Location = new System.Drawing.Point(137, 119);
-            this.txtLugar.Name = "txtLugar";
-            this.txtLugar.Size = new System.Drawing.Size(128, 26);
-            this.txtLugar.TabIndex = 46;
             // 
             // lbLugar
             // 
@@ -427,6 +389,28 @@
             this.dgvCorrequisitos.Size = new System.Drawing.Size(316, 171);
             this.dgvCorrequisitos.TabIndex = 55;
             // 
+            // idCoRequisito
+            // 
+            this.idCoRequisito.HeaderText = "idCurso";
+            this.idCoRequisito.Name = "idCoRequisito";
+            this.idCoRequisito.ReadOnly = true;
+            this.idCoRequisito.Visible = false;
+            // 
+            // siglaCorrequisito
+            // 
+            this.siglaCorrequisito.HeaderText = "Sigla";
+            this.siglaCorrequisito.Name = "siglaCorrequisito";
+            this.siglaCorrequisito.ReadOnly = true;
+            this.siglaCorrequisito.Width = 70;
+            // 
+            // nombreCorrequisito
+            // 
+            this.nombreCorrequisito.HeaderText = "Nombre Curso";
+            this.nombreCorrequisito.MinimumWidth = 10;
+            this.nombreCorrequisito.Name = "nombreCorrequisito";
+            this.nombreCorrequisito.ReadOnly = true;
+            this.nombreCorrequisito.Width = 200;
+            // 
             // dgvRequisitos
             // 
             this.dgvRequisitos.AllowUserToOrderColumns = true;
@@ -442,6 +426,28 @@
             this.dgvRequisitos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvRequisitos.Size = new System.Drawing.Size(316, 171);
             this.dgvRequisitos.TabIndex = 55;
+            // 
+            // idRequisito
+            // 
+            this.idRequisito.HeaderText = "idRequisito";
+            this.idRequisito.Name = "idRequisito";
+            this.idRequisito.ReadOnly = true;
+            this.idRequisito.Visible = false;
+            // 
+            // SiglaRequisito
+            // 
+            this.SiglaRequisito.HeaderText = "Sigla";
+            this.SiglaRequisito.Name = "SiglaRequisito";
+            this.SiglaRequisito.ReadOnly = true;
+            this.SiglaRequisito.Width = 70;
+            // 
+            // nombreRequisito
+            // 
+            this.nombreRequisito.HeaderText = "Nombre";
+            this.nombreRequisito.MinimumWidth = 10;
+            this.nombreRequisito.Name = "nombreRequisito";
+            this.nombreRequisito.ReadOnly = true;
+            this.nombreRequisito.Width = 200;
             // 
             // btnAgregarCorrequisito
             // 
@@ -512,49 +518,42 @@
             this.label2.Size = new System.Drawing.Size(0, 18);
             this.label2.TabIndex = 51;
             // 
-            // idCoRequisito
+            // cbLugar
             // 
-            this.idCoRequisito.HeaderText = "idCurso";
-            this.idCoRequisito.Name = "idCoRequisito";
-            this.idCoRequisito.ReadOnly = true;
-            this.idCoRequisito.Visible = false;
+            this.cbLugar.FormattingEnabled = true;
+            this.cbLugar.Items.AddRange(new object[] {
+            "Lab1",
+            "Lab2",
+            "Aula"});
+            this.cbLugar.Location = new System.Drawing.Point(137, 119);
+            this.cbLugar.Name = "cbLugar";
+            this.cbLugar.Size = new System.Drawing.Size(121, 26);
+            this.cbLugar.TabIndex = 62;
             // 
-            // siglaCorrequisito
+            // numCreditos
             // 
-            this.siglaCorrequisito.HeaderText = "Sigla";
-            this.siglaCorrequisito.Name = "siglaCorrequisito";
-            this.siglaCorrequisito.ReadOnly = true;
-            this.siglaCorrequisito.Width = 70;
+            this.numCreditos.Location = new System.Drawing.Point(137, 202);
+            this.numCreditos.Name = "numCreditos";
+            this.numCreditos.Size = new System.Drawing.Size(120, 26);
+            this.numCreditos.TabIndex = 63;
             // 
-            // nombreCorrequisito
+            // cbModalidad
             // 
-            this.nombreCorrequisito.HeaderText = "Nombre Curso";
-            this.nombreCorrequisito.MinimumWidth = 10;
-            this.nombreCorrequisito.Name = "nombreCorrequisito";
-            this.nombreCorrequisito.ReadOnly = true;
-            this.nombreCorrequisito.Width = 200;
+            this.cbModalidad.FormattingEnabled = true;
+            this.cbModalidad.Items.AddRange(new object[] {
+            "Presencial",
+            "Virtual"});
+            this.cbModalidad.Location = new System.Drawing.Point(479, 118);
+            this.cbModalidad.Name = "cbModalidad";
+            this.cbModalidad.Size = new System.Drawing.Size(121, 26);
+            this.cbModalidad.TabIndex = 64;
             // 
-            // idRequisito
+            // numTotalHoras
             // 
-            this.idRequisito.HeaderText = "idRequisito";
-            this.idRequisito.Name = "idRequisito";
-            this.idRequisito.ReadOnly = true;
-            this.idRequisito.Visible = false;
-            // 
-            // SiglaRequisito
-            // 
-            this.SiglaRequisito.HeaderText = "Sigla";
-            this.SiglaRequisito.Name = "SiglaRequisito";
-            this.SiglaRequisito.ReadOnly = true;
-            this.SiglaRequisito.Width = 70;
-            // 
-            // nombreRequisito
-            // 
-            this.nombreRequisito.HeaderText = "Nombre";
-            this.nombreRequisito.MinimumWidth = 10;
-            this.nombreRequisito.Name = "nombreRequisito";
-            this.nombreRequisito.ReadOnly = true;
-            this.nombreRequisito.Width = 200;
+            this.numTotalHoras.Location = new System.Drawing.Point(479, 76);
+            this.numTotalHoras.Name = "numTotalHoras";
+            this.numTotalHoras.Size = new System.Drawing.Size(120, 26);
+            this.numTotalHoras.TabIndex = 65;
             // 
             // frmCursos
             // 
@@ -581,24 +580,22 @@
             this.gbxRequisitoCorrequisito.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCorrequisitos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCreditos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalHoras)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.GroupBox gbxDatosCurso;
-        private System.Windows.Forms.TextBox txtModalidad;
         private System.Windows.Forms.Label lbModalidad;
-        private System.Windows.Forms.TextBox txtTotalHoras;
         private System.Windows.Forms.Label lbTotalHoras;
         private System.Windows.Forms.Label lbEstado;
         private System.Windows.Forms.Button btnExaminar;
         private System.Windows.Forms.Label lbPrograma;
-        private System.Windows.Forms.TextBox txtCreditos;
         private System.Windows.Forms.Label lbCreditos;
         private System.Windows.Forms.TextBox txtCiclo;
         private System.Windows.Forms.Label lbCiclo;
-        private System.Windows.Forms.TextBox txtLugar;
         private System.Windows.Forms.Label lbLugar;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label lbNombre;
@@ -624,5 +621,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn idRequisito;
         private System.Windows.Forms.DataGridViewTextBoxColumn SiglaRequisito;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreRequisito;
+        private System.Windows.Forms.ComboBox cbLugar;
+        private System.Windows.Forms.NumericUpDown numCreditos;
+        private System.Windows.Forms.NumericUpDown numTotalHoras;
+        private System.Windows.Forms.ComboBox cbModalidad;
     }
 }
