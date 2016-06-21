@@ -27,7 +27,7 @@ namespace Vista
         private clCurso clCurso;
         private ListViewItem lvItem;
         private ArrayList  idCursosSeleccionados;
-        private int curso;
+        private String curso;
         public int tipoDataGrid;
         #endregion
 
@@ -60,6 +60,7 @@ namespace Vista
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Dispose();
+           
            
                 menu.Show();
            
@@ -147,6 +148,8 @@ namespace Vista
             btnConsultar.Enabled = true;
         }
 
+     
+
         public void mLimpiarLista()
         {
             dgvDetalleCursos.Rows.Clear();
@@ -190,7 +193,7 @@ namespace Vista
                     if (dgvDetalleCursos.Rows[i].Selected)
                     {
                         
-                        curso = Convert.ToInt32(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
+                        curso = Convert.ToString(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
                     }
                 }
             }
@@ -198,7 +201,23 @@ namespace Vista
         }
 
 
-        public int mIdCurso()
+        public Boolean seleccionCurso()
+        {
+            for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
+            {
+                if (dgvDetalleCursos.Rows[i].Selected)
+                {
+                    return true;
+                    mIdCurso();
+
+                }
+
+            }
+
+            return false;
+        }
+
+        public String mIdCurso()
         {
             return curso;
         }

@@ -28,9 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtCupoActual = new System.Windows.Forms.TextBox();
-            this.txtCupoMinimo = new System.Windows.Forms.TextBox();
-            this.txtCupoMaximo = new System.Windows.Forms.TextBox();
             this.txtNumeroGrupo = new System.Windows.Forms.TextBox();
             this.txtIdGrupo = new System.Windows.Forms.TextBox();
             this.lbIdGrupo = new System.Windows.Forms.Label();
@@ -43,39 +40,25 @@
             this.lbCupoMaximo = new System.Windows.Forms.Label();
             this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.lbCupoActual = new System.Windows.Forms.Label();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.numCupoMaximo = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numCupoMaximo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // txtCupoActual
-            // 
-            this.txtCupoActual.Location = new System.Drawing.Point(537, 61);
-            this.txtCupoActual.Name = "txtCupoActual";
-            this.txtCupoActual.Size = new System.Drawing.Size(146, 20);
-            this.txtCupoActual.TabIndex = 22;
-            // 
-            // txtCupoMinimo
-            // 
-            this.txtCupoMinimo.Location = new System.Drawing.Point(537, 32);
-            this.txtCupoMinimo.Name = "txtCupoMinimo";
-            this.txtCupoMinimo.Size = new System.Drawing.Size(146, 20);
-            this.txtCupoMinimo.TabIndex = 21;
-            // 
-            // txtCupoMaximo
-            // 
-            this.txtCupoMaximo.Location = new System.Drawing.Point(139, 109);
-            this.txtCupoMaximo.Name = "txtCupoMaximo";
-            this.txtCupoMaximo.Size = new System.Drawing.Size(146, 20);
-            this.txtCupoMaximo.TabIndex = 20;
             // 
             // txtNumeroGrupo
             // 
-            this.txtNumeroGrupo.Location = new System.Drawing.Point(139, 74);
+            this.txtNumeroGrupo.Location = new System.Drawing.Point(158, 72);
             this.txtNumeroGrupo.Name = "txtNumeroGrupo";
             this.txtNumeroGrupo.Size = new System.Drawing.Size(146, 20);
             this.txtNumeroGrupo.TabIndex = 19;
             // 
             // txtIdGrupo
             // 
-            this.txtIdGrupo.Location = new System.Drawing.Point(139, 36);
+            this.txtIdGrupo.Location = new System.Drawing.Point(158, 34);
             this.txtIdGrupo.Name = "txtIdGrupo";
             this.txtIdGrupo.Size = new System.Drawing.Size(146, 20);
             this.txtIdGrupo.TabIndex = 18;
@@ -164,7 +147,7 @@
             this.lbIdCurso.BackColor = System.Drawing.Color.Transparent;
             this.lbIdCurso.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdCurso.ForeColor = System.Drawing.Color.White;
-            this.lbIdCurso.Location = new System.Drawing.Point(16, 36);
+            this.lbIdCurso.Location = new System.Drawing.Point(35, 34);
             this.lbIdCurso.Name = "lbIdCurso";
             this.lbIdCurso.Size = new System.Drawing.Size(63, 18);
             this.lbIdCurso.TabIndex = 31;
@@ -176,7 +159,7 @@
             this.lbNumeroGrupo.BackColor = System.Drawing.Color.Transparent;
             this.lbNumeroGrupo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroGrupo.ForeColor = System.Drawing.Color.White;
-            this.lbNumeroGrupo.Location = new System.Drawing.Point(10, 76);
+            this.lbNumeroGrupo.Location = new System.Drawing.Point(29, 74);
             this.lbNumeroGrupo.Name = "lbNumeroGrupo";
             this.lbNumeroGrupo.Size = new System.Drawing.Size(110, 18);
             this.lbNumeroGrupo.TabIndex = 32;
@@ -188,7 +171,7 @@
             this.lbCupoMaximo.BackColor = System.Drawing.Color.Transparent;
             this.lbCupoMaximo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCupoMaximo.ForeColor = System.Drawing.Color.White;
-            this.lbCupoMaximo.Location = new System.Drawing.Point(16, 108);
+            this.lbCupoMaximo.Location = new System.Drawing.Point(35, 106);
             this.lbCupoMaximo.Name = "lbCupoMaximo";
             this.lbCupoMaximo.Size = new System.Drawing.Size(105, 18);
             this.lbCupoMaximo.TabIndex = 33;
@@ -218,6 +201,36 @@
             this.lbCupoActual.TabIndex = 35;
             this.lbCupoActual.Text = "Cupo Actual";
             // 
+            // numCupoMaximo
+            // 
+            this.numCupoMaximo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.numCupoMaximo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numCupoMaximo.ForeColor = System.Drawing.Color.Black;
+            this.numCupoMaximo.Location = new System.Drawing.Point(158, 106);
+            this.numCupoMaximo.Name = "numCupoMaximo";
+            this.numCupoMaximo.Size = new System.Drawing.Size(120, 26);
+            this.numCupoMaximo.TabIndex = 36;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.numericUpDown2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown2.ForeColor = System.Drawing.Color.Black;
+            this.numericUpDown2.Location = new System.Drawing.Point(533, 28);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown2.TabIndex = 37;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.numericUpDown3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDown3.ForeColor = System.Drawing.Color.Black;
+            this.numericUpDown3.Location = new System.Drawing.Point(533, 67);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown3.TabIndex = 38;
+            // 
             // frmGrupoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -226,6 +239,9 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(777, 477);
             this.ControlBox = false;
+            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.numCupoMaximo);
             this.Controls.Add(this.lbCupoActual);
             this.Controls.Add(this.lbCupoMinimo);
             this.Controls.Add(this.lbCupoMaximo);
@@ -235,9 +251,6 @@
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.txtCupoActual);
-            this.Controls.Add(this.txtCupoMinimo);
-            this.Controls.Add(this.txtCupoMaximo);
             this.Controls.Add(this.txtNumeroGrupo);
             this.Controls.Add(this.txtIdGrupo);
             this.Controls.Add(this.lbIdGrupo);
@@ -247,15 +260,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmGrupoCurso";
             this.Load += new System.EventHandler(this.frmGrupoCurso_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.numCupoMaximo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox txtCupoActual;
-        private System.Windows.Forms.TextBox txtCupoMinimo;
-        private System.Windows.Forms.TextBox txtCupoMaximo;
         private System.Windows.Forms.TextBox txtNumeroGrupo;
         private System.Windows.Forms.TextBox txtIdGrupo;
         private System.Windows.Forms.Label lbIdGrupo;
@@ -268,5 +281,9 @@
         private System.Windows.Forms.Label lbCupoMaximo;
         private System.Windows.Forms.Label lbCupoMinimo;
         private System.Windows.Forms.Label lbCupoActual;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.NumericUpDown numCupoMaximo;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
     }
 }
