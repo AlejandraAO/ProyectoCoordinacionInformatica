@@ -44,6 +44,7 @@
     <Compile Include="clCursoLibre.cs" />
     <Compile Include="clCurso.cs" />
     <Compile Include="clGrupoCurs.cs" />
+    <Compile Include="clHorario.cs" />
     <Compile Include="clMiembroProyecto.cs" />
     <Compile Include="clMiembros.cs" />
     <Compile Include="clProyecto.cs" />
