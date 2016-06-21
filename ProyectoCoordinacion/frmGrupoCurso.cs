@@ -85,14 +85,12 @@ namespace Vista
         {
             txtIdGrupo.Text = "";
             txtNumeroGrupo.Text = "";
-            txtCupoMaximo.Text = "";
-            txtCupoMinimo.Text = "";
-            txtCupoActual.Text = "";
+            
         }
 
         public Boolean mVerificarDatos()
         {
-            if ((txtNumeroGrupo.Text != "") & (txtIdGrupo.Text != "") & (txtCupoMinimo.Text != "") & (txtCupoMaximo.Text != "") & (txtCupoActual.Text != ""))
+           // if ((txtNumeroGrupo.Text != "") & (txtIdGrupo.Text != "") & (txtCupoMinimo.Text != "") & (txtCupoMaximo.Text != "") & (txtCupoActual.Text != ""))
             {
                 return true;
             }
@@ -113,9 +111,9 @@ namespace Vista
                 conexion.clave = "123";
                 clEntidadGrupoCurso.getsetIdGrupo = Convert.ToInt32(txtIdGrupo.Text);
                 clEntidadGrupoCurso.getSetNumeroGrup = Convert.ToInt32(txtNumeroGrupo.Text);
-                clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(txtCupoMaximo.Text);
+               /* clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(txtCupoMaximo.Text);
                 clEntidadGrupoCurso.getSetCupoMinimo = Convert.ToInt32(txtCupoMinimo.Text);
-                clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(txtCupoActual.Text);
+                clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(txtCupoActual.Text);*/
 
                 if (clGrupoCurso.mModificarGrupoCurso(conexion, clEntidadGrupoCurso))
                 {
@@ -147,9 +145,6 @@ namespace Vista
 
                 clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(txtIdGrupo.Text);
                 clEntidadGrupoCurso.getSetNumeroGrup = Convert.ToInt32(txtNumeroGrupo.Text);
-                clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(txtCupoMaximo.Text);
-                clEntidadGrupoCurso.getSetCupoMinimo = Convert.ToInt32(txtCupoMinimo.Text);
-                clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(txtCupoActual.Text);
 
 
                 if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
@@ -212,5 +207,6 @@ namespace Vista
 
             }//Fin del if dtrEstudiante!=null
         }
+
     }
 }

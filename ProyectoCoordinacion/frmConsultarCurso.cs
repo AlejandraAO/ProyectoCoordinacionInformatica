@@ -231,11 +231,11 @@ namespace Vista
                            
             }
             if (tipoDataGrid == 0) {
-                frmCurso.AgregarRequisito(idCursosSeleccionados);
+                frmCurso.mAgregarRequisito(idCursosSeleccionados);
             }
             else {
                 if (tipoDataGrid == 1){
-                    frmCurso.AgregarCoRequisito(idCursosSeleccionados);
+                    frmCurso.mAgregarCoRequisito(idCursosSeleccionados);
                 }
             }
             
