@@ -141,14 +141,7 @@ namespace Vista
             cbEstado.Text = "";
             txtTotalHoras.Text = "";
             txtModalidad.Text = "";
-            lbNombrePrograma.Text = "";
-
-            foreach (DataGridViewRow dgv in dgvRequisitos.Rows)
-            {
-                dgvRequisitos.Rows.Remove(dgv);
-                dgvRequisitos.Refresh();
-            }
-
+            lbNombrePrograma.Text = "";           
             }
 
         private void txtSigla_KeyPress(object sender, KeyPressEventArgs e)
@@ -256,6 +249,8 @@ namespace Vista
             btnModificar.Enabled = false;
             txtSigla.ReadOnly = false;
             txtNombre.ReadOnly = false;
+            dgvRequisitos.Rows.Clear();
+            dgvCorrequisitos.Rows.Clear();
         }
 
         private void btnAgregarRequisito_Click(object sender, EventArgs e)
