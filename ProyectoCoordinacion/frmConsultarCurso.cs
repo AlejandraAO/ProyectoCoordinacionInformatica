@@ -61,6 +61,7 @@ namespace Vista
         {
             Dispose();
            
+           
                 menu.Show();
            
 
@@ -147,6 +148,8 @@ namespace Vista
             btnConsultar.Enabled = true;
         }
 
+     
+
         public void mLimpiarLista()
         {
             dgvDetalleCursos.Rows.Clear();
@@ -197,6 +200,22 @@ namespace Vista
             
         }
 
+
+        public Boolean seleccionCurso()
+        {
+            for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
+            {
+                if (dgvDetalleCursos.Rows[i].Selected)
+                {
+                    return true;
+                    mIdCurso();
+
+                }
+
+            }
+
+            return false;
+        }
 
         public String mIdCurso()
         {

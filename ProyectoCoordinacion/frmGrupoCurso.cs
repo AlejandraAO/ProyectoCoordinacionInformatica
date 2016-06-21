@@ -185,14 +185,17 @@ namespace Vista
         private void btnConsultar_Click_1(object sender, EventArgs e)
         {
             frmConsultarCurso consultarCurso = new frmConsultarCurso(objeto);
-            consultarCurso.Show();
+            consultarCurso.ShowDialog();
 
-
-            if (consultarCurso.mIdCurso() != "")
+            if (consultarCurso.seleccionCurso() == true)
             {
-                clEntidadGrupoCurso.getSetIdCurso=Convert.ToInt32(consultarCurso.mIdCurso());
-                txtIdGrupo.Text = consultarCurso.mIdCurso();
-                mConsultaCodigo();
+
+                if (consultarCurso.mIdCurso()!= "")
+                {
+                    clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(consultarCurso.mIdCurso());
+                    txtIdGrupo.Text = consultarCurso.mIdCurso();
+                    mConsultaCodigo();
+                }
             }
 
         }
