@@ -9,134 +9,134 @@ namespace Entidades
     public class clEntidadCursoLibre
     {
 
-        #region Atributos/varibles locales
-        private int _idCursoLibre;
-        private int _idProfesor;
-        private string _nombre;
-        private string _descripcion;
-        private string _estado;
-        private string _lugar;
-        private int _cupo;
-        private string _programa;
-        private string _nombre_programa;
+        #region Atributos/variables locales
+        private int idCursoLibre;
+        private int idProfesor;
+        private int cupo;
+        private string lugar;
+        private string nombre;
+        private string estado;
+        private string programa;
+        private string descripcion;
+        private string nombrePrograma;
         #endregion
 
 
         #region Métodos set y get
-        public int IdCursoLibre
+        public int mIdCursoLibre
         {
             get
             {
-                return _idCursoLibre;
+                return idCursoLibre;
             }
 
             set
             {
-                _idCursoLibre = value;
+                idCursoLibre = value;
             }
         }
 
-        public int IdProfesor
+        public int mIdProfesor
         {
             get
             {
-                return _idProfesor;
+                return idProfesor;
             }
 
             set
             {
-                _idProfesor = value;
+                idProfesor = value;
             }
         }
 
-        public string Nombre
+        public string mNombre
         {
             get
             {
-                return _nombre;
+                return nombre;
             }
 
             set
             {
-                _nombre = value;
+                nombre = value;
             }
         }
 
-        public string Nombre_Programa
+        public string mNombrePrograma
         {
             get
             {
-                return _nombre_programa;
+                return nombrePrograma;
             }
 
             set
             {
-                _nombre_programa = value;
+                nombrePrograma = value;
             }
         }
 
-        public string Descripcion
+        public string mDescripcion
         {
             get
             {
-                return _descripcion;
+                return descripcion;
             }
 
             set
             {
-                _descripcion = value;
+                descripcion = value;
             }
         }
 
-        public string Estado
+        public string mEstado
         {
             get
             {
-                return _estado;
+                return estado;
             }
 
             set
             {
-                _estado = value;
+                estado = value;
             }
         }
 
-        public string Lugar
+        public string mLugar
         {
             get
             {
-                return _lugar;
+                return lugar;
             }
 
             set
             {
-                _lugar = value;
+                lugar = value;
             }
         }
 
-        public int Cupo
+        public int mCupo
         {
             get
             {
-                return _cupo;
+                return cupo;
             }
 
             set
             {
-                _cupo = value;
+                cupo = value;
             }
         }
 
-        public String Programa
+        public String mPrograma
         {
             get
             {
-                return _programa;
+                return programa;
             }
 
             set
             {
-                _programa = value;
+                programa = value;
             }
         }
         #endregion

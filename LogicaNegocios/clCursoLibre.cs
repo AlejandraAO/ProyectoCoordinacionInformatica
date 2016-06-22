@@ -12,7 +12,7 @@ namespace LogicaNegocios
     public class clCursoLibre
     {
    
-        private string strSentencia="";
+        private string sentencia="";
         public static string CONSULTA_NOMBRE = " C.nombre";
         public static string COSULTA_PROFESOR = "P.nombre";
         public static string CONSULTA_LUGAR = "C.lugar";
@@ -20,67 +20,67 @@ namespace LogicaNegocios
 
         public Boolean mInsertarCursoLibre(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            strSentencia = "insert into tbCursosLibr(idProfesor, nombre, descripcion, estado, lugar, cupo, programa , nombrePrograma) values('" + pEntidadCursoLibre.IdProfesor + "', '" + pEntidadCursoLibre.Nombre + "', '" + pEntidadCursoLibre.Descripcion + "', '" + pEntidadCursoLibre.Estado + "', '" + pEntidadCursoLibre.Lugar + "', '" + pEntidadCursoLibre.Cupo + "' ,(SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf) ,'" + pEntidadCursoLibre.Nombre_Programa + "' ); ";
+            sentencia = "insert into tbCursosLibr(idProfesor, nombre, descripcion, estado, lugar, cupo, programa , nombrePrograma) values('" + pEntidadCursoLibre.mIdProfesor + "', '" + pEntidadCursoLibre.mNombre + "', '" + pEntidadCursoLibre.mDescripcion + "', '" + pEntidadCursoLibre.mEstado + "', '" + pEntidadCursoLibre.mLugar + "', '" + pEntidadCursoLibre.mCupo + "' ,(SELECT * FROM OPENROWSET(BULK N'" + pEntidadCursoLibre.mPrograma + "', SINGLE_BLOB) as Pdf) ,'" + pEntidadCursoLibre.mNombrePrograma + "' ); ";
 
-            return conexion.mEjecutar(strSentencia,conexion);
+            return conexion.mEjecutar(sentencia,conexion);
         }
 
        public SqlDataReader mConsultaPorID(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            strSentencia = "select idProfesor, nombre, descripcion, estado, lugar, cupo,nombrePrograma, programa from tbCursosLibr where idCursosLibres='" + pEntidadCursoLibre.IdCursoLibre+"'";
-            return conexion.mSeleccionar(strSentencia, conexion);
+            sentencia = "select idProfesor, nombre, descripcion, estado, lugar, cupo,nombrePrograma, programa from tbCursosLibr where idCursosLibres='" + pEntidadCursoLibre.mIdCursoLibre+"'";
+            return conexion.mSeleccionar(sentencia, conexion);
         }       
 
         public Boolean mModificarCurso(clConexion conexion, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            Console.WriteLine(pEntidadCursoLibre.Programa);
-            if (pEntidadCursoLibre.Programa != "")
+            Console.WriteLine(pEntidadCursoLibre.mPrograma);
+            if (pEntidadCursoLibre.mPrograma != "")
             {
-                strSentencia = "update tbCursosLibr set idProfesor=" + pEntidadCursoLibre.IdProfesor +
-                            ",nombre='" + pEntidadCursoLibre.Nombre + "',descripcion='" + pEntidadCursoLibre.Descripcion +
-                            "',estado='" + pEntidadCursoLibre.Estado + "',lugar='" + pEntidadCursoLibre.Lugar +
-                            "',cupo=" + pEntidadCursoLibre.Cupo + ",programa= (SELECT * FROM OPENROWSET(BULK N'"
-                            + pEntidadCursoLibre.Programa + "', SINGLE_BLOB) as Pdf), nombrePrograma='" +
-                            pEntidadCursoLibre.Nombre_Programa + "' where idCursosLibres=" + pEntidadCursoLibre.IdCursoLibre;
+                sentencia = "update tbCursosLibr set idProfesor=" + pEntidadCursoLibre.mIdProfesor +
+                            ",nombre='" + pEntidadCursoLibre.mNombre + "',descripcion='" + pEntidadCursoLibre.mDescripcion +
+                            "',estado='" + pEntidadCursoLibre.mEstado + "',lugar='" + pEntidadCursoLibre.mLugar +
+                            "',cupo=" + pEntidadCursoLibre.mCupo + ",programa= (SELECT * FROM OPENROWSET(BULK N'"
+                            + pEntidadCursoLibre.mPrograma + "', SINGLE_BLOB) as Pdf), nombrePrograma='" +
+                            pEntidadCursoLibre.mNombrePrograma + "' where idCursosLibres=" + pEntidadCursoLibre.mIdCursoLibre;
             }
             else
             {
-                strSentencia = "update tbCursosLibr set idProfesor=" + pEntidadCursoLibre.IdProfesor +
-                            ",nombre='" + pEntidadCursoLibre.Nombre + "',descripcion='" + pEntidadCursoLibre.Descripcion +
-                            "',estado='" + pEntidadCursoLibre.Estado + "',lugar='" + pEntidadCursoLibre.Lugar +
-                            "',cupo=" + pEntidadCursoLibre.Cupo + "where idCursosLibres=" + pEntidadCursoLibre.IdCursoLibre;
+                sentencia = "update tbCursosLibr set idProfesor=" + pEntidadCursoLibre.mIdProfesor +
+                            ",nombre='" + pEntidadCursoLibre.mNombre + "',descripcion='" + pEntidadCursoLibre.mDescripcion +
+                            "',estado='" + pEntidadCursoLibre.mEstado + "',lugar='" + pEntidadCursoLibre.mLugar +
+                            "',cupo=" + pEntidadCursoLibre.mCupo + "where idCursosLibres=" + pEntidadCursoLibre.mIdCursoLibre;
             }      
-            return conexion.mEjecutar(strSentencia, conexion);
+            return conexion.mEjecutar(sentencia, conexion);
         }
 
         public SqlDataReader mConsultaGeneral(clConexion conexion)
         {
-            strSentencia = @"select idCursosLibres, P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
+            sentencia = @"select idCursosLibres, P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
                              inner join tbProfesores P
                              on P.idProfesor = C.idProfesor";
-            return conexion.mSeleccionar(strSentencia, conexion);
+            return conexion.mSeleccionar(sentencia, conexion);
         }
 
         public SqlDataReader mConsultaFiltrada(clConexion conexion, String nombre)
         {
-            strSentencia =String.Format(@"select idCursosLibres, P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
+            sentencia =String.Format(@"select idCursosLibres, P.nombre,C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
                              inner join tbProfesores P
                              on P.idProfesor = C.idProfesor
                              where C.nombre like '{0}%' or P.nombre like '{0}%' or lugar like '{0}%' or C.estado like '{0}%'", nombre);
 
-            return conexion.mSeleccionar(strSentencia, conexion);
+            return conexion.mSeleccionar(sentencia, conexion);
         }
 
         public SqlDataReader mConsultadeCursos(clConexion conexion)
         {
-            strSentencia = "select idCursosLibres, nombre from tbCursosLibr";
-            return conexion.mSeleccionar(strSentencia, conexion);
+            sentencia = "select idCursosLibres, nombre from tbCursosLibr";
+            return conexion.mSeleccionar(sentencia, conexion);
         }
 
         public SqlDataReader mConsultadeProfesores(clConexion conexion)
         {
-            strSentencia = "select idProfesor,nombre from tbProfesores";
-            return conexion.mSeleccionar(strSentencia, conexion);
+            sentencia = "select idProfesor,nombre from tbProfesores";
+            return conexion.mSeleccionar(sentencia, conexion);
         }
 
       
@@ -88,19 +88,19 @@ namespace LogicaNegocios
         public SqlDataReader mConsultaEspecifica(clConexion conexion, string tipoConsuta, string busqueda)
         {
 
-            strSentencia =  String.Format(@"select idCursosLibres, P.nombre, C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
+            sentencia =  String.Format(@"select idCursosLibres, P.nombre, C.nombre, descripcion, C.estado, lugar, cupo, nombrePrograma from tbCursosLibr C
                              inner join tbProfesores P
                              on P.idProfesor = C.idProfesor
                              where {0} like '{1}%'", tipoConsuta , busqueda );
 
-            return conexion.mSeleccionar(strSentencia, conexion);
+            return conexion.mSeleccionar(sentencia, conexion);
 
         }
 
         public void mDescargarProgramaCurso(clConexion conexion, string ruta, clEntidadCursoLibre pEntidadCursoLibre)
         {
-            strSentencia = "select programa from tbCursosLibr where idCursosLibres= '" + pEntidadCursoLibre.IdCursoLibre + "'";
-            conexion.leer(conexion, ruta, strSentencia);
+            sentencia = "select programa from tbCursosLibr where idCursosLibres= '" + pEntidadCursoLibre.mIdCursoLibre + "'";
+            conexion.leer(conexion, ruta, sentencia);
         }
     }
 }

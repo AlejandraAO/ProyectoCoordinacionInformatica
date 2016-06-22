@@ -191,7 +191,6 @@
             this.lbNombrePrograma.Size = new System.Drawing.Size(143, 18);
             this.lbNombrePrograma.TabIndex = 52;
             this.lbNombrePrograma.Text = "Nombre del archivo";
-            this.lbNombrePrograma.Click += new System.EventHandler(this.lbNombrePrograma_Click);
             // 
             // lbProfesor
             // 

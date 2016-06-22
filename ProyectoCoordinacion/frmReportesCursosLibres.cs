@@ -18,15 +18,16 @@ namespace Vista
 
     public partial class frmReportesCursosLibres : Form
     {
-        #region variables globales / atributos
-        private SqlDataReader dtrCursoLibre;
-        private clConexion conexion;
-        private menuPrincipal menu;
-        private clCursoLibre clCursoLibre;
-        private clEntidadCursoLibre eCursoLibre;
-        private ListViewItem listViewItem;
-        #endregion
 
+        #region Load
+        private void frmReportesCursosLibres_Load(object sender, EventArgs e)
+        {
+            mConsultaGeneral();
+            cbConsultarPor.SelectedIndex = 0;
+        }
+
+        #endregion
+        #region Constructor
         public frmReportesCursosLibres( menuPrincipal menu )
         {
             InitializeComponent();
@@ -34,18 +35,40 @@ namespace Vista
             this.menu = menu;
             this.conexion = new clConexion();
             this.clCursoLibre = new clCursoLibre();
-            this.eCursoLibre = new clEntidadCursoLibre();
+            this.entidadCursoLibre = new clEntidadCursoLibre();
             this.conexion.codigo = "sa";
             this.conexion.clave = "123";
         }
-
+        #endregion
+        #region Boton Salir
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Dispose();
             menu.Show();
         }
 
-        public void mConsultaGenetal()
+        #endregion
+        #region dgvCursosLibres
+        private void dgvCursosLibres_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvCursosLibres.CurrentCell.ColumnIndex == 7)
+            {
+                FolderBrowserDialog carpetaSeleccionada = new FolderBrowserDialog();
+                carpetaSeleccionada.Description = "Seleccione la ruta donde guardará el programa del curso";
+                DialogResult result = carpetaSeleccionada.ShowDialog();
+
+                if (result == DialogResult.OK)
+                {
+                    string ruta = carpetaSeleccionada.SelectedPath + "/" + dgvCursosLibres.CurrentCell.Value;
+                    entidadCursoLibre.mIdCursoLibre = Convert.ToInt32(dgvCursosLibres.Rows[dgvCursosLibres.CurrentCell.RowIndex].Cells[0].Value.ToString());
+                    clCursoLibre.mDescargarProgramaCurso(conexion, ruta, entidadCursoLibre);
+
+                }
+            }
+        }
+        #endregion
+        #region Consulta General
+        public void mConsultaGeneral()
         {
             dtrCursoLibre = clCursoLibre.mConsultaGeneral(conexion);
 
@@ -56,18 +79,8 @@ namespace Vista
                     mPoblarListaCursosLibres();
                 }//fin del read
         }
-
-        public void mConsultarPorNombre(String nombre)
-        {
-            
-            dtrCursoLibre = clCursoLibre.mConsultaFiltrada(conexion, nombre);
-            if(dtrCursoLibre != null)
-                while (dtrCursoLibre.Read())
-                { 
-                    mPoblarListaCursosLibres();
-                }
-        }
-
+        #endregion
+        #region Consulta Especifica
         public void mConsultarEspecifica(String tipoConsulta, String busqueda)
         {
 
@@ -78,9 +91,8 @@ namespace Vista
                     mPoblarListaCursosLibres();
                 }
         }
-
-
-
+        #endregion
+        #region Poblar Cursos Libres
         public void mPoblarListaCursosLibres()
         {
             int reglon = dgvCursosLibres.Rows.Add();
@@ -93,14 +105,28 @@ namespace Vista
             dgvCursosLibres.Rows[reglon].Cells["cupo"].Value = dtrCursoLibre.GetInt32(6);
             dgvCursosLibres.Rows[reglon].Cells["programa"].Value = dtrCursoLibre.GetString(7);
         }
-
-        private void frmReportesCursosLibres_Load(object sender, EventArgs e)
+        #endregion
+        #region Consultar Por Nombre
+        public void mConsultarPorNombre(String nombre)
         {
-            mConsultaGenetal();
-            cbConsultarPor.SelectedIndex = 0;
-        }
 
-     
+            dtrCursoLibre = clCursoLibre.mConsultaFiltrada(conexion, nombre);
+            if (dtrCursoLibre != null)
+                while (dtrCursoLibre.Read())
+                {
+                    mPoblarListaCursosLibres();
+                }
+        }
+        #endregion
+        #region variables globales / atributos
+        private SqlDataReader dtrCursoLibre;
+        private clConexion conexion;
+        private menuPrincipal menu;
+        private clCursoLibre clCursoLibre;
+        private clEntidadCursoLibre entidadCursoLibre;
+        private ListViewItem listViewItem;
+        #endregion
+        #region Ingresar texto en el txt Dato Consulta
         private void txtDatoConsulta_KeyUp(object sender, KeyEventArgs e)
         {
             TextBox tb_nombre = (TextBox)sender;
@@ -122,27 +148,11 @@ namespace Vista
             else
             {
                 dgvCursosLibres.Rows.Clear();
-                mConsultaGenetal();
+                mConsultaGeneral();
             }
         }
-
-        private void dgvCursosLibres_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (dgvCursosLibres.CurrentCell.ColumnIndex == 7)
-            {
-                FolderBrowserDialog carpetaSeleccionada = new FolderBrowserDialog();
-                carpetaSeleccionada.Description = "Seleccione la ruta donde guardará el programa del curso";
-                DialogResult result = carpetaSeleccionada.ShowDialog();
-
-                if (result == DialogResult.OK)
-                {
-                    string ruta = carpetaSeleccionada.SelectedPath + "/" + dgvCursosLibres.CurrentCell.Value;
-                    eCursoLibre.IdCursoLibre = Convert.ToInt32( dgvCursosLibres.Rows[dgvCursosLibres.CurrentCell.RowIndex].Cells[0].Value.ToString());
-                    clCursoLibre.mDescargarProgramaCurso(conexion, ruta, eCursoLibre);
-
-                }
-            }
-        }
+        #endregion
+       
     }
 
 
