@@ -75,8 +75,22 @@ namespace Vista
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtIdentificador.Text != "")
+            frmConsultarProyectos consultaUsuario = new frmConsultarProyectos(conexion);
+            consultaUsuario.ShowDialog();
+
+            if (consultaUsuario.getCodigo() != "")
             {
+                //entidadProyecto.mIdProyecto=Convert.ToInt32(consultaUsuario.getCodigo());
+                this.txtIdentificador.Text = consultaUsuario.getCodigo();
+                mConsultarProyectos();
+            }
+
+        }
+
+        public void mConsultarProyectos()
+        {
+            
+            
                 entidadProyecto.mIdProyecto = Convert.ToInt32(txtIdentificador.Text);
                 dtrProyecto = proyecto.mConsultarProyectos(conexion, entidadProyecto);
 
@@ -84,10 +98,10 @@ namespace Vista
                 {
                     if (dtrProyecto.Read())
                     {
-                        txtNombre.Text = dtrProyecto.GetString(2);
-                        rtDescripcion.Text = dtrProyecto.GetString(3);
-                        cbTipo.Text = dtrProyecto.GetString(4);
-                        cbEstado.Text = dtrProyecto.GetString(5);
+                        txtNombre.Text = dtrProyecto.GetString(1);
+                        rtDescripcion.Text = dtrProyecto.GetString(2);
+                        cbTipo.Text = dtrProyecto.GetString(3);
+                        cbEstado.Text = dtrProyecto.GetString(4);
                         //falta mostrar informacion
 
                         //txtIdentificador.ReadOnly = true;
@@ -104,12 +118,7 @@ namespace Vista
                 {
                     MessageBox.Show("No se ha encontrado el proyecto solicitado", "Proyecto no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Ingrese una identificador de Proyecto", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-            
+           
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -182,7 +191,7 @@ namespace Vista
 
         public Boolean mVerificarDatosNecesarios()
         {
-            if ((txtIdentificador.Text != "") & (txtNombre.Text != "")   & (rtDescripcion.Text != "") & (cbEstado.Text != "") & (cbTipo.Text != "") & (lbInformacion.Text != ""))
+            if ((txtNombre.Text != "")   & (rtDescripcion.Text != "") & (cbEstado.Text != "") & (cbTipo.Text != "") & (lbInformacion.Text != ""))
             {
                 return true;
             }

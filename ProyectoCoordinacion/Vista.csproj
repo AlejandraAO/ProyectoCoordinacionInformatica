@@ -77,6 +77,12 @@
     <Compile Include="frmConsultarCurso.designer.cs">
       <DependentUpon>frmConsultarCurso.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultarProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultarProyectos.Designer.cs">
+      <DependentUpon>frmConsultarProyectos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultarRapCursosLibres.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarCurso.resx">
       <DependentUpon>frmConsultarCurso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultarProyectos.resx">
+      <DependentUpon>frmConsultarProyectos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarRapCursosLibres.resx">
       <DependentUpon>frmConsultarRapCursosLibres.cs</DependentUpon>

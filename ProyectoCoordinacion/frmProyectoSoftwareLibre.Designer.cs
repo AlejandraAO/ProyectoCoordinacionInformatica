@@ -151,15 +151,16 @@
             this.btnBuscar.ForeColor = System.Drawing.Color.Black;
             this.btnBuscar.Location = new System.Drawing.Point(227, 26);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(76, 37);
+            this.btnBuscar.Size = new System.Drawing.Size(82, 37);
             this.btnBuscar.TabIndex = 42;
-            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.Text = "Consultar";
             this.btnBuscar.UseVisualStyleBackColor = false;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtIdentificador
             // 
             this.txtIdentificador.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.txtIdentificador.Enabled = false;
             this.txtIdentificador.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdentificador.ForeColor = System.Drawing.Color.Black;
             this.txtIdentificador.Location = new System.Drawing.Point(105, 30);
