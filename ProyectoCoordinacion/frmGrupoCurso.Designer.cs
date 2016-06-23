@@ -37,33 +37,32 @@
             this.numCupoActual = new System.Windows.Forms.NumericUpDown();
             this.numCupoMinimo = new System.Windows.Forms.NumericUpDown();
             this.numCupoMaximo = new System.Windows.Forms.NumericUpDown();
-            this.lbCupoActual = new System.Windows.Forms.Label();
-            this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.lbCupoMaximo = new System.Windows.Forms.Label();
             this.lbNumeroGrupo = new System.Windows.Forms.Label();
             this.lbIdCurso = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
+            this.lbCupoActual = new System.Windows.Forms.Label();
             this.txtNumeroGrupo = new System.Windows.Forms.TextBox();
+            this.btnModificar = new System.Windows.Forms.Button();
             this.txtIdGrupo = new System.Windows.Forms.TextBox();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lbHoraFinal = new System.Windows.Forms.Label();
-            this.lbHoraInicio = new System.Windows.Forms.Label();
-            this.lbDia = new System.Windows.Forms.Label();
-            this.lbIdHorario = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnModifcar = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.txtIdHorario = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
+            this.lvHorarios = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.txtHoraFinal = new System.Windows.Forms.TextBox();
+            this.lbDia = new System.Windows.Forms.Label();
+            this.txtHoraInicio = new System.Windows.Forms.TextBox();
+            this.lbIdHorario = new System.Windows.Forms.Label();
+            this.lbHoraFinal = new System.Windows.Forms.Label();
+            this.txtDia = new System.Windows.Forms.TextBox();
+            this.txtIdHorario = new System.Windows.Forms.TextBox();
+            this.lbHoraInicio = new System.Windows.Forms.Label();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoMinimo)).BeginInit();
@@ -88,7 +87,7 @@
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(828, 524);
+            this.btnSalir.Location = new System.Drawing.Point(1033, 509);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(82, 37);
             this.btnSalir.TabIndex = 30;
@@ -102,31 +101,32 @@
             this.groupBox.Controls.Add(this.numCupoActual);
             this.groupBox.Controls.Add(this.numCupoMinimo);
             this.groupBox.Controls.Add(this.numCupoMaximo);
-            this.groupBox.Controls.Add(this.lbCupoActual);
-            this.groupBox.Controls.Add(this.lbCupoMinimo);
             this.groupBox.Controls.Add(this.lbCupoMaximo);
             this.groupBox.Controls.Add(this.lbNumeroGrupo);
             this.groupBox.Controls.Add(this.lbIdCurso);
             this.groupBox.Controls.Add(this.btnConsultar);
-            this.groupBox.Controls.Add(this.btnModificar);
-            this.groupBox.Controls.Add(this.btnAgregar);
+            this.groupBox.Controls.Add(this.lbCupoActual);
             this.groupBox.Controls.Add(this.txtNumeroGrupo);
+            this.groupBox.Controls.Add(this.btnModificar);
             this.groupBox.Controls.Add(this.txtIdGrupo);
+            this.groupBox.Controls.Add(this.btnAgregar);
+            this.groupBox.Controls.Add(this.lbCupoMinimo);
             this.groupBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox.ForeColor = System.Drawing.Color.White;
             this.groupBox.Location = new System.Drawing.Point(12, 12);
             this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(882, 186);
+            this.groupBox.Size = new System.Drawing.Size(489, 446);
             this.groupBox.TabIndex = 42;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Información de Grupo";
+            this.groupBox.Enter += new System.EventHandler(this.groupBox_Enter);
             // 
             // numCupoActual
             // 
             this.numCupoActual.BackColor = System.Drawing.Color.WhiteSmoke;
             this.numCupoActual.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numCupoActual.ForeColor = System.Drawing.Color.Black;
-            this.numCupoActual.Location = new System.Drawing.Point(515, 76);
+            this.numCupoActual.Location = new System.Drawing.Point(140, 262);
             this.numCupoActual.Name = "numCupoActual";
             this.numCupoActual.Size = new System.Drawing.Size(120, 26);
             this.numCupoActual.TabIndex = 51;
@@ -136,7 +136,7 @@
             this.numCupoMinimo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.numCupoMinimo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numCupoMinimo.ForeColor = System.Drawing.Color.Black;
-            this.numCupoMinimo.Location = new System.Drawing.Point(515, 37);
+            this.numCupoMinimo.Location = new System.Drawing.Point(140, 212);
             this.numCupoMinimo.Name = "numCupoMinimo";
             this.numCupoMinimo.Size = new System.Drawing.Size(120, 26);
             this.numCupoMinimo.TabIndex = 50;
@@ -146,34 +146,10 @@
             this.numCupoMaximo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.numCupoMaximo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numCupoMaximo.ForeColor = System.Drawing.Color.Black;
-            this.numCupoMaximo.Location = new System.Drawing.Point(140, 115);
+            this.numCupoMaximo.Location = new System.Drawing.Point(140, 159);
             this.numCupoMaximo.Name = "numCupoMaximo";
             this.numCupoMaximo.Size = new System.Drawing.Size(120, 26);
             this.numCupoMaximo.TabIndex = 49;
-            // 
-            // lbCupoActual
-            // 
-            this.lbCupoActual.AutoSize = true;
-            this.lbCupoActual.BackColor = System.Drawing.Color.Transparent;
-            this.lbCupoActual.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCupoActual.ForeColor = System.Drawing.Color.White;
-            this.lbCupoActual.Location = new System.Drawing.Point(408, 76);
-            this.lbCupoActual.Name = "lbCupoActual";
-            this.lbCupoActual.Size = new System.Drawing.Size(92, 18);
-            this.lbCupoActual.TabIndex = 48;
-            this.lbCupoActual.Text = "Cupo Actual";
-            // 
-            // lbCupoMinimo
-            // 
-            this.lbCupoMinimo.AutoSize = true;
-            this.lbCupoMinimo.BackColor = System.Drawing.Color.Transparent;
-            this.lbCupoMinimo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCupoMinimo.ForeColor = System.Drawing.Color.White;
-            this.lbCupoMinimo.Location = new System.Drawing.Point(408, 41);
-            this.lbCupoMinimo.Name = "lbCupoMinimo";
-            this.lbCupoMinimo.Size = new System.Drawing.Size(101, 18);
-            this.lbCupoMinimo.TabIndex = 47;
-            this.lbCupoMinimo.Text = "Cupo Minimo";
             // 
             // lbCupoMaximo
             // 
@@ -181,7 +157,7 @@
             this.lbCupoMaximo.BackColor = System.Drawing.Color.Transparent;
             this.lbCupoMaximo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbCupoMaximo.ForeColor = System.Drawing.Color.White;
-            this.lbCupoMaximo.Location = new System.Drawing.Point(17, 115);
+            this.lbCupoMaximo.Location = new System.Drawing.Point(17, 159);
             this.lbCupoMaximo.Name = "lbCupoMaximo";
             this.lbCupoMaximo.Size = new System.Drawing.Size(105, 18);
             this.lbCupoMaximo.TabIndex = 46;
@@ -193,7 +169,7 @@
             this.lbNumeroGrupo.BackColor = System.Drawing.Color.Transparent;
             this.lbNumeroGrupo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNumeroGrupo.ForeColor = System.Drawing.Color.White;
-            this.lbNumeroGrupo.Location = new System.Drawing.Point(11, 83);
+            this.lbNumeroGrupo.Location = new System.Drawing.Point(11, 104);
             this.lbNumeroGrupo.Name = "lbNumeroGrupo";
             this.lbNumeroGrupo.Size = new System.Drawing.Size(110, 18);
             this.lbNumeroGrupo.TabIndex = 45;
@@ -226,6 +202,26 @@
             this.btnConsultar.TabIndex = 43;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = false;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click_2);
+            // 
+            // lbCupoActual
+            // 
+            this.lbCupoActual.AutoSize = true;
+            this.lbCupoActual.BackColor = System.Drawing.Color.Transparent;
+            this.lbCupoActual.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCupoActual.ForeColor = System.Drawing.Color.White;
+            this.lbCupoActual.Location = new System.Drawing.Point(33, 262);
+            this.lbCupoActual.Name = "lbCupoActual";
+            this.lbCupoActual.Size = new System.Drawing.Size(92, 18);
+            this.lbCupoActual.TabIndex = 48;
+            this.lbCupoActual.Text = "Cupo Actual";
+            // 
+            // txtNumeroGrupo
+            // 
+            this.txtNumeroGrupo.Location = new System.Drawing.Point(140, 102);
+            this.txtNumeroGrupo.Name = "txtNumeroGrupo";
+            this.txtNumeroGrupo.Size = new System.Drawing.Size(146, 26);
+            this.txtNumeroGrupo.TabIndex = 40;
             // 
             // btnModificar
             // 
@@ -237,12 +233,19 @@
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnModificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(763, 57);
+            this.btnModificar.Location = new System.Drawing.Point(113, 372);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(82, 37);
             this.btnModificar.TabIndex = 42;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            // 
+            // txtIdGrupo
+            // 
+            this.txtIdGrupo.Location = new System.Drawing.Point(140, 43);
+            this.txtIdGrupo.Name = "txtIdGrupo";
+            this.txtIdGrupo.Size = new System.Drawing.Size(146, 26);
+            this.txtIdGrupo.TabIndex = 39;
             // 
             // btnAgregar
             // 
@@ -254,135 +257,69 @@
             this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(668, 57);
+            this.btnAgregar.Location = new System.Drawing.Point(18, 372);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(77, 37);
             this.btnAgregar.TabIndex = 41;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
-            // txtNumeroGrupo
+            // lbCupoMinimo
             // 
-            this.txtNumeroGrupo.Location = new System.Drawing.Point(140, 81);
-            this.txtNumeroGrupo.Name = "txtNumeroGrupo";
-            this.txtNumeroGrupo.Size = new System.Drawing.Size(146, 26);
-            this.txtNumeroGrupo.TabIndex = 40;
-            // 
-            // txtIdGrupo
-            // 
-            this.txtIdGrupo.Location = new System.Drawing.Point(140, 43);
-            this.txtIdGrupo.Name = "txtIdGrupo";
-            this.txtIdGrupo.Size = new System.Drawing.Size(146, 26);
-            this.txtIdGrupo.TabIndex = 39;
+            this.lbCupoMinimo.AutoSize = true;
+            this.lbCupoMinimo.BackColor = System.Drawing.Color.Transparent;
+            this.lbCupoMinimo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCupoMinimo.ForeColor = System.Drawing.Color.White;
+            this.lbCupoMinimo.Location = new System.Drawing.Point(32, 212);
+            this.lbCupoMinimo.Name = "lbCupoMinimo";
+            this.lbCupoMinimo.Size = new System.Drawing.Size(101, 18);
+            this.lbCupoMinimo.TabIndex = 47;
+            this.lbCupoMinimo.Text = "Cupo Minimo";
             // 
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.listView1);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.lbHoraFinal);
-            this.groupBox1.Controls.Add(this.lbHoraInicio);
-            this.groupBox1.Controls.Add(this.lbDia);
-            this.groupBox1.Controls.Add(this.lbIdHorario);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.button2);
+            this.groupBox1.Controls.Add(this.btnModifcar);
             this.groupBox1.Controls.Add(this.button3);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.lvHorarios);
+            this.groupBox1.Controls.Add(this.txtHoraFinal);
+            this.groupBox1.Controls.Add(this.lbDia);
+            this.groupBox1.Controls.Add(this.txtHoraInicio);
+            this.groupBox1.Controls.Add(this.lbIdHorario);
+            this.groupBox1.Controls.Add(this.lbHoraFinal);
+            this.groupBox1.Controls.Add(this.txtDia);
             this.groupBox1.Controls.Add(this.txtIdHorario);
+            this.groupBox1.Controls.Add(this.lbHoraInicio);
             this.groupBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(13, 215);
+            this.groupBox1.Location = new System.Drawing.Point(558, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(882, 303);
+            this.groupBox1.Size = new System.Drawing.Size(546, 446);
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Información de Grupo";
+            this.groupBox1.Text = "Información de Horarios";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // lbHoraFinal
+            // btnModifcar
             // 
-            this.lbHoraFinal.AutoSize = true;
-            this.lbHoraFinal.BackColor = System.Drawing.Color.Transparent;
-            this.lbHoraFinal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHoraFinal.ForeColor = System.Drawing.Color.White;
-            this.lbHoraFinal.Location = new System.Drawing.Point(408, 41);
-            this.lbHoraFinal.Name = "lbHoraFinal";
-            this.lbHoraFinal.Size = new System.Drawing.Size(80, 18);
-            this.lbHoraFinal.TabIndex = 47;
-            this.lbHoraFinal.Text = "Hora Final";
-            // 
-            // lbHoraInicio
-            // 
-            this.lbHoraInicio.AutoSize = true;
-            this.lbHoraInicio.BackColor = System.Drawing.Color.Transparent;
-            this.lbHoraInicio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbHoraInicio.ForeColor = System.Drawing.Color.White;
-            this.lbHoraInicio.Location = new System.Drawing.Point(406, 81);
-            this.lbHoraInicio.Name = "lbHoraInicio";
-            this.lbHoraInicio.Size = new System.Drawing.Size(82, 18);
-            this.lbHoraInicio.TabIndex = 46;
-            this.lbHoraInicio.Text = "Hora Inicio";
-            // 
-            // lbDia
-            // 
-            this.lbDia.AutoSize = true;
-            this.lbDia.BackColor = System.Drawing.Color.Transparent;
-            this.lbDia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbDia.ForeColor = System.Drawing.Color.White;
-            this.lbDia.Location = new System.Drawing.Point(11, 83);
-            this.lbDia.Name = "lbDia";
-            this.lbDia.Size = new System.Drawing.Size(32, 18);
-            this.lbDia.TabIndex = 45;
-            this.lbDia.Text = "Día";
-            // 
-            // lbIdHorario
-            // 
-            this.lbIdHorario.AutoSize = true;
-            this.lbIdHorario.BackColor = System.Drawing.Color.Transparent;
-            this.lbIdHorario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIdHorario.ForeColor = System.Drawing.Color.White;
-            this.lbIdHorario.Location = new System.Drawing.Point(17, 43);
-            this.lbIdHorario.Name = "lbIdHorario";
-            this.lbIdHorario.Size = new System.Drawing.Size(73, 18);
-            this.lbIdHorario.TabIndex = 44;
-            this.lbIdHorario.Text = "idHorario";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button1.FlatAppearance.BorderSize = 2;
-            this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(303, 40);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(82, 37);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "Consultar";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button2.Enabled = false;
-            this.button2.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button2.FlatAppearance.BorderSize = 2;
-            this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.Color.Black;
-            this.button2.Location = new System.Drawing.Point(763, 57);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(82, 37);
-            this.button2.TabIndex = 42;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnModifcar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnModifcar.Enabled = false;
+            this.btnModifcar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnModifcar.FlatAppearance.BorderSize = 2;
+            this.btnModifcar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnModifcar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnModifcar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifcar.ForeColor = System.Drawing.Color.Black;
+            this.btnModifcar.Location = new System.Drawing.Point(436, 152);
+            this.btnModifcar.Name = "btnModifcar";
+            this.btnModifcar.Size = new System.Drawing.Size(82, 37);
+            this.btnModifcar.TabIndex = 42;
+            this.btnModifcar.Text = "Modificar";
+            this.btnModifcar.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
+            this.button3.AccessibleDescription = "btnAgregarHorario";
             this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
             this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
@@ -391,62 +328,34 @@
             this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(668, 57);
+            this.button3.Location = new System.Drawing.Point(334, 150);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(77, 37);
             this.button3.TabIndex = 41;
             this.button3.Text = "Agregar";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // textBox1
+            // lvHorarios
             // 
-            this.textBox1.Location = new System.Drawing.Point(140, 81);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(146, 26);
-            this.textBox1.TabIndex = 40;
-            // 
-            // txtIdHorario
-            // 
-            this.txtIdHorario.Location = new System.Drawing.Point(140, 43);
-            this.txtIdHorario.Name = "txtIdHorario";
-            this.txtIdHorario.Size = new System.Drawing.Size(146, 26);
-            this.txtIdHorario.TabIndex = 39;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(494, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(146, 26);
-            this.textBox2.TabIndex = 52;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(494, 33);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(146, 26);
-            this.textBox3.TabIndex = 53;
-            // 
-            // listView1
-            // 
-            this.listView1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvHorarios.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lvHorarios.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3,
             this.columnHeader4});
-            this.listView1.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listView1.ForeColor = System.Drawing.Color.Black;
-            this.listView1.GridLines = true;
+            this.lvHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvHorarios.ForeColor = System.Drawing.Color.Black;
+            this.lvHorarios.GridLines = true;
             listViewItem2.Tag = "asdasdasd";
-            this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.lvHorarios.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1,
             listViewItem2});
-            this.listView1.Location = new System.Drawing.Point(14, 133);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(371, 164);
-            this.listView1.TabIndex = 54;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.lvHorarios.Location = new System.Drawing.Point(38, 212);
+            this.lvHorarios.Name = "lvHorarios";
+            this.lvHorarios.Size = new System.Drawing.Size(502, 200);
+            this.lvHorarios.TabIndex = 54;
+            this.lvHorarios.UseCompatibleStateImageBehavior = false;
+            this.lvHorarios.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
@@ -468,13 +377,89 @@
             this.columnHeader4.Text = "Hora Final";
             this.columnHeader4.Width = 93;
             // 
+            // txtHoraFinal
+            // 
+            this.txtHoraFinal.Location = new System.Drawing.Point(140, 121);
+            this.txtHoraFinal.Name = "txtHoraFinal";
+            this.txtHoraFinal.Size = new System.Drawing.Size(146, 26);
+            this.txtHoraFinal.TabIndex = 53;
+            // 
+            // lbDia
+            // 
+            this.lbDia.AutoSize = true;
+            this.lbDia.BackColor = System.Drawing.Color.Transparent;
+            this.lbDia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDia.ForeColor = System.Drawing.Color.White;
+            this.lbDia.Location = new System.Drawing.Point(53, 83);
+            this.lbDia.Name = "lbDia";
+            this.lbDia.Size = new System.Drawing.Size(32, 18);
+            this.lbDia.TabIndex = 45;
+            this.lbDia.Text = "Día";
+            // 
+            // txtHoraInicio
+            // 
+            this.txtHoraInicio.Location = new System.Drawing.Point(140, 166);
+            this.txtHoraInicio.Name = "txtHoraInicio";
+            this.txtHoraInicio.Size = new System.Drawing.Size(146, 26);
+            this.txtHoraInicio.TabIndex = 52;
+            // 
+            // lbIdHorario
+            // 
+            this.lbIdHorario.AutoSize = true;
+            this.lbIdHorario.BackColor = System.Drawing.Color.Transparent;
+            this.lbIdHorario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIdHorario.ForeColor = System.Drawing.Color.White;
+            this.lbIdHorario.Location = new System.Drawing.Point(59, 43);
+            this.lbIdHorario.Name = "lbIdHorario";
+            this.lbIdHorario.Size = new System.Drawing.Size(73, 18);
+            this.lbIdHorario.TabIndex = 44;
+            this.lbIdHorario.Text = "idHorario";
+            // 
+            // lbHoraFinal
+            // 
+            this.lbHoraFinal.AutoSize = true;
+            this.lbHoraFinal.BackColor = System.Drawing.Color.Transparent;
+            this.lbHoraFinal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHoraFinal.ForeColor = System.Drawing.Color.White;
+            this.lbHoraFinal.Location = new System.Drawing.Point(54, 129);
+            this.lbHoraFinal.Name = "lbHoraFinal";
+            this.lbHoraFinal.Size = new System.Drawing.Size(80, 18);
+            this.lbHoraFinal.TabIndex = 47;
+            this.lbHoraFinal.Text = "Hora Final";
+            // 
+            // txtDia
+            // 
+            this.txtDia.Location = new System.Drawing.Point(140, 81);
+            this.txtDia.Name = "txtDia";
+            this.txtDia.Size = new System.Drawing.Size(146, 26);
+            this.txtDia.TabIndex = 40;
+            // 
+            // txtIdHorario
+            // 
+            this.txtIdHorario.Location = new System.Drawing.Point(140, 43);
+            this.txtIdHorario.Name = "txtIdHorario";
+            this.txtIdHorario.Size = new System.Drawing.Size(146, 26);
+            this.txtIdHorario.TabIndex = 39;
+            // 
+            // lbHoraInicio
+            // 
+            this.lbHoraInicio.AutoSize = true;
+            this.lbHoraInicio.BackColor = System.Drawing.Color.Transparent;
+            this.lbHoraInicio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbHoraInicio.ForeColor = System.Drawing.Color.White;
+            this.lbHoraInicio.Location = new System.Drawing.Point(52, 169);
+            this.lbHoraInicio.Name = "lbHoraInicio";
+            this.lbHoraInicio.Size = new System.Drawing.Size(82, 18);
+            this.lbHoraInicio.TabIndex = 46;
+            this.lbHoraInicio.Text = "Hora Inicio";
+            // 
             // frmGrupoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(922, 558);
+            this.ClientSize = new System.Drawing.Size(1127, 558);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox);
@@ -521,14 +506,13 @@
         private System.Windows.Forms.Label lbHoraInicio;
         private System.Windows.Forms.Label lbDia;
         private System.Windows.Forms.Label lbIdHorario;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnModifcar;
         private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtDia;
         private System.Windows.Forms.TextBox txtIdHorario;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.TextBox txtHoraFinal;
+        private System.Windows.Forms.TextBox txtHoraInicio;
+        private System.Windows.Forms.ListView lvHorarios;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
