@@ -15,7 +15,7 @@ namespace LogicaNegocios
 
         public SqlDataReader mConsultarHorarios(clConexion conexion, clEntidadHorario pEntidadHorario)
         {
-            sentencia = "select c.sigla, h.dia, h.horaInic, h.horaSali from tbHorarios h, tbHorariosGrupCurs hg, tbCursos c, tbGruposCurs gc where h.idHorario = hg.idHorario and c.idCurso = gc.idCurso and gc.idGrupo = hg.idGrupo; ";
+            sentencia = "select c.sigla, h.dia, h.horaInic, h.horaSali from tbHorarios h, tbHorariosGrupCurs hg, tbCursos c, tbGruposCurs gc where h.idHorario = hg.idHorario and c.idCurso = gc.idCurso and gc.idGrupo = hg.idGrupo";
             return conexion.mSeleccionar(sentencia,conexion);
         }
     }

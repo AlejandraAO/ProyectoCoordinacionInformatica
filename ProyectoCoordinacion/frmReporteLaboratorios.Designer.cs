@@ -28,80 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.martes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.miercoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.jueves = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.viernes = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sabado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvLaboratorio = new System.Windows.Forms.DataGridView();
             this.cbLaboratorio = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lunes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Martes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Miércoles = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Jueves = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Viernes = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sábado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorio)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dgvLaboratorio
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvLaboratorio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvLaboratorio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.hora,
-            this.lunes,
-            this.martes,
-            this.miercoles,
-            this.jueves,
-            this.viernes,
-            this.sabado});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 104);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(743, 269);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // hora
-            // 
-            this.hora.HeaderText = "Hora";
-            this.hora.Name = "hora";
-            this.hora.ReadOnly = true;
-            // 
-            // lunes
-            // 
-            this.lunes.HeaderText = "Lunes";
-            this.lunes.Name = "lunes";
-            this.lunes.ReadOnly = true;
-            // 
-            // martes
-            // 
-            this.martes.HeaderText = "Martes";
-            this.martes.Name = "martes";
-            this.martes.ReadOnly = true;
-            // 
-            // miercoles
-            // 
-            this.miercoles.HeaderText = "Miercoles";
-            this.miercoles.Name = "miercoles";
-            this.miercoles.ReadOnly = true;
-            // 
-            // jueves
-            // 
-            this.jueves.HeaderText = "Jueves";
-            this.jueves.Name = "jueves";
-            this.jueves.ReadOnly = true;
-            // 
-            // viernes
-            // 
-            this.viernes.HeaderText = "Viernes";
-            this.viernes.Name = "viernes";
-            this.viernes.ReadOnly = true;
-            // 
-            // sabado
-            // 
-            this.sabado.HeaderText = "Sabado";
-            this.sabado.Name = "sabado";
-            this.sabado.ReadOnly = true;
+            this.Lunes,
+            this.Martes,
+            this.Miércoles,
+            this.Jueves,
+            this.Viernes,
+            this.Sábado});
+            this.dgvLaboratorio.Location = new System.Drawing.Point(64, 105);
+            this.dgvLaboratorio.Name = "dgvLaboratorio";
+            this.dgvLaboratorio.ReadOnly = true;
+            this.dgvLaboratorio.Size = new System.Drawing.Size(746, 399);
+            this.dgvLaboratorio.TabIndex = 0;
+            this.dgvLaboratorio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // cbLaboratorio
             // 
@@ -131,32 +89,79 @@
             this.btnConsultar.TabIndex = 3;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.btnConsultar_Click);
             // 
             // btnSalir
             // 
-            this.btnSalir.Location = new System.Drawing.Point(617, 385);
+            this.btnSalir.Location = new System.Drawing.Point(766, 540);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(75, 23);
+            this.btnSalir.Size = new System.Drawing.Size(90, 41);
             this.btnSalir.TabIndex = 4;
             this.btnSalir.Text = "Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // hora
+            // 
+            this.hora.HeaderText = "Hora";
+            this.hora.Name = "hora";
+            this.hora.ReadOnly = true;
+            // 
+            // Lunes
+            // 
+            this.Lunes.HeaderText = "Lunes";
+            this.Lunes.Name = "Lunes";
+            this.Lunes.ReadOnly = true;
+            // 
+            // Martes
+            // 
+            this.Martes.HeaderText = "Martes";
+            this.Martes.Name = "Martes";
+            this.Martes.ReadOnly = true;
+            // 
+            // Miércoles
+            // 
+            this.Miércoles.HeaderText = "Miércoles";
+            this.Miércoles.Name = "Miércoles";
+            this.Miércoles.ReadOnly = true;
+            // 
+            // Jueves
+            // 
+            this.Jueves.HeaderText = "Jueves";
+            this.Jueves.Name = "Jueves";
+            this.Jueves.ReadOnly = true;
+            // 
+            // Viernes
+            // 
+            this.Viernes.HeaderText = "Viernes";
+            this.Viernes.Name = "Viernes";
+            this.Viernes.ReadOnly = true;
+            // 
+            // Sábado
+            // 
+            this.Sábado.HeaderText = "Sábado";
+            this.Sábado.Name = "Sábado";
+            this.Sábado.ReadOnly = true;
             // 
             // frmReporteLaboratorios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(766, 420);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(868, 593);
             this.ControlBox = false;
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnConsultar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbLaboratorio);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvLaboratorio);
+            this.DoubleBuffered = true;
             this.Name = "frmReporteLaboratorios";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReporteLaboratorios";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Load += new System.EventHandler(this.frmReporteLaboratorios_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLaboratorio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -164,17 +169,17 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn hora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lunes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn martes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn miercoles;
-        private System.Windows.Forms.DataGridViewTextBoxColumn jueves;
-        private System.Windows.Forms.DataGridViewTextBoxColumn viernes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn sabado;
+        private System.Windows.Forms.DataGridView dgvLaboratorio;
         private System.Windows.Forms.ComboBox cbLaboratorio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn hora;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Lunes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Martes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Miércoles;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Jueves;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Viernes;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sábado;
     }
 }

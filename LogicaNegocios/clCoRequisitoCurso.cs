@@ -19,7 +19,7 @@ namespace LogicaNegocios
         #region Metodos
         public Boolean mInsertarCoRequisitoCurso(clConexion conexion,clEntidadCoRequisitoCurso pEntidadCoRequisitoCurso)
         {
-            sentencia = "insert into tbCorrequisitosCurs(idCurso, idCursoCorre) values (" + pEntidadCoRequisitoCurso.mIdCurso + ", " + pEntidadCoRequisitoCurso.mIdCursoCoRequisito + ")";
+            sentencia = "insert into tbCorrequisitosCurs(idCurso, idCursoCorr) values (" + pEntidadCoRequisitoCurso.mIdCurso + ", " + pEntidadCoRequisitoCurso.mIdCursoCoRequisito + ")";
             return conexion.mEjecutar(sentencia, conexion);
         }
         #endregion
