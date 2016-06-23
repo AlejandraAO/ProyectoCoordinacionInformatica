@@ -26,6 +26,8 @@ namespace Vista
         SqlDataReader dtrCurso;
         private clEntidadRequisitoCurso entidadRequisitoCurso;
         private clRequisitoCurso requisitoCurso;
+        private clEntidadCoRequisitoCurso entidadCoRequisitoCurso;
+        private clCoRequisitoCurso coRequisitoCurso;
 
         public frmCursos(menuPrincipal menuPrincipal)
         {
@@ -37,6 +39,8 @@ namespace Vista
             archivoSeleccionado = new OpenFileDialog();
             entidadRequisitoCurso = new clEntidadRequisitoCurso();
             requisitoCurso = new clRequisitoCurso();
+            entidadCoRequisitoCurso = new clEntidadCoRequisitoCurso();
+            coRequisitoCurso = new clCoRequisitoCurso();
         }
 
         private void frmCursos_Load(object sender, EventArgs e)
@@ -101,20 +105,29 @@ namespace Vista
                 //Se verifica que se haya insertado correctamente
                 if (curso.mInsertarCurso(conexion, entidadCurso))
                 {                   
-                    if (mAgregarRequisitoCurso())
+                    if (mAgregarRequisitoCurso() && mAgregarCoRequisitoCurso())
                     {
-                        MessageBox.Show("Se ha insertado el requisito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("Se ha insertado el requisito y co", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }else if (mAgregarRequisitoCurso() && !mAgregarCoRequisitoCurso())
+                    {
+                        MessageBox.Show("Se ha insertado solo re", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }else if (!mAgregarRequisitoCurso() && mAgregarCoRequisitoCurso())
+                    {
+                        MessageBox.Show("Se ha insertado solo co", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
-                        MessageBox.Show(" No se ha insertado el requisito", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("NINGUNO", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
+
                     mLimpiarCampos();
                 }
                 else
                 {
                     MessageBox.Show("No pudo insertar el curso", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+                //--------------------------------------------------------------
+
             }
             else
             {
@@ -338,5 +351,22 @@ namespace Vista
             }
             return false;
         }
+
+        public Boolean mAgregarCoRequisitoCurso()
+        {
+            foreach (DataGridViewRow dgv in dgvCorrequisitos.Rows)
+            {
+                entidadCurso.mSiglaCurso = txtSigla.Text;
+                dtrCurso = curso.mConsultaPorSigla(conexion, entidadCurso);
+                if (dtrCurso != null)
+                    if (dtrCurso.Read())
+                    {
+                        entidadCoRequisitoCurso.mIdCurso = dtrCurso.GetInt32(0);
+                        entidadCoRequisitoCurso.mIdCursoCoRequisito = Convert.ToInt32(dgv.Cells["idCoRequisito"].Value);
+                        return coRequisitoCurso.mInsertarCoRequisitoCurso(conexion, entidadCoRequisitoCurso);
+                    }
+            }
+            return false;
+        }//fin de mAgregarCoRequisitoCurso
     }
 }

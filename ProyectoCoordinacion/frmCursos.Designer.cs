@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.gbxDatosCurso = new System.Windows.Forms.GroupBox();
+            this.numTotalHoras = new System.Windows.Forms.NumericUpDown();
+            this.cbModalidad = new System.Windows.Forms.ComboBox();
+            this.numCreditos = new System.Windows.Forms.NumericUpDown();
+            this.cbLugar = new System.Windows.Forms.ComboBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.lbModalidad = new System.Windows.Forms.Label();
             this.lbNombrePrograma = new System.Windows.Forms.Label();
@@ -50,9 +54,6 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gbxRequisitoCorrequisito = new System.Windows.Forms.GroupBox();
             this.dgvCorrequisitos = new System.Windows.Forms.DataGridView();
-            this.idCoRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.siglaCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvRequisitos = new System.Windows.Forms.DataGridView();
             this.idRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SiglaRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,16 +63,15 @@
             this.lbCorrequisito = new System.Windows.Forms.Label();
             this.lbRequisito = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbLugar = new System.Windows.Forms.ComboBox();
-            this.numCreditos = new System.Windows.Forms.NumericUpDown();
-            this.cbModalidad = new System.Windows.Forms.ComboBox();
-            this.numTotalHoras = new System.Windows.Forms.NumericUpDown();
+            this.idCoRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.siglaCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gbxDatosCurso.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalHoras)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCreditos)).BeginInit();
             this.gbxRequisitoCorrequisito.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCorrequisitos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCreditos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numTotalHoras)).BeginInit();
             this.SuspendLayout();
             // 
             // gbxDatosCurso
@@ -104,6 +104,43 @@
             this.gbxDatosCurso.TabIndex = 41;
             this.gbxDatosCurso.TabStop = false;
             this.gbxDatosCurso.Text = "Gestión Cursos";
+            // 
+            // numTotalHoras
+            // 
+            this.numTotalHoras.Location = new System.Drawing.Point(479, 76);
+            this.numTotalHoras.Name = "numTotalHoras";
+            this.numTotalHoras.Size = new System.Drawing.Size(120, 26);
+            this.numTotalHoras.TabIndex = 65;
+            // 
+            // cbModalidad
+            // 
+            this.cbModalidad.FormattingEnabled = true;
+            this.cbModalidad.Items.AddRange(new object[] {
+            "Presencial",
+            "Virtual"});
+            this.cbModalidad.Location = new System.Drawing.Point(479, 118);
+            this.cbModalidad.Name = "cbModalidad";
+            this.cbModalidad.Size = new System.Drawing.Size(121, 26);
+            this.cbModalidad.TabIndex = 64;
+            // 
+            // numCreditos
+            // 
+            this.numCreditos.Location = new System.Drawing.Point(137, 202);
+            this.numCreditos.Name = "numCreditos";
+            this.numCreditos.Size = new System.Drawing.Size(120, 26);
+            this.numCreditos.TabIndex = 63;
+            // 
+            // cbLugar
+            // 
+            this.cbLugar.FormattingEnabled = true;
+            this.cbLugar.Items.AddRange(new object[] {
+            "Lab1",
+            "Lab2",
+            "Aula"});
+            this.cbLugar.Location = new System.Drawing.Point(137, 119);
+            this.cbLugar.Name = "cbLugar";
+            this.cbLugar.Size = new System.Drawing.Size(121, 26);
+            this.cbLugar.TabIndex = 62;
             // 
             // cbEstado
             // 
@@ -389,28 +426,6 @@
             this.dgvCorrequisitos.Size = new System.Drawing.Size(316, 171);
             this.dgvCorrequisitos.TabIndex = 55;
             // 
-            // idCoRequisito
-            // 
-            this.idCoRequisito.HeaderText = "idCurso";
-            this.idCoRequisito.Name = "idCoRequisito";
-            this.idCoRequisito.ReadOnly = true;
-            this.idCoRequisito.Visible = false;
-            // 
-            // siglaCorrequisito
-            // 
-            this.siglaCorrequisito.HeaderText = "Sigla";
-            this.siglaCorrequisito.Name = "siglaCorrequisito";
-            this.siglaCorrequisito.ReadOnly = true;
-            this.siglaCorrequisito.Width = 70;
-            // 
-            // nombreCorrequisito
-            // 
-            this.nombreCorrequisito.HeaderText = "Nombre Curso";
-            this.nombreCorrequisito.MinimumWidth = 10;
-            this.nombreCorrequisito.Name = "nombreCorrequisito";
-            this.nombreCorrequisito.ReadOnly = true;
-            this.nombreCorrequisito.Width = 200;
-            // 
             // dgvRequisitos
             // 
             this.dgvRequisitos.AllowUserToOrderColumns = true;
@@ -518,42 +533,27 @@
             this.label2.Size = new System.Drawing.Size(0, 18);
             this.label2.TabIndex = 51;
             // 
-            // cbLugar
+            // idCoRequisito
             // 
-            this.cbLugar.FormattingEnabled = true;
-            this.cbLugar.Items.AddRange(new object[] {
-            "Lab1",
-            "Lab2",
-            "Aula"});
-            this.cbLugar.Location = new System.Drawing.Point(137, 119);
-            this.cbLugar.Name = "cbLugar";
-            this.cbLugar.Size = new System.Drawing.Size(121, 26);
-            this.cbLugar.TabIndex = 62;
+            this.idCoRequisito.HeaderText = "idCoRequisito";
+            this.idCoRequisito.Name = "idCoRequisito";
+            this.idCoRequisito.ReadOnly = true;
+            this.idCoRequisito.Visible = false;
             // 
-            // numCreditos
+            // siglaCorrequisito
             // 
-            this.numCreditos.Location = new System.Drawing.Point(137, 202);
-            this.numCreditos.Name = "numCreditos";
-            this.numCreditos.Size = new System.Drawing.Size(120, 26);
-            this.numCreditos.TabIndex = 63;
+            this.siglaCorrequisito.HeaderText = "Sigla";
+            this.siglaCorrequisito.Name = "siglaCorrequisito";
+            this.siglaCorrequisito.ReadOnly = true;
+            this.siglaCorrequisito.Width = 70;
             // 
-            // cbModalidad
+            // nombreCorrequisito
             // 
-            this.cbModalidad.FormattingEnabled = true;
-            this.cbModalidad.Items.AddRange(new object[] {
-            "Presencial",
-            "Virtual"});
-            this.cbModalidad.Location = new System.Drawing.Point(479, 118);
-            this.cbModalidad.Name = "cbModalidad";
-            this.cbModalidad.Size = new System.Drawing.Size(121, 26);
-            this.cbModalidad.TabIndex = 64;
-            // 
-            // numTotalHoras
-            // 
-            this.numTotalHoras.Location = new System.Drawing.Point(479, 76);
-            this.numTotalHoras.Name = "numTotalHoras";
-            this.numTotalHoras.Size = new System.Drawing.Size(120, 26);
-            this.numTotalHoras.TabIndex = 65;
+            this.nombreCorrequisito.HeaderText = "Nombre";
+            this.nombreCorrequisito.MinimumWidth = 10;
+            this.nombreCorrequisito.Name = "nombreCorrequisito";
+            this.nombreCorrequisito.ReadOnly = true;
+            this.nombreCorrequisito.Width = 200;
             // 
             // frmCursos
             // 
@@ -576,12 +576,12 @@
             this.Load += new System.EventHandler(this.frmCursos_Load);
             this.gbxDatosCurso.ResumeLayout(false);
             this.gbxDatosCurso.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numTotalHoras)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCreditos)).EndInit();
             this.gbxRequisitoCorrequisito.ResumeLayout(false);
             this.gbxRequisitoCorrequisito.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCorrequisitos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRequisitos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCreditos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numTotalHoras)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -615,9 +615,6 @@
         private System.Windows.Forms.Label lbRequisito;
         private System.Windows.Forms.DataGridView dgvRequisitos;
         private System.Windows.Forms.DataGridView dgvCorrequisitos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idCoRequisito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn siglaCorrequisito;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorrequisito;
         private System.Windows.Forms.DataGridViewTextBoxColumn idRequisito;
         private System.Windows.Forms.DataGridViewTextBoxColumn SiglaRequisito;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreRequisito;
@@ -625,5 +622,8 @@
         private System.Windows.Forms.NumericUpDown numCreditos;
         private System.Windows.Forms.NumericUpDown numTotalHoras;
         private System.Windows.Forms.ComboBox cbModalidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idCoRequisito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn siglaCorrequisito;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombreCorrequisito;
     }
 }
