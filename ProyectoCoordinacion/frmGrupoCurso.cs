@@ -22,6 +22,7 @@ namespace Vista
         SqlDataReader strSentencia;
         clGrupoCurso clGrupoCurso;
         clEntidadGrupoCurso clEntidadGrupoCurso;
+        clEntidadHorario clEntidadHorario;
         clConexion conexion;
         Object objeto;
         frmConsultarCurso consultarCurso;
@@ -31,6 +32,7 @@ namespace Vista
         {
             clGrupoCurso = new clGrupoCurso();
             clEntidadGrupoCurso = new clEntidadGrupoCurso();
+            clEntidadHorario = new clEntidadHorario();
             conexion = new clConexion();
             consultarCurso = new frmConsultarCurso(objeto);
             frmAcceso = new frmAcceso();
@@ -94,7 +96,18 @@ namespace Vista
             
         }
 
-        public Boolean mVerificarDatos()
+        public Boolean mVerificarDatosHorario()
+        {
+            if ((txtDia.Text != "") & (txtHoraInicio.Text != "") & (txtHoraFinal.Text != ""))
+            {
+                return true;
+            }
+            return false;
+        }
+
+
+
+        public Boolean mVerificarDatosGrupo()
         {
           if ((txtNumeroGrupo.Text != "") & (txtIdGrupo.Text != "") & (numCupoMaximo.Text != "") & (numCupoMinimo.Text != "") & (numCupoActual.Text != ""))
             {
@@ -110,7 +123,7 @@ namespace Vista
         {
 
 
-            if (mVerificarDatos() == true)
+            if (mVerificarDatosGrupo() == true)
             {
 
                 conexion.codigo = "123";
@@ -143,14 +156,17 @@ namespace Vista
       
               public void mAgregarGrupo()
         {
-            if (mVerificarDatos() == true)
+            if (mVerificarDatosGrupo() == true)
             {
 
                 conexion.codigo = "123";
                 conexion.clave = "123";
 
-                clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(txtIdGrupo.Text);
+                clEntidadGrupoCurso.getSetIdCurso = 1;
                 clEntidadGrupoCurso.getSetNumeroGrup = Convert.ToInt32(txtNumeroGrupo.Text);
+                clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(numCupoMaximo.Text);
+                clEntidadGrupoCurso.getSetCupoMinimo = Convert.ToInt32(numCupoMinimo.Text);
+                clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(numCupoActual.Text);
 
 
                 if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
@@ -234,6 +250,64 @@ namespace Vista
                     mConsultaCodigo();
                 }
             }
+        }
+
+        private void btnAgregar_Click_2(object sender, EventArgs e)
+        {
+            mAgregarGrupo();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            mModificarGrupo();
+        }
+
+        //Retorna el rol o pantalla seleccionada de un listview
+        public int itemSeleccion(DataGridView data) //Usar solo 1 método
+        {
+            for (int i = 0; i < data.RowCount; i++)
+            {
+                if (data.Rows[i].Selected)
+                {
+                    return data.Rows[i].Index;
+                }
+            }
+            return -1;
+        }
+
+
+        public void mAgregarHorario()
+        {
+            if (mVerificarDatosHorario() == true)
+            {
+
+                conexion.codigo = "123";
+                conexion.clave = "123";
+
+                clEntidadHorario.mDia = txtDia.Text;
+                clEntidadHorario.mHoraInicio = txtHoraInicio.Text;
+                clEntidadHorario.mHoraSalida = txtHoraFinal.Text;
+
+
+                if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
+                {
+
+                    MessageBox.Show("Se ha insertado el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    mLimpiarCampos();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("No pudo insertar el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+        }
+
+
+
+        private void btnAgregarHorario_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

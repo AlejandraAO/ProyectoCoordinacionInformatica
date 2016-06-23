@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
             this.lbIdGrupo = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
@@ -48,8 +48,8 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnModifcar = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnModifcarHorario = new System.Windows.Forms.Button();
+            this.btnAgregarHorario = new System.Windows.Forms.Button();
             this.lvHorarios = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -239,6 +239,7 @@
             this.btnModificar.TabIndex = 42;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtIdGrupo
             // 
@@ -263,6 +264,7 @@
             this.btnAgregar.TabIndex = 41;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click_2);
             // 
             // lbCupoMinimo
             // 
@@ -279,8 +281,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.btnModifcar);
-            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.btnModifcarHorario);
+            this.groupBox1.Controls.Add(this.btnAgregarHorario);
             this.groupBox1.Controls.Add(this.lvHorarios);
             this.groupBox1.Controls.Add(this.txtHoraFinal);
             this.groupBox1.Controls.Add(this.lbDia);
@@ -300,40 +302,41 @@
             this.groupBox1.Text = "Información de Horarios";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // btnModifcar
+            // btnModifcarHorario
             // 
-            this.btnModifcar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnModifcar.Enabled = false;
-            this.btnModifcar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnModifcar.FlatAppearance.BorderSize = 2;
-            this.btnModifcar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnModifcar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnModifcar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnModifcar.ForeColor = System.Drawing.Color.Black;
-            this.btnModifcar.Location = new System.Drawing.Point(436, 152);
-            this.btnModifcar.Name = "btnModifcar";
-            this.btnModifcar.Size = new System.Drawing.Size(82, 37);
-            this.btnModifcar.TabIndex = 42;
-            this.btnModifcar.Text = "Modificar";
-            this.btnModifcar.UseVisualStyleBackColor = false;
+            this.btnModifcarHorario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnModifcarHorario.Enabled = false;
+            this.btnModifcarHorario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnModifcarHorario.FlatAppearance.BorderSize = 2;
+            this.btnModifcarHorario.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnModifcarHorario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnModifcarHorario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnModifcarHorario.ForeColor = System.Drawing.Color.Black;
+            this.btnModifcarHorario.Location = new System.Drawing.Point(436, 152);
+            this.btnModifcarHorario.Name = "btnModifcarHorario";
+            this.btnModifcarHorario.Size = new System.Drawing.Size(82, 37);
+            this.btnModifcarHorario.TabIndex = 42;
+            this.btnModifcarHorario.Text = "Modificar";
+            this.btnModifcarHorario.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnAgregarHorario
             // 
-            this.button3.AccessibleDescription = "btnAgregarHorario";
-            this.button3.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.button3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.button3.FlatAppearance.BorderSize = 2;
-            this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.button3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.Color.Black;
-            this.button3.Location = new System.Drawing.Point(334, 150);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(77, 37);
-            this.button3.TabIndex = 41;
-            this.button3.Text = "Agregar";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnAgregarHorario.AccessibleDescription = "btnAgregarHorario";
+            this.btnAgregarHorario.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregarHorario.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnAgregarHorario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarHorario.FlatAppearance.BorderSize = 2;
+            this.btnAgregarHorario.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregarHorario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarHorario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarHorario.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarHorario.Location = new System.Drawing.Point(334, 150);
+            this.btnAgregarHorario.Name = "btnAgregarHorario";
+            this.btnAgregarHorario.Size = new System.Drawing.Size(77, 37);
+            this.btnAgregarHorario.TabIndex = 41;
+            this.btnAgregarHorario.Text = "Agregar";
+            this.btnAgregarHorario.UseVisualStyleBackColor = false;
+            this.btnAgregarHorario.Click += new System.EventHandler(this.btnAgregarHorario_Click);
             // 
             // lvHorarios
             // 
@@ -346,10 +349,10 @@
             this.lvHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvHorarios.ForeColor = System.Drawing.Color.Black;
             this.lvHorarios.GridLines = true;
-            listViewItem2.Tag = "asdasdasd";
+            listViewItem6.Tag = "asdasdasd";
             this.lvHorarios.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem5,
+            listViewItem6});
             this.lvHorarios.Location = new System.Drawing.Point(38, 212);
             this.lvHorarios.Name = "lvHorarios";
             this.lvHorarios.Size = new System.Drawing.Size(502, 200);
@@ -506,8 +509,8 @@
         private System.Windows.Forms.Label lbHoraInicio;
         private System.Windows.Forms.Label lbDia;
         private System.Windows.Forms.Label lbIdHorario;
-        private System.Windows.Forms.Button btnModifcar;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnModifcarHorario;
+        private System.Windows.Forms.Button btnAgregarHorario;
         private System.Windows.Forms.TextBox txtDia;
         private System.Windows.Forms.TextBox txtIdHorario;
         private System.Windows.Forms.TextBox txtHoraFinal;
