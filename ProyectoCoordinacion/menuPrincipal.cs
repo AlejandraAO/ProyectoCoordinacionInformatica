@@ -106,7 +106,7 @@ namespace Vista
 
         private void reporteLaboratorioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmReporteLaboratorios reporteLaboratorios = new frmReporteLaboratorios();
+            frmReporteLaboratorios reporteLaboratorios = new frmReporteLaboratorios(this);
             reporteLaboratorios.Show();
         }
     }
