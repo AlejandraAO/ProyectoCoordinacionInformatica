@@ -22,8 +22,16 @@ namespace LogicaNegocios
             sentencia = "insert into tbCorrequisitosCurs(idCurso, idCursoCorr) values (" + pEntidadCoRequisitoCurso.mIdCurso + ", " + pEntidadCoRequisitoCurso.mIdCursoCoRequisito + ")";
             return conexion.mEjecutar(sentencia, conexion);
         }
+
+        public Boolean mModificarCoRequisitoCurso(clConexion conexion, clEntidadCoRequisitoCurso pEntidadCoRequisitoCurso)
+        {
+
+            sentencia = "update tbCorrequisitosCurso set idCurso = '" + pEntidadCoRequisitoCurso.mIdCurso + "', idCursoCorr = '" + pEntidadCoRequisitoCurso.mIdCursoCoRequisito + "' ";
+            return conexion.mEjecutar(sentencia, conexion);
+        }
+
+
+
         #endregion
-
-
     }
 }
