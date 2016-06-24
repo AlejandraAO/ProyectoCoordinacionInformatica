@@ -23,6 +23,7 @@ namespace Vista
         clGrupoCurso clGrupoCurso;
         clEntidadGrupoCurso clEntidadGrupoCurso;
         clEntidadHorario clEntidadHorario;
+        clHorario clHorario;
         clConexion conexion;
         Object objeto;
         frmConsultarCurso consultarCurso;
@@ -34,6 +35,7 @@ namespace Vista
             clEntidadGrupoCurso = new clEntidadGrupoCurso();
             clEntidadHorario = new clEntidadHorario();
             conexion = new clConexion();
+            clHorario = new clHorario();
             consultarCurso = new frmConsultarCurso(objeto);
             frmAcceso = new frmAcceso();
             menu = new menuPrincipal(frmAcceso);
@@ -93,7 +95,11 @@ namespace Vista
             numCupoActual.Value =0;
             numCupoMaximo.Value = 0;
             numCupoMinimo.Value = 0;
-            
+            txtDia.Text = "";
+            txtHoraFinal.Text = "";
+            txtHoraInicio.Text = "";
+            txtIdHorario.Text = "";
+
         }
 
         public Boolean mVerificarDatosHorario()
@@ -255,6 +261,8 @@ namespace Vista
         private void btnAgregar_Click_2(object sender, EventArgs e)
         {
             mAgregarGrupo();
+            btnModifcarHorario.Enabled = true;
+            mAgregarHorario();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -288,12 +296,20 @@ namespace Vista
                 clEntidadHorario.mHoraInicio = txtHoraInicio.Text;
                 clEntidadHorario.mHoraSalida = txtHoraFinal.Text;
 
-
-                if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
+                if (txtDia.Text != clEntidadHorario.mDia && txtHoraInicio.Text!=clEntidadHorario.mHoraInicio && txtHoraFinal.Text!= clEntidadHorario.mHoraSalida)
                 {
+                    if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
+                    {
 
-                    MessageBox.Show("Se ha insertado el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    mLimpiarCampos();
+                        MessageBox.Show("Se ha insertado el horario", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        mLimpiarCampos();
+
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Ya existe un curso con ese horario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 }
 
             }
@@ -305,9 +321,64 @@ namespace Vista
 
 
 
-        private void btnAgregarHorario_Click(object sender, EventArgs e)
+        public void mModificarHorario()
         {
 
+
+            if (mVerificarDatosHorario() == true)
+            {
+
+                conexion.codigo = "123";
+                conexion.clave = "123";
+
+                clEntidadHorario.mDia = txtDia.Text;
+                clEntidadHorario.mHoraInicio = txtHoraInicio.Text;
+                clEntidadHorario.mHoraSalida = txtHoraFinal.Text;
+
+                if (clHorario.mModificarHorario(conexion, clEntidadHorario))
+                {
+                    MessageBox.Show("Se ha modificado el horario", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido modificar el horario", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
+
+
         }
+
+        private void btnModifcarHorario_Click(object sender, EventArgs e)
+        {
+            mModificarHorario();
+        }
+
+        private void btnAgregarTabla_Click(object sender, EventArgs e)
+        {
+            mAgregarDatosLista();
     }
+
+        public void mAgregarDatosLista()
+        {
+
+            strSentencia = clHorario.mConsultarHorarios(conexion, clEntidadHorario);
+
+            if (mVerificarDatosHorario() == true)
+            {
+                int posicion = lvHorarios.Items.Count;
+
+                ListViewItem item = new ListViewItem();
+                item.SubItems.Add(txtIdHorario.Text);
+                item.SubItems.Add(txtDia.Text);
+                item.SubItems.Add(txtHoraInicio.Text);
+                item.SubItems.Add(txtHoraFinal.Text);
+                lvHorarios.Items.Add(item);
+
+            }
+
 }

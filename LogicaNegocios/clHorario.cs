@@ -19,9 +19,23 @@ namespace LogicaNegocios
             return conexion.mSeleccionar(sentencia,conexion);
         }
 
+        public SqlDataReader mConsultarIdHorario(clConexion conexion)
+        {
+            sentencia = "select idHorario from tbHorarios'";
+            return conexion.mSeleccionar(sentencia, conexion);
+        }
+
         public Boolean mInsertarHorario(clConexion conexion, clEntidadHorario pEntidadHorario)
         {
             sentencia = "insert into tbHorarios (dia,horaInic,horaSali) values('" + pEntidadHorario.mDia + "', '" + pEntidadHorario.mHoraInicio + "', '" + pEntidadHorario.mHoraSalida + "') ";
+            return conexion.mEjecutar(sentencia, conexion);
+        }
+
+
+        public Boolean mModificarHorario(clConexion conexion, clEntidadHorario pEntidadHorario)
+        {
+
+            sentencia = "update tbGruposCurs set dia = '" + pEntidadHorario.mDia + "', horaInic = '" + pEntidadHorario.mHoraInicio + "', horaSali ='" + pEntidadHorario.mHoraSalida+"' ";
             return conexion.mEjecutar(sentencia, conexion);
         }
     }

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem6 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.lbIdGrupo = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
@@ -49,7 +49,6 @@
             this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnModifcarHorario = new System.Windows.Forms.Button();
-            this.btnAgregarHorario = new System.Windows.Forms.Button();
             this.lvHorarios = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -63,6 +62,7 @@
             this.txtDia = new System.Windows.Forms.TextBox();
             this.txtIdHorario = new System.Windows.Forms.TextBox();
             this.lbHoraInicio = new System.Windows.Forms.Label();
+            this.btnAgregarTabla = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoMinimo)).BeginInit();
@@ -281,8 +281,8 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btnAgregarTabla);
             this.groupBox1.Controls.Add(this.btnModifcarHorario);
-            this.groupBox1.Controls.Add(this.btnAgregarHorario);
             this.groupBox1.Controls.Add(this.lvHorarios);
             this.groupBox1.Controls.Add(this.txtHoraFinal);
             this.groupBox1.Controls.Add(this.lbDia);
@@ -312,31 +312,13 @@
             this.btnModifcarHorario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnModifcarHorario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifcarHorario.ForeColor = System.Drawing.Color.Black;
-            this.btnModifcarHorario.Location = new System.Drawing.Point(436, 152);
+            this.btnModifcarHorario.Location = new System.Drawing.Point(13, 140);
             this.btnModifcarHorario.Name = "btnModifcarHorario";
-            this.btnModifcarHorario.Size = new System.Drawing.Size(82, 37);
+            this.btnModifcarHorario.Size = new System.Drawing.Size(82, 54);
             this.btnModifcarHorario.TabIndex = 42;
-            this.btnModifcarHorario.Text = "Modificar";
+            this.btnModifcarHorario.Text = "Modificar Horario";
             this.btnModifcarHorario.UseVisualStyleBackColor = false;
-            // 
-            // btnAgregarHorario
-            // 
-            this.btnAgregarHorario.AccessibleDescription = "btnAgregarHorario";
-            this.btnAgregarHorario.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAgregarHorario.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnAgregarHorario.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAgregarHorario.FlatAppearance.BorderSize = 2;
-            this.btnAgregarHorario.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnAgregarHorario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnAgregarHorario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarHorario.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarHorario.Location = new System.Drawing.Point(334, 150);
-            this.btnAgregarHorario.Name = "btnAgregarHorario";
-            this.btnAgregarHorario.Size = new System.Drawing.Size(77, 37);
-            this.btnAgregarHorario.TabIndex = 41;
-            this.btnAgregarHorario.Text = "Agregar";
-            this.btnAgregarHorario.UseVisualStyleBackColor = false;
-            this.btnAgregarHorario.Click += new System.EventHandler(this.btnAgregarHorario_Click);
+            this.btnModifcarHorario.Click += new System.EventHandler(this.btnModifcarHorario_Click);
             // 
             // lvHorarios
             // 
@@ -349,11 +331,11 @@
             this.lvHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvHorarios.ForeColor = System.Drawing.Color.Black;
             this.lvHorarios.GridLines = true;
-            listViewItem6.Tag = "asdasdasd";
+            listViewItem4.Tag = "asdasdasd";
             this.lvHorarios.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5,
-            listViewItem6});
-            this.lvHorarios.Location = new System.Drawing.Point(38, 212);
+            listViewItem3,
+            listViewItem4});
+            this.lvHorarios.Location = new System.Drawing.Point(22, 209);
             this.lvHorarios.Name = "lvHorarios";
             this.lvHorarios.Size = new System.Drawing.Size(502, 200);
             this.lvHorarios.TabIndex = 54;
@@ -382,7 +364,7 @@
             // 
             // txtHoraFinal
             // 
-            this.txtHoraFinal.Location = new System.Drawing.Point(140, 121);
+            this.txtHoraFinal.Location = new System.Drawing.Point(357, 40);
             this.txtHoraFinal.Name = "txtHoraFinal";
             this.txtHoraFinal.Size = new System.Drawing.Size(146, 26);
             this.txtHoraFinal.TabIndex = 53;
@@ -393,7 +375,7 @@
             this.lbDia.BackColor = System.Drawing.Color.Transparent;
             this.lbDia.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbDia.ForeColor = System.Drawing.Color.White;
-            this.lbDia.Location = new System.Drawing.Point(53, 83);
+            this.lbDia.Location = new System.Drawing.Point(4, 85);
             this.lbDia.Name = "lbDia";
             this.lbDia.Size = new System.Drawing.Size(32, 18);
             this.lbDia.TabIndex = 45;
@@ -401,7 +383,7 @@
             // 
             // txtHoraInicio
             // 
-            this.txtHoraInicio.Location = new System.Drawing.Point(140, 166);
+            this.txtHoraInicio.Location = new System.Drawing.Point(357, 85);
             this.txtHoraInicio.Name = "txtHoraInicio";
             this.txtHoraInicio.Size = new System.Drawing.Size(146, 26);
             this.txtHoraInicio.TabIndex = 52;
@@ -412,11 +394,12 @@
             this.lbIdHorario.BackColor = System.Drawing.Color.Transparent;
             this.lbIdHorario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbIdHorario.ForeColor = System.Drawing.Color.White;
-            this.lbIdHorario.Location = new System.Drawing.Point(59, 43);
+            this.lbIdHorario.Location = new System.Drawing.Point(10, 45);
             this.lbIdHorario.Name = "lbIdHorario";
             this.lbIdHorario.Size = new System.Drawing.Size(73, 18);
             this.lbIdHorario.TabIndex = 44;
             this.lbIdHorario.Text = "idHorario";
+            this.lbIdHorario.Visible = false;
             // 
             // lbHoraFinal
             // 
@@ -424,7 +407,7 @@
             this.lbHoraFinal.BackColor = System.Drawing.Color.Transparent;
             this.lbHoraFinal.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHoraFinal.ForeColor = System.Drawing.Color.White;
-            this.lbHoraFinal.Location = new System.Drawing.Point(54, 129);
+            this.lbHoraFinal.Location = new System.Drawing.Point(271, 48);
             this.lbHoraFinal.Name = "lbHoraFinal";
             this.lbHoraFinal.Size = new System.Drawing.Size(80, 18);
             this.lbHoraFinal.TabIndex = 47;
@@ -432,17 +415,19 @@
             // 
             // txtDia
             // 
-            this.txtDia.Location = new System.Drawing.Point(140, 81);
+            this.txtDia.Location = new System.Drawing.Point(91, 83);
             this.txtDia.Name = "txtDia";
             this.txtDia.Size = new System.Drawing.Size(146, 26);
             this.txtDia.TabIndex = 40;
             // 
             // txtIdHorario
             // 
-            this.txtIdHorario.Location = new System.Drawing.Point(140, 43);
+            this.txtIdHorario.Enabled = false;
+            this.txtIdHorario.Location = new System.Drawing.Point(91, 45);
             this.txtIdHorario.Name = "txtIdHorario";
             this.txtIdHorario.Size = new System.Drawing.Size(146, 26);
             this.txtIdHorario.TabIndex = 39;
+            this.txtIdHorario.Visible = false;
             // 
             // lbHoraInicio
             // 
@@ -450,11 +435,29 @@
             this.lbHoraInicio.BackColor = System.Drawing.Color.Transparent;
             this.lbHoraInicio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbHoraInicio.ForeColor = System.Drawing.Color.White;
-            this.lbHoraInicio.Location = new System.Drawing.Point(52, 169);
+            this.lbHoraInicio.Location = new System.Drawing.Point(269, 88);
             this.lbHoraInicio.Name = "lbHoraInicio";
             this.lbHoraInicio.Size = new System.Drawing.Size(82, 18);
             this.lbHoraInicio.TabIndex = 46;
             this.lbHoraInicio.Text = "Hora Inicio";
+            // 
+            // btnAgregarTabla
+            // 
+            this.btnAgregarTabla.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregarTabla.Enabled = false;
+            this.btnAgregarTabla.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarTabla.FlatAppearance.BorderSize = 2;
+            this.btnAgregarTabla.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregarTabla.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarTabla.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarTabla.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarTabla.Location = new System.Drawing.Point(144, 140);
+            this.btnAgregarTabla.Name = "btnAgregarTabla";
+            this.btnAgregarTabla.Size = new System.Drawing.Size(82, 54);
+            this.btnAgregarTabla.TabIndex = 55;
+            this.btnAgregarTabla.Text = "Agregar a tabla";
+            this.btnAgregarTabla.UseVisualStyleBackColor = false;
+            this.btnAgregarTabla.Click += new System.EventHandler(this.btnAgregarTabla_Click);
             // 
             // frmGrupoCurso
             // 
@@ -462,7 +465,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1127, 558);
+            this.ClientSize = new System.Drawing.Size(1182, 558);
             this.ControlBox = false;
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox);
@@ -510,7 +513,6 @@
         private System.Windows.Forms.Label lbDia;
         private System.Windows.Forms.Label lbIdHorario;
         private System.Windows.Forms.Button btnModifcarHorario;
-        private System.Windows.Forms.Button btnAgregarHorario;
         private System.Windows.Forms.TextBox txtDia;
         private System.Windows.Forms.TextBox txtIdHorario;
         private System.Windows.Forms.TextBox txtHoraFinal;
@@ -520,5 +522,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.Button btnAgregarTabla;
     }
 }
