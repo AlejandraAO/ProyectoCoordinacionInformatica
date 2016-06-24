@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.lbIdGrupo = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
@@ -48,6 +48,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnAgregarTabla = new System.Windows.Forms.Button();
             this.btnModifcarHorario = new System.Windows.Forms.Button();
             this.lvHorarios = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -62,7 +63,6 @@
             this.txtDia = new System.Windows.Forms.TextBox();
             this.txtIdHorario = new System.Windows.Forms.TextBox();
             this.lbHoraInicio = new System.Windows.Forms.Label();
-            this.btnAgregarTabla = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoMinimo)).BeginInit();
@@ -302,6 +302,24 @@
             this.groupBox1.Text = "Información de Horarios";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // btnAgregarTabla
+            // 
+            this.btnAgregarTabla.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregarTabla.Enabled = false;
+            this.btnAgregarTabla.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarTabla.FlatAppearance.BorderSize = 2;
+            this.btnAgregarTabla.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregarTabla.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarTabla.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarTabla.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarTabla.Location = new System.Drawing.Point(144, 140);
+            this.btnAgregarTabla.Name = "btnAgregarTabla";
+            this.btnAgregarTabla.Size = new System.Drawing.Size(82, 54);
+            this.btnAgregarTabla.TabIndex = 55;
+            this.btnAgregarTabla.Text = "Agregar a tabla";
+            this.btnAgregarTabla.UseVisualStyleBackColor = false;
+            this.btnAgregarTabla.Click += new System.EventHandler(this.btnAgregarTabla_Click);
+            // 
             // btnModifcarHorario
             // 
             this.btnModifcarHorario.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -331,10 +349,10 @@
             this.lvHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvHorarios.ForeColor = System.Drawing.Color.Black;
             this.lvHorarios.GridLines = true;
-            listViewItem4.Tag = "asdasdasd";
+            listViewItem2.Tag = "asdasdasd";
             this.lvHorarios.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem3,
-            listViewItem4});
+            listViewItem1,
+            listViewItem2});
             this.lvHorarios.Location = new System.Drawing.Point(22, 209);
             this.lvHorarios.Name = "lvHorarios";
             this.lvHorarios.Size = new System.Drawing.Size(502, 200);
@@ -440,24 +458,6 @@
             this.lbHoraInicio.Size = new System.Drawing.Size(82, 18);
             this.lbHoraInicio.TabIndex = 46;
             this.lbHoraInicio.Text = "Hora Inicio";
-            // 
-            // btnAgregarTabla
-            // 
-            this.btnAgregarTabla.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAgregarTabla.Enabled = false;
-            this.btnAgregarTabla.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAgregarTabla.FlatAppearance.BorderSize = 2;
-            this.btnAgregarTabla.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnAgregarTabla.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnAgregarTabla.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarTabla.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarTabla.Location = new System.Drawing.Point(144, 140);
-            this.btnAgregarTabla.Name = "btnAgregarTabla";
-            this.btnAgregarTabla.Size = new System.Drawing.Size(82, 54);
-            this.btnAgregarTabla.TabIndex = 55;
-            this.btnAgregarTabla.Text = "Agregar a tabla";
-            this.btnAgregarTabla.UseVisualStyleBackColor = false;
-            this.btnAgregarTabla.Click += new System.EventHandler(this.btnAgregarTabla_Click);
             // 
             // frmGrupoCurso
             // 

@@ -46,6 +46,14 @@ namespace Vista
                     frmCursos menuP = (frmCursos)objeto;
                     this.menu = menuP;
                     this.frmCurso = menuP;
+                }else
+                {
+                    if (objeto is frmGrupoCurso)
+                    {
+                        frmGrupoCurso menuP = (frmGrupoCurso)objeto;
+                        this.menu = menuP;
+                        
+                    }
                 }
             }
             
@@ -59,14 +67,8 @@ namespace Vista
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Dispose();
-           
-           
-                menu.Show();
-           
-
-
-
+            this.Hide();
+            menu.Show();      
         }
 
         public void mConsultaGenetal()
