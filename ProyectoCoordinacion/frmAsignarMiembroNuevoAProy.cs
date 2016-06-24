@@ -24,6 +24,7 @@ namespace Vista
         private clProyecto proyecto;
         private string codigoProyecto;
         private Boolean selecionarProyecto;
+        
         #endregion
 
         public frmConsultaRapProyecto(clConexion conexion)
@@ -174,6 +175,20 @@ namespace Vista
             this.selecionarProyecto = false;
         }
 
+        public void listaProyectoAsignadosCarnet(int idMiembro)
+        {
+            dataReaderProyecto = proyecto.mSelecccionarMiembroProyecto(conexion, idMiembro);
+            if (dataReaderProyecto!=null)
+            {
+                if (dataReaderProyecto.Read())
+                {
+                    ListViewItem lista = new ListViewItem();
+                    lista.SubItems.Add(Convert.ToString(dataReaderProyecto.GetInt32(0)));
+                    lista.SubItems.Add(Convert.ToString(dataReaderProyecto.GetInt32(1)));
+                    lvProyectosAsignados.Items.Add(lista);
+                }
+            }
+        }
 
     }
 }

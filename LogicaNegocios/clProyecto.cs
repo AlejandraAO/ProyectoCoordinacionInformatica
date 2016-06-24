@@ -52,6 +52,11 @@ namespace LogicaNegocios
             return cone.mSeleccionar(strSentencia, cone);
         }
 
+        public SqlDataReader mSelecccionarMiembroProyecto(clConexion conexion, int idMiembro)
+        {
+            strSentencia = "select * from tbtbMiembrosProy where idMiembro=" + idMiembro+ "";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
         #endregion
     }
 }
