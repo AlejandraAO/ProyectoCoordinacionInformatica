@@ -24,6 +24,7 @@ namespace Vista
         private clMiembros miembros;
         private clMiembroProyecto miembroProyecto;
         private SqlDataReader dtrMiembro;
+        private SqlDataReader dtrMiembro2;
 
         private frmConsultaRapProyecto frmConsultaProyecto;
 
@@ -62,7 +63,7 @@ namespace Vista
                 pEntidadMiembro.getSetNombreMiembro = txtNombre.Text;
                 pEntidadMiembro.getSetApellido1Miembro = txtApellido1.Text;
                 pEntidadMiembro.getSetApellido2Miembro = txtApellido2.Text;
-                pEntidadMiembro.getSetTipo = txtTip.Text;
+                pEntidadMiembro.getSetTipo = txtTipo.Text;
                 pEntidadMiembro.getSetCarreraMiembro = txtCarrera.Text;
 
 
@@ -124,7 +125,7 @@ namespace Vista
         public Boolean mVerificarCampos()
         {
             if ((txtNombre.Text != "") && (txtApellido1.Text != "") && (txtApellido2.Text != "") && (txtCarrera.Text != "") && (txtCarnet.Text != "")
-                && (txtTip.Text != "") && (frmConsultaProyecto. verificarListViewVacio()==true))
+                && (txtTipo.Text != "") && (frmConsultaProyecto. verificarListViewVacio()==true))
             {
                 return true;
             }
@@ -139,14 +140,42 @@ namespace Vista
             txtApellido2.Text = "";
             txtCarnet.Text = "";
             txtCarrera.Text = "";
-            txtTip.Text = "";
+            txtTipo.Text = "";
             lblNumProyAsignados.Text = "";
             frmConsultaProyecto.limpiarLVProyAsignados();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Datos insuficientes para agregar un Miembro", "Favor completar campos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (mVerificarCampos())
+            {
+
+
+                //Se asignan los valores a la entidad curso
+                //entidadCurso.mIdCurso = dtrCurso.GetInt32(0);                
+
+                pEntidadMiembro.getSetCarnetMiembro = txtCarnet.Text;
+                pEntidadMiembro.getSetNombreMiembro = txtNombre.Text;
+                pEntidadMiembro.getSetApellido1Miembro = txtApellido1.Text;
+                pEntidadMiembro.getSetApellido2Miembro = txtApellido2.Text;
+                pEntidadMiembro.getSetTipo = txtTipo.Text;
+                pEntidadMiembro.getSetCarreraMiembro = txtCarrera.Text;
+
+
+
+                if (miembros.mModificarMiembro(conexion, pEntidadMiembro))
+                {
+                    MessageBox.Show("Se ha modificado el Miembro", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido modificar el Miembro", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -166,6 +195,63 @@ namespace Vista
             this.lblNumProyAsignados.Text =  frmConsultaProyecto.getCantidadProyectosAsignados() + "  Proyectos Asignados";
         }
 
+        private void txtCarnet_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (Char)Keys.Enter)
+            {
+                if (txtCarnet.Text != "")
+                {
+                    mConsultarPorCarnet();
+                }
+                else
+                {
+                    MessageBox.Show("Ingrese un Carnet", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+            }
 
+        }
+        public void buscarIdCarnet()
+        {
+            pEntidadMiembro.getSetCarnetMiembro= txtCarnet.Text;
+            dtrMiembro = miembros.mConsultarMiembroId(conexion, pEntidadMiembro);
+            if (dtrMiembro!= null)
+            {
+                if (dtrMiembro.Read())
+                {
+                    frmConsultaProyecto.listaProyectoAsignadosCarnet(dtrMiembro.GetInt32(0));
+                }
+            }
+
+        }
+        public void mConsultarPorCarnet()
+        {
+            pEntidadMiembro.getSetCarnetMiembro = txtCarnet.Text;
+
+            dtrMiembro = miembros.mConsultarMiembroCarnee(conexion, pEntidadMiembro);
+            
+
+            if (dtrMiembro != null)
+            {
+                if (dtrMiembro.Read())
+                {
+                    txtNombre.Text = dtrMiembro.GetString(2);
+                    txtApellido1.Text = dtrMiembro.GetString(3);
+                    txtApellido2.Text = dtrMiembro.GetString(4);
+                    txtCarrera.Text = dtrMiembro.GetString(5);
+                    txtTipo.Text = dtrMiembro.GetString(6);
+                    buscarIdCarnet();
+
+
+                }
+                else
+                {
+                    MessageBox.Show("El miembro solicitado no existe", "Miembro no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ha encontrado el miembro solicitado", "Miembro no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
     }
 }

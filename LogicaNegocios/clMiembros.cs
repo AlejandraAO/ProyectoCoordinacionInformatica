@@ -35,6 +35,11 @@ namespace LogicaNegocios
             return cone.mSeleccionar(strSentencia, cone);
         }
 
+        public SqlDataReader mConsultarMiembroId(clConexion conexion, clEntidadMiembro pEntidadMiembro)
+        {
+            strSentencia = "select idMiembro from tbMiembros where carnet='" + pEntidadMiembro.getSetCarnetMiembro + "'";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
         public Boolean mInsertarMiembro(clConexion cone, clEntidadMiembro pEntidadMiembro)
         {
             strSentencia = "insert into tbMiembros(carnet, nombre, apellido1, apellido2, carrera, tipo) values('" + pEntidadMiembro.getSetCarnetMiembro + "','" + pEntidadMiembro.getSetNombreMiembro+"', '"+pEntidadMiembro.getSetApellido1Miembro+"', '"+pEntidadMiembro.getSetApellido2Miembro+"',  '"+pEntidadMiembro.getSetCarreraMiembro+ "', '" + pEntidadMiembro.getSetTipo + "')";
@@ -42,11 +47,15 @@ namespace LogicaNegocios
         }
         public Boolean mModificarMiembro(clConexion cone, clEntidadMiembro pEntidadMiembro)
         {
-            strSentencia = "";
+            strSentencia = "update tbMiembros set nombre='"+pEntidadMiembro.getSetNombreMiembro+"', apellido1='"+pEntidadMiembro.getSetApellido1Miembro+ "', apellido2='" + pEntidadMiembro.getSetApellido2Miembro + "' , carrera='" + pEntidadMiembro.getSetCarreraMiembro + "' , tipo='" + pEntidadMiembro.getSetTipo+ "' where carnet='"+pEntidadMiembro.getSetCarnetMiembro+"'";
             return cone.mEjecutar(strSentencia, cone);
         }
         
-
+        public SqlDataReader mConsultarMiembroCarnee(clConexion conexion, clEntidadMiembro pEntidadMiembro)
+        {
+            strSentencia = "select * from tbMiembros where carnet='"+pEntidadMiembro.getSetCarnetMiembro+"'";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
 
         #endregion
     }
