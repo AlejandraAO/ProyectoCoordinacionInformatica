@@ -23,7 +23,7 @@ namespace Vista
         private clEntidadCurso entidadCurso;
         private clCurso curso;
         private OpenFileDialog archivoSeleccionado;
-        SqlDataReader dtrCurso;
+        SqlDataReader dtrCurso,dtrCoRequisito,dtrRequisito;
         private clEntidadRequisitoCurso entidadRequisitoCurso;
         private clRequisitoCurso requisitoCurso;
         private clEntidadCoRequisitoCurso entidadCoRequisitoCurso;
@@ -94,7 +94,7 @@ namespace Vista
                 entidadCurso.mSiglaCurso = txtSigla.Text;
                 entidadCurso.mNombreCurso = txtNombre.Text;
                 entidadCurso.mLugarCurso = cbLugar.Text;
-                entidadCurso.mCicloCurso = txtCiclo.Text;
+                entidadCurso.mCicloCurso = cbCiclo.Text;
                 entidadCurso.mCreditosCurso = Convert.ToInt32(numCreditos.Value);
                 entidadCurso.mProgramaCurso = archivoSeleccionado.FileName;
                 entidadCurso.mNombrePrograma = archivoSeleccionado.SafeFileName;
@@ -137,7 +137,7 @@ namespace Vista
 
         public Boolean mVerificarDatosNecesarios()
         {
-            if((txtSigla.Text!="") & (txtNombre.Text!="")& (cbLugar.Text!="")& (txtCiclo.Text!="")&(numCreditos.Value!=0)& (cbEstado.Text != "") & (numTotalHoras.Value != 0)& (cbModalidad.Text != "") & (lbNombrePrograma.Text != ""))
+            if((txtSigla.Text!="") & (txtNombre.Text!="")& (cbLugar.Text!="")& (cbCiclo.Text!="")&(numCreditos.Value!=0)& (cbEstado.Text != "") & (numTotalHoras.Value != 0)& (cbModalidad.Text != "") & (lbNombrePrograma.Text != ""))
             {
                 return true;
             }
@@ -149,13 +149,13 @@ namespace Vista
             txtSigla.Text = "";
             txtNombre.Text = "";
             cbLugar.Text = "";
-            txtCiclo.Text = "";
+            cbCiclo.Text = "";
             numCreditos.Value = 0;
             cbEstado.Text = "";
             numTotalHoras.Value = 0;
             cbModalidad.Text = "";
             lbNombrePrograma.Text = "";           
-            }
+        }
 
         private void txtSigla_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -177,6 +177,7 @@ namespace Vista
         {
             entidadCurso.mSiglaCurso = txtSigla.Text;
             dtrCurso = curso.mConsultaPorSigla(conexion,entidadCurso);
+            dtrCoRequisito = coRequisitoCurso.mConsultarCoRequisitoCursoPorId(conexion,entidadCoRequisitoCurso);
 
             if (dtrCurso!=null)
             {
@@ -184,7 +185,7 @@ namespace Vista
                 {
                     txtNombre.Text = dtrCurso.GetString(2);
                     cbLugar.Text = dtrCurso.GetString(3);
-                    txtCiclo.Text = dtrCurso.GetString(4);
+                    cbCiclo.Text = dtrCurso.GetString(4);
                     numCreditos.Value = dtrCurso.GetInt32(5);
 
                     cbEstado.Text = dtrCurso.GetString(7);
@@ -196,6 +197,13 @@ namespace Vista
                     txtNombre.ReadOnly = true;
                     btnModificar.Enabled = true;
 
+                    if(dtrCoRequisito!=null)
+                    {
+                        if(dtrCoRequisito.Read())
+                        {
+
+                        }
+                    }
                 }
                 else
                 {
@@ -221,7 +229,7 @@ namespace Vista
                 entidadCurso.mSiglaCurso = txtSigla.Text;
                 entidadCurso.mNombreCurso = txtNombre.Text;
                 entidadCurso.mLugarCurso = cbLugar.Text;
-                entidadCurso.mCicloCurso = txtCiclo.Text;
+                entidadCurso.mCicloCurso = cbCiclo.Text;
                 entidadCurso.mCreditosCurso = Convert.ToInt32(numCreditos.Value);
                 entidadCurso.mProgramaCurso = archivoSeleccionado.FileName;
                 entidadCurso.mEstadoCurso = cbEstado.Text;
@@ -247,17 +255,30 @@ namespace Vista
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             mLimpiar();
+            cbLugar.Items.Add("Laboratorio 1");
+            cbLugar.Items.Add("Laboratorio 2");
+            cbLugar.Items.Add("Aula");
+
+            cbCiclo.Items.Add("I Ciclo");
+            cbCiclo.Items.Add("II Ciclo");
+
+            cbEstado.Items.Add("Activo");
+            cbEstado.Items.Add("Inactivo");
+
+            cbModalidad.Items.Add("Presencial");
+            cbModalidad.Items.Add("Virtual");
         }
+
         public void mLimpiar()
         {
             txtSigla.Text = "";
             txtNombre.Text = "";
-            cbLugar.Text = "";
-            txtCiclo.Text = "";
+            cbLugar.Items.Clear();
+            cbCiclo.Items.Clear();
             numCreditos.Value = 0;
-            cbEstado.Text = "";
+            cbEstado.Items.Clear();
             numTotalHoras.Value = 0;
-            cbModalidad.Text = "";
+            cbModalidad.Items.Clear();
             lbNombrePrograma.Text = "";
             btnModificar.Enabled = false;
             txtSigla.ReadOnly = false;
@@ -326,6 +347,7 @@ namespace Vista
                 return true;
             }return false;
         }
+
         public Boolean mVerificarExisteCoRequisito()
         {
             if (dgvCorrequisitos.Rows.Count > 0)
@@ -333,6 +355,28 @@ namespace Vista
                 return true;
             }
             return false;
+        }
+
+        private void btnEliminarRequisito_Click(object sender, EventArgs e)
+        {
+            dgvRequisitos.Rows.RemoveAt(itemSeleccion(dgvRequisitos)); 
+        }
+
+        public int itemSeleccion(DataGridView dgv) //Usar solo 1 método
+        {
+            for (int i = 0; i < dgv.Rows.Count; i++)
+            {
+                if (dgv.SelectedRows[i].Selected)
+                {
+                    return dgv.SelectedRows[i].Index;
+                }
+            }
+            return -1;
+        }
+
+        private void btnEliminarCorrequisito_Click(object sender, EventArgs e)
+        {
+            dgvCorrequisitos.Rows.RemoveAt(itemSeleccion(dgvCorrequisitos));
         }
 
         public Boolean mAgregarRequisitoCurso()

@@ -26,11 +26,22 @@ namespace LogicaNegocios
         public Boolean mModificarCoRequisitoCurso(clConexion conexion, clEntidadCoRequisitoCurso pEntidadCoRequisitoCurso)
         {
 
-            sentencia = "update tbCorrequisitosCurso set idCurso = '" + pEntidadCoRequisitoCurso.mIdCurso + "', idCursoCorr = '" + pEntidadCoRequisitoCurso.mIdCursoCoRequisito + "' ";
+            sentencia = "update tbCorrequisitosCurs set idCurso = '" + pEntidadCoRequisitoCurso.mIdCurso + "', idCursoCorr = '" + pEntidadCoRequisitoCurso.mIdCursoCoRequisito + "' ";
             return conexion.mEjecutar(sentencia, conexion);
         }
 
+        public SqlDataReader mConsultarCoRequisitoCurso(clConexion conexion, clEntidadCoRequisitoCurso pEntidad)
+        {
+            sentencia = "select idCurso,idCursoCorr from tbCorrequisitosCurs where idCurso='" + pEntidad.mIdCurso + "' ";
+            return conexion.mSeleccionar(sentencia, conexion);
+        }
 
+        public SqlDataReader mConsultarCoRequisitoCursoPorId(clConexion conexion, clEntidadCoRequisitoCurso pEntidad)
+        {
+            sentencia = "select idCurso from tbCorrequisitosCurs where idCurso='" + pEntidad.mIdCurso + "'  ";
+            return conexion.mSeleccionar(sentencia, conexion);
+        }
+        
 
         #endregion
     }
