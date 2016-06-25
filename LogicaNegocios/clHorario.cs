@@ -18,7 +18,11 @@ namespace LogicaNegocios
             sentencia = "select c.sigla, h.dia, h.horaInic, h.horaSali from tbHorarios h, tbHorariosGrupCurs hg, tbCursos c, tbGruposCurs gc where h.idHorario = hg.idHorario and c.idCurso = gc.idCurso and gc.idGrupo = hg.idGrupo";
             return conexion.mSeleccionar(sentencia,conexion);
         }
-
+        public SqlDataReader mConsultarHorarioLaboratorio(clConexion conexion, clEntidadHorario pEntidadHorario, string laboratorio)
+        {
+            sentencia = "select c.sigla, h.dia, h.horaInic, h.horaSali from tbHorarios h, tbHorariosGrupCurs hg, tbCursos c, tbGruposCurs gc where h.idHorario = hg.idHorario and c.idCurso = gc.idCurso and gc.idGrupo = hg.idGrupo and c.lugar='"+laboratorio+"'";
+            return conexion.mSeleccionar(sentencia, conexion);
+        }
         public SqlDataReader mConsultarIdHorario(clConexion conexion)
         {
             sentencia = "select idHorario from tbHorarios'";

@@ -37,6 +37,7 @@ namespace Vista
             horas = new ArrayList();
             llenarHoras();
         }
+        //Este método inicia variables timespan, para comprarlas con las horas de los cursos y así ubicarlos es en DGV
         public void llenarHoras()
         {
             for (int i = 7; i < 23; i++)
@@ -45,27 +46,23 @@ namespace Vista
             }
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
 
-        }
-
-        private void btnConsultar_Click(object sender, EventArgs e)
+        //Este método coloca los cursos en el DGV, dependiendo de su hora y día
+        public void mHorarioLaboratorio()
         {
-          
-            dtrHorario = horario.mConsultarHorarios(conexion,entidadHorario);
+            dtrHorario = horario.mConsultarHorarioLaboratorio(conexion, entidadHorario, cbLaboratorio.Text);
             if (dtrHorario != null)
-               while (dtrHorario.Read())
-                {        
-                    int reglon=0;
-                    for (int i= Convert.ToInt32(dtrHorario.GetTimeSpan(3).Subtract(dtrHorario.GetTimeSpan(2)).Hours); i > 0; i--)
-                    {                                                               
+                while (dtrHorario.Read())
+                {
+                    int reglon = 0;
+                    for (int i = Convert.ToInt32(dtrHorario.GetTimeSpan(3).Subtract(dtrHorario.GetTimeSpan(2)).Hours); i > 0; i--)
+                    {
                         if (dtrHorario.GetTimeSpan(2) == (TimeSpan)horas[1])
                         {
                             reglon++;
                             dgvLaboratorio.Rows[reglon].Cells[dtrHorario.GetString(1)].Value = dtrHorario.GetString(0);
                         }
-                        
+
                         if (dtrHorario.GetTimeSpan(2) == (TimeSpan)horas[6])
                         {
                             reglon += 6;
@@ -82,20 +79,25 @@ namespace Vista
                     }
 
                 }
-                else
-                {
-                    MessageBox.Show("No hay horarios","NOT FOUND", MessageBoxButtons.OK,MessageBoxIcon.Information);
-                }
-        }      
-
+            else
+            {
+                MessageBox.Show("No hay horarios", "NOT FOUND", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+         
         private void frmReporteLaboratorios_Load(object sender, EventArgs e)
         {
+            mLlenarHorasDgv();
+        }
+        //Este método coloca las horas en el DGV, para posteriormente ubicar los cursos en su respectiva hora
+        public void mLlenarHorasDgv()
+        {
             int posicionGrid = 0;
-            for(int i=7; i < 23; i++)
+            for (int i = 7; i < 23; i++)
             {
                 posicionGrid = dgvLaboratorio.Rows.Add();
-                dgvLaboratorio.Rows[posicionGrid].Cells["Hora"].Value =i+":00";
-                
+                dgvLaboratorio.Rows[posicionGrid].Cells["Hora"].Value = i + ":00";
+
             }
         }
 
@@ -103,6 +105,13 @@ namespace Vista
         {
             this.Hide();
             menu.Show();
+        }
+
+        private void cbLaboratorio_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            dgvLaboratorio.Rows.Clear();
+            mLlenarHorasDgv();
+            mHorarioLaboratorio();
         }
     }
 }
