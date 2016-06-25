@@ -239,24 +239,7 @@ namespace Vista
 
         }
 
-        private void btnConsultar_Click_2(object sender, EventArgs e)
-        {
-
-            frmConsultarCurso consultarCurso = new frmConsultarCurso(this);
-            consultarCurso.Show();
-            //mConsultaCodigo();
-
-            //if (consultarCurso.seleccionCurso() == true)
-            //{
-
-            //    if (consultarCurso.mIdCurso() != "")
-            //    {
-            //        clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(consultarCurso.mIdCurso());
-            //        txtIdGrupo.Text = consultarCurso.mIdCurso();
-            //        mConsultaCodigo();
-            //    }
-            //}
-        }
+ 
 
         private void btnAgregar_Click_2(object sender, EventArgs e)
         {
@@ -381,6 +364,25 @@ namespace Vista
 
             }
 
+        }
+
+        private void btnConsultar_Click_2(object sender, EventArgs e)
+        {
+
+            frmConsultarCurso consultarCurso = new frmConsultarCurso(this);
+            consultarCurso.Show();
+            mConsultaCodigo();
+
+            if (consultarCurso.seleccionCurso() == true)
+            {
+
+                if (consultarCurso.mIdCurso() != "")
+                {
+                    clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(consultarCurso.mIdCurso());
+                    txtIdGrupo.Text = consultarCurso.mIdCurso();
+                    mConsultaCodigo();
+                }
+            }
         }
     }
 }

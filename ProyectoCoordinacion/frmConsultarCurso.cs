@@ -48,9 +48,9 @@ namespace Vista
                     this.frmCurso = menuP;
                 }else
                 {
-                    if (objeto is frmConsultarCurso)
+                    if (objeto is frmGrupoCurso)
                     {
-                        frmConsultarCurso menuP = (frmConsultarCurso)objeto;
+                        frmGrupoCurso menuP = (frmGrupoCurso)objeto;
                         this.menu = menuP;
                         
                     }
