@@ -27,7 +27,7 @@ namespace Vista
         clConexion conexion;
         Object objeto;
         frmConsultarCurso consultarCurso;
-        
+
 
         public frmGrupoCurso()
         {
@@ -46,10 +46,10 @@ namespace Vista
         {
             frmConsultarCurso consultaCurso = new frmConsultarCurso(menu);
             consultaCurso.Show();
-            
-          if (consultaCurso.mIdCurso() != "")
+
+            if (consultaCurso.mIdCurso() != "")
             {
-                clEntidadGrupoCurso.getSetIdCurso= Convert.ToInt32(consultaCurso.mIdCurso());
+                clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(consultaCurso.mIdCurso());
                 txtIdGrupo.Text = consultaCurso.mIdCurso();
                 mConsultaCodigo();
             }
@@ -64,7 +64,7 @@ namespace Vista
                 if (strSentencia.Read())//si existe
                 {
                     this.txtIdGrupo.Text = strSentencia.GetString(1);
-                  
+
                 }//Fin del if si existe
 
             }//Fin del if dtrEstudiante!=null
@@ -92,7 +92,7 @@ namespace Vista
         {
             txtIdGrupo.Text = "";
             txtNumeroGrupo.Text = "";
-            numCupoActual.Value =0;
+            numCupoActual.Value = 0;
             numCupoMaximo.Value = 0;
             numCupoMinimo.Value = 0;
             txtDia.Text = "";
@@ -115,7 +115,7 @@ namespace Vista
 
         public Boolean mVerificarDatosGrupo()
         {
-          if ((txtNumeroGrupo.Text != "") & (txtIdGrupo.Text != "") & (numCupoMaximo.Text != "") & (numCupoMinimo.Text != "") & (numCupoActual.Text != ""))
+            if ((txtNumeroGrupo.Text != "") & (txtIdGrupo.Text != "") & (numCupoMaximo.Text != "") & (numCupoMinimo.Text != "") & (numCupoActual.Text != ""))
             {
                 return true;
             }
@@ -123,7 +123,7 @@ namespace Vista
         }
 
 
-      
+
 
         public void mModificarGrupo()
         {
@@ -159,8 +159,8 @@ namespace Vista
         }
 
 
-      
-              public void mAgregarGrupo()
+
+        public void mAgregarGrupo()
         {
             if (mVerificarDatosGrupo() == true)
             {
@@ -197,7 +197,7 @@ namespace Vista
 
         private void btnModificar_Click_1(object sender, EventArgs e)
         {
-            mModificarGrupo();  
+            mModificarGrupo();
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
@@ -208,15 +208,15 @@ namespace Vista
         private void btnConsultar_Click_1(object sender, EventArgs e)
         {
 
-            
+
 
 
         }
 
         public void mConsultaCodigo()
         {
-           
-           
+
+
 
             strSentencia = clGrupoCurso.mConsultaCodigo(conexion, clEntidadGrupoCurso);
             if (strSentencia != null)
@@ -296,7 +296,7 @@ namespace Vista
                 clEntidadHorario.mHoraInicio = txtHoraInicio.Text;
                 clEntidadHorario.mHoraSalida = txtHoraFinal.Text;
 
-                if (txtDia.Text != clEntidadHorario.mDia && txtHoraInicio.Text!=clEntidadHorario.mHoraInicio && txtHoraFinal.Text!= clEntidadHorario.mHoraSalida)
+                if (txtDia.Text != clEntidadHorario.mDia && txtHoraInicio.Text != clEntidadHorario.mHoraInicio && txtHoraFinal.Text != clEntidadHorario.mHoraSalida)
                 {
                     if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
                     {
@@ -361,7 +361,7 @@ namespace Vista
         private void btnAgregarTabla_Click(object sender, EventArgs e)
         {
             mAgregarDatosLista();
-    }
+        }
 
         public void mAgregarDatosLista()
         {
@@ -381,4 +381,6 @@ namespace Vista
 
             }
 
+        }
+    }
 }
