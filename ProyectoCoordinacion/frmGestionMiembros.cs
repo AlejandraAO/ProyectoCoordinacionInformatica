@@ -54,7 +54,7 @@ namespace Vista
         {
             string idProyecto;
 
-            if (mVerificarCampos())
+            if (mVerificarCampos() && mConsultarPorCarnetExiste()== false)
             {
 
                 conexion.codigo = "123";
@@ -180,7 +180,7 @@ namespace Vista
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+            mConsultarPorCarnet();
         }
 
         private void btnBuscarProyecto_Click(object sender, EventArgs e)
@@ -223,6 +223,26 @@ namespace Vista
             }
 
         }
+        public Boolean mConsultarPorCarnetExiste()
+        {
+            pEntidadMiembro.getSetCarnetMiembro = txtCarnet.Text;
+
+            dtrMiembro = miembros.mConsultarMiembroCarnee(conexion, pEntidadMiembro);
+            if(dtrMiembro!= null && dtrMiembro.Read())
+            {
+                mLimpiarCampos();
+                MessageBox.Show("No es posible agregar dos miembros con el mismo carné", "Miembro Encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
+
+
         public void mConsultarPorCarnet()
         {
             pEntidadMiembro.getSetCarnetMiembro = txtCarnet.Text;
