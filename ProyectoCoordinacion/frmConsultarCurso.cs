@@ -168,6 +168,19 @@ namespace Vista
 
         private void dgvDetalleCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            
+                for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
+                {
+                if (dgvDetalleCursos.Rows[i].Selected)
+                {
+                    {
+
+                        curso = Convert.ToString(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
+                    }
+                }
+            }
+
             if (dgvDetalleCursos.CurrentCell.ColumnIndex == 8)
             {
                 FolderBrowserDialog carpetaSeleccionada = new FolderBrowserDialog();
@@ -188,17 +201,7 @@ namespace Vista
                         }
                 }
             }
-            else
-            {
-                for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
-                {
-                    if (dgvDetalleCursos.Rows[i].Selected)
-                    {
-                        
-                        curso = Convert.ToString(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
-                    }
-                }
-            }
+           
             
         }
 
