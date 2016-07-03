@@ -339,18 +339,31 @@ namespace Vista
         {
 
 
-            if (mVerificarDatosHorario() == true)
-            {
-                for (int i = 0; i < lvHorarios.Items.Count; i++)
+            for (int i = 0; i < lvHorarios.Items.Count; i++)
 
-                    if (lvHorarios.Items[i].Selected)
+                if (lvHorarios.Items[i].Selected)
+                {
+                    cboDia.Text = clEntidadHorario.mDia;
+                    cboHoraInicio.Text = clEntidadHorario.mHoraInicio;
+                    cboHoraFinal.Text = clEntidadHorario.mHoraSalida;
 
-                conexion.codigo = "123";
-                conexion.clave = "123";
+                    if (mVerificarDatosHorario() == true)
+                    {
 
-                clEntidadHorario.mDia = cboDia.Text;
-                clEntidadHorario.mHoraInicio = cboHoraInicio.Text;
-                clEntidadHorario.mHoraSalida = cboHoraFinal.Text;
+
+                        conexion.codigo = "123";
+                        conexion.clave = "123";
+
+                        clEntidadHorario.mDia = cboDia.Text;
+                        clEntidadHorario.mHoraInicio = cboHoraInicio.Text;
+                        clEntidadHorario.mHoraSalida = cboHoraFinal.Text;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    }
+                }
+                    
 
                 if (clHorario.mModificarHorario(conexion, clEntidadHorario))
                 {
@@ -360,14 +373,7 @@ namespace Vista
                 {
                     MessageBox.Show("No se ha podido modificar el horario", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
-            }
-            else
-            {
-                MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
-
-
-
+            
         }
 
         private void btnModifcarHorario_Click(object sender, EventArgs e)
@@ -415,16 +421,13 @@ namespace Vista
             frmConsultarCurso consultarCurso = new frmConsultarCurso(this);
             consultarCurso.Show();
 
-         //   if (consultarCurso.seleccionCurso() == true)
-           // {
-
                 if (consultarCurso.mIdCurso() != "")
                 {
                     clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(consultarCurso.mIdCurso());
                     txtIdGrupo.Text = consultarCurso.mIdCurso();
                     mConsultaCodigo();
                 }
-            //}
+           
         }
 
         private void lvHorarios_SelectedIndexChanged(object sender, EventArgs e)
