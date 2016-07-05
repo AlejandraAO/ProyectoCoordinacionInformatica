@@ -26,7 +26,7 @@ namespace LogicaNegocios
         public Boolean mModificarGrupoCurso(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {
 
-            strSentencia = "update tbGruposCurs set idGrupo = '" + pEntidadGrupoCurso.getsetIdGrupo + "', numeroGrup = '" + pEntidadGrupoCurso.getSetNumeroGrup + "', cupoMaximo ='" + pEntidadGrupoCurso.getSetCupoMaximo + "', cupoMinimo='" + pEntidadGrupoCurso.getSetCupoMinimo + "', cupoActual='" + pEntidadGrupoCurso.getSetCupoActual + "' where idGrupo='" + pEntidadGrupoCurso.getsetIdGrupo + "'";
+            strSentencia = "update tbGruposCurs set numeroGrup = '" + pEntidadGrupoCurso.getSetNumeroGrup + "', cupoMaximo ='" + pEntidadGrupoCurso.getSetCupoMaximo + "', cupoMinimo='" + pEntidadGrupoCurso.getSetCupoMinimo + "', cupoActual='" + pEntidadGrupoCurso.getSetCupoActual + "' where idGrupo='" + pEntidadGrupoCurso.getsetIdGrupo + "'";
             return conexion.mEjecutar(strSentencia, conexion);
         }
 
@@ -35,6 +35,7 @@ namespace LogicaNegocios
             strSentencia = "select idGrupo, numeroGrup, cupoMaximo, cupoMinimo, cupoActual from tbGruposCurs";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
+        
 
         public SqlDataReader mConsultaCodigo(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {
