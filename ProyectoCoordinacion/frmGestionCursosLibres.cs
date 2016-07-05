@@ -155,6 +155,7 @@ namespace Vista
             this.conexion.codigo = "sa";
             this.conexion.clave = "ucr2016";
             this.conexion.baseDatos = "BDPortafolioUCR";
+            
         }
         #endregion
         #region Buscar Curso
@@ -193,7 +194,9 @@ namespace Vista
             this.txtNombre.Text = "";
             this.txtLugar.Text = "";
             this.txtProfesor.Text = "";
-            this.cbEstado.Text = "";
+            this.cbEstado.Items.Clear();
+            this.cbEstado.Items.Add("Activo");
+            this.cbEstado.Items.Add("Inactivo");
             this.lbNombrePrograma.Text = "Nombre del Archivo";
             this.rtDescripcion.Text = "";
             this.numCupo.Value = 0;
@@ -265,8 +268,8 @@ namespace Vista
             return exitoso;
 
         }
-        #endregion
 
-       
+
+        #endregion
     }
 }
