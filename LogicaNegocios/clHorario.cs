@@ -42,5 +42,17 @@ namespace LogicaNegocios
             sentencia = "update tbGruposCurs set dia = '" + pEntidadHorario.mDia + "', horaInic = '" + pEntidadHorario.mHoraInicio + "', horaSali ='" + pEntidadHorario.mHoraSalida+"' ";
             return conexion.mEjecutar(sentencia, conexion);
         }
+
+        public SqlDataReader mConsultarHorarioProfesor(clConexion conexion, int idProfesor)
+        {
+            sentencia= "select c.sigla, h.dia, h.horaInic, h.horaSali from tbProfesores p, tbProfesoresGrupCurs pg, tbHorarios h, tbHorariosGrupCurs hg, tbCursos c, tbGruposCurs gc where h.idHorario = hg.idHorario and c.idCurso = gc.idCurso and gc.idGrupo = hg.idGrupo and pg.idGrupo=gc.idGrupo and pg.idProfesor=p.idProfesor and p.idProfesor='"+idProfesor+"'";
+            return conexion.mSeleccionar(sentencia,conexion);
+        }
+
+        public SqlDataReader mConsultarProfesores(clConexion conexion)
+        {
+            sentencia = "select idProfesor,nombre,apaellido1,apellido2 from tbProfesores";
+            return conexion.mSeleccionar(sentencia, conexion);
+        }
     }
 }
