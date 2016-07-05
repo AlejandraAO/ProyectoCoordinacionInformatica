@@ -10,28 +10,38 @@ using System.Windows.Forms;
 
 using AccesoDatos;
 using LogicaNegocios;
+using Entidades;
 using System.Data.SqlClient;
 
 
 namespace Vista
 {
-    public partial class frmConsultaRapProyecto : Form
+    public partial class frmAsignarMiembroAProyecto : Form
     {
 
         #region Atributos
         private SqlDataReader dataReaderProyecto;
         private clConexion conexion;
+
         private clProyecto proyecto;
+
+        private clMiembroProyecto miembroProyecto;
+        private clEntidadMiembroProyecto pEntidadMiembroProyecto;
+
         private string codigoProyecto;
         private Boolean selecionarProyecto;
-        
+
         #endregion
 
-        public frmConsultaRapProyecto(clConexion conexion)
+        public frmAsignarMiembroAProyecto(clConexion conexion)
         {
             selecionarProyecto = false;
             this.conexion= conexion;
             proyecto = new clProyecto();
+
+            miembroProyecto = new clMiembroProyecto();
+            pEntidadMiembroProyecto = new clEntidadMiembroProyecto();
+
             InitializeComponent();
         }
 
@@ -53,13 +63,33 @@ namespace Vista
         public void mCargarlistViewproyecto()
         {
             dataReaderProyecto = proyecto.mConsultaGeneralProyectos(conexion);
+            
             if (dataReaderProyecto != null)
             {
                 while (dataReaderProyecto.Read())
                 {
-                    ListViewItem item = new ListViewItem(Convert.ToString(dataReaderProyecto.GetInt32(0)));
-                    item.SubItems.Add(dataReaderProyecto.GetString(1));
-                    lvProyectosGeneral.Items.Add(item);
+                    bool proyAsignado = false;
+                   
+
+                    for (int i = 0; i < lvProyectosAsignados.Items.Count; i++)
+                    {
+                        if (dataReaderProyecto.GetInt32(0) == Convert.ToInt32(lvProyectosAsignados.Items[i].Text))
+                        {
+                            proyAsignado = true;
+                            break;
+                           
+                        }
+                    }
+
+                    if (!proyAsignado)
+                    {
+                        ListViewItem item = new ListViewItem(Convert.ToString(dataReaderProyecto.GetInt32(0)));
+                        item.SubItems.Add(dataReaderProyecto.GetString(1));
+                        lvProyectosGeneral.Items.Add(item);
+
+                    }
+
+
                 }
             }
         }
@@ -68,7 +98,7 @@ namespace Vista
         {
 
             if (!selecionarProyecto) {
-
+               
                 mCargarlistViewproyecto();
                 selecionarProyecto =true;
             }
@@ -175,19 +205,116 @@ namespace Vista
             this.selecionarProyecto = false;
         }
 
-        public void listaProyectoAsignadosCarnet(int idMiembro)
+        public void cargarProyectosAsignados(int idMiembro)
         {
-            dataReaderProyecto = proyecto.mSelecccionarMiembroProyecto(conexion, idMiembro);
-            if (dataReaderProyecto!=null)
+            pEntidadMiembroProyecto.mIdMiembro = idMiembro;
+
+            dataReaderProyecto = miembroProyecto.mSeleccionarProyAsigAMiemb(conexion, pEntidadMiembroProyecto);
+
+            if (dataReaderProyecto != null)
             {
-                if (dataReaderProyecto.Read())
+                while (dataReaderProyecto.Read())
                 {
-                    ListViewItem lista = new ListViewItem();
-                    lista.SubItems.Add(Convert.ToString(dataReaderProyecto.GetInt32(0)));
-                    lista.SubItems.Add(Convert.ToString(dataReaderProyecto.GetInt32(1)));
-                    lvProyectosAsignados.Items.Add(lista);
+                    ListViewItem item = new ListViewItem(Convert.ToString(dataReaderProyecto.GetInt32(0)));
+                    item.SubItems.Add(dataReaderProyecto.GetString(1));
+                    lvProyectosAsignados.Items.Add(item);
+
+                  
+                        
+
                 }
             }
+        }
+        public void DescartarProyectos(int idMiembro)
+        {
+            
+            //Extraemos los proy asignados antes de la modificacion para
+            //compararlos con los que se encuentran actualmente en el lv
+            bool proyElim=true;
+            pEntidadMiembroProyecto.mIdMiembro = idMiembro;
+
+            dataReaderProyecto = miembroProyecto.mSeleccionarProyAsigAMiemb(conexion, pEntidadMiembroProyecto);
+
+            if (dataReaderProyecto != null)
+            {
+
+                while (dataReaderProyecto.Read())
+                {
+                    proyElim = true;
+
+                    for (int i = 0; i < lvProyectosAsignados.Items.Count; i++)
+                    {
+
+                        if (Convert.ToInt32(lvProyectosAsignados.Items[i].Text) == dataReaderProyecto.GetInt32(0))
+                        {
+                            proyElim = false;
+                            break;
+                        }
+                    }
+
+                    if (proyElim)
+                    {
+                     pEntidadMiembroProyecto.mIdProyecto = dataReaderProyecto.GetInt32(0);
+                     miembroProyecto.mEliminar(conexion, pEntidadMiembroProyecto);
+
+
+
+                    }
+                }
+            }
+
+        }
+
+        public void asignarNuevosProyectos(int idMiembro)
+        {
+           
+            pEntidadMiembroProyecto.mIdMiembro = idMiembro;
+
+            for (int i = 0; i < lvProyectosAsignados.Items.Count; i++)
+            {
+
+                bool asignarProy = true;
+
+                dataReaderProyecto = miembroProyecto.mSeleccionarProyAsigAMiemb(conexion, pEntidadMiembroProyecto);
+
+                if (dataReaderProyecto != null)
+                {
+
+                    while (dataReaderProyecto.Read())
+                    {
+                        if (Convert.ToInt32(lvProyectosAsignados.Items[i].Text) == dataReaderProyecto.GetInt32(0))
+                        {
+                            asignarProy = false;
+                            break;
+                        }
+                    }
+
+                    if (asignarProy)
+                    {
+                        pEntidadMiembroProyecto.mIdProyecto = Convert.ToInt32(lvProyectosAsignados.Items[i].Text);
+
+                        miembroProyecto.mInsertarMiembroProyecto(conexion, pEntidadMiembroProyecto);
+
+                        break;
+                    }
+                }
+
+               
+            }
+        }
+
+        public void modificarProyectosAsignados(int idMiembro)
+        {
+            //Descartar proyectos
+            DescartarProyectos( idMiembro);
+
+            //Asignar Proyecto
+            asignarNuevosProyectos(idMiembro);
+
+
+
+
+
         }
 
     }

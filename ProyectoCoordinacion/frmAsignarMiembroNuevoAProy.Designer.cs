@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class frmConsultaRapProyecto
+    partial class frmAsignarMiembroAProyecto
     {
         /// <summary>
         /// Required designer variable.

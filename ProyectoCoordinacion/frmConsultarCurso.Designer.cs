@@ -34,7 +34,6 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.txtDatoConsulta = new System.Windows.Forms.TextBox();
             this.dgvDetalleCursos = new System.Windows.Forms.DataGridView();
-            this.btnAgregarALista = new System.Windows.Forms.Button();
             this.idCurso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Sigla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +44,7 @@
             this.TotalHoras = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Modalidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Programa = new System.Windows.Forms.DataGridViewLinkColumn();
+            this.btnAgregarALista = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleCursos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -147,24 +147,7 @@
             this.dgvDetalleCursos.Size = new System.Drawing.Size(946, 317);
             this.dgvDetalleCursos.TabIndex = 34;
             this.dgvDetalleCursos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleCursos_CellContentClick);
-            // 
-            // btnAgregarALista
-            // 
-            this.btnAgregarALista.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAgregarALista.Enabled = false;
-            this.btnAgregarALista.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAgregarALista.FlatAppearance.BorderSize = 2;
-            this.btnAgregarALista.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnAgregarALista.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnAgregarALista.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarALista.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarALista.Location = new System.Drawing.Point(32, 553);
-            this.btnAgregarALista.Name = "btnAgregarALista";
-            this.btnAgregarALista.Size = new System.Drawing.Size(136, 37);
-            this.btnAgregarALista.TabIndex = 32;
-            this.btnAgregarALista.Text = "Agregar a la lista";
-            this.btnAgregarALista.UseVisualStyleBackColor = false;
-            this.btnAgregarALista.Click += new System.EventHandler(this.btnAgregarALista_Click);
+            this.dgvDetalleCursos.RowHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvDetalleCursos_RowHeaderMouseClick);
             // 
             // idCurso
             // 
@@ -226,6 +209,24 @@
             this.Programa.HeaderText = "Programa";
             this.Programa.Name = "Programa";
             this.Programa.ReadOnly = true;
+            // 
+            // btnAgregarALista
+            // 
+            this.btnAgregarALista.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAgregarALista.Enabled = false;
+            this.btnAgregarALista.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarALista.FlatAppearance.BorderSize = 2;
+            this.btnAgregarALista.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnAgregarALista.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarALista.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAgregarALista.ForeColor = System.Drawing.Color.Black;
+            this.btnAgregarALista.Location = new System.Drawing.Point(32, 553);
+            this.btnAgregarALista.Name = "btnAgregarALista";
+            this.btnAgregarALista.Size = new System.Drawing.Size(136, 37);
+            this.btnAgregarALista.TabIndex = 32;
+            this.btnAgregarALista.Text = "Agregar a la lista";
+            this.btnAgregarALista.UseVisualStyleBackColor = false;
+            this.btnAgregarALista.Click += new System.EventHandler(this.btnAgregarALista_Click);
             // 
             // frmConsultarCurso
             // 
