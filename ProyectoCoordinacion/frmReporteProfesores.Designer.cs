@@ -36,6 +36,8 @@
             this.jueves = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.viernes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sabado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lbNombreProfesor = new System.Windows.Forms.Label();
+            this.cbProfesor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteProfesor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,7 +52,7 @@
             this.jueves,
             this.viernes,
             this.sabado});
-            this.dgvReporteProfesor.Location = new System.Drawing.Point(149, 88);
+            this.dgvReporteProfesor.Location = new System.Drawing.Point(35, 66);
             this.dgvReporteProfesor.Name = "dgvReporteProfesor";
             this.dgvReporteProfesor.ReadOnly = true;
             this.dgvReporteProfesor.Size = new System.Drawing.Size(743, 301);
@@ -99,17 +101,42 @@
             this.sabado.Name = "sabado";
             this.sabado.ReadOnly = true;
             // 
+            // lbNombreProfesor
+            // 
+            this.lbNombreProfesor.AutoSize = true;
+            this.lbNombreProfesor.BackColor = System.Drawing.Color.Transparent;
+            this.lbNombreProfesor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbNombreProfesor.ForeColor = System.Drawing.Color.White;
+            this.lbNombreProfesor.Location = new System.Drawing.Point(32, 24);
+            this.lbNombreProfesor.Name = "lbNombreProfesor";
+            this.lbNombreProfesor.Size = new System.Drawing.Size(151, 18);
+            this.lbNombreProfesor.TabIndex = 45;
+            this.lbNombreProfesor.Text = "Nombre del profesor";
+            // 
+            // cbProfesor
+            // 
+            this.cbProfesor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProfesor.FormattingEnabled = true;
+            this.cbProfesor.Location = new System.Drawing.Point(189, 24);
+            this.cbProfesor.Name = "cbProfesor";
+            this.cbProfesor.Size = new System.Drawing.Size(121, 21);
+            this.cbProfesor.TabIndex = 44;
+            // 
             // frmReporteProfesores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(904, 401);
+            this.ClientSize = new System.Drawing.Size(851, 390);
+            this.Controls.Add(this.lbNombreProfesor);
+            this.Controls.Add(this.cbProfesor);
             this.Controls.Add(this.dgvReporteProfesor);
             this.Name = "frmReporteProfesores";
             this.Text = "frmReporteProfesores";
+            this.Load += new System.EventHandler(this.frmReporteProfesores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteProfesor)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -123,5 +150,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn jueves;
         private System.Windows.Forms.DataGridViewTextBoxColumn viernes;
         private System.Windows.Forms.DataGridViewTextBoxColumn sabado;
+        private System.Windows.Forms.Label lbNombreProfesor;
+        private System.Windows.Forms.ComboBox cbProfesor;
     }
 }
