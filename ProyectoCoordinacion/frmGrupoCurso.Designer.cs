@@ -42,7 +42,6 @@
             this.lbIdCurso = new System.Windows.Forms.Label();
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lbCupoActual = new System.Windows.Forms.Label();
-            this.txtNumeroGrupo = new System.Windows.Forms.TextBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.txtIdGrupo = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
@@ -63,6 +62,7 @@
             this.lbHoraFinal = new System.Windows.Forms.Label();
             this.txtIdHorario = new System.Windows.Forms.TextBox();
             this.lbHoraInicio = new System.Windows.Forms.Label();
+            this.cboNumeroGrupo = new System.Windows.Forms.ComboBox();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoMinimo)).BeginInit();
@@ -98,6 +98,7 @@
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox.Controls.Add(this.cboNumeroGrupo);
             this.groupBox.Controls.Add(this.numCupoActual);
             this.groupBox.Controls.Add(this.numCupoMinimo);
             this.groupBox.Controls.Add(this.numCupoMaximo);
@@ -106,7 +107,6 @@
             this.groupBox.Controls.Add(this.lbIdCurso);
             this.groupBox.Controls.Add(this.btnConsultar);
             this.groupBox.Controls.Add(this.lbCupoActual);
-            this.groupBox.Controls.Add(this.txtNumeroGrupo);
             this.groupBox.Controls.Add(this.btnModificar);
             this.groupBox.Controls.Add(this.txtIdGrupo);
             this.groupBox.Controls.Add(this.btnAgregar);
@@ -214,13 +214,6 @@
             this.lbCupoActual.Size = new System.Drawing.Size(92, 18);
             this.lbCupoActual.TabIndex = 48;
             this.lbCupoActual.Text = "Cupo Actual";
-            // 
-            // txtNumeroGrupo
-            // 
-            this.txtNumeroGrupo.Location = new System.Drawing.Point(140, 102);
-            this.txtNumeroGrupo.Name = "txtNumeroGrupo";
-            this.txtNumeroGrupo.Size = new System.Drawing.Size(146, 26);
-            this.txtNumeroGrupo.TabIndex = 40;
             // 
             // btnModificar
             // 
@@ -470,6 +463,17 @@
             this.lbHoraInicio.TabIndex = 46;
             this.lbHoraInicio.Text = "Hora Inicio";
             // 
+            // cboNumeroGrupo
+            // 
+            this.cboNumeroGrupo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboNumeroGrupo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboNumeroGrupo.ForeColor = System.Drawing.Color.Black;
+            this.cboNumeroGrupo.FormattingEnabled = true;
+            this.cboNumeroGrupo.Location = new System.Drawing.Point(140, 102);
+            this.cboNumeroGrupo.Name = "cboNumeroGrupo";
+            this.cboNumeroGrupo.Size = new System.Drawing.Size(81, 25);
+            this.cboNumeroGrupo.TabIndex = 59;
+            // 
             // frmGrupoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -516,7 +520,6 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtNumeroGrupo;
         private System.Windows.Forms.TextBox txtIdGrupo;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbHoraFinal;
@@ -534,5 +537,6 @@
         private System.Windows.Forms.ComboBox cboDia;
         private System.Windows.Forms.ComboBox cboHoraInicio;
         private System.Windows.Forms.ComboBox cboHoraFinal;
+        private System.Windows.Forms.ComboBox cboNumeroGrupo;
     }
 }
