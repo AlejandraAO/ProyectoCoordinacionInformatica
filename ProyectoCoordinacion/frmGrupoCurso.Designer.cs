@@ -53,7 +53,6 @@
             this.cboHoraInicio = new System.Windows.Forms.ComboBox();
             this.cboHoraFinal = new System.Windows.Forms.ComboBox();
             this.cboDia = new System.Windows.Forms.ComboBox();
-            this.btnAgregarTabla = new System.Windows.Forms.Button();
             this.btnModifcarHorario = new System.Windows.Forms.Button();
             this.lvHorarios = new System.Windows.Forms.ListView();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -65,6 +64,7 @@
             this.lbHoraFinal = new System.Windows.Forms.Label();
             this.txtIdHorario = new System.Windows.Forms.TextBox();
             this.lbHoraInicio = new System.Windows.Forms.Label();
+            this.bntLimpiar = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoMinimo)).BeginInit();
@@ -100,6 +100,7 @@
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox.Controls.Add(this.bntLimpiar);
             this.groupBox.Controls.Add(this.btnConsultaGeneral);
             this.groupBox.Controls.Add(this.cboNumeroGrupo);
             this.groupBox.Controls.Add(this.numCupoActual);
@@ -126,14 +127,13 @@
             // btnConsultaGeneral
             // 
             this.btnConsultaGeneral.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnConsultaGeneral.Enabled = false;
             this.btnConsultaGeneral.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnConsultaGeneral.FlatAppearance.BorderSize = 2;
             this.btnConsultaGeneral.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
             this.btnConsultaGeneral.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnConsultaGeneral.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultaGeneral.ForeColor = System.Drawing.Color.Black;
-            this.btnConsultaGeneral.Location = new System.Drawing.Point(215, 372);
+            this.btnConsultaGeneral.Location = new System.Drawing.Point(241, 95);
             this.btnConsultaGeneral.Name = "btnConsultaGeneral";
             this.btnConsultaGeneral.Size = new System.Drawing.Size(82, 37);
             this.btnConsultaGeneral.TabIndex = 60;
@@ -309,7 +309,6 @@
             this.groupBox1.Controls.Add(this.cboHoraInicio);
             this.groupBox1.Controls.Add(this.cboHoraFinal);
             this.groupBox1.Controls.Add(this.cboDia);
-            this.groupBox1.Controls.Add(this.btnAgregarTabla);
             this.groupBox1.Controls.Add(this.btnModifcarHorario);
             this.groupBox1.Controls.Add(this.lvHorarios);
             this.groupBox1.Controls.Add(this.lbDia);
@@ -325,11 +324,11 @@
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de Horarios";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnConsultarHorarios
             // 
             this.btnConsultarHorarios.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnConsultarHorarios.Enabled = false;
             this.btnConsultarHorarios.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.btnConsultarHorarios.FlatAppearance.BorderSize = 2;
             this.btnConsultarHorarios.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
@@ -377,24 +376,6 @@
             this.cboDia.Size = new System.Drawing.Size(81, 25);
             this.cboDia.TabIndex = 56;
             // 
-            // btnAgregarTabla
-            // 
-            this.btnAgregarTabla.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnAgregarTabla.Enabled = false;
-            this.btnAgregarTabla.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAgregarTabla.FlatAppearance.BorderSize = 2;
-            this.btnAgregarTabla.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnAgregarTabla.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnAgregarTabla.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregarTabla.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarTabla.Location = new System.Drawing.Point(252, 146);
-            this.btnAgregarTabla.Name = "btnAgregarTabla";
-            this.btnAgregarTabla.Size = new System.Drawing.Size(82, 54);
-            this.btnAgregarTabla.TabIndex = 55;
-            this.btnAgregarTabla.Text = "Agregar a tabla";
-            this.btnAgregarTabla.UseVisualStyleBackColor = false;
-            this.btnAgregarTabla.Click += new System.EventHandler(this.btnAgregarTabla_Click);
-            // 
             // btnModifcarHorario
             // 
             this.btnModifcarHorario.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -423,6 +404,7 @@
             this.columnHeader4});
             this.lvHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvHorarios.ForeColor = System.Drawing.Color.Black;
+            this.lvHorarios.FullRowSelect = true;
             this.lvHorarios.GridLines = true;
             listViewItem4.Tag = "asdasdasd";
             this.lvHorarios.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
@@ -434,6 +416,7 @@
             this.lvHorarios.TabIndex = 54;
             this.lvHorarios.UseCompatibleStateImageBehavior = false;
             this.lvHorarios.View = System.Windows.Forms.View.Details;
+            this.lvHorarios.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvHorarios_ItemSelectionChanged);
             this.lvHorarios.SelectedIndexChanged += new System.EventHandler(this.lvHorarios_SelectedIndexChanged);
             // 
             // columnHeader1
@@ -514,6 +497,23 @@
             this.lbHoraInicio.TabIndex = 46;
             this.lbHoraInicio.Text = "Hora Inicio";
             // 
+            // bntLimpiar
+            // 
+            this.bntLimpiar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.bntLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bntLimpiar.FlatAppearance.BorderSize = 2;
+            this.bntLimpiar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.bntLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bntLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.bntLimpiar.Location = new System.Drawing.Point(213, 372);
+            this.bntLimpiar.Name = "bntLimpiar";
+            this.bntLimpiar.Size = new System.Drawing.Size(82, 37);
+            this.bntLimpiar.TabIndex = 61;
+            this.bntLimpiar.Text = "Limpiar";
+            this.bntLimpiar.UseVisualStyleBackColor = false;
+            this.bntLimpiar.Click += new System.EventHandler(this.bntLimpiar_Click);
+            // 
             // frmGrupoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -573,12 +573,12 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.Button btnAgregarTabla;
         private System.Windows.Forms.ComboBox cboDia;
         private System.Windows.Forms.ComboBox cboHoraInicio;
         private System.Windows.Forms.ComboBox cboHoraFinal;
         private System.Windows.Forms.ComboBox cboNumeroGrupo;
         private System.Windows.Forms.Button btnConsultaGeneral;
         private System.Windows.Forms.Button btnConsultarHorarios;
+        private System.Windows.Forms.Button bntLimpiar;
     }
 }

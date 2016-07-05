@@ -83,10 +83,27 @@ namespace Vista
         private void frmGrupoCurso_Load(object sender, EventArgs e)
         {
             txtIdGrupo.Enabled = false;
+            
             mLlenarHorasFinal();
             mLlenarHorasInicio();
             mLlenarDia();
             mLlenarNumeroGrupo();
+
+
+            strSentencia = clHorario.mConsultarHorario(conexion);
+            lvHorarios.Items.Clear();
+            while (strSentencia.Read())
+            {
+                ListViewItem item = new ListViewItem(Convert.ToString(strSentencia.GetSqlInt32(0)));
+               item.SubItems.Add(strSentencia.GetString(1));
+                item.SubItems.Add(Convert.ToString(strSentencia.GetTimeSpan(2)));
+                item.SubItems.Add(Convert.ToString(strSentencia.GetTimeSpan(3)));
+
+
+                lvHorarios.Items.Add(item);
+            }
+
+          
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -107,6 +124,9 @@ namespace Vista
             numCupoActual.Value = 0;
             numCupoMaximo.Value = 0;
             numCupoMinimo.Value = 0;
+            cboDia.Text = "ninguno";
+            cboHoraFinal.Text = "00:00";
+            cboHoraInicio.Text = "00:00";
 
 
         }
@@ -124,7 +144,7 @@ namespace Vista
 
         public Boolean mVerificarDatosGrupo()
         {
-            if ((cboNumeroGrupo.Text != "") & (numCupoMaximo.Text != "") & (numCupoMinimo.Text != "") & (numCupoActual.Text != ""))
+            if ((cboNumeroGrupo.Text != "") & (numCupoMaximo.Text != "0") & (numCupoMinimo.Text != "0") & (numCupoActual.Text != "0"))
             {
                 return true;
             }
@@ -232,8 +252,11 @@ namespace Vista
 
 
                         clEntidadHorario.mDia = cboDia.Text;
+                        if (cboHoraInicio.Text != cboHoraFinal.Text)
+                        { 
                         clEntidadHorario.mHoraInicio = cboHoraInicio.Text;
                         clEntidadHorario.mHoraSalida = cboHoraFinal.Text;
+                    }
 
 
 
@@ -306,7 +329,6 @@ namespace Vista
         private void btnAgregar_Click_2(object sender, EventArgs e)
         {
             mAgregarGrupo();
-            btnAgregarTabla.Enabled = true;
             btnConsultarHorarios.Enabled = true;
             btnConsultaGeneral.Enabled = true;
             btnConsultar.Enabled = true;
@@ -363,6 +385,20 @@ namespace Vista
             if (clHorario.mModificarHorario(conexion, clEntidadHorario))
             {
                 MessageBox.Show("Se ha modificado el horario", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+               // lvHorarios.Clear();
+                strSentencia = clHorario.mConsultarHorario(conexion);
+                lvHorarios.Items.Clear();
+                while (strSentencia.Read())
+                {
+                    ListViewItem item = new ListViewItem(Convert.ToString(strSentencia.GetSqlInt32(0)));
+                    item.SubItems.Add(strSentencia.GetString(1));
+                    item.SubItems.Add(Convert.ToString(strSentencia.GetTimeSpan(2)));
+                    item.SubItems.Add(Convert.ToString(strSentencia.GetTimeSpan(3)));
+
+
+                    lvHorarios.Items.Add(item);
+                }
             }
             else
             {
@@ -374,6 +410,9 @@ namespace Vista
         private void btnModifcarHorario_Click(object sender, EventArgs e)
         {
             mModificarHorario();
+            mLimpiarCampos();
+
+
         }
 
         private void btnAgregarTabla_Click(object sender, EventArgs e)
@@ -387,7 +426,7 @@ namespace Vista
         public void mAgregarDatosLista()
         {
 
-            strSentencia = clHorario.mConsultarHorario(conexion, clEntidadHorario);
+            strSentencia = clHorario.mConsultarHorario(conexion);
 
             if (mVerificarDatosHorario() == true)
             {
@@ -427,17 +466,7 @@ namespace Vista
 
         private void lvHorarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            for (int i = 0; i < lvHorarios.Items.Count; i++)
-            {
-                if (lvHorarios.Items[i].Selected)
-                {
-
-                    stHorario = lvHorarios.Items[i].Text;
-                }
-
-
-
-            }
+            
             txtIdHorario.Text = Convert.ToString(clEntidadHorario.mIdHorario);
             cboDia.Text = clEntidadHorario.mDia;
             cboHoraInicio.Text = clEntidadHorario.mHoraInicio;
@@ -453,37 +482,85 @@ namespace Vista
 
         private void btnConsultarHorarios_Click(object sender, EventArgs e)
         {
+            if (itemSeleccion(lvHorarios) != -1)
+            {
+                strSentencia = clHorario.mConsultarHorario(conexion);
+                if (strSentencia.Read())
 
-            for (int i = 0; i < lvHorarios.Items.Count; i++)
+                    txtIdHorario.Text = Convert.ToString(strSentencia.GetInt32(0));
+                cboDia.Text = (strSentencia.GetString(1));
+                cboHoraInicio.Text = Convert.ToString(strSentencia.GetTimeSpan(2));
+                cboHoraFinal.Text = Convert.ToString(strSentencia.GetTimeSpan(3));
 
-                if (lvHorarios.Items[i].Selected)
-                {
-                    cboDia.Text = clEntidadHorario.mDia;
-                    cboHoraInicio.Text = clEntidadHorario.mHoraInicio;
-                    cboHoraFinal.Text = clEntidadHorario.mHoraSalida;
+                btnModifcarHorario.Enabled = true;
+            }
 
-                }
-            btnModifcarHorario.Enabled = true;
-
+               
         }
 
         private void btnConsultaGeneral_Click(object sender, EventArgs e)
         {
             if (mVerificarDatosGrupo() == false)
             {
+                if (txtIdGrupo.Text == Convert.ToString(clEntidadGrupoCurso.getSetIdCurso))
+
+
+                    cboNumeroGrupo.Text = Convert.ToString(clEntidadGrupoCurso.getSetNumeroGrup);
 
                 conexion.codigo = "123";
                 conexion.clave = "123";
-                txtIdGrupo.Text =Convert.ToString( clEntidadGrupoCurso.getsetIdGrupo);
-                cboNumeroGrupo.Text = Convert.ToString(clEntidadGrupoCurso.getSetNumeroGrup);
-                numCupoMaximo.Text = Convert.ToString(clEntidadGrupoCurso.getSetCupoMaximo);
-                numCupoMinimo.Text = Convert.ToString(clEntidadGrupoCurso.getSetCupoMinimo);
-                numCupoActual.Text = Convert.ToString(clEntidadGrupoCurso.getSetCupoActual);
+                strSentencia = clGrupoCurso.mConsultaGeneral(conexion);
+                if (strSentencia.Read())
+
+               // txtIdGrupo.Text =Convert.ToString(strSentencia.GetInt32(0));
+                cboNumeroGrupo.Text = Convert.ToString(strSentencia.GetInt32(1));
+                numCupoMaximo.Text = Convert.ToString(strSentencia.GetInt32(2));
+                numCupoMinimo.Text = Convert.ToString(strSentencia.GetInt32(3));
+                numCupoActual.Text = Convert.ToString(strSentencia.GetInt32(4));
 
                 btnModificar.Enabled = true;
 
 
             }
+        }
+
+        private void bntLimpiar_Click(object sender, EventArgs e)
+        {
+            mLimpiarCampos();
+        }
+
+        public int itemSeleccion(ListView lista) //Usar solo 1 método
+        {
+            for (int i = 0; i < lista.Items.Count; i++)
+            {
+                if (lista.Items[i].Selected)
+                {
+                    return lista.Items[i].Index;
+                }
+            }
+            return -1;
+        }
+
+
+
+
+        private void lvHorarios_ItemSelectionChanged(object sender, ListViewItemSelectionChangedEventArgs e)
+        {
+            strSentencia = clHorario.mConsultarHorario(conexion);
+            if (strSentencia.Read())
+
+              txtIdHorario.Text =Convert.ToString(strSentencia.GetInt32(0));
+                cboDia.Text = (strSentencia.GetString(1));
+            cboHoraInicio.Text = Convert.ToString(strSentencia.GetTimeSpan(2));
+            numCupoMinimo.Text = Convert.ToString(strSentencia.GetTimeSpan(3));
+
+            btnModifcarHorario.Enabled = true;
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

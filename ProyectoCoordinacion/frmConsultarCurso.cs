@@ -261,6 +261,9 @@ namespace Vista
                     }
                 }
             }
+
+            this.Close();
+
         }
     }
 }
