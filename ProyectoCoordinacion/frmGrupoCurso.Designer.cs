@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem3 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem4 = new System.Windows.Forms.ListViewItem("");
             this.lbIdGrupo = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.btnConsultaGeneral = new System.Windows.Forms.Button();
+            this.cboNumeroGrupo = new System.Windows.Forms.ComboBox();
             this.numCupoActual = new System.Windows.Forms.NumericUpDown();
             this.numCupoMinimo = new System.Windows.Forms.NumericUpDown();
             this.numCupoMaximo = new System.Windows.Forms.NumericUpDown();
@@ -47,6 +49,7 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnConsultarHorarios = new System.Windows.Forms.Button();
             this.cboHoraInicio = new System.Windows.Forms.ComboBox();
             this.cboHoraFinal = new System.Windows.Forms.ComboBox();
             this.cboDia = new System.Windows.Forms.ComboBox();
@@ -62,7 +65,6 @@
             this.lbHoraFinal = new System.Windows.Forms.Label();
             this.txtIdHorario = new System.Windows.Forms.TextBox();
             this.lbHoraInicio = new System.Windows.Forms.Label();
-            this.cboNumeroGrupo = new System.Windows.Forms.ComboBox();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoMinimo)).BeginInit();
@@ -98,6 +100,7 @@
             // groupBox
             // 
             this.groupBox.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox.Controls.Add(this.btnConsultaGeneral);
             this.groupBox.Controls.Add(this.cboNumeroGrupo);
             this.groupBox.Controls.Add(this.numCupoActual);
             this.groupBox.Controls.Add(this.numCupoMinimo);
@@ -119,6 +122,35 @@
             this.groupBox.TabIndex = 42;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Información de Grupo";
+            // 
+            // btnConsultaGeneral
+            // 
+            this.btnConsultaGeneral.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnConsultaGeneral.Enabled = false;
+            this.btnConsultaGeneral.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConsultaGeneral.FlatAppearance.BorderSize = 2;
+            this.btnConsultaGeneral.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnConsultaGeneral.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnConsultaGeneral.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaGeneral.ForeColor = System.Drawing.Color.Black;
+            this.btnConsultaGeneral.Location = new System.Drawing.Point(215, 372);
+            this.btnConsultaGeneral.Name = "btnConsultaGeneral";
+            this.btnConsultaGeneral.Size = new System.Drawing.Size(82, 37);
+            this.btnConsultaGeneral.TabIndex = 60;
+            this.btnConsultaGeneral.Text = "Consultar";
+            this.btnConsultaGeneral.UseVisualStyleBackColor = false;
+            this.btnConsultaGeneral.Click += new System.EventHandler(this.btnConsultaGeneral_Click);
+            // 
+            // cboNumeroGrupo
+            // 
+            this.cboNumeroGrupo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboNumeroGrupo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboNumeroGrupo.ForeColor = System.Drawing.Color.Black;
+            this.cboNumeroGrupo.FormattingEnabled = true;
+            this.cboNumeroGrupo.Location = new System.Drawing.Point(140, 102);
+            this.cboNumeroGrupo.Name = "cboNumeroGrupo";
+            this.cboNumeroGrupo.Size = new System.Drawing.Size(81, 25);
+            this.cboNumeroGrupo.TabIndex = 59;
             // 
             // numCupoActual
             // 
@@ -273,6 +305,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.btnConsultarHorarios);
             this.groupBox1.Controls.Add(this.cboHoraInicio);
             this.groupBox1.Controls.Add(this.cboHoraFinal);
             this.groupBox1.Controls.Add(this.cboDia);
@@ -292,6 +325,24 @@
             this.groupBox1.TabIndex = 52;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Información de Horarios";
+            // 
+            // btnConsultarHorarios
+            // 
+            this.btnConsultarHorarios.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnConsultarHorarios.Enabled = false;
+            this.btnConsultarHorarios.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConsultarHorarios.FlatAppearance.BorderSize = 2;
+            this.btnConsultarHorarios.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnConsultarHorarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnConsultarHorarios.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultarHorarios.ForeColor = System.Drawing.Color.Black;
+            this.btnConsultarHorarios.Location = new System.Drawing.Point(36, 146);
+            this.btnConsultarHorarios.Name = "btnConsultarHorarios";
+            this.btnConsultarHorarios.Size = new System.Drawing.Size(86, 49);
+            this.btnConsultarHorarios.TabIndex = 61;
+            this.btnConsultarHorarios.Text = "Consultar Horario";
+            this.btnConsultarHorarios.UseVisualStyleBackColor = false;
+            this.btnConsultarHorarios.Click += new System.EventHandler(this.btnConsultarHorarios_Click);
             // 
             // cboHoraInicio
             // 
@@ -336,7 +387,7 @@
             this.btnAgregarTabla.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgregarTabla.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregarTabla.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregarTabla.Location = new System.Drawing.Point(182, 143);
+            this.btnAgregarTabla.Location = new System.Drawing.Point(252, 146);
             this.btnAgregarTabla.Name = "btnAgregarTabla";
             this.btnAgregarTabla.Size = new System.Drawing.Size(82, 54);
             this.btnAgregarTabla.TabIndex = 55;
@@ -354,7 +405,7 @@
             this.btnModifcarHorario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnModifcarHorario.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModifcarHorario.ForeColor = System.Drawing.Color.Black;
-            this.btnModifcarHorario.Location = new System.Drawing.Point(37, 141);
+            this.btnModifcarHorario.Location = new System.Drawing.Point(145, 146);
             this.btnModifcarHorario.Name = "btnModifcarHorario";
             this.btnModifcarHorario.Size = new System.Drawing.Size(82, 54);
             this.btnModifcarHorario.TabIndex = 42;
@@ -373,10 +424,10 @@
             this.lvHorarios.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lvHorarios.ForeColor = System.Drawing.Color.Black;
             this.lvHorarios.GridLines = true;
-            listViewItem2.Tag = "asdasdasd";
+            listViewItem4.Tag = "asdasdasd";
             this.lvHorarios.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
+            listViewItem3,
+            listViewItem4});
             this.lvHorarios.Location = new System.Drawing.Point(22, 209);
             this.lvHorarios.Name = "lvHorarios";
             this.lvHorarios.Size = new System.Drawing.Size(502, 200);
@@ -463,17 +514,6 @@
             this.lbHoraInicio.TabIndex = 46;
             this.lbHoraInicio.Text = "Hora Inicio";
             // 
-            // cboNumeroGrupo
-            // 
-            this.cboNumeroGrupo.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.cboNumeroGrupo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboNumeroGrupo.ForeColor = System.Drawing.Color.Black;
-            this.cboNumeroGrupo.FormattingEnabled = true;
-            this.cboNumeroGrupo.Location = new System.Drawing.Point(140, 102);
-            this.cboNumeroGrupo.Name = "cboNumeroGrupo";
-            this.cboNumeroGrupo.Size = new System.Drawing.Size(81, 25);
-            this.cboNumeroGrupo.TabIndex = 59;
-            // 
             // frmGrupoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -538,5 +578,7 @@
         private System.Windows.Forms.ComboBox cboHoraInicio;
         private System.Windows.Forms.ComboBox cboHoraFinal;
         private System.Windows.Forms.ComboBox cboNumeroGrupo;
+        private System.Windows.Forms.Button btnConsultaGeneral;
+        private System.Windows.Forms.Button btnConsultarHorarios;
     }
 }

@@ -28,6 +28,12 @@ namespace LogicaNegocios
             sentencia = "select idHorario from tbHorarios'";
             return conexion.mSeleccionar(sentencia, conexion);
         }
+        public SqlDataReader mConsultarHorario(clConexion conexion, clEntidadHorario pEntidadHorario)
+        {
+            sentencia = "select idHorario,dia,  horaInic,horaSali from tbHorarios  where idHorario= '"+ pEntidadHorario .mIdHorario+ "'";
+            return conexion.mSeleccionar(sentencia, conexion);
+        }
+
 
         public Boolean mInsertarHorario(clConexion conexion, clEntidadHorario pEntidadHorario)
         {

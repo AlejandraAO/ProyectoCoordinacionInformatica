@@ -169,17 +169,6 @@ namespace Vista
         private void dgvDetalleCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
-            
-                for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
-                {
-                if (dgvDetalleCursos.Rows[i].Selected)
-                {
-                    {
-
-                        curso = Convert.ToString(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
-                    }
-                }
-            }
 
             if (dgvDetalleCursos.CurrentCell.ColumnIndex == 8)
             {
@@ -258,6 +247,20 @@ namespace Vista
             set { this.tipoDataGrid = value; }
         }
 
-      
+        private void dgvDetalleCursos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+
+            for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
+            {
+                if (dgvDetalleCursos.Rows[i].Selected)
+                {
+                    {
+
+                        curso = Convert.ToString(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
+                    }
+                }
+            }
+        }
     }
 }

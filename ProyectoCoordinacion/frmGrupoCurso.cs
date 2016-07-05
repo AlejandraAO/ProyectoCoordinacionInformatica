@@ -98,6 +98,8 @@ namespace Vista
         {
             mAgregarGrupo();
         }
+
+
         public void mLimpiarCampos()
         {
             txtIdGrupo.Text = "";
@@ -105,10 +107,7 @@ namespace Vista
             numCupoActual.Value = 0;
             numCupoMaximo.Value = 0;
             numCupoMinimo.Value = 0;
-            cboDia.Text = "ninguno";
-            cboHoraFinal.Text = "00:00";
-            cboHoraFinal.Text = "00:00";
-            txtIdHorario.Text = "";
+
 
         }
 
@@ -149,7 +148,7 @@ namespace Vista
             for (int i = 0; i < 6; i++)
             {
 
-                cboNumeroGrupo.Items.Add( "0"+i );
+                cboNumeroGrupo.Items.Add("0" + i);
 
             }
 
@@ -212,6 +211,7 @@ namespace Vista
 
 
 
+
         public void mAgregarGrupo()
         {
             if (mVerificarDatosGrupo() == true)
@@ -221,19 +221,33 @@ namespace Vista
                     conexion.codigo = "123";
                     conexion.clave = "123";
 
-                    clEntidadGrupoCurso.getSetIdCurso = 1;
+                    clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(txtIdGrupo.Text);
                     clEntidadGrupoCurso.getSetNumeroGrup = Convert.ToInt32(cboNumeroGrupo.Text);
                     clEntidadGrupoCurso.getSetCupoMaximo = Convert.ToInt32(numCupoMaximo.Text);
                     clEntidadGrupoCurso.getSetCupoMinimo = Convert.ToInt32(numCupoMinimo.Text);
                     clEntidadGrupoCurso.getSetCupoActual = Convert.ToInt32(numCupoActual.Text);
 
-
-                    if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
+                    if (txtIdGrupo.Text == Convert.ToString(clEntidadGrupoCurso.getSetIdCurso) || cboNumeroGrupo.Text != Convert.ToString(clEntidadGrupoCurso.getSetNumeroGrup))
                     {
 
-                        MessageBox.Show("Se ha insertado el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        mLimpiarCampos();
+
+                        clEntidadHorario.mDia = cboDia.Text;
+                        clEntidadHorario.mHoraInicio = cboHoraInicio.Text;
+                        clEntidadHorario.mHoraSalida = cboHoraFinal.Text;
+
+
+
+
+
+                        if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true )                            
+                            if( clHorario.mInsertarHorario(conexion, clEntidadHorario) == true)
+                        {
+                            MessageBox.Show("Se ha insertado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            mLimpiarCampos();
+
+                        }
                     }
+
                 }
                 else
                 {
@@ -292,9 +306,10 @@ namespace Vista
         private void btnAgregar_Click_2(object sender, EventArgs e)
         {
             mAgregarGrupo();
-            btnModifcarHorario.Enabled = true;
             btnAgregarTabla.Enabled = true;
-            mAgregarHorario();
+            btnConsultarHorarios.Enabled = true;
+            btnConsultaGeneral.Enabled = true;
+            btnConsultar.Enabled = true;
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -318,42 +333,7 @@ namespace Vista
 
         public void mAgregarHorario()
         {
-            if (mVerificarDatosHorario() == true)
-            {
 
-                conexion.codigo = "123";
-                conexion.clave = "123";
-
-                clEntidadHorario.mDia = cboDia.Text;
-                clEntidadHorario.mHoraInicio = cboHoraInicio.Text;
-                clEntidadHorario.mHoraSalida = cboHoraFinal.Text;
-
-                 
-                   if(txtIdGrupo.Text== Convert.ToString( clEntidadGrupoCurso.getsetIdGrupo))
-{
-                    if (cboNumeroGrupo.Text != Convert.ToString(clEntidadGrupoCurso.getSetNumeroGrup))
-                    {
-
-                        if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
-                        {
-
-                            MessageBox.Show("Se ha insertado el horario", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            mLimpiarCampos();
-
-                        }
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("Ya existe un curso con ese horario", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("No pudo insertar el grupo", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
         }
 
 
@@ -362,30 +342,22 @@ namespace Vista
         {
 
 
-            for (int i = 0; i < lvHorarios.Items.Count; i++)
-
-                if (lvHorarios.Items[i].Selected)
-                {
-                    cboDia.Text = clEntidadHorario.mDia;
-                    cboHoraInicio.Text = clEntidadHorario.mHoraInicio;
-                    cboHoraFinal.Text = clEntidadHorario.mHoraSalida;
-
-                    if (mVerificarDatosHorario() == true)
-                    {
+            if (mVerificarDatosHorario() == true)
+            {
 
 
-                        conexion.codigo = "123";
-                        conexion.clave = "123";
+                conexion.codigo = "123";
+                conexion.clave = "123";
 
-                        clEntidadHorario.mDia = cboDia.Text;
-                        clEntidadHorario.mHoraInicio = cboHoraInicio.Text;
-                        clEntidadHorario.mHoraSalida = cboHoraFinal.Text;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    }
-                }
+                clEntidadHorario.mDia = cboDia.Text;
+                clEntidadHorario.mHoraInicio = cboHoraInicio.Text;
+                clEntidadHorario.mHoraSalida = cboHoraFinal.Text;
+            }
+            else
+            {
+                MessageBox.Show("Favor llenar todos los campos", "Datos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+
 
 
             if (clHorario.mModificarHorario(conexion, clEntidadHorario))
@@ -415,7 +387,7 @@ namespace Vista
         public void mAgregarDatosLista()
         {
 
-            strSentencia = clHorario.mConsultarHorarios(conexion, clEntidadHorario);
+            strSentencia = clHorario.mConsultarHorario(conexion, clEntidadHorario);
 
             if (mVerificarDatosHorario() == true)
             {
@@ -434,23 +406,23 @@ namespace Vista
 
         }
 
-     
-       
+
+
 
 
 
         private void btnConsultar_Click_2(object sender, EventArgs e)
-        { 
+        {
             frmConsultarCurso consultarCurso = new frmConsultarCurso(this);
             consultarCurso.ShowDialog();
-           
-                if (consultarCurso.mIdCurso() != "")
-                {
-                    clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(consultarCurso.mIdCurso());
-                    txtIdGrupo.Text = consultarCurso.mIdCurso();
-                    mConsultaCodigo();
-                }
-           
+
+            if (consultarCurso.mIdCurso() != "")
+            {
+                clEntidadGrupoCurso.getSetIdCurso = Convert.ToInt32(consultarCurso.mIdCurso());
+                txtIdGrupo.Text = consultarCurso.mIdCurso();
+                mConsultaCodigo();
+            }
+
         }
 
         private void lvHorarios_SelectedIndexChanged(object sender, EventArgs e)
@@ -479,5 +451,39 @@ namespace Vista
             return stHorario;
         }
 
+        private void btnConsultarHorarios_Click(object sender, EventArgs e)
+        {
+
+            for (int i = 0; i < lvHorarios.Items.Count; i++)
+
+                if (lvHorarios.Items[i].Selected)
+                {
+                    cboDia.Text = clEntidadHorario.mDia;
+                    cboHoraInicio.Text = clEntidadHorario.mHoraInicio;
+                    cboHoraFinal.Text = clEntidadHorario.mHoraSalida;
+
+                }
+            btnModifcarHorario.Enabled = true;
+
+        }
+
+        private void btnConsultaGeneral_Click(object sender, EventArgs e)
+        {
+            if (mVerificarDatosGrupo() == false)
+            {
+
+                conexion.codigo = "123";
+                conexion.clave = "123";
+                txtIdGrupo.Text =Convert.ToString( clEntidadGrupoCurso.getsetIdGrupo);
+                cboNumeroGrupo.Text = Convert.ToString(clEntidadGrupoCurso.getSetNumeroGrup);
+                numCupoMaximo.Text = Convert.ToString(clEntidadGrupoCurso.getSetCupoMaximo);
+                numCupoMinimo.Text = Convert.ToString(clEntidadGrupoCurso.getSetCupoMinimo);
+                numCupoActual.Text = Convert.ToString(clEntidadGrupoCurso.getSetCupoActual);
+
+                btnModificar.Enabled = true;
+
+
+            }
+        }
     }
 }
