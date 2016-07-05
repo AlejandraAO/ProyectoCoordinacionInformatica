@@ -162,9 +162,9 @@ namespace Vista
                 conexion.clave = "123";
 
                 //Se asignan los valores a la entidad proyecto
-                               
 
-                
+
+                entidadProyecto.mIdProyecto = Convert.ToInt32(txtIdentificador.Text);
                 entidadProyecto.mNombre = txtNombre.Text;
                 entidadProyecto.mDescripcion = rtDescripcion.Text;
                 entidadProyecto.mEstado = cbEstado.Text;
@@ -172,14 +172,14 @@ namespace Vista
                 entidadProyecto.mInformacioProyecto = archivoSeleccionado.FileName;
               //Mae le comenté esto xq daba error y no dejaba ejecutar
 
-                /*if (proyecto.mModificarProyecto(conexion, entidadProyecto))
+                if (proyecto.mModificarProyecto(conexion, entidadProyecto))
                 {
                     MessageBox.Show("Se ha modificado el Proyecto", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     MessageBox.Show("No se ha podido modificar el Proyecto", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                }*/
+                }
             }
             else
             {

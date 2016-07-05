@@ -34,6 +34,11 @@ namespace LogicaNegocios
           
         }
 
+        public Boolean mModificarProyecto(clConexion cone, clEntidadProyecto pEntidadProyecto)
+        {
+            strSentencia = "update tbProyectos set nombre='" + pEntidadProyecto.mNombre + "', descripcion='" + pEntidadProyecto.mDescripcion + "', estado='" + pEntidadProyecto.mEstado + "' , tipo='" + pEntidadProyecto.mTipo + "' ,informacion='" + pEntidadProyecto.mInformacioProyecto + "',nombreDocumento='"+pEntidadProyecto.mNombreDocumento+"' where idProyecto="+pEntidadProyecto.mIdProyecto+"";
+            return cone.mEjecutar(strSentencia, cone);
+        }
         public SqlDataReader mConsultaGeneralProyectos(clConexion cone)
         {
             strSentencia = "select * from tbProyectos";
