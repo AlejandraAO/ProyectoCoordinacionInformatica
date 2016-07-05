@@ -20,19 +20,26 @@ namespace Vista
         #region Atributos
         clConexion conexion;
         menuPrincipal menu;
+        SqlDataReader dtrHorarioProfesor;
+        SqlDataReader dtrProfesor;
         #endregion
 
 
-        public frmReporteProfesores()
+        public frmReporteProfesores( )
         {
             
             InitializeComponent();
-
+            this.conexion = new clConexion();
         }
 
         private void dgvReporteProfesor_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             
+        }
+
+        private void frmReporteProfesores_Load(object sender, EventArgs e)
+        {
+            //dtrProfesor=
         }
     }
 }
