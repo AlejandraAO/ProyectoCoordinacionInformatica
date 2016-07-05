@@ -70,6 +70,7 @@ namespace Vista
         private void dgvProfesor_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             mEnviarIdProfesor = Convert.ToInt32( dgvProfesor.SelectedRows[0].Cells["idProfesor"].Value);
+            reporteProfesores.mEstablecerNombreProfBusqueda(Convert.ToString(dgvProfesor.SelectedRows[0].Cells["nombre"].Value)+ Convert.ToString(dgvProfesor.SelectedRows[0].Cells["apellido1"].Value));
             this.Hide();
             reporteProfesores.mConsultaHorarioProfesor(mEnviarIdProfesor);
             reporteProfesores.Show();

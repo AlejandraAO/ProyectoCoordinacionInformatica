@@ -161,5 +161,9 @@ namespace Vista
                     
                 }
         }
+        public void mEstablecerNombreProfBusqueda(string nombre)
+        {
+            txtNombreProf.Text = nombre;
+        }
     }
 }
