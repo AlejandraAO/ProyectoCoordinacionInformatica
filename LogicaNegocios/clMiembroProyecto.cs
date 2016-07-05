@@ -28,7 +28,7 @@ namespace LogicaNegocios
 
         public Boolean mEliminar(clConexion cone, clEntidadMiembroProyecto pEntidadMiembroProyecto)
         {
-            strSentencia = "delete from tbMiembrosProy where idMiembro=" + pEntidadMiembroProyecto.mIdMiembro + " and idProyecto=" + pEntidadMiembroProyecto.mIdProyecto + "";
+            strSentencia = "delete from tbMiembrosProy where idMiembro =" +pEntidadMiembroProyecto.mIdMiembro + " and idProyecto = " + pEntidadMiembroProyecto.mIdProyecto+" ";
             return cone.mEjecutar(strSentencia, cone);
         }
 

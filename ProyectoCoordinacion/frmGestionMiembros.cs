@@ -145,7 +145,7 @@ namespace Vista
             frmAsignarProyecto.limpiarLVProyAsignados();
         }
 
-        public int buscarIdPorCarnet(int carnet)
+        public int buscarIdPorCarnet(String carnet)
         {
             dtrMiembro = miembros.mConsultarMiembroId(conexion, pEntidadMiembro);
             if (dtrMiembro != null)
@@ -175,12 +175,12 @@ namespace Vista
                 if (miembros.mModificarMiembro(conexion, pEntidadMiembro))
                 {
 
-                    int idMiembro = buscarIdPorCarnet(Convert.ToInt32( txtCarnet.Text));
-
+                    //int idMiembro = buscarIdPorCarnet(Convert.ToInt32( txtCarnet.Text));
+                    int idMiembro = buscarIdPorCarnet(txtCarnet.Text);
                     frmAsignarProyecto.modificarProyectosAsignados(idMiembro);
                     
                         MessageBox.Show("Se ha modificado el Miembro", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    
+                    //mLimpiarCampos();
 
                   
                 }
