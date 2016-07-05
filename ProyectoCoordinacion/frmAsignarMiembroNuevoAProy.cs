@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Collections;
 
 using AccesoDatos;
 using LogicaNegocios;
@@ -31,6 +32,7 @@ namespace Vista
         private string codigoProyecto;
         private Boolean selecionarProyecto;
 
+        private ArrayList arrayIdProyectos;
         #endregion
 
         public frmAsignarMiembroAProyecto(clConexion conexion)
@@ -41,7 +43,7 @@ namespace Vista
 
             miembroProyecto = new clMiembroProyecto();
             pEntidadMiembroProyecto = new clEntidadMiembroProyecto();
-
+            arrayIdProyectos = new ArrayList();
             InitializeComponent();
         }
 
@@ -227,17 +229,15 @@ namespace Vista
         }
         public void DescartarProyectos(int idMiembro)
         {
-            
+            int cantidadIdsProy;
             //Extraemos los proy asignados antes de la modificacion para
             //compararlos con los que se encuentran actualmente en el lv
             bool proyElim=true;
-            pEntidadMiembroProyecto.mIdMiembro = idMiembro;
-
-            dataReaderProyecto = miembroProyecto.mSeleccionarProyAsigAMiemb(conexion, pEntidadMiembroProyecto);
-
+            pEntidadMiembroProyecto.mIdMiembro = idMiembro;            
+            dataReaderProyecto = miembroProyecto.mSeleccionarProyAsigAMiemb(conexion, pEntidadMiembroProyecto);            
             if (dataReaderProyecto != null)
             {
-
+                
                 while (dataReaderProyecto.Read())
                 {
                     proyElim = true;
@@ -252,30 +252,34 @@ namespace Vista
                         }
                     }
 
-                    if (proyElim)
-                    {
-                     pEntidadMiembroProyecto.mIdProyecto = dataReaderProyecto.GetInt32(0);
-                     miembroProyecto.mEliminar(conexion, pEntidadMiembroProyecto);
-
-
-
+                    if (proyElim) {
+                        
+                        arrayIdProyectos.Add(dataReaderProyecto.GetInt32(0));
+                        
+                        //pEntidadMiembroProyecto.mIdProyecto = dataReaderProyecto.GetInt32(0);                     
+                        // miembroProyecto.mEliminar(conexion, pEntidadMiembroProyecto);
                     }
                 }
-            }
+                if(arrayIdProyectos!=null)
+                for(int w=0; w < arrayIdProyectos.Count; w++)
+                {
+                    pEntidadMiembroProyecto.mIdProyecto =Convert.ToInt32( arrayIdProyectos[w]);
+                     miembroProyecto.mEliminar(conexion, pEntidadMiembroProyecto);
+                }
 
+            }
+            arrayIdProyectos.Clear();
         }
 
         public void asignarNuevosProyectos(int idMiembro)
         {
            
             pEntidadMiembroProyecto.mIdMiembro = idMiembro;
-
+            dataReaderProyecto = miembroProyecto.mSeleccionarProyAsigAMiemb(conexion, pEntidadMiembroProyecto);
             for (int i = 0; i < lvProyectosAsignados.Items.Count; i++)
             {
 
-                bool asignarProy = true;
-
-                dataReaderProyecto = miembroProyecto.mSeleccionarProyAsigAMiemb(conexion, pEntidadMiembroProyecto);
+                bool asignarProy = true;                
 
                 if (dataReaderProyecto != null)
                 {
@@ -295,7 +299,7 @@ namespace Vista
 
                         miembroProyecto.mInsertarMiembroProyecto(conexion, pEntidadMiembroProyecto);
 
-                        break;
+                        //break;
                     }
                 }
 
