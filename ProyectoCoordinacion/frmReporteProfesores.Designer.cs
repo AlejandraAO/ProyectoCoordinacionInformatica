@@ -37,7 +37,9 @@
             this.viernes = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sabado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lbNombreProfesor = new System.Windows.Forms.Label();
-            this.cbProfesor = new System.Windows.Forms.ComboBox();
+            this.txtNombreProf = new System.Windows.Forms.TextBox();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteProfesor)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,10 +54,10 @@
             this.jueves,
             this.viernes,
             this.sabado});
-            this.dgvReporteProfesor.Location = new System.Drawing.Point(35, 66);
+            this.dgvReporteProfesor.Location = new System.Drawing.Point(64, 105);
             this.dgvReporteProfesor.Name = "dgvReporteProfesor";
             this.dgvReporteProfesor.ReadOnly = true;
-            this.dgvReporteProfesor.Size = new System.Drawing.Size(743, 301);
+            this.dgvReporteProfesor.Size = new System.Drawing.Size(746, 399);
             this.dgvReporteProfesor.TabIndex = 0;
             this.dgvReporteProfesor.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvReporteProfesor_CellContentClick);
             // 
@@ -107,31 +109,55 @@
             this.lbNombreProfesor.BackColor = System.Drawing.Color.Transparent;
             this.lbNombreProfesor.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbNombreProfesor.ForeColor = System.Drawing.Color.White;
-            this.lbNombreProfesor.Location = new System.Drawing.Point(32, 24);
+            this.lbNombreProfesor.Location = new System.Drawing.Point(32, 37);
             this.lbNombreProfesor.Name = "lbNombreProfesor";
             this.lbNombreProfesor.Size = new System.Drawing.Size(151, 18);
             this.lbNombreProfesor.TabIndex = 45;
             this.lbNombreProfesor.Text = "Nombre del profesor";
             // 
-            // cbProfesor
+            // txtNombreProf
             // 
-            this.cbProfesor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbProfesor.FormattingEnabled = true;
-            this.cbProfesor.Location = new System.Drawing.Point(189, 24);
-            this.cbProfesor.Name = "cbProfesor";
-            this.cbProfesor.Size = new System.Drawing.Size(121, 21);
-            this.cbProfesor.TabIndex = 44;
+            this.txtNombreProf.Location = new System.Drawing.Point(211, 37);
+            this.txtNombreProf.Name = "txtNombreProf";
+            this.txtNombreProf.Size = new System.Drawing.Size(159, 20);
+            this.txtNombreProf.TabIndex = 46;
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Location = new System.Drawing.Point(766, 540);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(90, 41);
+            this.btnSalir.TabIndex = 47;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(398, 31);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(81, 31);
+            this.btnBuscar.TabIndex = 48;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // frmReporteProfesores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
-            this.ClientSize = new System.Drawing.Size(851, 390);
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(868, 593);
+            this.ControlBox = false;
+            this.Controls.Add(this.btnBuscar);
+            this.Controls.Add(this.btnSalir);
+            this.Controls.Add(this.txtNombreProf);
             this.Controls.Add(this.lbNombreProfesor);
-            this.Controls.Add(this.cbProfesor);
             this.Controls.Add(this.dgvReporteProfesor);
+            this.DoubleBuffered = true;
             this.Name = "frmReporteProfesores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReporteProfesores";
             this.Load += new System.EventHandler(this.frmReporteProfesores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvReporteProfesor)).EndInit();
@@ -151,6 +177,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn viernes;
         private System.Windows.Forms.DataGridViewTextBoxColumn sabado;
         private System.Windows.Forms.Label lbNombreProfesor;
-        private System.Windows.Forms.ComboBox cbProfesor;
+        private System.Windows.Forms.TextBox txtNombreProf;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

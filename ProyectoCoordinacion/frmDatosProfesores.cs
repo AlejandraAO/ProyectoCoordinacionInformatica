@@ -13,7 +13,7 @@ using Entidades;
 using AccesoDatos;
 using System.Data.SqlClient;
 
-namespace ProyectoCoordinacion
+namespace Vista
 {
     public partial class frmDatosProfesores : Form
     {
@@ -21,21 +21,23 @@ namespace ProyectoCoordinacion
         private SqlDataReader dtrProfesor;
         private clConexion conexion;
         private clHorario clHorario;
+        private int enviarIdProfesor;
+        private frmReporteProfesores reporteProfesores;
         #endregion
 
 
-        public frmDatosProfesores()
+        public frmDatosProfesores(frmReporteProfesores reporte)
         {
             conexion = new clConexion();
             clHorario = new clHorario();
-
+            this.reporteProfesores = reporte;
             InitializeComponent();
             llenarDataGridProfesores();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Dispose();
+            this.Hide();
         }
 
         public void llenarDataGridProfesores()
@@ -43,7 +45,7 @@ namespace ProyectoCoordinacion
             dtrProfesor = clHorario.mConsultarProfesores(conexion);
             if (dtrProfesor != null)
             {
-                if (dtrProfesor.Read())
+                while (dtrProfesor.Read())
                 {
                     int renglon = dgvProfesor.Rows.Add();
                     dgvProfesor.Rows[renglon].Cells["idProfesor"].Value = Convert.ToString(dtrProfesor.GetInt32(0));
@@ -54,5 +56,23 @@ namespace ProyectoCoordinacion
             }
         }//fin de llenarData
 
+        private void frmDatosProfesores_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public int mEnviarIdProfesor
+        {
+            set { this.enviarIdProfesor = value; }
+            get { return this.enviarIdProfesor; }
+        }
+
+        private void dgvProfesor_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            mEnviarIdProfesor = Convert.ToInt32( dgvProfesor.SelectedRows[0].Cells["idProfesor"].Value);
+            this.Hide();
+            reporteProfesores.mConsultaHorarioProfesor(mEnviarIdProfesor);
+            reporteProfesores.Show();
+        }
     }
 }

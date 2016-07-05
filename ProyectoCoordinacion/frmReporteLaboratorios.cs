@@ -62,18 +62,18 @@ namespace Vista
                             reglon++;
                             dgvLaboratorio.Rows[reglon].Cells[dtrHorario.GetString(1)].Value = dtrHorario.GetString(0);
                         }
-
+                        
                         if (dtrHorario.GetTimeSpan(2) == (TimeSpan)horas[6])
                         {
                             reglon += 6;
                             dgvLaboratorio.Rows[reglon].Cells[dtrHorario.GetString(1)].Value = dtrHorario.GetString(0);
                             reglon -= 5;
-                        }
-                        if (dtrHorario.GetTimeSpan(2) == (TimeSpan)horas[11])
+                        }                        
+                        if (dtrHorario.GetTimeSpan(2) == (TimeSpan)horas[10])
                         {
-                            reglon += 11;
+                            reglon += 10;
                             dgvLaboratorio.Rows[reglon].Cells[dtrHorario.GetString(1)].Value = dtrHorario.GetString(0);
-                            reglon -= 10;
+                            reglon -= 9;
                         }
 
                     }
