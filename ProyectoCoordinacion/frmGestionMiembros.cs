@@ -287,5 +287,22 @@ namespace Vista
         {
 
         }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            mLimpiarCampos();
+        }
+
+        private void btnConsultaCarne_Click(object sender, EventArgs e)
+        {
+            frmConsultaRapidaMiembro consultaMiembro = new frmConsultaRapidaMiembro(conexion);
+            consultaMiembro.ShowDialog();
+            if (consultaMiembro.getCodigo() != "")
+            {
+                
+                this.txtCarnet.Text = consultaMiembro.getCodigo();
+                mConsultarPorCarnet();
+            }
+        }
     }
 }
