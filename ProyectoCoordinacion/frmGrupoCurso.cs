@@ -280,8 +280,18 @@ namespace Vista
 
 
                             if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
-                                if (clHorario.mInsertarHorario(conexion, clEntidadHorario) == true)
+                                if (clHorario.mInsertarHorario(conexion, clEntidadHorario) == true )
                                 {
+                                   strSentencia= clGrupoCurso.mConsultaGeneral(conexion, clEntidadGrupoCurso);
+
+
+                                    if (strSentencia != null && strSentencia.Read())
+                                    {
+                                        clEntidadGrupoCurso.getsetIdGrupo = strSentencia.GetInt32(0);
+                                        clGrupoCurso.mInsertHorarioGruposCurs(conexion, clEntidadHorario, clEntidadGrupoCurso);
+                                    }
+                                    
+
                                     MessageBox.Show("Se ha insertado", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                     mLimpiarCampos();
                                     estadoGrupo = true;

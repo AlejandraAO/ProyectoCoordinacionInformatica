@@ -22,6 +22,11 @@ namespace LogicaNegocios
             return conexion.mEjecutar(strSentencia, conexion);
         }
 
+        public Boolean mInsertHorarioGruposCurs(clConexion conexion, clEntidadHorario pEntidadHorario,clEntidadGrupoCurso pEntidadGrupoCurso)
+        {
+            strSentencia = "insert into tbHorariosGrupCurs(idHorario,idGrupo) values ("+pEntidadHorario.mIdHorario+","+pEntidadGrupoCurso.getsetIdGrupo+" )";
+            return conexion.mEjecutar(strSentencia, conexion);
+        }
 
         public Boolean mModificarGrupoCurso(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {
