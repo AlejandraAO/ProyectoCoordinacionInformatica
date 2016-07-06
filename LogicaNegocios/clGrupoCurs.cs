@@ -22,6 +22,11 @@ namespace LogicaNegocios
             return conexion.mEjecutar(strSentencia, conexion);
         }
 
+        public Boolean mInsertHorarioGruposCurs(clConexion conexion, clEntidadHorario pEntidadHorario,clEntidadGrupoCurso pEntidadGrupoCurso)
+        {
+            strSentencia = "insert into tbHorariosGrupCurs(idHorario,idGrupo) values ("+pEntidadHorario.mIdHorario+","+pEntidadGrupoCurso.getsetIdGrupo+" )";
+            return conexion.mEjecutar(strSentencia, conexion);
+        }
 
         public Boolean mModificarGrupoCurso(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {
@@ -30,12 +35,19 @@ namespace LogicaNegocios
             return conexion.mEjecutar(strSentencia, conexion);
         }
 
-        public SqlDataReader mConsultaGeneral(clConexion conexion)
+        public SqlDataReader mConsultaGeneral(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {
-            strSentencia = "select idGrupo, numeroGrup, cupoMaximo, cupoMinimo, cupoActual from tbGruposCurs";
+            strSentencia = "select idGrupo, cupoMaximo, cupoMinimo, cupoActual from tbGruposCurs where idCurso='"+ pEntidadGrupoCurso.getSetIdCurso+"'";
             return conexion.mSeleccionar(strSentencia, conexion);
         }
-        
+
+        public SqlDataReader mConsultaNumeroGrupo(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
+        {
+            strSentencia = "select numeroGrup, from tbGruposCurs gc,tbHorarios h where id idCurso='"+pEntidadGrupoCurso.getSetIdCurso + "'";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
+
+    
 
         public SqlDataReader mConsultaCodigo(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {

@@ -34,6 +34,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
             this.groupBox = new System.Windows.Forms.GroupBox();
+            this.bntLimpiar = new System.Windows.Forms.Button();
             this.btnConsultaGeneral = new System.Windows.Forms.Button();
             this.cboNumeroGrupo = new System.Windows.Forms.ComboBox();
             this.numCupoActual = new System.Windows.Forms.NumericUpDown();
@@ -45,7 +46,7 @@
             this.btnConsultar = new System.Windows.Forms.Button();
             this.lbCupoActual = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.txtIdGrupo = new System.Windows.Forms.TextBox();
+            this.txtIdCurso = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.lbCupoMinimo = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -64,7 +65,6 @@
             this.lbHoraFinal = new System.Windows.Forms.Label();
             this.txtIdHorario = new System.Windows.Forms.TextBox();
             this.lbHoraInicio = new System.Windows.Forms.Label();
-            this.bntLimpiar = new System.Windows.Forms.Button();
             this.groupBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoActual)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCupoMinimo)).BeginInit();
@@ -112,17 +112,34 @@
             this.groupBox.Controls.Add(this.btnConsultar);
             this.groupBox.Controls.Add(this.lbCupoActual);
             this.groupBox.Controls.Add(this.btnModificar);
-            this.groupBox.Controls.Add(this.txtIdGrupo);
+            this.groupBox.Controls.Add(this.txtIdCurso);
             this.groupBox.Controls.Add(this.btnAgregar);
             this.groupBox.Controls.Add(this.lbCupoMinimo);
             this.groupBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox.ForeColor = System.Drawing.Color.White;
-            this.groupBox.Location = new System.Drawing.Point(12, 12);
+            this.groupBox.Location = new System.Drawing.Point(12, 13);
             this.groupBox.Name = "groupBox";
             this.groupBox.Size = new System.Drawing.Size(489, 446);
             this.groupBox.TabIndex = 42;
             this.groupBox.TabStop = false;
             this.groupBox.Text = "Información de Grupo";
+            // 
+            // bntLimpiar
+            // 
+            this.bntLimpiar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.bntLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.bntLimpiar.FlatAppearance.BorderSize = 2;
+            this.bntLimpiar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.bntLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.bntLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bntLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.bntLimpiar.Location = new System.Drawing.Point(213, 372);
+            this.bntLimpiar.Name = "bntLimpiar";
+            this.bntLimpiar.Size = new System.Drawing.Size(82, 37);
+            this.bntLimpiar.TabIndex = 61;
+            this.bntLimpiar.Text = "Limpiar";
+            this.bntLimpiar.UseVisualStyleBackColor = false;
+            this.bntLimpiar.Click += new System.EventHandler(this.bntLimpiar_Click);
             // 
             // btnConsultaGeneral
             // 
@@ -133,7 +150,7 @@
             this.btnConsultaGeneral.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnConsultaGeneral.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsultaGeneral.ForeColor = System.Drawing.Color.Black;
-            this.btnConsultaGeneral.Location = new System.Drawing.Point(241, 95);
+            this.btnConsultaGeneral.Location = new System.Drawing.Point(303, 371);
             this.btnConsultaGeneral.Name = "btnConsultaGeneral";
             this.btnConsultaGeneral.Size = new System.Drawing.Size(82, 37);
             this.btnConsultaGeneral.TabIndex = 60;
@@ -151,6 +168,7 @@
             this.cboNumeroGrupo.Name = "cboNumeroGrupo";
             this.cboNumeroGrupo.Size = new System.Drawing.Size(81, 25);
             this.cboNumeroGrupo.TabIndex = 59;
+            this.cboNumeroGrupo.SelectedIndexChanged += new System.EventHandler(this.cboNumeroGrupo_SelectedIndexChanged);
             // 
             // numCupoActual
             // 
@@ -265,12 +283,12 @@
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
-            // txtIdGrupo
+            // txtIdCurso
             // 
-            this.txtIdGrupo.Location = new System.Drawing.Point(140, 43);
-            this.txtIdGrupo.Name = "txtIdGrupo";
-            this.txtIdGrupo.Size = new System.Drawing.Size(146, 26);
-            this.txtIdGrupo.TabIndex = 39;
+            this.txtIdCurso.Location = new System.Drawing.Point(140, 43);
+            this.txtIdCurso.Name = "txtIdCurso";
+            this.txtIdCurso.Size = new System.Drawing.Size(146, 26);
+            this.txtIdCurso.TabIndex = 39;
             // 
             // btnAgregar
             // 
@@ -416,7 +434,6 @@
             this.lvHorarios.TabIndex = 54;
             this.lvHorarios.UseCompatibleStateImageBehavior = false;
             this.lvHorarios.View = System.Windows.Forms.View.Details;
-            this.lvHorarios.ItemSelectionChanged += new System.Windows.Forms.ListViewItemSelectionChangedEventHandler(this.lvHorarios_ItemSelectionChanged);
             this.lvHorarios.SelectedIndexChanged += new System.EventHandler(this.lvHorarios_SelectedIndexChanged);
             // 
             // columnHeader1
@@ -497,23 +514,6 @@
             this.lbHoraInicio.TabIndex = 46;
             this.lbHoraInicio.Text = "Hora Inicio";
             // 
-            // bntLimpiar
-            // 
-            this.bntLimpiar.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.bntLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.bntLimpiar.FlatAppearance.BorderSize = 2;
-            this.bntLimpiar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.bntLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.bntLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bntLimpiar.ForeColor = System.Drawing.Color.Black;
-            this.bntLimpiar.Location = new System.Drawing.Point(213, 372);
-            this.bntLimpiar.Name = "bntLimpiar";
-            this.bntLimpiar.Size = new System.Drawing.Size(82, 37);
-            this.bntLimpiar.TabIndex = 61;
-            this.bntLimpiar.Text = "Limpiar";
-            this.bntLimpiar.UseVisualStyleBackColor = false;
-            this.bntLimpiar.Click += new System.EventHandler(this.bntLimpiar_Click);
-            // 
             // frmGrupoCurso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -560,7 +560,7 @@
         private System.Windows.Forms.Button btnConsultar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.TextBox txtIdGrupo;
+        private System.Windows.Forms.TextBox txtIdCurso;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lbHoraFinal;
         private System.Windows.Forms.Label lbHoraInicio;
