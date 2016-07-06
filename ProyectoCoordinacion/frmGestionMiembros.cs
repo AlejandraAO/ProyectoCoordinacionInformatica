@@ -57,7 +57,7 @@ namespace Vista
             if (mVerificarCampos() && mConsultarPorCarnetExiste()== false)
             {
 
-               7// conexion.codigo = "123";
+               // conexion.codigo = "123";
                 //conexion.clave = "123";
                 pEntidadMiembro.getSetCarnetMiembro = txtCarnet.Text;
                 pEntidadMiembro.getSetNombreMiembro = txtNombre.Text;
