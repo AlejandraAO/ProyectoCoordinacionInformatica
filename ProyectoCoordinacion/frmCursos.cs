@@ -120,7 +120,7 @@ namespace Vista
                         MessageBox.Show("NINGUNO", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
 
-                    mLimpiarCampos();
+                    mLimpiar();
                 }
                 else
                 {
@@ -143,19 +143,7 @@ namespace Vista
             }
             return false;
         }
-
-        public void mLimpiarCampos()
-        {
-            txtSigla.Text = "";
-            txtNombre.Text = "";
-            cbLugar.Text = "";
-            cbCiclo.Text = "";
-            numCreditos.Value = 0;
-            cbEstado.Text = "";
-            numTotalHoras.Value = 0;
-            cbModalidad.Text = "";
-            lbNombrePrograma.Text = "";           
-        }
+        
 
         private void txtSigla_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -255,18 +243,6 @@ namespace Vista
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             mLimpiar();
-            cbLugar.Items.Add("Laboratorio 1");
-            cbLugar.Items.Add("Laboratorio 2");
-            cbLugar.Items.Add("Aula");
-
-            cbCiclo.Items.Add("I Ciclo");
-            cbCiclo.Items.Add("II Ciclo");
-
-            cbEstado.Items.Add("Activo");
-            cbEstado.Items.Add("Inactivo");
-
-            cbModalidad.Items.Add("Presencial");
-            cbModalidad.Items.Add("Virtual");
         }
 
         public void mLimpiar()
@@ -285,6 +261,19 @@ namespace Vista
             txtNombre.ReadOnly = false;
             dgvRequisitos.Rows.Clear();
             dgvCorrequisitos.Rows.Clear();
+
+            cbLugar.Items.Add("Laboratorio 1");
+            cbLugar.Items.Add("Laboratorio 2");
+            cbLugar.Items.Add("Aula");
+
+            cbCiclo.Items.Add("I Ciclo");
+            cbCiclo.Items.Add("II Ciclo");
+
+            cbEstado.Items.Add("Activo");
+            cbEstado.Items.Add("Inactivo");
+
+            cbModalidad.Items.Add("Presencial");
+            cbModalidad.Items.Add("Virtual");
         }
 
         private void btnAgregarRequisito_Click(object sender, EventArgs e)

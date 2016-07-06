@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gbxDatosCurso = new System.Windows.Forms.GroupBox();
+            this.cbCiclo = new System.Windows.Forms.ComboBox();
             this.numTotalHoras = new System.Windows.Forms.NumericUpDown();
             this.cbModalidad = new System.Windows.Forms.ComboBox();
             this.numCreditos = new System.Windows.Forms.NumericUpDown();
@@ -52,6 +53,8 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.gbxRequisitoCorrequisito = new System.Windows.Forms.GroupBox();
+            this.btnEliminarCorrequisito = new System.Windows.Forms.Button();
+            this.btnEliminarRequisito = new System.Windows.Forms.Button();
             this.dgvCorrequisitos = new System.Windows.Forms.DataGridView();
             this.idCoRequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.siglaCorrequisito = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -65,9 +68,6 @@
             this.lbCorrequisito = new System.Windows.Forms.Label();
             this.lbRequisito = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cbCiclo = new System.Windows.Forms.ComboBox();
-            this.btnEliminarRequisito = new System.Windows.Forms.Button();
-            this.btnEliminarCorrequisito = new System.Windows.Forms.Button();
             this.gbxDatosCurso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numTotalHoras)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCreditos)).BeginInit();
@@ -106,6 +106,18 @@
             this.gbxDatosCurso.TabIndex = 41;
             this.gbxDatosCurso.TabStop = false;
             this.gbxDatosCurso.Text = "Gestión Cursos";
+            // 
+            // cbCiclo
+            // 
+            this.cbCiclo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCiclo.FormattingEnabled = true;
+            this.cbCiclo.Items.AddRange(new object[] {
+            "I Ciclo",
+            "II Ciclo"});
+            this.cbCiclo.Location = new System.Drawing.Point(136, 164);
+            this.cbCiclo.Name = "cbCiclo";
+            this.cbCiclo.Size = new System.Drawing.Size(121, 26);
+            this.cbCiclo.TabIndex = 66;
             // 
             // numTotalHoras
             // 
@@ -410,6 +422,40 @@
             this.gbxRequisitoCorrequisito.TabStop = false;
             this.gbxRequisitoCorrequisito.Text = "Requisitos y correquisitos del curso";
             // 
+            // btnEliminarCorrequisito
+            // 
+            this.btnEliminarCorrequisito.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEliminarCorrequisito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnEliminarCorrequisito.FlatAppearance.BorderSize = 2;
+            this.btnEliminarCorrequisito.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnEliminarCorrequisito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEliminarCorrequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarCorrequisito.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminarCorrequisito.Location = new System.Drawing.Point(725, 99);
+            this.btnEliminarCorrequisito.Name = "btnEliminarCorrequisito";
+            this.btnEliminarCorrequisito.Size = new System.Drawing.Size(56, 31);
+            this.btnEliminarCorrequisito.TabIndex = 57;
+            this.btnEliminarCorrequisito.Text = "-";
+            this.btnEliminarCorrequisito.UseVisualStyleBackColor = false;
+            this.btnEliminarCorrequisito.Click += new System.EventHandler(this.btnEliminarCorrequisito_Click);
+            // 
+            // btnEliminarRequisito
+            // 
+            this.btnEliminarRequisito.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnEliminarRequisito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnEliminarRequisito.FlatAppearance.BorderSize = 2;
+            this.btnEliminarRequisito.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnEliminarRequisito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnEliminarRequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarRequisito.ForeColor = System.Drawing.Color.Black;
+            this.btnEliminarRequisito.Location = new System.Drawing.Point(328, 99);
+            this.btnEliminarRequisito.Name = "btnEliminarRequisito";
+            this.btnEliminarRequisito.Size = new System.Drawing.Size(56, 31);
+            this.btnEliminarRequisito.TabIndex = 56;
+            this.btnEliminarRequisito.Text = "-";
+            this.btnEliminarRequisito.UseVisualStyleBackColor = false;
+            this.btnEliminarRequisito.Click += new System.EventHandler(this.btnEliminarRequisito_Click);
+            // 
             // dgvCorrequisitos
             // 
             this.dgvCorrequisitos.AllowUserToOrderColumns = true;
@@ -554,52 +600,6 @@
             this.label2.Size = new System.Drawing.Size(0, 18);
             this.label2.TabIndex = 51;
             // 
-            // cbCiclo
-            // 
-            this.cbCiclo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCiclo.FormattingEnabled = true;
-            this.cbCiclo.Items.AddRange(new object[] {
-            "I Ciclo",
-            "II Ciclo"});
-            this.cbCiclo.Location = new System.Drawing.Point(136, 164);
-            this.cbCiclo.Name = "cbCiclo";
-            this.cbCiclo.Size = new System.Drawing.Size(121, 26);
-            this.cbCiclo.TabIndex = 66;
-            // 
-            // btnEliminarRequisito
-            // 
-            this.btnEliminarRequisito.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEliminarRequisito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEliminarRequisito.FlatAppearance.BorderSize = 2;
-            this.btnEliminarRequisito.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnEliminarRequisito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnEliminarRequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarRequisito.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminarRequisito.Location = new System.Drawing.Point(328, 99);
-            this.btnEliminarRequisito.Name = "btnEliminarRequisito";
-            this.btnEliminarRequisito.Size = new System.Drawing.Size(56, 31);
-            this.btnEliminarRequisito.TabIndex = 56;
-            this.btnEliminarRequisito.Text = "-";
-            this.btnEliminarRequisito.UseVisualStyleBackColor = false;
-            this.btnEliminarRequisito.Click += new System.EventHandler(this.btnEliminarRequisito_Click);
-            // 
-            // btnEliminarCorrequisito
-            // 
-            this.btnEliminarCorrequisito.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.btnEliminarCorrequisito.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnEliminarCorrequisito.FlatAppearance.BorderSize = 2;
-            this.btnEliminarCorrequisito.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
-            this.btnEliminarCorrequisito.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
-            this.btnEliminarCorrequisito.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarCorrequisito.ForeColor = System.Drawing.Color.Black;
-            this.btnEliminarCorrequisito.Location = new System.Drawing.Point(725, 99);
-            this.btnEliminarCorrequisito.Name = "btnEliminarCorrequisito";
-            this.btnEliminarCorrequisito.Size = new System.Drawing.Size(56, 31);
-            this.btnEliminarCorrequisito.TabIndex = 57;
-            this.btnEliminarCorrequisito.Text = "-";
-            this.btnEliminarCorrequisito.UseVisualStyleBackColor = false;
-            this.btnEliminarCorrequisito.Click += new System.EventHandler(this.btnEliminarCorrequisito_Click);
-            // 
             // frmCursos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -615,6 +615,7 @@
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.gbxDatosCurso);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmCursos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmCursos";
