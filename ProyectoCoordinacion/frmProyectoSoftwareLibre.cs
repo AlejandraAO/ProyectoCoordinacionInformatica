@@ -102,6 +102,7 @@ namespace Vista
                         rtDescripcion.Text = dtrProyecto.GetString(2);
                         cbTipo.Text = dtrProyecto.GetString(3);
                         cbEstado.Text = dtrProyecto.GetString(4);
+                        lbInformacion.Text = dtrProyecto.GetString(6);
                         //falta mostrar informacion
 
                         //txtIdentificador.ReadOnly = true;

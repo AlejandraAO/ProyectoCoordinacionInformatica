@@ -52,6 +52,7 @@
             // cbEstado
             // 
             this.cbEstado.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEstado.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbEstado.ForeColor = System.Drawing.Color.Black;
             this.cbEstado.FormattingEnabled = true;
@@ -183,6 +184,7 @@
             // cbTipo
             // 
             this.cbTipo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbTipo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTipo.ForeColor = System.Drawing.Color.Black;
             this.cbTipo.FormattingEnabled = true;
