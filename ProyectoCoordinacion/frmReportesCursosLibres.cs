@@ -36,8 +36,6 @@ namespace Vista
             this.conexion = new clConexion();
             this.clCursoLibre = new clCursoLibre();
             this.entidadCursoLibre = new clEntidadCursoLibre();
-            this.conexion.codigo = "sa";
-            this.conexion.clave = "123";
         }
         #endregion
         #region Boton Salir
