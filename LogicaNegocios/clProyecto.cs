@@ -36,9 +36,19 @@ namespace LogicaNegocios
 
         public Boolean mModificarProyecto(clConexion cone, clEntidadProyecto pEntidadProyecto)
         {
-            strSentencia = "update tbProyectos set nombre='" + pEntidadProyecto.mNombre + "', descripcion='" + pEntidadProyecto.mDescripcion + "', estado='" + pEntidadProyecto.mEstado + "' , tipo='" + pEntidadProyecto.mTipo + "' ,informacion='" + pEntidadProyecto.mInformacioProyecto + "',nombreDocumento='"+pEntidadProyecto.mNombreDocumento+"' where idProyecto="+pEntidadProyecto.mIdProyecto+"";
+            if(pEntidadProyecto.mInformacioProyecto!= "")
+            {
+                strSentencia = "update tbProyectos set nombre='" + pEntidadProyecto.mNombre + "', descripcion='" + pEntidadProyecto.mDescripcion + "', estado='" + pEntidadProyecto.mEstado + "' , tipo='" + pEntidadProyecto.mTipo + "' ,informacion= (SELECT * FROM OPENROWSET(BULK N'" + pEntidadProyecto.mInformacioProyecto + "', SINGLE_BLOB) as Pdf),nombreDocumento='" + pEntidadProyecto.mNombreDocumento + "' where idProyecto=" + pEntidadProyecto.mIdProyecto + "";
+            }
+            else
+            {
+                strSentencia = "update tbProyectos set nombre='" + pEntidadProyecto.mNombre + "', descripcion='" + pEntidadProyecto.mDescripcion + "', estado='" + pEntidadProyecto.mEstado + "' , tipo='" + pEntidadProyecto.mTipo + "'  where idProyecto=" + pEntidadProyecto.mIdProyecto + "";
+            }
+
             return cone.mEjecutar(strSentencia, cone);
+
         }
+
         public SqlDataReader mConsultaGeneralProyectos(clConexion cone)
         {
             strSentencia = "select * from tbProyectos";

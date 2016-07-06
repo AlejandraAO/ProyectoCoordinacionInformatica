@@ -90,7 +90,6 @@ namespace Vista
         public void mConsultarProyectos()
         {
             
-            
                 entidadProyecto.mIdProyecto = Convert.ToInt32(txtIdentificador.Text);
                 dtrProyecto = proyecto.mConsultarProyectos(conexion, entidadProyecto);
 

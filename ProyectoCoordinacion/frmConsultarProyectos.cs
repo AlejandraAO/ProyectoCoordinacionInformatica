@@ -28,6 +28,7 @@ namespace Vista
             this.conexion = conexion;
             proyecto = new clEntidadProyecto();
             clProyecto = new clProyecto();
+            stCodigo = "";
             InitializeComponent();
         }
 
