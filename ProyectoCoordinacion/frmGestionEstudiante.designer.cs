@@ -231,6 +231,7 @@
             this.btnBusquedaRapida.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBusquedaRapida.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBusquedaRapida.ForeColor = System.Drawing.Color.Black;
+            this.btnBusquedaRapida.Image = global::ProyectoCoordinacion.Properties.Resources.Buscar;
             this.btnBusquedaRapida.Location = new System.Drawing.Point(278, 34);
             this.btnBusquedaRapida.Name = "btnBusquedaRapida";
             this.btnBusquedaRapida.Size = new System.Drawing.Size(32, 32);
@@ -574,6 +575,7 @@
             this.btnBuscarTelefono.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBuscarTelefono.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarTelefono.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarTelefono.Image = global::ProyectoCoordinacion.Properties.Resources.Buscar;
             this.btnBuscarTelefono.Location = new System.Drawing.Point(270, 20);
             this.btnBuscarTelefono.Name = "btnBuscarTelefono";
             this.btnBuscarTelefono.Size = new System.Drawing.Size(32, 32);
@@ -665,6 +667,7 @@
             this.btnBuscarCorreo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBuscarCorreo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarCorreo.ForeColor = System.Drawing.Color.Black;
+            this.btnBuscarCorreo.Image = global::ProyectoCoordinacion.Properties.Resources.Buscar;
             this.btnBuscarCorreo.Location = new System.Drawing.Point(270, 17);
             this.btnBuscarCorreo.Name = "btnBuscarCorreo";
             this.btnBuscarCorreo.Size = new System.Drawing.Size(32, 32);
