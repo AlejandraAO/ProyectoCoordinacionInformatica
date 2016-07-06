@@ -152,8 +152,8 @@ namespace Vista
             this.archivoSeleccionado = new OpenFileDialog();
             this.cursoLibre = new clCursoLibre();
             this.entidadCursoLibre = new clEntidadCursoLibre();
-            this.conexion.codigo = "sa";
-            this.conexion.clave = "ucr2016";
+            //this.conexion.codigo = "sa";
+            //this.conexion.clave = "ucr2016";
             this.conexion.baseDatos = "BDPortafolioUCR";
             
         }
