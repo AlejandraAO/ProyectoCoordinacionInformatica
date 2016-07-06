@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox = new System.Windows.Forms.GroupBox();
+            this.gbxInformacion = new System.Windows.Forms.GroupBox();
+            this.btnConsultaCarne = new System.Windows.Forms.Button();
             this.lblNumProyAsignados = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtCarnet = new System.Windows.Forms.TextBox();
@@ -48,35 +49,54 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
-            this.groupBox.SuspendLayout();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.gbxInformacion.SuspendLayout();
             this.SuspendLayout();
             // 
-            // groupBox
+            // gbxInformacion
             // 
-            this.groupBox.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox.Controls.Add(this.lblNumProyAsignados);
-            this.groupBox.Controls.Add(this.label5);
-            this.groupBox.Controls.Add(this.txtCarnet);
-            this.groupBox.Controls.Add(this.btnBuscarProyecto);
-            this.groupBox.Controls.Add(this.label2);
-            this.groupBox.Controls.Add(this.lbTipo);
-            this.groupBox.Controls.Add(this.txtTipo);
-            this.groupBox.Controls.Add(this.label4);
-            this.groupBox.Controls.Add(this.txtCarrera);
-            this.groupBox.Controls.Add(this.label3);
-            this.groupBox.Controls.Add(this.txtApellido2);
-            this.groupBox.Controls.Add(this.label1);
-            this.groupBox.Controls.Add(this.txtApellido1);
-            this.groupBox.Controls.Add(this.txt);
-            this.groupBox.Controls.Add(this.txtNombre);
-            this.groupBox.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox.ForeColor = System.Drawing.Color.White;
-            this.groupBox.Location = new System.Drawing.Point(49, 37);
-            this.groupBox.Name = "groupBox";
-            this.groupBox.Size = new System.Drawing.Size(622, 270);
-            this.groupBox.TabIndex = 0;
-            this.groupBox.TabStop = false;
-            this.groupBox.Text = "Información Miembros ";
+            this.gbxInformacion.BackColor = System.Drawing.Color.Transparent;
+            this.gbxInformacion.Controls.Add(this.btnConsultaCarne);
+            this.gbxInformacion.Controls.Add(this.lblNumProyAsignados);
+            this.gbxInformacion.Controls.Add(this.label5);
+            this.gbxInformacion.Controls.Add(this.txtCarnet);
+            this.gbxInformacion.Controls.Add(this.btnBuscarProyecto);
+            this.gbxInformacion.Controls.Add(this.label2);
+            this.gbxInformacion.Controls.Add(this.lbTipo);
+            this.gbxInformacion.Controls.Add(this.txtTipo);
+            this.gbxInformacion.Controls.Add(this.label4);
+            this.gbxInformacion.Controls.Add(this.txtCarrera);
+            this.gbxInformacion.Controls.Add(this.label3);
+            this.gbxInformacion.Controls.Add(this.txtApellido2);
+            this.gbxInformacion.Controls.Add(this.label1);
+            this.gbxInformacion.Controls.Add(this.txtApellido1);
+            this.gbxInformacion.Controls.Add(this.txt);
+            this.gbxInformacion.Controls.Add(this.txtNombre);
+            this.gbxInformacion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbxInformacion.ForeColor = System.Drawing.Color.White;
+            this.gbxInformacion.Location = new System.Drawing.Point(49, 37);
+            this.gbxInformacion.Name = "gbxInformacion";
+            this.gbxInformacion.Size = new System.Drawing.Size(632, 270);
+            this.gbxInformacion.TabIndex = 0;
+            this.gbxInformacion.TabStop = false;
+            this.gbxInformacion.Text = "Información Miembros ";
+            // 
+            // btnConsultaCarne
+            // 
+            this.btnConsultaCarne.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnConsultaCarne.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnConsultaCarne.FlatAppearance.BorderSize = 2;
+            this.btnConsultaCarne.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnConsultaCarne.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnConsultaCarne.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultaCarne.ForeColor = System.Drawing.Color.Black;
+            this.btnConsultaCarne.Image = global::ProyectoCoordinacion.Properties.Resources.Buscar;
+            this.btnConsultaCarne.Location = new System.Drawing.Point(258, 37);
+            this.btnConsultaCarne.Name = "btnConsultaCarne";
+            this.btnConsultaCarne.Size = new System.Drawing.Size(57, 31);
+            this.btnConsultaCarne.TabIndex = 47;
+            this.btnConsultaCarne.UseVisualStyleBackColor = false;
+            this.btnConsultaCarne.Click += new System.EventHandler(this.btnConsultaCarne_Click);
             // 
             // lblNumProyAsignados
             // 
@@ -120,7 +140,7 @@
             this.btnBuscarProyecto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBuscarProyecto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscarProyecto.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscarProyecto.Location = new System.Drawing.Point(388, 180);
+            this.btnBuscarProyecto.Location = new System.Drawing.Point(431, 156);
             this.btnBuscarProyecto.Name = "btnBuscarProyecto";
             this.btnBuscarProyecto.Size = new System.Drawing.Size(161, 38);
             this.btnBuscarProyecto.TabIndex = 7;
@@ -134,7 +154,7 @@
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(298, 191);
+            this.label2.Location = new System.Drawing.Point(345, 166);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(74, 18);
             this.label2.TabIndex = 42;
@@ -146,7 +166,7 @@
             this.lbTipo.BackColor = System.Drawing.Color.Transparent;
             this.lbTipo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbTipo.ForeColor = System.Drawing.Color.White;
-            this.lbTipo.Location = new System.Drawing.Point(306, 104);
+            this.lbTipo.Location = new System.Drawing.Point(345, 102);
             this.lbTipo.Name = "lbTipo";
             this.lbTipo.Size = new System.Drawing.Size(42, 18);
             this.lbTipo.TabIndex = 36;
@@ -157,7 +177,7 @@
             this.txtTipo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtTipo.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTipo.ForeColor = System.Drawing.Color.Black;
-            this.txtTipo.Location = new System.Drawing.Point(396, 101);
+            this.txtTipo.Location = new System.Drawing.Point(431, 99);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(128, 26);
             this.txtTipo.TabIndex = 5;
@@ -168,7 +188,7 @@
             this.label4.BackColor = System.Drawing.Color.Transparent;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(306, 45);
+            this.label4.Location = new System.Drawing.Point(345, 50);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 18);
             this.label4.TabIndex = 34;
@@ -179,7 +199,7 @@
             this.txtCarrera.BackColor = System.Drawing.Color.WhiteSmoke;
             this.txtCarrera.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCarrera.ForeColor = System.Drawing.Color.Black;
-            this.txtCarrera.Location = new System.Drawing.Point(396, 37);
+            this.txtCarrera.Location = new System.Drawing.Point(431, 40);
             this.txtCarrera.Name = "txtCarrera";
             this.txtCarrera.Size = new System.Drawing.Size(128, 26);
             this.txtCarrera.TabIndex = 4;
@@ -259,7 +279,7 @@
             this.btnAgregar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAgregar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAgregar.ForeColor = System.Drawing.Color.Black;
-            this.btnAgregar.Location = new System.Drawing.Point(105, 344);
+            this.btnAgregar.Location = new System.Drawing.Point(49, 344);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(77, 37);
             this.btnAgregar.TabIndex = 1;
@@ -276,7 +296,7 @@
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(539, 344);
+            this.btnSalir.Location = new System.Drawing.Point(531, 344);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(77, 37);
             this.btnSalir.TabIndex = 4;
@@ -293,7 +313,7 @@
             this.btnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnBuscar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBuscar.ForeColor = System.Drawing.Color.Black;
-            this.btnBuscar.Location = new System.Drawing.Point(395, 344);
+            this.btnBuscar.Location = new System.Drawing.Point(287, 344);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(77, 37);
             this.btnBuscar.TabIndex = 3;
@@ -310,13 +330,30 @@
             this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnModificar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.Color.Black;
-            this.btnModificar.Location = new System.Drawing.Point(249, 344);
+            this.btnModificar.Location = new System.Drawing.Point(167, 344);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(82, 37);
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.btnLimpiar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnLimpiar.FlatAppearance.BorderSize = 2;
+            this.btnLimpiar.FlatAppearance.CheckedBackColor = System.Drawing.Color.Silver;
+            this.btnLimpiar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnLimpiar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.ForeColor = System.Drawing.Color.Black;
+            this.btnLimpiar.Location = new System.Drawing.Point(408, 344);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(77, 37);
+            this.btnLimpiar.TabIndex = 5;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // frmGestionMiembros
             // 
@@ -326,10 +363,11 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(730, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.groupBox);
+            this.Controls.Add(this.gbxInformacion);
             this.Controls.Add(this.btnAgregar);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -337,15 +375,15 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión Miembros";
             this.Load += new System.EventHandler(this.frmGestionMiembros_Load);
-            this.groupBox.ResumeLayout(false);
-            this.groupBox.PerformLayout();
+            this.gbxInformacion.ResumeLayout(false);
+            this.gbxInformacion.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox;
+        private System.Windows.Forms.GroupBox gbxInformacion;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Label txt;
         private System.Windows.Forms.TextBox txtNombre;
@@ -365,5 +403,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox txtCarnet;
         private System.Windows.Forms.Label lblNumProyAsignados;
+        private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.Button btnConsultaCarne;
     }
 }
