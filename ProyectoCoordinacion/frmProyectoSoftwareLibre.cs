@@ -125,8 +125,8 @@ namespace Vista
         {
             if (mVerificarDatosNecesarios())
             {
-                conexion.codigo = "123";
-                conexion.clave = "123";
+                //conexion.codigo = "123";
+                //conexion.clave = "123";
 
                 //Se asignan los valores a la entidad curso
                 //entidadProyecto.mIdProyecto = Convert.ToInt32(txtIdentificador.Text);
@@ -158,8 +158,8 @@ namespace Vista
         {
             if (mVerificarDatosNecesarios())
             {
-                conexion.codigo = "123";
-                conexion.clave = "123";
+               // conexion.codigo = "123";
+                //conexion.clave = "123";
 
                 //Se asignan los valores a la entidad proyecto
 

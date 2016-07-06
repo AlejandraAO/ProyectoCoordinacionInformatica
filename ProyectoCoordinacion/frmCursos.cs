@@ -87,8 +87,8 @@ namespace Vista
         {
             if (mVerificarDatosNecesarios())
             {
-                conexion.codigo = "123";
-                conexion.clave = "123";
+                //conexion.codigo = "123";
+                //conexion.clave = "123";
 
                 //Se asignan los valores a la entidad curso
                 entidadCurso.mSiglaCurso = txtSigla.Text;
@@ -220,8 +220,8 @@ namespace Vista
         {
             if (mVerificarDatosNecesarios())
             {
-                conexion.codigo = "123";
-                conexion.clave = "123";
+                //conexion.codigo = "123";
+                //conexion.clave = "123";
 
                 //Se asignan los valores a la entidad curso
                 //entidadCurso.mIdCurso = dtrCurso.GetInt32(0);                

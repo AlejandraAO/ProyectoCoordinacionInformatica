@@ -37,6 +37,8 @@
             this.btnAsignarProyecto = new System.Windows.Forms.Button();
             this.btnRetitarProyecto = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lvProyectosGeneral
@@ -47,9 +49,10 @@
             this.nombre});
             this.lvProyectosGeneral.FullRowSelect = true;
             this.lvProyectosGeneral.GridLines = true;
-            this.lvProyectosGeneral.Location = new System.Drawing.Point(51, 59);
+            this.lvProyectosGeneral.Location = new System.Drawing.Point(38, 48);
+            this.lvProyectosGeneral.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvProyectosGeneral.Name = "lvProyectosGeneral";
-            this.lvProyectosGeneral.Size = new System.Drawing.Size(347, 363);
+            this.lvProyectosGeneral.Size = new System.Drawing.Size(261, 296);
             this.lvProyectosGeneral.TabIndex = 3;
             this.lvProyectosGeneral.UseCompatibleStateImageBehavior = false;
             this.lvProyectosGeneral.View = System.Windows.Forms.View.Details;
@@ -74,9 +77,10 @@
             this.columnHeader2});
             this.lvProyectosAsignados.FullRowSelect = true;
             this.lvProyectosAsignados.GridLines = true;
-            this.lvProyectosAsignados.Location = new System.Drawing.Point(537, 59);
+            this.lvProyectosAsignados.Location = new System.Drawing.Point(403, 48);
+            this.lvProyectosAsignados.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lvProyectosAsignados.Name = "lvProyectosAsignados";
-            this.lvProyectosAsignados.Size = new System.Drawing.Size(347, 363);
+            this.lvProyectosAsignados.Size = new System.Drawing.Size(261, 296);
             this.lvProyectosAsignados.TabIndex = 4;
             this.lvProyectosAsignados.UseCompatibleStateImageBehavior = false;
             this.lvProyectosAsignados.View = System.Windows.Forms.View.Details;
@@ -102,10 +106,9 @@
             this.btnAsignarProyecto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnAsignarProyecto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAsignarProyecto.ForeColor = System.Drawing.Color.Black;
-            this.btnAsignarProyecto.Location = new System.Drawing.Point(414, 150);
-            this.btnAsignarProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAsignarProyecto.Location = new System.Drawing.Point(310, 122);
             this.btnAsignarProyecto.Name = "btnAsignarProyecto";
-            this.btnAsignarProyecto.Size = new System.Drawing.Size(103, 46);
+            this.btnAsignarProyecto.Size = new System.Drawing.Size(77, 37);
             this.btnAsignarProyecto.TabIndex = 24;
             this.btnAsignarProyecto.Text = "Asignar";
             this.btnAsignarProyecto.UseVisualStyleBackColor = false;
@@ -121,10 +124,9 @@
             this.btnRetitarProyecto.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnRetitarProyecto.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnRetitarProyecto.ForeColor = System.Drawing.Color.Black;
-            this.btnRetitarProyecto.Location = new System.Drawing.Point(414, 236);
-            this.btnRetitarProyecto.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRetitarProyecto.Location = new System.Drawing.Point(310, 192);
             this.btnRetitarProyecto.Name = "btnRetitarProyecto";
-            this.btnRetitarProyecto.Size = new System.Drawing.Size(103, 46);
+            this.btnRetitarProyecto.Size = new System.Drawing.Size(77, 37);
             this.btnRetitarProyecto.TabIndex = 25;
             this.btnRetitarProyecto.Text = "Retirar";
             this.btnRetitarProyecto.UseVisualStyleBackColor = false;
@@ -139,32 +141,61 @@
             this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnSalir.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.Color.Black;
-            this.btnSalir.Location = new System.Drawing.Point(781, 476);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(586, 387);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(103, 46);
+            this.btnSalir.Size = new System.Drawing.Size(77, 37);
             this.btnSalir.TabIndex = 26;
             this.btnSalir.Text = "Listo";
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // frmConsultaRapProyecto
+            // label3
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.Color.Transparent;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(35, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 18);
+            this.label3.TabIndex = 27;
+            this.label3.Text = "Proyectos:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(400, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(159, 18);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Proyectos asignados:";
+            // 
+            // frmAsignarMiembroAProyecto
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(939, 551);
+            this.ClientSize = new System.Drawing.Size(704, 448);
+            this.ControlBox = false;
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnRetitarProyecto);
             this.Controls.Add(this.btnAsignarProyecto);
             this.Controls.Add(this.lvProyectosAsignados);
             this.Controls.Add(this.lvProyectosGeneral);
             this.DoubleBuffered = true;
-            this.Name = "frmConsultaRapProyecto";
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Name = "frmAsignarMiembroAProyecto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmConsultaRapProyecto";
             this.Load += new System.EventHandler(this.frmConsultaRapProyecto_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -178,5 +209,7 @@
         private System.Windows.Forms.Button btnAsignarProyecto;
         private System.Windows.Forms.Button btnRetitarProyecto;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label1;
     }
 }
