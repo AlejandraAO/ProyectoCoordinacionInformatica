@@ -71,6 +71,18 @@
     <Compile Include="frmAsignarMiembroNuevoAProy.Designer.cs">
       <DependentUpon>frmAsignarMiembroNuevoAProy.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaCorreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaCorreo.designer.cs">
+      <DependentUpon>frmConsultaCorreo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaEstudiante.designer.cs">
+      <DependentUpon>frmConsultaEstudiante.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultarCurso.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,12 @@
     <Compile Include="frmConsultarRapCursosLibres.designer.cs">
       <DependentUpon>frmConsultarRapCursosLibres.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaTelefono.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaTelefono.designer.cs">
+      <DependentUpon>frmConsultaTelefono.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCursos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +124,12 @@
     </Compile>
     <Compile Include="frmGestionCursosLibres.Designer.cs">
       <DependentUpon>frmGestionCursosLibres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGestionEstudiante.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGestionEstudiante.designer.cs">
+      <DependentUpon>frmGestionEstudiante.cs</DependentUpon>
     </Compile>
     <Compile Include="frmGestionMiembros.cs">
       <SubType>Form</SubType>
@@ -181,6 +205,12 @@
     <EmbeddedResource Include="frmAsignarMiembroNuevoAProy.resx">
       <DependentUpon>frmAsignarMiembroNuevoAProy.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaCorreo.resx">
+      <DependentUpon>frmConsultaCorreo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaEstudiante.resx">
+      <DependentUpon>frmConsultaEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultarCurso.resx">
       <DependentUpon>frmConsultarCurso.cs</DependentUpon>
     </EmbeddedResource>
@@ -190,6 +220,9 @@
     <EmbeddedResource Include="frmConsultarRapCursosLibres.resx">
       <DependentUpon>frmConsultarRapCursosLibres.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaTelefono.resx">
+      <DependentUpon>frmConsultaTelefono.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCursos.resx">
       <DependentUpon>frmCursos.cs</DependentUpon>
     </EmbeddedResource>
@@ -198,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionCursosLibres.resx">
       <DependentUpon>frmGestionCursosLibres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGestionEstudiante.resx">
+      <DependentUpon>frmGestionEstudiante.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGestionMiembros.resx">
       <DependentUpon>frmGestionMiembros.cs</DependentUpon>
@@ -268,6 +304,10 @@
       <Project>{031e47c3-c44f-40b2-9226-61948b03e706}</Project>
       <Name>LogicaNegocios</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Buscar.png" />
+    <Content Include="Resources\escudo-linea-negro.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

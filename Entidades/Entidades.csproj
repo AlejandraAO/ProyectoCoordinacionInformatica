@@ -41,7 +41,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clEntidadCoRequisitoCurso.cs" />
+    <Compile Include="clEntidadCurriculum.cs" />
     <Compile Include="clEntidadCursoLibre.cs" />
+    <Compile Include="clEntidadEstudiante.cs" />
     <Compile Include="clEntidadGrupoCurso.cs" />
     <Compile Include="clEntidadHorario.cs" />
     <Compile Include="clEntidadMiembroProyecto.cs" />

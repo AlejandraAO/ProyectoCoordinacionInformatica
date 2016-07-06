@@ -336,6 +336,7 @@
             this.Name = "frmGestionMiembros";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión Miembros";
+            this.Load += new System.EventHandler(this.frmGestionMiembros_Load);
             this.groupBox.ResumeLayout(false);
             this.groupBox.PerformLayout();
             this.ResumeLayout(false);

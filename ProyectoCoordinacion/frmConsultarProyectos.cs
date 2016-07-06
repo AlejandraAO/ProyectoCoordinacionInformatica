@@ -44,7 +44,9 @@ namespace Vista
                 while (strProyecto.Read())
                 {
                     ListViewItem lista;
-                    lista = lvProyectos.Items.Add(strProyecto.GetString(0));
+                    lista = new ListViewItem(Convert.ToString( strProyecto.GetInt32(0)));
+                    lista.SubItems.Add(strProyecto.GetString(1));
+                    lvProyectos.Items.Add(lista);
                 }
             }
             else

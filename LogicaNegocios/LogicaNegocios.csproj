@@ -41,8 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clCoRequisitoCurso.cs" />
+    <Compile Include="clCurriculum.cs" />
     <Compile Include="clCursoLibre.cs" />
     <Compile Include="clCurso.cs" />
+    <Compile Include="clEstudiante.cs" />
     <Compile Include="clGrupoCurs.cs" />
     <Compile Include="clHorario.cs" />
     <Compile Include="clMiembroProyecto.cs" />

@@ -282,5 +282,10 @@ namespace Vista
                 MessageBox.Show("No se ha encontrado el miembro solicitado", "Miembro no encontrado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void frmGestionMiembros_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

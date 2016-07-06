@@ -109,5 +109,12 @@ namespace Vista
             frmReporteLaboratorios reporteLaboratorios = new frmReporteLaboratorios(this);
             reporteLaboratorios.Show();
         }
+
+        private void gestiónDeEstudiantesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGestionEstudiante gestionEstudiante = new frmGestionEstudiante(this);
+            this.Hide();
+            gestionEstudiante.Show();
+        }
     }
 }

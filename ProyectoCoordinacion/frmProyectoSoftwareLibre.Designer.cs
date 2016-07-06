@@ -316,7 +316,7 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmProyectoSoftwareLibre";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion de Proyectos de Software Libre";
             this.Load += new System.EventHandler(this.frmProyectoSoftwareLibre_Load);
             this.groupBox.ResumeLayout(false);

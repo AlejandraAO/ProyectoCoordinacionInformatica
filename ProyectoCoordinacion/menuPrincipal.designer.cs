@@ -48,6 +48,7 @@
             this.gestiónGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestiónReportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteProfesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteLaboratorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.reporteLaboratorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeEstudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -220,8 +221,17 @@
             this.reporteProfesorToolStripMenuItem.Text = "Reporte Profesor";
             this.reporteProfesorToolStripMenuItem.Click += new System.EventHandler(this.reporteProfesorToolStripMenuItem_Click);
             // 
+            // reporteLaboratorioToolStripMenuItem
+            // 
+            this.reporteLaboratorioToolStripMenuItem.Name = "reporteLaboratorioToolStripMenuItem";
+            this.reporteLaboratorioToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
+            this.reporteLaboratorioToolStripMenuItem.Text = "Reporte Laboratorio";
+            this.reporteLaboratorioToolStripMenuItem.Click += new System.EventHandler(this.reporteLaboratorioToolStripMenuItem_Click);
+            // 
             // viewMenu
             // 
+            this.viewMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.gestiónDeEstudiantesToolStripMenuItem});
             this.viewMenu.Name = "viewMenu";
             this.viewMenu.Size = new System.Drawing.Size(79, 20);
             this.viewMenu.Text = "&Estudiantes";
@@ -258,12 +268,12 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
             // 
-            // reporteLaboratorioToolStripMenuItem
+            // gestiónDeEstudiantesToolStripMenuItem
             // 
-            this.reporteLaboratorioToolStripMenuItem.Name = "reporteLaboratorioToolStripMenuItem";
-            this.reporteLaboratorioToolStripMenuItem.Size = new System.Drawing.Size(179, 22);
-            this.reporteLaboratorioToolStripMenuItem.Text = "Reporte Laboratorio";
-            this.reporteLaboratorioToolStripMenuItem.Click += new System.EventHandler(this.reporteLaboratorioToolStripMenuItem_Click);
+            this.gestiónDeEstudiantesToolStripMenuItem.Name = "gestiónDeEstudiantesToolStripMenuItem";
+            this.gestiónDeEstudiantesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.gestiónDeEstudiantesToolStripMenuItem.Text = "Gestión de Estudiantes";
+            this.gestiónDeEstudiantesToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeEstudiantesToolStripMenuItem_Click);
             // 
             // menuPrincipal
             // 
@@ -315,6 +325,7 @@
         private System.Windows.Forms.ToolStripMenuItem gestiónReportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteProfesorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteLaboratorioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gestiónDeEstudiantesToolStripMenuItem;
     }
 }
 
