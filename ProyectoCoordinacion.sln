@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25123.0
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vista", "ProyectoCoordinacion\Vista.csproj", "{71B6A5ED-017B-40AD-98DE-7C7B4F297337}"
 EndProject
@@ -10,8 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{2A2B3B4D-9D83-4B9E-BCA0-3DB1C8F2758D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LogicaNegocios", "LogicaNegocios\LogicaNegocios.csproj", "{031E47C3-C44F-40B2-9226-61948B03E706}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PortafolioCursosLibres", "..\PortafolioCursosLibres\PortafolioCursosLibres\PortafolioCursosLibres.csproj", "{306531C3-B94B-44E1-B773-1507584C2461}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,10 +33,6 @@ Global
 		{031E47C3-C44F-40B2-9226-61948B03E706}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{031E47C3-C44F-40B2-9226-61948B03E706}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{031E47C3-C44F-40B2-9226-61948B03E706}.Release|Any CPU.Build.0 = Release|Any CPU
-		{306531C3-B94B-44E1-B773-1507584C2461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{306531C3-B94B-44E1-B773-1507584C2461}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{306531C3-B94B-44E1-B773-1507584C2461}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{306531C3-B94B-44E1-B773-1507584C2461}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
