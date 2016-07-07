@@ -24,9 +24,9 @@ namespace LogicaNegocios
             return conexion.mSeleccionar(sentencia, conexion);
         }
 
-        public SqlDataReader mConsultarIdHorario(clConexion conexion)
+        public SqlDataReader mConsultarIdHorario(clConexion conexion)//,clEntidadHorario pEntidadHorario)
         {
-            sentencia = "select idHorario from tbHorarios'";
+            sentencia = "select idHorario from tbHorarios "; //where idHorario='"+pEntidadHorario.mIdHorario+"' ";
             return conexion.mSeleccionar(sentencia, conexion);
         }
 
