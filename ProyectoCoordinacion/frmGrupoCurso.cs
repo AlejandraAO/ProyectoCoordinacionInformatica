@@ -179,12 +179,12 @@ namespace Vista
 
         public void mLlenarDia()
         {
-            cboDia.Items.Add("L");
-            cboDia.Items.Add("K");
-            cboDia.Items.Add("M");
-            cboDia.Items.Add("J");
-            cboDia.Items.Add("V");
-            cboDia.Items.Add("S");
+            cboDia.Items.Add("Lunes");
+            cboDia.Items.Add("Martes");
+            cboDia.Items.Add("Miércoles");
+            cboDia.Items.Add("Jueves");
+            cboDia.Items.Add("Viernes");
+            cboDia.Items.Add("Sábado");
         }
 
 
@@ -263,10 +263,10 @@ namespace Vista
                               //  clEntidadHorario.mHoraInicio = cboHoraInicio.Text;
                               //  clEntidadHorario.mHoraSalida = cboHoraFinal.Text;
                             }
-                            
-                            if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
-                                if (clHorario.mInsertarHorario(conexion, clEntidadHorario) == true )
-                                {
+
+                        if (clGrupoCurso.mInsertarGrupo(conexion, clEntidadGrupoCurso) == true)
+                            if (clHorario.mInsertarHorario(conexion, clEntidadHorario) == true)
+                            {
 
                                 MessageBox.Show("Se ha insertado", Convert.ToString(clEntidadHorario.mIdHorario), MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -277,7 +277,7 @@ namespace Vista
                                 {
                                     if (strSentencia2 != null && strSentencia2.Read())
                                     {
-                                        
+
                                         clEntidadGrupoCurso.getsetIdGrupo = strSentencia.GetInt32(0);
                                         clEntidadHorario.mIdHorario = strSentencia2.GetInt32(0);
                                         clGrupoCurso.mInsertHorarioGruposCurs(conexion, clEntidadHorario, clEntidadGrupoCurso);
@@ -288,13 +288,13 @@ namespace Vista
 
                                     }
                                 }
-                                    
-
-                                  
 
 
-                                }
-                        }
+
+
+
+                            }
+                    }
 
                     }
                 else
@@ -365,7 +365,7 @@ namespace Vista
         {
             foreach (ListViewItem I in lvHorarios.Items)
             {
-
+                
                 clEntidadHorario.mDia = I.SubItems[0].Text;
                 clEntidadHorario.mHoraInicio = I.SubItems[1].Text;
                 clEntidadHorario.mHoraSalida = I.SubItems[2].Text;
@@ -528,13 +528,14 @@ namespace Vista
             if (itemSeleccion(lvHorarios) != -1)
             {
                 strSentencia = clHorario.mConsultarHorario(conexion);
-                if (strSentencia.Read())
+                if (strSentencia.Read()){
 
-                cboDia.Text = (strSentencia.GetString(1));
-                cboHoraInicio.Text = Convert.ToString(strSentencia.GetTimeSpan(2));
-                cboHoraFinal.Text = Convert.ToString(strSentencia.GetTimeSpan(3));
+                    cboDia.Text = (strSentencia.GetString(1));
+                    cboHoraInicio.Text = Convert.ToString(strSentencia.GetTimeSpan(2));
+                    cboHoraFinal.Text = Convert.ToString(strSentencia.GetTimeSpan(3));
 
-                btnModifcarHorario.Enabled = true;
+                    btnModifcarHorario.Enabled = true;
+                }
             }
 
 

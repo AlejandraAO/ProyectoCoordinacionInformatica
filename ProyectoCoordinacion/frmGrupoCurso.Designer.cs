@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem("");
             this.lbIdGrupo = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
@@ -437,10 +435,6 @@
             this.lvHorarios.ForeColor = System.Drawing.Color.Black;
             this.lvHorarios.FullRowSelect = true;
             this.lvHorarios.GridLines = true;
-            listViewItem2.Tag = "asdasdasd";
-            this.lvHorarios.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1,
-            listViewItem2});
             this.lvHorarios.Location = new System.Drawing.Point(120, 231);
             this.lvHorarios.Name = "lvHorarios";
             this.lvHorarios.Size = new System.Drawing.Size(265, 200);
