@@ -124,13 +124,14 @@
             // cbIndentificacion
             // 
             this.cbIndentificacion.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cbIndentificacion.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cbIndentificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbIndentificacion.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbIndentificacion.ForeColor = System.Drawing.Color.Black;
             this.cbIndentificacion.FormattingEnabled = true;
             this.cbIndentificacion.Location = new System.Drawing.Point(227, 24);
             this.cbIndentificacion.Name = "cbIndentificacion";
-            this.cbIndentificacion.Size = new System.Drawing.Size(121, 25);
+            this.cbIndentificacion.Size = new System.Drawing.Size(121, 26);
             this.cbIndentificacion.TabIndex = 29;
             // 
             // lbIdentificacion

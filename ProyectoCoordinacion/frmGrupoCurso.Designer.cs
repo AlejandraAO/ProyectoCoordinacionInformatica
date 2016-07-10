@@ -157,6 +157,7 @@
             // cboNumeroGrupo
             // 
             this.cboNumeroGrupo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboNumeroGrupo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboNumeroGrupo.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboNumeroGrupo.ForeColor = System.Drawing.Color.Black;
             this.cboNumeroGrupo.FormattingEnabled = true;
@@ -376,6 +377,7 @@
             // cboHoraInicio
             // 
             this.cboHoraInicio.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboHoraInicio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHoraInicio.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboHoraInicio.ForeColor = System.Drawing.Color.Black;
             this.cboHoraInicio.FormattingEnabled = true;
@@ -387,6 +389,7 @@
             // cboHoraFinal
             // 
             this.cboHoraFinal.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboHoraFinal.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboHoraFinal.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboHoraFinal.ForeColor = System.Drawing.Color.Black;
             this.cboHoraFinal.FormattingEnabled = true;
@@ -398,6 +401,7 @@
             // cboDia
             // 
             this.cboDia.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.cboDia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboDia.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboDia.ForeColor = System.Drawing.Color.Black;
             this.cboDia.FormattingEnabled = true;
