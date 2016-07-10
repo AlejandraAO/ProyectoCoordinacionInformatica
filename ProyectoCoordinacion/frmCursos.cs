@@ -279,6 +279,7 @@ namespace Vista
         private void btnAgregarRequisito_Click(object sender, EventArgs e)
         {
             frmConsultarCurso consultaCurso = new frmConsultarCurso(this);
+            consultaCurso.mTipoEvento = 0;
             consultaCurso.mTipoDataGrid = 0;
             this.Hide();
             consultaCurso.Show();
@@ -288,6 +289,7 @@ namespace Vista
         private void btnAgregarCorrequisito_Click(object sender, EventArgs e)
         {
             frmConsultarCurso consultaCurso = new frmConsultarCurso(this);
+            consultaCurso.mTipoEvento = 0;
             consultaCurso.mTipoDataGrid = 1;
             this.Hide();
             consultaCurso.Show();

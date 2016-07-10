@@ -34,6 +34,11 @@ namespace LogicaNegocios
             strSentencia = "update tbGruposCurs set numeroGrup = '" + pEntidadGrupoCurso.getSetNumeroGrup + "', cupoMaximo ='" + pEntidadGrupoCurso.getSetCupoMaximo + "', cupoMinimo='" + pEntidadGrupoCurso.getSetCupoMinimo + "', cupoActual='" + pEntidadGrupoCurso.getSetCupoActual + "' where idGrupo='" + pEntidadGrupoCurso.getsetIdGrupo + "'";
             return conexion.mEjecutar(strSentencia, conexion);
         }
+        public SqlDataReader mConsultaUltimoGrupo(clConexion conexion)
+        {
+            strSentencia = "select  Max(idGrupo) from tbGruposCurs";
+            return conexion.mSeleccionar(strSentencia, conexion);
+        }
 
         public SqlDataReader mConsultaGeneral(clConexion conexion, clEntidadGrupoCurso pEntidadGrupoCurso)
         {

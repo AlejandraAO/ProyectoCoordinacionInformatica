@@ -29,11 +29,13 @@ namespace Vista
         private ArrayList  idCursosSeleccionados;
         private String curso;
         public int tipoDataGrid;
+        private int tipoEvento;
         #endregion
 
         public frmConsultarCurso(Object objeto )
         {
-            if(objeto is menuPrincipal)
+            
+            if (objeto is menuPrincipal)
             {
                 menuPrincipal menuP = (menuPrincipal)objeto;
                 this.menu = menuP;                 
@@ -63,6 +65,7 @@ namespace Vista
 
             InitializeComponent();
             idCursosSeleccionados = new ArrayList();
+            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -106,7 +109,8 @@ namespace Vista
             
         }    
         private void frmConsultarCurso_Load(object sender, EventArgs e)
-        {            
+        {
+            
             mConsultaGenetal();
             if (menu is menuPrincipal){
                 btnAgregarALista.Enabled = false;
@@ -168,7 +172,8 @@ namespace Vista
 
         private void dgvDetalleCursos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+           
+            
 
             if (dgvDetalleCursos.CurrentCell.ColumnIndex == 8)
             {
@@ -190,8 +195,8 @@ namespace Vista
                         }
                 }
             }
-           
             
+
         }
 
 
@@ -246,23 +251,52 @@ namespace Vista
             get { return this.tipoDataGrid; }
             set { this.tipoDataGrid = value; }
         }
+        public int mTipoEvento
+        {
+            set { this.tipoEvento = value; }
+            get { return this.tipoEvento; }
+        }
 
         private void dgvDetalleCursos_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-
-            for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
+            if (tipoEvento == 0)
             {
-                if (dgvDetalleCursos.Rows[i].Selected)
+                foreach (DataGridViewRow dgv in dgvDetalleCursos.SelectedRows)
                 {
-                    {
+                    idCursosSeleccionados.Add(dgv.Cells["idCurso"].Value);
 
-                        curso = Convert.ToString(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
+                }
+                if (tipoDataGrid == 0)
+                {
+                    frmCurso.mAgregarRequisito(idCursosSeleccionados);
+                }
+                else
+                {
+                    if (tipoDataGrid == 1)
+                    {
+                        frmCurso.mAgregarCoRequisito(idCursosSeleccionados);
                     }
                 }
-            }
 
-            this.Close();
+                this.Hide();
+                frmCurso.Show();
+            }
+            else { 
+
+                for (int i = 0; i < dgvDetalleCursos.RowCount; i++)
+                {
+                    if (dgvDetalleCursos.Rows[i].Selected)
+                    {
+                        {
+
+                            curso = Convert.ToString(dgvDetalleCursos.CurrentRow.Cells["idCurso"].Value);
+                        }
+                    }
+                }
+                this.Close();
+            }
+            
 
         }
     }
