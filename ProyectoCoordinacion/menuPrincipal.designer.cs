@@ -50,13 +50,25 @@
             this.reporteProfesorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reporteLaboratorioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.gestiónDeEstudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.gestiónDeEstudiantesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoProfesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.especialidadPorExperienciaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.especialidadPorTitulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.experienciaAcadémicaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.experienciaLaboralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.titulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.profesoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.proyectosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.telefonosCorreosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gruposCursosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.observacionesPeriodoLaboralToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -236,8 +248,23 @@
             this.viewMenu.Size = new System.Drawing.Size(79, 20);
             this.viewMenu.Text = "&Estudiantes";
             // 
+            // gestiónDeEstudiantesToolStripMenuItem
+            // 
+            this.gestiónDeEstudiantesToolStripMenuItem.Name = "gestiónDeEstudiantesToolStripMenuItem";
+            this.gestiónDeEstudiantesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.gestiónDeEstudiantesToolStripMenuItem.Text = "Gestión de Estudiantes";
+            this.gestiónDeEstudiantesToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeEstudiantesToolStripMenuItem_Click);
+            // 
             // toolsMenu
             // 
+            this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mantenimientoProfesoresToolStripMenuItem,
+            this.especialidadPorExperienciaToolStripMenuItem,
+            this.especialidadPorTitulosToolStripMenuItem,
+            this.experienciaAcadémicaToolStripMenuItem,
+            this.experienciaLaboralToolStripMenuItem,
+            this.titulosToolStripMenuItem,
+            this.consultaToolStripMenuItem});
             this.toolsMenu.Name = "toolsMenu";
             this.toolsMenu.Size = new System.Drawing.Size(74, 20);
             this.toolsMenu.Text = "&Profesores";
@@ -268,21 +295,105 @@
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.aboutToolStripMenuItem.Text = "&Acerca de... ...";
             // 
-            // gestiónDeEstudiantesToolStripMenuItem
+            // mantenimientoProfesoresToolStripMenuItem
             // 
-            this.gestiónDeEstudiantesToolStripMenuItem.Name = "gestiónDeEstudiantesToolStripMenuItem";
-            this.gestiónDeEstudiantesToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
-            this.gestiónDeEstudiantesToolStripMenuItem.Text = "Gestión de Estudiantes";
-            this.gestiónDeEstudiantesToolStripMenuItem.Click += new System.EventHandler(this.gestiónDeEstudiantesToolStripMenuItem_Click);
+            this.mantenimientoProfesoresToolStripMenuItem.Name = "mantenimientoProfesoresToolStripMenuItem";
+            this.mantenimientoProfesoresToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.mantenimientoProfesoresToolStripMenuItem.Text = "Mantenimiento Profesores";
+            this.mantenimientoProfesoresToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoProfesoresToolStripMenuItem_Click);
+            // 
+            // especialidadPorExperienciaToolStripMenuItem
+            // 
+            this.especialidadPorExperienciaToolStripMenuItem.Name = "especialidadPorExperienciaToolStripMenuItem";
+            this.especialidadPorExperienciaToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.especialidadPorExperienciaToolStripMenuItem.Text = "Especialidad Por Experiencia";
+            this.especialidadPorExperienciaToolStripMenuItem.Click += new System.EventHandler(this.especialidadPorExperienciaToolStripMenuItem_Click);
+            // 
+            // especialidadPorTitulosToolStripMenuItem
+            // 
+            this.especialidadPorTitulosToolStripMenuItem.Name = "especialidadPorTitulosToolStripMenuItem";
+            this.especialidadPorTitulosToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.especialidadPorTitulosToolStripMenuItem.Text = "Especialidad Por Titulos";
+            this.especialidadPorTitulosToolStripMenuItem.Click += new System.EventHandler(this.especialidadPorTitulosToolStripMenuItem_Click);
+            // 
+            // experienciaAcadémicaToolStripMenuItem
+            // 
+            this.experienciaAcadémicaToolStripMenuItem.Name = "experienciaAcadémicaToolStripMenuItem";
+            this.experienciaAcadémicaToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.experienciaAcadémicaToolStripMenuItem.Text = "Experiencia Académica";
+            this.experienciaAcadémicaToolStripMenuItem.Click += new System.EventHandler(this.experienciaAcadémicaToolStripMenuItem_Click);
+            // 
+            // experienciaLaboralToolStripMenuItem
+            // 
+            this.experienciaLaboralToolStripMenuItem.Name = "experienciaLaboralToolStripMenuItem";
+            this.experienciaLaboralToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.experienciaLaboralToolStripMenuItem.Text = "Experiencia Laboral";
+            this.experienciaLaboralToolStripMenuItem.Click += new System.EventHandler(this.experienciaLaboralToolStripMenuItem_Click);
+            // 
+            // titulosToolStripMenuItem
+            // 
+            this.titulosToolStripMenuItem.Name = "titulosToolStripMenuItem";
+            this.titulosToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.titulosToolStripMenuItem.Text = "Titulos";
+            this.titulosToolStripMenuItem.Click += new System.EventHandler(this.titulosToolStripMenuItem_Click);
+            // 
+            // consultaToolStripMenuItem
+            // 
+            this.consultaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.profesoresToolStripMenuItem,
+            this.proyectosToolStripMenuItem1,
+            this.telefonosCorreosToolStripMenuItem,
+            this.gruposCursosToolStripMenuItem,
+            this.observacionesPeriodoLaboralToolStripMenuItem});
+            this.consultaToolStripMenuItem.Name = "consultaToolStripMenuItem";
+            this.consultaToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.consultaToolStripMenuItem.Text = "Consulta";
+            // 
+            // profesoresToolStripMenuItem
+            // 
+            this.profesoresToolStripMenuItem.Name = "profesoresToolStripMenuItem";
+            this.profesoresToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.profesoresToolStripMenuItem.Text = "Profesores";
+            this.profesoresToolStripMenuItem.Click += new System.EventHandler(this.profesoresToolStripMenuItem_Click);
+            // 
+            // proyectosToolStripMenuItem1
+            // 
+            this.proyectosToolStripMenuItem1.Name = "proyectosToolStripMenuItem1";
+            this.proyectosToolStripMenuItem1.Size = new System.Drawing.Size(239, 22);
+            this.proyectosToolStripMenuItem1.Text = "Proyectos";
+            this.proyectosToolStripMenuItem1.Click += new System.EventHandler(this.proyectosToolStripMenuItem1_Click);
+            // 
+            // telefonosCorreosToolStripMenuItem
+            // 
+            this.telefonosCorreosToolStripMenuItem.Name = "telefonosCorreosToolStripMenuItem";
+            this.telefonosCorreosToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.telefonosCorreosToolStripMenuItem.Text = "Telefonos/Correos";
+            this.telefonosCorreosToolStripMenuItem.Click += new System.EventHandler(this.telefonosCorreosToolStripMenuItem_Click);
+            // 
+            // gruposCursosToolStripMenuItem
+            // 
+            this.gruposCursosToolStripMenuItem.Name = "gruposCursosToolStripMenuItem";
+            this.gruposCursosToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.gruposCursosToolStripMenuItem.Text = "Grupos/Cursos";
+            this.gruposCursosToolStripMenuItem.Click += new System.EventHandler(this.gruposCursosToolStripMenuItem_Click);
+            // 
+            // observacionesPeriodoLaboralToolStripMenuItem
+            // 
+            this.observacionesPeriodoLaboralToolStripMenuItem.Name = "observacionesPeriodoLaboralToolStripMenuItem";
+            this.observacionesPeriodoLaboralToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.observacionesPeriodoLaboralToolStripMenuItem.Text = "Observaciones/Periodo Laboral";
+            this.observacionesPeriodoLaboralToolStripMenuItem.Click += new System.EventHandler(this.observacionesPeriodoLaboralToolStripMenuItem_Click);
             // 
             // menuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = global::ProyectoCoordinacion.Properties.Resources.fondo;
             this.ClientSize = new System.Drawing.Size(649, 453);
             this.ControlBox = false;
             this.Controls.Add(this.menuStrip);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip;
             this.Name = "menuPrincipal";
@@ -326,6 +437,18 @@
         private System.Windows.Forms.ToolStripMenuItem reporteProfesorToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteLaboratorioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem gestiónDeEstudiantesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mantenimientoProfesoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem especialidadPorExperienciaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem especialidadPorTitulosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem experienciaAcadémicaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem experienciaLaboralToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem titulosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem profesoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem proyectosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem telefonosCorreosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gruposCursosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem observacionesPeriodoLaboralToolStripMenuItem;
     }
 }
 

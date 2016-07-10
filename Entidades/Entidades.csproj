@@ -41,16 +41,27 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clEntidadCoRequisitoCurso.cs" />
+    <Compile Include="clEntidadCorreos.cs" />
     <Compile Include="clEntidadCurriculum.cs" />
     <Compile Include="clEntidadCursoLibre.cs" />
+    <Compile Include="clEntidadEspecialidadesPorExperiencia.cs" />
+    <Compile Include="clEntidadEspecialidadesTitulos.cs" />
+    <Compile Include="clEntidadEspecialidadProfesor.cs" />
     <Compile Include="clEntidadEstudiante.cs" />
+    <Compile Include="clEntidadExperienciaAcademica.cs" />
+    <Compile Include="clEntidadExperienciasProfesor.cs" />
     <Compile Include="clEntidadGrupoCurso.cs" />
     <Compile Include="clEntidadHorario.cs" />
     <Compile Include="clEntidadMiembroProyecto.cs" />
+    <Compile Include="clEntidadProfesor.cs" />
     <Compile Include="clEntidadProyecto.cs" />
     <Compile Include="clEntidadCurso.cs" />
     <Compile Include="clEntidadMiembro.cs" />
+    <Compile Include="clEntidadPuestoProfesor.cs" />
     <Compile Include="clEntidadRequisitoCurso.cs" />
+    <Compile Include="clEntidadTelefonos.cs" />
+    <Compile Include="clEntidadTituloProfesor.cs" />
+    <Compile Include="clEntidadTitulos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

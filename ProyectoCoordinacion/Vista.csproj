@@ -65,11 +65,35 @@
     <Compile Include="frmAcceso.designer.cs">
       <DependentUpon>frmAcceso.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAdministracionProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAdministracionProfesor.designer.cs">
+      <DependentUpon>frmAdministracionProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAsignarMiembroNuevoAProy.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAsignarMiembroNuevoAProy.Designer.cs">
       <DependentUpon>frmAsignarMiembroNuevoAProy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBusquedaGruposCursos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBusquedaGruposCursos.designer.cs">
+      <DependentUpon>frmBusquedaGruposCursos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBusquedaProyectos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBusquedaProyectos.designer.cs">
+      <DependentUpon>frmBusquedaProyectos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBusquedaTelefonoCorreo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBusquedaTelefonoCorreo.designer.cs">
+      <DependentUpon>frmBusquedaTelefonoCorreo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultaCorreo.cs">
       <SubType>Form</SubType>
@@ -82,6 +106,12 @@
     </Compile>
     <Compile Include="frmConsultaEstudiante.designer.cs">
       <DependentUpon>frmConsultaEstudiante.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaProferores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaProferores.designer.cs">
+      <DependentUpon>frmConsultaProferores.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConsultaRapidaMiembro.cs">
       <SubType>Form</SubType>
@@ -125,6 +155,24 @@
     <Compile Include="frmDatosProfesores.Designer.cs">
       <DependentUpon>frmDatosProfesores.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmEspecialidadProfesorExperiencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEspecialidadProfesorExperiencia.designer.cs">
+      <DependentUpon>frmEspecialidadProfesorExperiencia.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEspecialidaProfesorTitulo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEspecialidaProfesorTitulo.designer.cs">
+      <DependentUpon>frmEspecialidaProfesorTitulo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmExperienciaAcademicaProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExperienciaAcademicaProfesor.designer.cs">
+      <DependentUpon>frmExperienciaAcademicaProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGestionCursosLibres.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -155,11 +203,23 @@
     <Compile Include="frmGrupoCurso.Designer.cs">
       <DependentUpon>frmGrupoCurso.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmObservacionesPeriodoLaboral.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmObservacionesPeriodoLaboral.designer.cs">
+      <DependentUpon>frmObservacionesPeriodoLaboral.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmProyectoSoftwareLibre.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmProyectoSoftwareLibre.Designer.cs">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPuestoProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPuestoProfesor.designer.cs">
+      <DependentUpon>frmPuestoProfesor.cs</DependentUpon>
     </Compile>
     <Compile Include="frmReporteLaboratorios.cs">
       <SubType>Form</SubType>
@@ -191,6 +251,12 @@
     <Compile Include="frmReportesCursosLibres.Designer.cs">
       <DependentUpon>frmReportesCursosLibres.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTituloProfesor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTituloProfesor.designer.cs">
+      <DependentUpon>frmTituloProfesor.cs</DependentUpon>
+    </Compile>
     <Compile Include="menuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -208,14 +274,29 @@
     <EmbeddedResource Include="frmAcceso.resx">
       <DependentUpon>frmAcceso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAdministracionProfesor.resx">
+      <DependentUpon>frmAdministracionProfesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAsignarMiembroNuevoAProy.resx">
       <DependentUpon>frmAsignarMiembroNuevoAProy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBusquedaGruposCursos.resx">
+      <DependentUpon>frmBusquedaGruposCursos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBusquedaProyectos.resx">
+      <DependentUpon>frmBusquedaProyectos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBusquedaTelefonoCorreo.resx">
+      <DependentUpon>frmBusquedaTelefonoCorreo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaCorreo.resx">
       <DependentUpon>frmConsultaCorreo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaEstudiante.resx">
       <DependentUpon>frmConsultaEstudiante.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaProferores.resx">
+      <DependentUpon>frmConsultaProferores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaRapidaMiembro.resx">
       <DependentUpon>frmConsultaRapidaMiembro.cs</DependentUpon>
@@ -238,6 +319,15 @@
     <EmbeddedResource Include="frmDatosProfesores.resx">
       <DependentUpon>frmDatosProfesores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmEspecialidadProfesorExperiencia.resx">
+      <DependentUpon>frmEspecialidadProfesorExperiencia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEspecialidaProfesorTitulo.resx">
+      <DependentUpon>frmEspecialidaProfesorTitulo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmExperienciaAcademicaProfesor.resx">
+      <DependentUpon>frmExperienciaAcademicaProfesor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGestionCursosLibres.resx">
       <DependentUpon>frmGestionCursosLibres.cs</DependentUpon>
     </EmbeddedResource>
@@ -253,8 +343,14 @@
     <EmbeddedResource Include="frmGrupoCurso.resx">
       <DependentUpon>frmGrupoCurso.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmObservacionesPeriodoLaboral.resx">
+      <DependentUpon>frmObservacionesPeriodoLaboral.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProyectoSoftwareLibre.resx">
       <DependentUpon>frmProyectoSoftwareLibre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPuestoProfesor.resx">
+      <DependentUpon>frmPuestoProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteLaboratorios.resx">
       <DependentUpon>frmReporteLaboratorios.cs</DependentUpon>
@@ -270,6 +366,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReportesCursosLibres.resx">
       <DependentUpon>frmReportesCursosLibres.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTituloProfesor.resx">
+      <DependentUpon>frmTituloProfesor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="menuPrincipal.resx">
       <DependentUpon>menuPrincipal.cs</DependentUpon>

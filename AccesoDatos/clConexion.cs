@@ -19,7 +19,7 @@ namespace AccesoDatos
         private string _clave;
         private string _perfil;
         private string _baseDatos;
-
+        private SqlDataAdapter adapter;
         private SqlConnection conexion; //Guardar la cadena de conexion del usuario con la BD
         private SqlCommand comando; //permite ejecutar los IMEC
         #endregion
@@ -161,6 +161,28 @@ namespace AccesoDatos
         {
             return Dns.GetHostName();
         }
+
+        public String getDatosConexion(clConexion conexionSQL)
+        {
+            return "user id='" + conexionSQL.codigo+ "'; password='" + conexionSQL.clave + "'; Data Source='" + mNomServidor() + "'; Initial Catalog='" + this.baseDatos + "'";
+        }
+        public SqlDataAdapter mAdaptar(string strSentencia, clConexion cone)
+        {
+            try
+            {
+                if (mConectar(cone))
+                {
+                    adapter = new SqlDataAdapter(strSentencia, conexion);
+                    return adapter;
+                }
+                else
+                    return null;
+            }
+            catch
+            {
+                return null;
+            }
+        }// fin del metodo mSeleccionar
         #endregion
     }
 }

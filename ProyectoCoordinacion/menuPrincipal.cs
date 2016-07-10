@@ -7,20 +7,59 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using AccesoDatos;
 using Entidades;
+using LogicaNegocios;
 
 namespace Vista
 {
     public partial class menuPrincipal : Form
     {
+        clConexion conexion;
         private frmAcceso ventanaAcceso;
 
+        clProfesor logicaProfesores;
+        clEspecialidadTituloProfesor logicaEspecialidad;
+
+        frmTituloProfesor frmTitulosProfesor;
+        frmConsultaProferores ventanaConsultaProfesores;
+        frmEspecialidaProfesorTitulo especialidadTitulo;
+        frmAdministracionProfesor frmMantenimineto;
+        frmBusquedaProyectos frmBusquedaProyecto;
+        frmBusquedaTelefonoCorreo frmBusquedaTelefonoCorreo;
+        frmBusquedaGruposCursos frmBusquedaGruposCursos;
+        frmConsultaProferores frmConsultaProfesors;
+
+        frmEspecialidadProfesorExperiencia especialidadExperiencia;
+        frmEspecialidaProfesorTitulo especialidadTitulos;
+
+        frmObservacionesPeriodoLaboral observacionPeriodoLaboral;
+        frmExperienciaAcademicaProfesor experienciaAcademicaProfesor;
+
+        frmPuestoProfesor puestosProfesor;
         public menuPrincipal(frmAcceso ventanaAcceso)
         {
             InitializeComponent();
             this.ventanaAcceso = ventanaAcceso;
+
+            conexion = new clConexion();
+            this.logicaProfesores = new clProfesor();
+            this.logicaEspecialidad = new clEspecialidadTituloProfesor();
+
+            this.especialidadTitulos = new frmEspecialidaProfesorTitulo(conexion, logicaProfesores, logicaEspecialidad);
+            this.frmTitulosProfesor = new frmTituloProfesor(conexion);
+            this.ventanaConsultaProfesores = new frmConsultaProferores(conexion);
+            this.frmMantenimineto = new frmAdministracionProfesor(frmTitulosProfesor, ventanaConsultaProfesores, especialidadTitulo, conexion, logicaProfesores, logicaEspecialidad);
+
+            // this.especialidadTitulo = new frmEspecialidaProfesorTitulo(conexion, logicaProfesores, logicaEspecialidad);
+            this.ventanaConsultaProfesores.ventanaProfesor(frmMantenimineto);
+            this.frmBusquedaProyecto = new frmBusquedaProyectos(conexion);
+            this.frmBusquedaTelefonoCorreo = new frmBusquedaTelefonoCorreo(conexion);
+            this.frmBusquedaGruposCursos = new frmBusquedaGruposCursos();
+            this.especialidadExperiencia = new frmEspecialidadProfesorExperiencia(conexion);
+            this.observacionPeriodoLaboral = new frmObservacionesPeriodoLaboral(conexion);
+            this.experienciaAcademicaProfesor = new frmExperienciaAcademicaProfesor(conexion);
+            this.puestosProfesor = new frmPuestoProfesor(conexion);
         }
 
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
@@ -115,6 +154,61 @@ namespace Vista
             frmGestionEstudiante gestionEstudiante = new frmGestionEstudiante(this);
             this.Hide();
             gestionEstudiante.Show();
+        }
+
+        private void mantenimientoProfesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.frmMantenimineto.ShowDialog();
+        }
+
+        private void especialidadPorExperienciaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.especialidadExperiencia.ShowDialog();
+        }
+
+        private void especialidadPorTitulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.especialidadTitulos.ShowDialog();
+        }
+
+        private void experienciaAcadémicaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.experienciaAcademicaProfesor.Show();
+        }
+
+        private void experienciaLaboralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.puestosProfesor.Show();
+        }
+
+        private void titulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.frmTitulosProfesor.ShowDialog();
+        }
+
+        private void profesoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.ventanaConsultaProfesores.ShowDialog();
+        }
+
+        private void proyectosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.frmBusquedaProyecto.ShowDialog();
+        }
+
+        private void telefonosCorreosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.frmBusquedaTelefonoCorreo.ShowDialog();
+        }
+
+        private void gruposCursosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.frmBusquedaGruposCursos.ShowDialog();
+        }
+
+        private void observacionesPeriodoLaboralToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.observacionPeriodoLaboral.Show();
         }
     }
 }

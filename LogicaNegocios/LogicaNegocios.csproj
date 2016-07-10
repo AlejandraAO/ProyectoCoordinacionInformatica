@@ -41,16 +41,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clCoRequisitoCurso.cs" />
+    <Compile Include="clCorreo.cs" />
     <Compile Include="clCurriculum.cs" />
     <Compile Include="clCursoLibre.cs" />
     <Compile Include="clCurso.cs" />
+    <Compile Include="clEspecialidadesPorExperiencia.cs" />
+    <Compile Include="clEspecialidadesTitulos.cs" />
+    <Compile Include="clEspecialidadExperienciaProfesor.cs" />
+    <Compile Include="clEspecialidadTituloProfesor.cs" />
     <Compile Include="clEstudiante.cs" />
+    <Compile Include="clEstudioProfesor.cs" />
+    <Compile Include="clExperienciaAcademicaProfesor.cs" />
+    <Compile Include="clExperienciasProfesor.cs" />
     <Compile Include="clGrupoCurs.cs" />
     <Compile Include="clHorario.cs" />
     <Compile Include="clMiembroProyecto.cs" />
     <Compile Include="clMiembros.cs" />
+    <Compile Include="clObservacionesPeriodoLaboral.cs" />
+    <Compile Include="clProfesor.cs" />
+    <Compile Include="clProfesoresGrupoCurso.cs" />
     <Compile Include="clProyecto.cs" />
+    <Compile Include="clProyectosGeneral.cs" />
+    <Compile Include="clPuestoProfesor.cs" />
     <Compile Include="clRequisitoCurso.cs" />
+    <Compile Include="clsTitulosProfesor.cs" />
+    <Compile Include="clTelefonos.cs" />
+    <Compile Include="clTitulos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
