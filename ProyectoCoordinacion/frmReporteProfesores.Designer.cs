@@ -156,6 +156,7 @@
             this.Controls.Add(this.lbNombreProfesor);
             this.Controls.Add(this.dgvReporteProfesor);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReporteProfesores";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReporteProfesores";

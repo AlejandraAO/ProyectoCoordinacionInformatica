@@ -58,7 +58,6 @@
             this.dgvLaboratorio.ReadOnly = true;
             this.dgvLaboratorio.Size = new System.Drawing.Size(746, 399);
             this.dgvLaboratorio.TabIndex = 0;
-
             // 
             // hora
             // 
@@ -150,6 +149,7 @@
             this.Controls.Add(this.cbLaboratorio);
             this.Controls.Add(this.dgvLaboratorio);
             this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmReporteLaboratorios";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmReporteLaboratorios";
